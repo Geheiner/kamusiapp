@@ -44,7 +44,7 @@ function generateToken() {
 $newToken = generateToken();
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"), '4' => _("Swahili"), '5' => _("German"), '6' => _("Italian"));
-$implementedGames= array('1' => array(1), '2' => array(2,3,4,5), '3' => array(1), '4' => array(4));
+$implementedGames= array('1' => array(1), '2' => array(2,3,4,5,6), '3' => array(1), '4' => array(4));
 $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' => _('adjective'), 'adjective_satellite' => _('adjective_satellite'), 'adverb' => _('adverb'), 'phrase' => _('phrase'));
 
 ?>
