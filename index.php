@@ -344,6 +344,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <select id="menuLanguageSettings" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
 	<option><?php echo _("French"); ?></option>
+	<option><?php echo _("Italian"); ?></option>
+	
 </select>
 
 </br></br>
