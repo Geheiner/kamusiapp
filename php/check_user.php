@@ -17,7 +17,7 @@ $returnValue[]= $checkResult;
 
 
 //if we have a newUser
-if( !$checkResult){
+if( $checkResult){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
 	$stmt->bind_param("ss", $userID, $userName );
