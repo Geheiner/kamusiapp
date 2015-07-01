@@ -1,0 +1,693 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-17 23:56+0000\n"
+"PO-Revision-Date: 2015-06-24 13:07+0000\n"
+"Last-Translator: phamhien <phamhieniol@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.1-rc1\n"
+"X-POOTLE-MTIME: 1435151221.000000\n"
+
+#: index.php:45
+msgid "Definition Game"
+msgstr "Trò chơi định nghĩa"
+
+#: index.php:45
+msgid "Translation Game"
+msgstr "Trò chơi dịch thuật"
+
+#: index.php:45
+msgid "Tweet Game"
+msgstr "Trò chơi Tweet"
+
+#: index.php:45
+msgid "Sentence Game"
+msgstr "Trò chơi câu"
+
+#: index.php:46
+msgid "Undefined Language"
+msgstr "Ngôn ngữ không xác định"
+
+#: index.php:46
+#: index.php:345
+#: index.php:353
+#: index.php:407
+msgid "English"
+msgstr "tiếng Anh"
+
+#: index.php:46
+#: index.php:346
+#: index.php:354
+#: index.php:408
+msgid "French"
+msgstr "tiếng Pháp"
+
+#: index.php:46
+#: index.php:355
+#: index.php:409
+msgid "Vietnamese"
+msgstr "tiếng Việt"
+
+#: index.php:46
+#: index.php:356
+#: index.php:410
+msgid "Swahili"
+msgstr "tiếng Swahili"
+
+#: index.php:48
+msgid "noun"
+msgstr "danh từ"
+
+#: index.php:48
+msgid "verb"
+msgstr "động từ"
+
+#: index.php:48
+msgid "adjective"
+msgstr "tính từ"
+
+#: index.php:48
+msgid "adjective_satellite"
+msgstr "tính từ vệ tinh"
+
+#: index.php:48
+msgid "adverb"
+msgstr "trạng từ"
+
+#: index.php:48
+msgid "phrase"
+msgstr "cụm từ, ngữ"
+
+#: index.php:84
+#: index.php:133
+#: index.php:162
+#: index.php:187
+#: index.php:418
+#: index.php:419
+#: index.php:420
+#: index.php:421
+msgid "%s"
+msgstr "%s"
+
+#: index.php:98
+#: index.php:465
+msgid " I can write the winning definition for this idea!"
+msgstr "Tôi có thể viết định nghĩa thuyết phục cho ý tưởng này!"
+
+#: index.php:145
+msgid "I can translate this word!"
+msgstr "Tôi có thể dịch từ này!"
+
+#: index.php:163
+msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
+msgstr "CHỈ kiểm tra các tweets là ví dụ tốt nhất cho nghĩa NÀY:"
+
+#: index.php:188
+msgid "Check the sentences that correspond well to this word: "
+msgstr "Kiểm tra các câu tương ứng nhất với từ này:"
+
+#: index.php:208
+msgid "<p><strong>About</strong><br />"
+msgstr "<p><strong>Về/Thông tin</strong><br />"
+
+#: index.php:209
+msgid ""
+"The Kamusi Project (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
+"is a participatory international effort dedicated to improving knowledge of "
+"the world's languages. Our long term mission is to produce dictionaries and "
+"other language resources for every language, and to make those resources "
+"available for free to everyone.</p>"
+msgstr ""
+"Dự án Kamusi (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) là một "
+"nỗ lực quốc tế với sự tham gia của nhiều người nhằm nâng cao tri thức về các "
+"ngôn ngữ trên thế giới. Nhiệm vụ dài hạn của chúng tôi là biên soạn ra các "
+"từ điển và các nguồn tài nguyên ngôn ngữ khác cho mọi ngôn ngữ, và mọi người "
+"có thể truy cập các nguồn tài nguyên này miễn phí. </p>"
+
+#: index.php:210
+msgid "<p><strong>Purpose</strong><br />"
+msgstr "<p><strong>Mục đích</strong><br />"
+
+#: index.php:211
+msgid ""
+"Our games are designed to learn all about your language, from you, so that "
+"we can share that knowledge with the rest of the world. Different games seek "
+"different pieces of information. What we learn in one game builds "
+"information we can use in the next. Our goal is a detailed dictionary for "
+"your language, linked to translations for all other languages, available to "
+"you for free.</p>"
+msgstr ""
+"Các trò chơi của chúng tôi được thiết kế để hiểu hơn về ngôn ngữ của bạn, từ "
+"bạn, nhờ đó chúng tôi có thể chia sẻ tri thức đó với cả thế giới. Các trò "
+"chơi khác nhau nhằm vào các thông tin khác nhau. Những gì chúng tôi có được "
+"trong trò chơi này được sử dụng trong trò chơi kế tiếp. Mục tiêu của chúng "
+"tôi là một từ điển chi tiết cho ngôn ngữ của bạn, liên kết với các bản dịch "
+"của tất cả các ngôn ngữ khác, bạn có thể truy cập miễn phí. </p>"
+
+#: index.php:212
+msgid "<p><strong>Play</strong><br />"
+msgstr "<p><strong>Chơi</strong><br />"
+
+#: index.php:213
+msgid ""
+"Our games ask you a variety of types of questions. You earn points when your "
+"answer agrees with the consensus. Your points will remain <strong><em>in "
+"play</em></strong> until consensus, when they are "
+"<strong><em>banked</em></strong> if you are on the winning team. If you do "
+"not have an answer, just skip to the next question! When enough people agree "
+"to the same answer, it is published to the live Kamusi. For definitions, the "
+"winning author will receive credit on the entry page.</p>"
+msgstr ""
+"Trò chơi của chúng tôi hỏi bạn một số câu hỏi. Bạn sẽ nhận được điểm khi các "
+"câu trả lời của bạn tương hợp với nhận thức chung. Điểm của bạn sẽ còn "
+"<strong><em>khi chơi</em></strong> cho đến khi có nhận thức chung, nó sẽ "
+"được <strong><em>lưu lại</em></strong> nếu bạn thuộc nhóm thắng lợi. Nếu bạn "
+"không có câu trả lời, chỉ việc bỏ qua sang câu hỏi tiếp theo! Nếu có đủ "
+"người đồng ý cho cùng một câu trả lời, nó sẽ được công bố tới cộng đồng sống "
+"động Kamusi. Đối với các định nghĩa, tác giả chiến thắng sẽ nhận danh tiếng "
+"trên trang mục từ.</p>"
+
+#: index.php:214
+msgid "<p><strong>Honor Code</strong><br />"
+msgstr "<p><strong>Quy định</strong><br />"
+
+#: index.php:215
+msgid ""
+"We ask each player to give their one best answer to each question. Please do "
+"not attempt to game the game, and please alert us to suspicious items so we "
+"can remove spammers and all their spam.</p>"
+msgstr ""
+"Chúng tôi hỏi mỗi người chơi cung cấp một câu trả lời tốt nhất cho từng câu "
+"hỏi. Xin đừng cố gắng chơi trò láu với trò chơi, và xin hãy thông báo cho "
+"chúng tôi nếu có các mục đáng nghi để chúng tôi có thể xoá những người cung "
+"cấp mục rác và các thứ họ đưa lên. </p>"
+
+#: index.php:216
+msgid "<p><strong>Friends</strong><br />"
+msgstr "<p><strong>Bạn bè</strong><br />"
+
+#: index.php:217
+msgid ""
+"The more people who play for your language, the more fun you will have - you "
+"score points more quickly, and move toward more advanced questions. If you "
+"enjoy playing, please tell your friends to join us! They&rsquo;ll have fun "
+"too, and together you will contribute to a great resource for your whole "
+"community.</p>"
+msgstr ""
+"Càng nhiều người chơi ngôn ngữ của bạn thì càng vui - bạn sẽ kiếm điểm nhanh "
+"hơn, và tiến đến các câu hỏi khó hơn. Nếu bạn thích chơi, hãy giới thiệu bạn "
+"bè mình cùng chơi! Họ cũng sẽ thích thú, và cùng với bạn đóng góp cho một "
+"nguồn tài nguyên tuyệt vời cho cộng đồng.</p>"
+
+#: index.php:227
+msgid "<p><strong>Definition Game</strong><br />"
+msgstr "<p><strong>Trò chơi định nghĩa</strong><br />"
+
+#: index.php:228
+msgid "Write a definition: 1 point<br />"
+msgstr "Viết một định nghĩa: 1 điểm <br />"
+
+#: index.php:229
+msgid " Vote for the winning definition: 1 point<br />"
+msgstr "Bỏ phiếu cho định nghĩa có tính thuyết phục: 1 điểm <br />"
+
+#: index.php:230
+msgid ""
+" <em><strong>Write the winning definition</strong></em>: 5 points + credit "
+"on the dictionary entry page<br />"
+msgstr ""
+"<em><strong>Viết một định nghĩa có sức thuyết phục</strong></em>: 5 điểm + "
+"uy tín trên trang mục từ từ điển<br />"
+
+#: index.php:231
+msgid " Submit a <em>spam</em> definition: -10 points + watchlist</p>"
+msgstr "Gửi 1 <em>rác</em> định nghĩa: -10 điểm + vào danh sách theo dõi</p>"
+
+#: index.php:232
+msgid "<p><strong>How to write a great definition</strong><br />"
+msgstr "<p><strong>Làm thế nào để viết một định nghĩa tốt</strong><br />"
+
+#: index.php:233
+msgid ""
+" Definitions are explanations of what a word means. They are not single "
+"words (those are synonyms). You can usually use a definition instead of the "
+"actual word. </p>"
+msgstr ""
+"Các định nghĩa là các giải thích một từ có nghĩa gì. Chúng không phải là một "
+"từ đơn (các từ đồng nghĩa). Bạn luôn có thể sử dụng một định nghĩa thay vì "
+"một từ thực. </p>"
+
+#: index.php:234
+msgid ""
+"<p>Definitions are NOT translations. They are written in the same language "
+"as the term you are defining. If you are defining a word in your language, "
+"the definition should be in that language, too. Definitions should define "
+"what the term means in your language - the meaning may differ somewhat from "
+"the English definition we show of a matched English concept!</p>"
+msgstr ""
+"<p> Các định nghĩa KHÔNG phải là bản dịch. Chúng được viết bằng ngôn ngữ "
+"giống mục từ mà bạn đang định nghĩa. Nếu bạn đang định nghĩa một từ trong "
+"ngôn ngữ của bạn, định nghĩa cũng nên viết bằng ngôn ngữ đó. Các định nghĩa "
+"nên xác định nghĩa của từ trong ngôn ngữ của bạn - nghĩa có thể khác với "
+"định nghĩa trong tiếng Anh mà chúng tôi đưa ra vốn khớp với khái niệm tiếng "
+"Anh!</p>"
+
+#: index.php:235
+msgid "<p>Stick to these rules:</p>"
+msgstr "<p>Bám theo các quy tắc này:</p>"
+
+#: index.php:237
+msgid ""
+"  <li>Short and sweet: A definition should be as brief as possible to "
+"explain the concept, but long enough to describe it fully. If the same word "
+"has <strong><em>different meanings</em></strong>, those are <strong><em>"
+"different concepts</em></strong> with different definitions. <strong><em>A "
+"definition</em></strong> in Kamusi only explains <strong><em>one "
+"concept</em></strong>.</li>"
+msgstr ""
+"<li>Ngắn gọn: Một định nghĩa nên càng ngắn gọn càng tốt để giải thích khái "
+"niệm, nhưng đủ dài để miêu tả từ đó đầy đủ. Nếu cùng từ đó có <strong><em>"
+"các nghĩa khác</em></strong>, những <strong><em>khái niệm khác</em></strong> "
+"với các định nghĩa khác. <strong><em>Một định nghĩa</em></strong> trong "
+"Kamusi chỉ giải thích<strong><em>một khái niệm</em></strong>.</li>"
+
+#: index.php:238
+msgid ""
+"  <li>Easy does it: Use the simplest words you can. Definitions should not "
+"force readers to jump around the dictionary more, unless technical terms are "
+"absolutely necessary.</li>"
+msgstr ""
+"<li> Dễ dàng: Sử dụng các từ đơn giản nhất có thể. Các định nghĩa không nên "
+"ép độc giả phải nhảy vòng quanh từ điển, trừ khi đó là các thuật ngữ thì mới "
+"cần phải làm như vậy. </li>"
+
+#: index.php:239
+msgid ""
+"  <li>No circles: Definitions should NOT contain the word that is being "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
+", not \"The feeling of being happy.\" Definitions should not be circular - "
+"we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
+msgstr ""
+"<li>Không vòng vo: Các định nghĩa KHÔNG nên chứa từ đang được định nghĩa, "
+"cũng như các từ gần gũi với nó. <em>Hạnh phúc</em> là \"Cảm giác vui mừng.\""
+", không phải \"Cảm giác hạnh phúc.\" Các định nghĩa không nên vòng vèo  -"
+"chúng ta không thê nói <em>vui mừng</em> là \"Cảm giác hạnh phúc.\"</li>"
+
+#: index.php:240
+msgid ""
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
+"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"period.</li>"
+msgstr ""
+" <li>Không lặp lại: Không bắt đầu với \"Một từ có nghĩa\", hay \"Đây là một\""
+", hay \"X nói tới\", etc. Phong cách: Bắt đầu với một chữ viết hoa và kết "
+"thúc bằng một dấu chấm.</li>"
+
+#: index.php:243
+msgid ""
+" For <strong>English</strong>, we have 200,000 entries with \"working "
+"definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
+"target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
+"great, but many can be much better. When you improve the definitions in "
+"English, we can provide better guidance for translations across "
+"languages.</p>"
+msgstr ""
+"Chúng tôi có 200 nghìn mục từ tiếng <strong>Anh</strong> với các \"định "
+"nghĩa làm việc\" mượn từ <a href=\"http://wordnet-rdf.princeton.edu\" target="
+"\"_blank\">Mạng từ Princeton</a>. Một số định nghĩa trong này rất tốt, nhưng "
+"nhiều cái có thể tốt hơn. Khi các bạn cải thiện các định nghĩa trong tiếng "
+"Anh, chúng ta có thể cung cấp chỉ dẫn cho việc phiên dịch giữa các ngôn ngữ "
+"tốt hơn.</p>"
+
+#: index.php:244
+msgid ""
+" For more insight about writing definitions, you can <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
+"video</a>.</p>"
+msgstr ""
+"Để biết thêm về cách viết định nghĩa, bạn có thể <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">xem video "
+"này</a>.</p>"
+
+#: index.php:254
+msgid " <p><strong>Translation Game</strong><br />"
+msgstr "<p><strong>Trò chơi dịch thuật</strong><br />"
+
+#: index.php:255
+msgid "   Submit a term that becomes the consensus: 3 points<br />"
+msgstr "Gửi một từ mà từ đó nhận được sự đồng thuận: 3 điểm<br />"
+
+#: index.php:256
+msgid ""
+"   Skip a term where the consensus is \"skip\" for this language: 1 point</p>"
+msgstr ""
+"Bỏ qua một từ khi sự đồng thuận là \"bỏ qua\" cho ngôn ngữ này: 1 điểm</p>"
+
+#: index.php:257
+msgid ""
+" <p>When we do not already have an equivalent term in your language for an "
+"idea that we have in our English dataset, we ask you to tell us the best way "
+"to express the same meaning.</p>"
+msgstr ""
+"<p>Khi chúng ta không có từ tương đương trong ngôn ngữ của bạn cho một ý "
+"tưởng mà chúng ta có trong dữ liệu tiếng Anh, bạn cho chúng tôi biết cách "
+"tốt nhất để truyền đạt ý nghĩa tương tự.</p>"
+
+#: index.php:259
+msgid ""
+"   <li>You may not be able to give any translation. For example, many "
+"languages do not have a term for <strong><em>run</em></strong>, \"a point in "
+"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
+" to the next.</li>"
+msgstr ""
+"<li>Có thể bạn không đưa ra được một lời dịch. Chẳng hạn, nhiều ngôn ngữ "
+"không có từ cho từ <strong><em>chạy</em></strong>, \"một điểm trong môn bóng "
+"chày\". Nếu bạn không thể dịch một từ, <strong>bỏ qua</strong> sang từ tiếp "
+"theo.</li>"
+
+#: index.php:260
+msgid ""
+"   <li>Your term may not have exactly the same meaning as the English term. "
+"For example, English has 10 <strong><em>fingers</em></strong> and 10 "
+"<strong><em>toes</em></strong>, while Spanish has 20 "
+"<strong><em>dedos</em></strong>. For the translation game, just give us the "
+"closest equivalent, and we'll figure out non-parallel meanings in a "
+"different game.</li>"
+msgstr ""
+"<li>Từ của bạn có thể không có nghĩa chính xác như từ tiếng Anh. Chẳng hạn, "
+"tiếng ANh có 10 <strong><em>ngón tay</em></strong> và 10 <strong><em>ngón "
+"chân</em></strong>, trong khi trong tiếng Tây Ban Nha có 20 "
+"<strong><em>dedos</em></strong>. Đối với trò chơi phiên dịch, chỉ cung cấp "
+"từ tương đương gần nhất, và chúng tôi sẽ tìm ra các nghĩa không tương ứng "
+"trong một trò chơi khác.</li>"
+
+#: index.php:261
+msgid ""
+"   <li>Your language might have more than one word that means the same "
+"thing. For example, you might use the words <strong><em>sofa</em></strong> "
+"and <strong><em>couch</em></strong> interchangeably. For the translation "
+"game, just tell us your favorite. We'll figure out synonyms in a different "
+"game, and you'll earn your points if you provide an answer that eventually "
+"reaches consensus.</li>"
+msgstr ""
+"<li>Ngôn ngữ của bạn có thể có nhiều hơn một từ cùng để chỉ một thứ. Chẳng "
+"hạn, bạn có thể dùng các từ <strong><em>sofa</em></strong> và "
+"<strong><em>couch</em></strong> thay nhau. Đối với trò chơi phiên dịch, chỉ "
+"cho chúng tôi biết sở thích của bạn. Chúng tôi sẽ tìm ra từ đồng nghĩa trong "
+"các trò chơi khác, và bạn sẽ nhận điểm nếu bạn cung cấp câu trả lời mà cuối "
+"cùng nhận được sự đồng thuận.</li>"
+
+#: index.php:273
+msgid " <p><strong>Examples Games (Tweets and Sentences)</strong><br />"
+msgstr " <p><strong>Trò chơi Thí dụ (Tweets và Các câu)</strong><br />"
+
+#: index.php:274
+msgid "   Skip an example where the consensus is \"skip\": 1 point<br />"
+msgstr "Bỏ qua một ví dụ khi sự đồng thuận là \"bỏ qua\": 1 điểm<br/>"
+
+#: index.php:275
+msgid "   Select an example where the consensus is \"select\": 1 point</p>"
+msgstr "Chọn một ví dụ khi sự đồng thuận là \"chọn\": 1 điểm</p>"
+
+#: index.php:276
+msgid ""
+" <p>Usage examples help people understand how a term is really used. Finding "
+"a good example can be hard, however.</p>"
+msgstr ""
+"<p>Sử dụng các ví dụ giúp mọi người hiểu một từ được sử dụng thế nào. Tuy "
+"nhiên, tìm một ví dụ tốt có thể khó.</p>"
+
+#: index.php:278
+msgid "   <li>Bad: \"Your eyes are blue.\"</li>"
+msgstr "<li>Tồi: \"Mắt của bạn màu xanh.\"</li>"
+
+#: index.php:279
+msgid ""
+"   <li>Good: \"Your eyes are the same blue as the water in the bay, and "
+"sparkle even more in the sunlight.\"</li>"
+msgstr ""
+"<li>Tốt: \"Mắt của bạn có màu xanh như màu của nước trong vịnh, và sáng hơn "
+"cả ánh mặt trời.\"</li>"
+
+#: index.php:281
+msgid ""
+" <p>Because words have different senses, an example might be excellent in "
+"one context but completely wrong in another.</p>"
+msgstr ""
+"<p>Bởi vì mỗi từ có một nghĩa khác nhau, một ví dụ có thể rất tốt trong ngữ "
+"cảnh này nhưng lại hoàn toàn sai trong ngữ cảnh khác.</p>"
+
+#: index.php:283
+msgid ""
+"   <li>Good example for a different meaning of "
+"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
+"missing you, I'm feeling so blue.\"</li>"
+msgstr ""
+"<li>Ví dụ tốt cho một nghĩa khác của <strong><em>buồn</em></strong>: \"Trái "
+"tim anh bị đau do cái đau nhớ em, anh đang cảm thấy rất buồn.\"</li>"
+
+#: index.php:285
+msgid ""
+" <p>In the Examples games, your goal is to find sentences that are real gems "
+"for a specific meaning of a term. The Tweet game shows you a bunch of recent "
+"postings to Twitter, while the Sentences game grabs examples from other "
+"sources. You read the definition, and click on the tweets or sentences that "
+"will be a great help for dictionary users to understand the exact meaning we "
+"show.</p>"
+msgstr ""
+"<p>Trong Trò chơi ví dụ, mục tiêu của bạn là tìm các câu mà là những viên "
+"ngọc quý cho một nghĩa cụ thể của một từ. Trò chơi Tweet đưa ra cho bạn một "
+"số các bài gần đây trên Twitter, trong khi Trò chơi câu lại lấy các ví dụ từ "
+"các nguồn khác. Bạn đọc các định nghĩa, và nhấp chuột vào các tweets hay các "
+"câu mà sẽ giúp cho người sử dungjt ừ điển hiểu được nghĩa chính xác cho từ "
+"đang hiện ra.</p>"
+
+#: index.php:287
+msgid ""
+"   <li>Do NOT click on an entry if it is a good example of a "
+"<em>different</em> meaning.</li>"
+msgstr ""
+" <li>KHÔNG nhấp chuột vào một mục từ nếu nó là một ví dụ tốt cho một "
+"nghĩa<em>khác</em></li>"
+
+#: index.php:288
+msgid ""
+"   <li>Do NOT click on an entry if it kind-of, sort-of works with the "
+"meaning in question.</li>"
+msgstr ""
+"<li>KHÔNG nhấp chuột vào một mục từ nếu nó kiểu như, dạng như nghĩa trong "
+"câu hỏi.</li>"
+
+#: index.php:289
+msgid ""
+"   <li>ONLY click on an entry if it <strong><em>perfectly "
+"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
+"written in orange</font></strong>.</li>"
+msgstr ""
+"<li>CHỈ nhấp chuột vào một mục từ nếu nó <strong><em> giải thích rõ "
+"</em></strong> nghĩa <strong><font color=\"#EBA634\"> viết bằng màu "
+"cam</font></strong>.</li>"
+
+#: index.php:291
+msgid ""
+" <p>Remember, you will score points if you and others all agree to \"skip\", "
+"and you will score points if you and others all agree to \"select\". </p>"
+msgstr ""
+"<p>Xin nhớ rằng, bạn sẽ ghi điểm nếu bạn và các người khác đều đồng ý \"bỏ "
+"qua\", và bạn sẽ ghi điểm nếu bạn và các người khác đều đồng ý \"chọn\". </p>"
+
+#: index.php:292
+msgid " <p><strong>Play at your own risk </strong><br />"
+msgstr "<p><strong>Tự chịu trách nhiệm khi chơi </strong><br />"
+
+#: index.php:293
+msgid ""
+"   We try to filter out inappropriate content in advance. Please be warned, "
+"however, that some objectionable content might slip through our automated "
+"filters. We apologize in advance for the possibility that you might see "
+"offensive Tweets. We do not have humans reviewing the content you see in the "
+"Examples games - YOU are the filter. By ignoring offensive examples, you "
+"will help make them vanish from our data collection.</p>"
+msgstr ""
+"Chúng tôi sẽ lọc các nội dung không thích hợp trước. Tuy nhiên, cũng nên "
+"biết rằng một số nội dung khách quan có thể lọt qua bộ lọc tự động của chúng "
+"tôi. Chúng tôi xin lỗi trước cho khả năng bạn có thể nhìn thấy một số Tweets "
+"gây khó chịu. Chúng tôi không có nhân lực để kiểm duyệt nội dung bạn sẽ thấy "
+"trong Trò chơi ví dụ - BẠN chính là bộ lọc. Bằng cách bỏ qua các ví dụ mang "
+"tính xúc phạm, bạn sẽ giúp loại bỏ chúng ra khỏi bộ dữ liệu của chúng "
+"tôi.</p>"
+
+#: index.php:310
+msgid "Name"
+msgstr "Tên"
+
+#: index.php:314
+msgid "Points"
+msgstr "Điểm"
+
+#: index.php:318
+msgid "Pending points"
+msgstr "Điểm đang chờ giải quyết"
+
+#: index.php:322
+#: index.php:438
+msgid "Success Rate"
+msgstr "Tỉ lệ thành công"
+
+#: index.php:341
+msgid "Hints and Help Language"
+msgstr "Lời gợi ý và Trợ giúp Ngôn ngữ"
+
+#: index.php:351
+msgid "Game Language"
+msgstr "Ngôn ngữ Trò chơi"
+
+#: index.php:359
+msgid "Notify me about new points I earn..."
+msgstr "Thông báo cho tôi về điểm tôi mới kiếm được..."
+
+#: index.php:361
+msgid "Real time"
+msgstr "Thời gian thực"
+
+#: index.php:362
+msgid "Once daily"
+msgstr "Mỗi ngày một lần"
+
+#: index.php:363
+msgid "Once weekly"
+msgstr "Mỗi tuần một lần"
+
+#: index.php:364
+msgid "When pigs fly..."
+msgstr "Không thể..."
+
+#: index.php:367
+msgid "Post achievements to my timeline..."
+msgstr "Công bố thành quả lên tường của tôi..."
+
+#: index.php:370
+msgid "Always (Every time I have a winning entry)"
+msgstr "Luôn luôn (Mỗi lần tôi có một định nghĩa thuyết phục)"
+
+#: index.php:371
+msgid "Often (Max once a day)"
+msgstr "Thường xuyên (Tối đa một lần một ngày)"
+
+#: index.php:372
+msgid "Sometimes (Max once a week)"
+msgstr "Thỉnh thoảng (Tối đa một lần một lần)"
+
+#: index.php:373
+msgid "Occasionally (Max once monthly)"
+msgstr "Thi thoảng (Tối đa một tháng 1 lần)"
+
+#: index.php:374
+msgid "When pigs fly... (Never)"
+msgstr "Không thể... (Không bao giờ)"
+
+#: index.php:404
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+#: index.php:406
+msgid "All languages"
+msgstr "Tất cả các ngôn ngữ"
+
+#: index.php:415
+msgid "Game"
+msgstr "Trò chơi"
+
+#: index.php:417
+msgid "All games"
+msgstr "Tất cả các trò chơi"
+
+#: index.php:425
+msgid "TimePeriod"
+msgstr "Khoảng thời gian"
+
+#: index.php:427
+msgid "All time"
+msgstr "Tất cả thời gian"
+
+#: index.php:428
+msgid "Last Month"
+msgstr "Tháng trước"
+
+#: index.php:429
+msgid "Last Week"
+msgstr "Tuần trước"
+
+#: index.php:430
+msgid "Last 24 Hours"
+msgstr "24 giờ qua"
+
+#: index.php:434
+msgid "What to compare"
+msgstr "So sánh với"
+
+#: index.php:436
+msgid "Points Earned"
+msgstr "Điểm đã kiếm được"
+
+#: index.php:437
+msgid "# of Submissions"
+msgstr "# Lần gửi"
+
+#: index.php:443
+msgid "Auto-Loop"
+msgstr "Tự lặp"
+
+#: index.php:446
+msgid "Leaderboard"
+msgstr "Bảng dẫn đầu"
+
+#: index.php:466
+msgid " I can't say - skip this one..."
+msgstr "Tôi không thể nói - bỏ qua từ này..."
+
+#: index.php:467
+msgid " I can translate this word!"
+msgstr "Tôi có thể dịch từ này!"
+
+#: index.php:468
+msgid " Keep the working definition. It's spectacular as it is!"
+msgstr "Giữ định nghĩa làm việc. Nó hấp dẫn như nó đang có!"
+
+#: index.php:469
+msgid "Working definition: "
+msgstr "Định nghĩa làm việc:"
+
+#: index.php:470
+msgid "Translate the following word to : "
+msgstr "Dịch từ sau sang:"
+
+#: index.php:471
+msgid "Your achievements for the "
+msgstr "Thành quả của bạn cho "
+
+#: index.php:472
+msgid " in "
+msgstr "trong"
+
+#: index.php:473
+msgid "Write or vote for a definition in "
+msgstr "Viết hay bỏ phiếu cho một định nghĩa trong"
+
+#: index.php:474
+msgid "Rank: "
+msgstr "Thứ hạng:"
+
+#: index.php:476
+msgid "In Play: "
+msgstr "Trong khi chơi:"
+
+#: index.php:477
+msgid "Banked: "
+msgstr "Lưu:"
