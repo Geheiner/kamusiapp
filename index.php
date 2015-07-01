@@ -43,8 +43,8 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
-$gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"), '4' => _("Swahili"), '5' => _("German"), '6' => _("Italian"));
-$implementedGames= array('1' => array(1), '2' => array(2,3,4,5,6), '3' => array(1), '4' => array(4));
+$gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"), '4' => _("Swahili"), '5' => _("German"), '6' => _("Italian"), '7' => _("Esperanto"));
+$implementedGames= array('1' => array(1), '2' => array(2,3,4,5,6,7), '3' => array(1), '4' => array(4));
 $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' => _('adjective'), 'adjective_satellite' => _('adjective_satellite'), 'adverb' => _('adverb'), 'phrase' => _('phrase'));
 
 ?>
@@ -358,8 +358,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<option><?php echo _("Vietnamese"); ?></option>
 	<option><?php echo _("Swahili"); ?></option>
 	<option><?php echo _("German"); ?></option>
-	<option><?php echo ("Italiano"); ?></option>
-
+	<option><?php echo _("Italian"); ?></option>
+	<option><?php echo _("Esperanto"); ?></option>
 </select>
 </br></br>
 <p><?php echo _("Notify me about new points I earn..."); ?></p>
@@ -395,10 +395,9 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<option><?php echo ("English"); ?></option>
 	<option><?php echo ("Français"); ?></option>
 	<option><?php echo ("Italiano"); ?></option>
-    <option><?php echo ("Việt"); ?></option>
+    <option><?php echo ("tiếng Việt"); ?></option>
 	
 <!-- The languages are not translated yet
-	<option><?php echo ("tiếng Việt"); ?></option>	
 	<option><?php echo ("Swahili"); ?></option> -->
 </select>
 </br></br>
@@ -418,7 +417,9 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<option><?php echo _("Vietnamese"); ?></option>
 				<option><?php echo _("Swahili"); ?></option>
 				<option><?php echo _("German"); ?></option>
-				<option><?php echo ("Italiano"); ?></option>
+				<option><?php echo _("Italiano"); ?></option>
+				<option><?php echo _("Esperanto"); ?></option>
+
 
 			</select>
 		</div>
@@ -430,8 +431,6 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<option><?php printf(_("%s"),$gameNames["2"]); ?></option>
 				<option><?php printf(_("%s"),$gameNames["3"]); ?></option>
 				<option><?php printf(_("%s"),$gameNames["4"]); ?></option>
-				<option><?php printf(_("%s"),$gameNames["5"]); ?></option>
-				<option><?php printf(_("%s"),$gameNames["6"]); ?></option>
 
 			</select>
 		</div>
