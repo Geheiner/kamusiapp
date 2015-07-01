@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kamusi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-17 23:56+0000\n"
-"PO-Revision-Date: 2015-06-30 15:35+0000\n"
-"Last-Translator: Martin <martin@kamusi.org>\n"
+"PO-Revision-Date: 2015-07-01 13:45+0100\n"
+"Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.1-rc1\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-POOTLE-MTIME: 1435678546.000000\n"
 
 #: index.php:45
@@ -34,29 +34,19 @@ msgstr "Gioca con le frasi"
 msgid "Undefined Language"
 msgstr "Lingua non specificata"
 
-#: index.php:46
-#: index.php:345
-#: index.php:353
-#: index.php:407
+#: index.php:46 index.php:345 index.php:353 index.php:407
 msgid "English"
 msgstr "Inglese"
 
-#: index.php:46
-#: index.php:346
-#: index.php:354
-#: index.php:408
+#: index.php:46 index.php:346 index.php:354 index.php:408
 msgid "French"
 msgstr "Francese"
 
-#: index.php:46
-#: index.php:355
-#: index.php:409
+#: index.php:46 index.php:355 index.php:409
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: index.php:46
-#: index.php:356
-#: index.php:410
+#: index.php:46 index.php:356 index.php:410
 msgid "Swahili"
 msgstr "Swahili"
 
@@ -84,19 +74,12 @@ msgstr "Avverbio"
 msgid "phrase"
 msgstr "Locuzione"
 
-#: index.php:84
-#: index.php:133
-#: index.php:162
-#: index.php:187
-#: index.php:418
-#: index.php:419
-#: index.php:420
-#: index.php:421
+#: index.php:84 index.php:133 index.php:162 index.php:187 index.php:418
+#: index.php:419 index.php:420 index.php:421
 msgid "%s"
 msgstr "%s"
 
-#: index.php:98
-#: index.php:465
+#: index.php:98 index.php:465
 msgid " I can write the winning definition for this idea!"
 msgstr "So dare la definizione giusta di questo concetto!"
 
@@ -160,11 +143,11 @@ msgstr "<p><strong>Gioca</strong><br />"
 msgid ""
 "Our games ask you a variety of types of questions. You earn points when your "
 "answer agrees with the consensus. Your points will remain <strong><em>in "
-"play</em></strong> until consensus, when they are "
-"<strong><em>banked</em></strong> if you are on the winning team. If you do "
-"not have an answer, just skip to the next question! When enough people agree "
-"to the same answer, it is published to the live Kamusi. For definitions, the "
-"winning author will receive credit on the entry page.</p>"
+"play</em></strong> until consensus, when they are <strong><em>banked</em></"
+"strong> if you are on the winning team. If you do not have an answer, just "
+"skip to the next question! When enough people agree to the same answer, it "
+"is published to the live Kamusi. For definitions, the winning author will "
+"receive credit on the entry page.</p>"
 msgstr ""
 " I nostri giochi fanno domande molto diverse. Ottieni punti quando la tua "
 "risposta ha ottenuto il consenso, ovvero è quella preferita. I tuoi punti "
@@ -269,16 +252,16 @@ msgstr "<p>Convenzioni utili:</p>"
 msgid ""
 "  <li>Short and sweet: A definition should be as brief as possible to "
 "explain the concept, but long enough to describe it fully. If the same word "
-"has <strong><em>different meanings</em></strong>, those are <strong><em>"
-"different concepts</em></strong> with different definitions. <strong><em>A "
-"definition</em></strong> in Kamusi only explains <strong><em>one "
-"concept</em></strong>.</li>"
+"has <strong><em>different meanings</em></strong>, those are "
+"<strong><em>different concepts</em></strong> with different definitions. "
+"<strong><em>A definition</em></strong> in Kamusi only explains "
+"<strong><em>one concept</em></strong>.</li>"
 msgstr ""
 "  <li>Brevità: Una definizione deve spiegare un concetto in modo sintetico "
 "ma sufficientemente completo. Se la stessa parola ha <strong><em>significati "
 "diversi</em></strong>, tali significati costituiscono <strong><em>concetti "
-"diversi</em></strong> che hanno definizioni distinte. In Kamusi, <strong><em>"
-"una definizione</em></strong> spiega <strong><em>un singolo "
+"diversi</em></strong> che hanno definizioni distinte. In Kamusi, "
+"<strong><em>una definizione</em></strong> spiega <strong><em>un singolo "
 "concetto</em></strong>.</li>"
 
 #: index.php:238
@@ -294,24 +277,24 @@ msgstr ""
 #: index.php:239
 msgid ""
 "  <li>No circles: Definitions should NOT contain the word that is being "
-"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
-", not \"The feeling of being happy.\" Definitions should not be circular - "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy."
+"\", not \"The feeling of being happy.\" Definitions should not be circular - "
 "we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
 msgstr ""
 "<li>Evita la circolarità: Le definizioni NON devono contenere la parola da "
-"definire né altre parole da essa derivate. La <em>felicità</em> è un \""
-"sentimento di gioia\", non \"essere felici\". Le definizioni non devono "
+"definire né altre parole da essa derivate. La <em>felicità</em> è un "
+"\"sentimento di gioia\", non \"essere felici\". Le definizioni non devono "
 "essere circolari - vista la definizione precedente, non è possibile definire "
 "<em>gioia</em> come \"sentimento di felicità\".</li>"
 
 #: index.php:240
 msgid ""
-"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
-"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or "
+"\"X refers to\", etc. Style: Begin with a Capital letter and end with a "
 "period.</li>"
 msgstr ""
-"<li>Evita le introduzioni: Non iniziare con \"Un termine che significa\", \""
-"Questa parola vuol dire\", \"X indica\", etc. Stile: inizia la definizione "
+"<li>Evita le introduzioni: Non iniziare con \"Un termine che significa\", "
+"\"Questa parola vuol dire\", \"X indica\", etc. Stile: inizia la definizione "
 "con una lettera maiuscola e concludila con un punto.</li>"
 
 #: index.php:243
@@ -320,8 +303,8 @@ msgid ""
 "definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
 "target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
 "great, but many can be much better. When you improve the definitions in "
-"English, we can provide better guidance for translations across "
-"languages.</p>"
+"English, we can provide better guidance for translations across languages.</"
+"p>"
 msgstr ""
 "Per l'<strong>inglese</strong> sono già disponibili 200.000 voci contenenti "
 "\"definizioni correnti\" tratte dalla banca dati <a href=\"http://wordnet-"
@@ -332,13 +315,12 @@ msgstr ""
 
 #: index.php:244
 msgid ""
-" For more insight about writing definitions, you can <a href=\""
-"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
-"video</a>.</p>"
+" For more insight about writing definitions, you can <a href=\"https://www."
+"youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this video</a>.</p>"
 msgstr ""
-"Per saperne di più su come scrivere le definizioni, <a href=\""
-"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">guarda "
-"questo video</a>.</p>"
+"Per saperne di più su come scrivere le definizioni, <a href=\"https://www."
+"youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">guarda questo video</a>."
+"</p>"
 
 #: index.php:254
 msgid " <p><strong>Translation Game</strong><br />"
@@ -369,8 +351,8 @@ msgstr ""
 msgid ""
 "   <li>You may not be able to give any translation. For example, many "
 "languages do not have a term for <strong><em>run</em></strong>, \"a point in "
-"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
-" to the next.</li>"
+"the game of baseball\". If you cannot translate a term, <strong>skip</"
+"strong> to the next.</li>"
 msgstr ""
 "<li>Non sempre è possibile indicare una traduzione. Per esempio, molte "
 "lingue non hanno un termine specifico per <strong><em>run</em></strong>, "
@@ -381,19 +363,17 @@ msgstr ""
 msgid ""
 "   <li>Your term may not have exactly the same meaning as the English term. "
 "For example, English has 10 <strong><em>fingers</em></strong> and 10 "
-"<strong><em>toes</em></strong>, while Spanish has 20 "
-"<strong><em>dedos</em></strong>. For the translation game, just give us the "
-"closest equivalent, and we'll figure out non-parallel meanings in a "
-"different game.</li>"
+"<strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></"
+"strong>. For the translation game, just give us the closest equivalent, and "
+"we'll figure out non-parallel meanings in a different game.</li>"
 msgstr ""
 "<li>Un termine nella tua lingua non ha necessariamente lo stesso significato "
-"del termine inglese. Per esempio, in inglese ci sono 10 "
-"<strong><em>finger</em></strong> (dita delle mani) e 10 "
-"<strong><em>toe</em></strong> (dita dei piedi), mentre in italiano si parla "
-"di <strong><em>dita</em></strong> senza distinguere. Nel gioco con le "
-"traduzioni indica semplicemente l'equivalente più vicino, c'è un altro gioco "
-"che ci consentirà di individuare significati non perfettamente "
-"sovrapponibili.</li>"
+"del termine inglese. Per esempio, in inglese ci sono 10 <strong><em>finger</"
+"em></strong> (dita delle mani) e 10 <strong><em>toe</em></strong> (dita dei "
+"piedi), mentre in italiano si parla di <strong><em>dita</em></strong> senza "
+"distinguere. Nel gioco con le traduzioni indica semplicemente l'equivalente "
+"più vicino, c'è un altro gioco che ci consentirà di individuare significati "
+"non perfettamente sovrapponibili.</li>"
 
 #: index.php:261
 msgid ""
@@ -417,7 +397,8 @@ msgstr "<p><strong>Giochi con gli esempi (tweet e frasi)</strong><br />"
 
 #: index.php:274
 msgid "   Skip an example where the consensus is \"skip\": 1 point<br />"
-msgstr "Salta un esempio che anche gli altri decidono di saltare: 1 punto<br />"
+msgstr ""
+"Salta un esempio che anche gli altri decidono di saltare: 1 punto<br />"
 
 #: index.php:275
 msgid "   Select an example where the consensus is \"select\": 1 point</p>"
@@ -452,9 +433,9 @@ msgstr ""
 
 #: index.php:283
 msgid ""
-"   <li>Good example for a different meaning of "
-"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
-"missing you, I'm feeling so blue.\"</li>"
+"   <li>Good example for a different meaning of <strong><em>blue</em></"
+"strong>: \"My heart is aching from the pain of missing you, I'm feeling so "
+"blue.\"</li>"
 msgstr ""
 "<li>Ad esempio la parola <strong><em>passo</em></strong> non è "
 "necessariamente legata al camminare: \"Il passo si trova proprio sul confine "
@@ -478,8 +459,8 @@ msgstr ""
 
 #: index.php:287
 msgid ""
-"   <li>Do NOT click on an entry if it is a good example of a "
-"<em>different</em> meaning.</li>"
+"   <li>Do NOT click on an entry if it is a good example of a <em>different</"
+"em> meaning.</li>"
 msgstr ""
 "<li>NON cliccare su un esempio in cui il termine viene utilizzato con un "
 "significato <em>diverso</em>.</li>"
@@ -494,13 +475,13 @@ msgstr ""
 
 #: index.php:289
 msgid ""
-"   <li>ONLY click on an entry if it <strong><em>perfectly "
-"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
-"written in orange</font></strong>.</li>"
+"   <li>ONLY click on an entry if it <strong><em>perfectly demonstrates</em></"
+"strong> the meaning <strong><font color=\"#EBA634\">written in orange</"
+"font></strong>.</li>"
 msgstr ""
-"<li>Clicca un esempio SOLO se <strong><em>rappresenta "
-"perfettamente</em></strong> il significato <strong><font color=\"#EBA634\">"
-"definito in arancione</font></strong>.</li>"
+"<li>Clicca un esempio SOLO se <strong><em>rappresenta perfettamente</em></"
+"strong> il significato <strong><font color=\"#EBA634\">definito in "
+"arancione</font></strong>.</li>"
 
 #: index.php:291
 msgid ""
@@ -542,8 +523,7 @@ msgstr "Punti"
 msgid "Pending points"
 msgstr "Punti provvisori"
 
-#: index.php:322
-#: index.php:438
+#: index.php:322 index.php:438
 msgid "Success Rate"
 msgstr "Percentuale di successo"
 
