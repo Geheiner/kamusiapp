@@ -6,7 +6,7 @@ $mysqli= null;
 
 $partOfSpeechArray= array();
 
-$languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI", "4" => "sw_SW", "5" => "de_DE", "6" => "it_IT" );
+$languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "it_IT" );
 
 $config = parse_ini_file('/var/www/passwords/config.ini');
 $helsinkiUserName = $config['helusername'];
