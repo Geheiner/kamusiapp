@@ -343,6 +343,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </br>
 <select id="menuLanguageSettings" onchange= size="1">
 	<option><?php echo ("English"); ?></option>
+	<option><?php echo ("Deutsch"); ?></option>
+    <option><?php echo ("Esperanto"); ?></option>
 	<option><?php echo ("Français"); ?></option>
 	<option><?php echo ("Italiano"); ?></option>
 	<option><?php echo ("Việt"); ?></option>
@@ -392,6 +394,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	</br></br>
 <select id="menuLanguage" onchange= size="1">
 	<option><?php echo ("English"); ?></option>
+	<option><?php echo ("Deutsch"); ?></option>
+	<option><?php echo ("Esperanto"); ?></option>
 	<option><?php echo ("Français"); ?></option>
 	<option><?php echo ("Italiano"); ?></option>
     <option><?php echo ("Việt"); ?></option>

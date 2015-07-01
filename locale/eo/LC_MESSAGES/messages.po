@@ -1,79 +1,76 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kamusi\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-17 23:56+0000\n"
-"PO-Revision-Date: 2015-06-22 20:52+0000\n"
-"Last-Translator: Martin <martin@kamusi.org>\n"
-"Language-Team: timo\n"
-"Language: de\n"
+"PO-Revision-Date: 2015-06-23 20:09+0000\n"
+"Last-Translator: Mélanie <melmaradan@yahoo.fr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.1-rc1\n"
-"X-POOTLE-MTIME: 1435006334.000000\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Basepath: /home/timo/Documents/Semestre10/Projet/kamusi2\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-POOTLE-MTIME: 1435090186.000000\n"
 
 #: index.php:45
 msgid "Definition Game"
-msgstr "Definitionsspiel"
+msgstr "Ludo kun difinoj"
 
 #: index.php:45
 msgid "Translation Game"
-msgstr "Übersetzungsspiel"
+msgstr "Ludo de samsignifaj vortoj vialingvaj"
 
 #: index.php:45
 msgid "Tweet Game"
-msgstr "Tweetspiel"
+msgstr "Ludo de Tviteraj tekst-mesaĝoj"
 
 #: index.php:45
 msgid "Sentence Game"
-msgstr "Satzspiel"
+msgstr "Ludo de frazoj"
 
 #: index.php:46
 msgid "Undefined Language"
-msgstr "Nicht definierte Sprache"
+msgstr "Nedifinita lingvo"
 
 #: index.php:46
 #: index.php:345
 #: index.php:353
 #: index.php:407
 msgid "English"
-msgstr "Englisch"
+msgstr "Angla"
 
 #: index.php:46
 #: index.php:346
 #: index.php:354
 #: index.php:408
 msgid "French"
-msgstr "Französisch"
+msgstr "Franca"
 
 #: index.php:46
 #: index.php:355
 #: index.php:409
 msgid "Vietnamese"
-msgstr "Vietnamesisch"
+msgstr "Vjetnama"
 
 #: index.php:46
 #: index.php:356
 #: index.php:410
 msgid "Swahili"
-msgstr "Suaheli"
+msgstr "Svahila"
 
 #: index.php:48
 msgid "noun"
-msgstr "Nomen"
+msgstr "Substantivo"
 
 #: index.php:48
 msgid "verb"
-msgstr "Verb"
+msgstr "Verbo"
 
 #: index.php:48
 msgid "adjective"
-msgstr "Adjektiv"
+msgstr "Adjektivo"
 
 #: index.php:48
 msgid "adjective_satellite"
@@ -81,11 +78,11 @@ msgstr "adjective_satellite"
 
 #: index.php:48
 msgid "adverb"
-msgstr "Adverb"
+msgstr "Adverbo"
 
 #: index.php:48
 msgid "phrase"
-msgstr "Phrase"
+msgstr "Frazo"
 
 #: index.php:84
 #: index.php:133
@@ -101,25 +98,25 @@ msgstr "%s"
 #: index.php:98
 #: index.php:465
 msgid " I can write the winning definition for this idea!"
-msgstr "Ich kann die gewinnende Definiton für diese Idee schreiben!"
+msgstr "Mi povas skribi la venkontan difinon por tiu ĉi ideo!"
 
 #: index.php:145
 msgid "I can translate this word!"
-msgstr "Ich kann dieses Wort übersetzen!"
+msgstr "Mi povas indiki samsignifan vorton por tiu ĉi vorto!"
 
 #: index.php:163
 msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
 msgstr ""
-"NUR die Tweets überprüfen, die erstklassige Beispiele für DIESE Bedeutung "
-"sind:"
+"Elektu NUR la Tviterajn tekst-mesaĝojn, kiuj estas elstaraj ekzemploj de TIU "
+"ĈI signifo:"
 
 #: index.php:188
 msgid "Check the sentences that correspond well to this word: "
-msgstr "Sätze überprüfen, die gut mit diesem Wort übereinstimmen:"
+msgstr "Elektu la frazojn, kiuj bone kongruas kun tiu ĉi vorto:"
 
 #: index.php:208
 msgid "<p><strong>About</strong><br />"
-msgstr "<p><strong>Über</strong><br />"
+msgstr "<p><strong>Pri</strong><br />"
 
 #: index.php:209
 msgid ""
@@ -129,15 +126,15 @@ msgid ""
 "other language resources for every language, and to make those resources "
 "available for free to everyone.</p>"
 msgstr ""
-"Das Kamusi Projekt (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
-"ist ein kollaboratives internationales Projekt um das Wissen über die  "
-"Weltsprachen zu verbessern. Unser langfristiges Ziel ist es, Wörterbücher "
-"und andere Sprachressourcen für jede Sprache zu entwickeln und diese "
-"Ressourcen jedem frei zur Verfügung zu stellen.</p>"
+"La projekto <em>Kamusi Project</em> (<a href=\"http://kamusi.org/\""
+">http://kamusi.org/</a>) estas kunlabora kaj internacia. Ĝi celas plibonigi "
+"onies sciojn pri la lingvoj de la mondo. La longdaŭra objektivo estas la "
+"kreado de vortaroj kaj aliaj lingvaj resursoj por ĉiuj lingvoj, kaj ties "
+"disponigo por ĉies senpaga uzado.</p>"
 
 #: index.php:210
 msgid "<p><strong>Purpose</strong><br />"
-msgstr "<p><strong>Ziel</strong><br />"
+msgstr "<p><strong>Celo</strong><br />"
 
 #: index.php:211
 msgid ""
@@ -148,17 +145,16 @@ msgid ""
 "your language, linked to translations for all other languages, available to "
 "you for free.</p>"
 msgstr ""
-"Unsere Spiele wurden entworfen um von Ihnen alles über Ihre Sprache zu "
-"lernen, damit wir dieses Wissen mit dem Rest der Welt teilen können. "
-"Verschiedene Spiele zielen auf verschiedene Informationen ab. Was wir in "
-"unseren Spielen lernen, macht Informationen verfügbar, die wir in den "
-"nächsten Spielen verwenden können. Unser Ziel ist ein detailliertes "
-"Wörterbuch für Ihre Sprache, das mit Übersetzungen in alle anderen Sprachen "
-"verlinkt ist und Ihnen kostenlos zur Verfügung steht. </p>"
+"Niaj ludoj estis kreitaj por ke ni povu lerni de vi ĉion pri via lingvo, ĉar "
+"ni volas kundividi viajn sciojn kun la tuta mondo. Diversaj ludoj rilatas al "
+"diversaj sci-eroj. Tio, kion oni lernas kadre de iu ludo, estas reuzita por "
+"posta ludo. Nia ĝenerala objektivo estas krei senpagan kaj libere haveblan "
+"detalan vortaron de via lingvo, kies registraĵoj estu konektitaj al tiuj de "
+"ĉiuj aliaj lingvoj"
 
 #: index.php:212
 msgid "<p><strong>Play</strong><br />"
-msgstr "<p><strong>Spielen</strong><br />"
+msgstr "<p><strong>Ludi</strong><br />"
 
 #: index.php:213
 msgid ""
@@ -170,20 +166,18 @@ msgid ""
 "to the same answer, it is published to the live Kamusi. For definitions, the "
 "winning author will receive credit on the entry page.</p>"
 msgstr ""
-"Unsere Spiele stellen Ihnen eine Reihe von Fragen. Sie verdienen Punkte, "
-"wenn Sie mit der Mehrheit übereinstimmende Antworten geben. Ihre Punkte "
-"bleiben <strong><em>im Spiel</em></strong>, bis sich eine "
-"Mehrheitsentscheidung ergeben hat. Dann werden sie  "
-"<strong><em>gutgeschrieben</em></strong>, wenn Sie zur Mehrheit gehören. "
-"Wenn Sie keine Antwort haben, lassen Sie einfach eine Frage aus! Wenn sich "
-"genügend Menschen auf eine gemeinsame Antwort geeinigt haben, wird sie live "
-"auf Kamusi zur Verfügung gestellt. Autoren, die Definitionen, die sich "
-"durchsetzen, verfassen, bekommen dafür die Anerkennung auf der "
-"Startseite.</p>"
+"Niaj ludoj starigas diversecajn demandojn. Se via respondo al demando "
+"kongruas kun la plejmulta opinio, vi poentas. Viaj poentoj restas "
+"<strong><em>ludataj</em></strong> ĝis kiam oni atingas interkonsenton. Tiam, "
+"<strong><em>vi ricevas viajn poentojn</em></strong> kondiĉe ke vi estas en "
+"la venkinta teamo. Se vi ne scipovas respondi, simple iru al la sekva "
+"demando! Kiam sufiĉe da homoj interkonsentas pri iu respondo, tiu respondo "
+"ekaperas ĉe la interreta Kamusi. Krome, kiu verkas venkantan difinon estas "
+"menciita ĉe la pria registraĵo.</p>"
 
 #: index.php:214
 msgid "<p><strong>Honor Code</strong><br />"
-msgstr "<p><strong>Ehrencodex</strong><br />"
+msgstr "<p><strong>Honora kodo</strong><br />"
 
 #: index.php:215
 msgid ""
@@ -191,14 +185,14 @@ msgid ""
 "not attempt to game the game, and please alert us to suspicious items so we "
 "can remove spammers and all their spam.</p>"
 msgstr ""
-"Alle Spieler werden von uns aufgefordert, jede Frage bestmöglich zu "
-"beantworten. Bitte geben Sie keine unsinnigen Antworten ein und weisen Sie "
-"uns auf verdächtige Einträge hin, damit wir Spammer und ihren Spam entfernen "
-"können.</p>"
+"Ni petas ĉiun ludanton doni sian plej bonan respondon al ĉiu demando. "
+"Bonvolu ne hazarde respondumi. Krome, bonvolu informi nin se vi vidas "
+"suspektajn enhavojn, tiel ke ni povu forigi rubaĵecajn enhavojn kaj ties "
+"verkintojn.</p>"
 
 #: index.php:216
 msgid "<p><strong>Friends</strong><br />"
-msgstr "<p><strong>Freunde</strong><br />"
+msgstr "<p><strong>Geamikoj</strong><br />"
 
 #: index.php:217
 msgid ""
@@ -208,41 +202,40 @@ msgid ""
 "too, and together you will contribute to a great resource for your whole "
 "community.</p>"
 msgstr ""
-"Je mehr Leute in deiner Sprache spielen, desto mehr Spaß macht es - Sie "
-"erhalsten Punkte schneller und gelangen zu fortgeschrittenen Fragen. Wenn "
-"Ihnen das Spiel Spaß macht, dann laden Sie Ihre Freunde zum Mitspielen ein! "
-"Sie werden auch Spaß daran haben und sie könnt zusammen etwas für ihre ganze "
-"Gemeinschaft tun.</p>"
+"Ju pli da homoj ludas en via lingvo, des pli vi amuziĝos, ĉar vi pli rapide "
+"poentos kaj povos antaŭeniri al pli komplikaj demandoj. Se vi ŝatas la "
+"ludon, bonvolu inviti viajn amikojn! Ankaŭ ili amuziĝos kaj kune vi "
+"kontribuos al bonega resurso por via tuta komunumo.</p>"
 
 #: index.php:227
 msgid "<p><strong>Definition Game</strong><br />"
-msgstr "<p><strong>Definitionsspiel</strong><br />"
+msgstr "<p><strong>Ludo de difinoj</strong><br />"
 
 #: index.php:228
 msgid "Write a definition: 1 point<br />"
-msgstr "Eine Defintion schreiben: 1 Punkt<br />"
+msgstr "Skribu difinon: 1 poento<br />"
 
 #: index.php:229
 msgid " Vote for the winning definition: 1 point<br />"
-msgstr "Bewertung für die gewinnende Definition: 1 Punkt<br />"
+msgstr "Voĉdono por la plej bona difino: 1 poento<br />"
 
 #: index.php:230
 msgid ""
 " <em><strong>Write the winning definition</strong></em>: 5 points + credit "
 "on the dictionary entry page<br />"
 msgstr ""
-" <em><strong>Schreiben der gewinnenden Defintion</strong></em>: 5 Punkte + "
-"Guthaben auf der Eintragsseite des Wörterbuchs<br />"
+"<em><strong>Redakto de la plej bona difino</strong></em>: 5 poentoj + mencio "
+"en la paĝo de la pria registraĵo<br />"
 
 #: index.php:231
 msgid " Submit a <em>spam</em> definition: -10 points + watchlist</p>"
 msgstr ""
-" Einreichen einer <em>Spam</em>definition: -10 Punkte + Beobachtungsliste</p>"
+"Aldono de <em>rubaĵeca</em> difino: minus 10 poentoj + apero en la atentara "
+"listo</p>"
 
 #: index.php:232
 msgid "<p><strong>How to write a great definition</strong><br />"
-msgstr ""
-"<p><strong>Wie schreibt man eine gute Übersetzung schreibt</strong><br />"
+msgstr "<p><strong>Kiel verki elstaran difinon</strong><br />"
 
 #: index.php:233
 msgid ""
@@ -250,9 +243,9 @@ msgid ""
 "words (those are synonyms). You can usually use a definition instead of the "
 "actual word. </p>"
 msgstr ""
-" Definitionen erklären die Bedeutung eines Wortes. Sie sind keine einzelnen "
-"Wörter (das sind Synonyme). Definitionen können anstelle des eigentlichen "
-"Wortes gebraucht werden.</p>"
+"Difino estas klarigo pri la signifo de iu vorto. Difino ne estu nur unuvorta "
+"(tiukaze temus pri sinonimo). Plej ofte oni povas anstataŭigi iun vorton per "
+"ties difino.</p>"
 
 #: index.php:234
 msgid ""
@@ -262,16 +255,15 @@ msgid ""
 "what the term means in your language - the meaning may differ somewhat from "
 "the English definition we show of a matched English concept!</p>"
 msgstr ""
-"<p>Definitionen sind KEINE Übersetzungen. Sie werden in der selben Sprache "
-"wie die Benennung geschrieben. Wenn du ein Wort in deiner Sprache bestimmst, "
-"sollte die Definition in der gleichen Sprache sein. Definitionen sollten "
-"bestimmen, was die Benennung in deiner Sprache bedeutet - die Bedeutung kann "
-"von der englischen Definition, die wir von einem englischen Konzept zeigen, "
-"abweichen.</p>"
+"<p>Difinoj NE estu tradukaĵoj aŭ alilingvaj vortoj. Ili estu verkitaj en la "
+"lingvo, en kiu oni klarigas la prian vorton. Se vi difinas vorton en via "
+"lingvo, la difinu estu en tiu lingvo. Difino montru, kion la vorto signifas "
+"en via lingvo. Sciu ke la signifo povas iugrade malsami al tiu de la angla "
+"nocio, kiun ni montras.</p>"
 
 #: index.php:235
 msgid "<p>Stick to these rules:</p>"
-msgstr "<p>Halten Sie sich an diese Regeln:</p>"
+msgstr "<p>Bonvolu respekti la sekvajn regulojn:</p>"
 
 #: index.php:237
 msgid ""
@@ -282,12 +274,12 @@ msgid ""
 "definition</em></strong> in Kamusi only explains <strong><em>one "
 "concept</em></strong>.</li>"
 msgstr ""
-"  <li>Kurz und bündig: Eine Definition sollte so kurz wie möglich sein, um "
-"das Konzept zu beschreiben, aber lang genug es genau zu beschreiben. Hat das "
-"gleiche Wort <strong><em>unterschiedliche Bedeutungen</em></strong>, so sind "
-"es <strong><em>unterschiedliche Konzepte</em></strong> mit unterschiedlichen "
-"Definitionen. <strong><em>Eine Definition</em></strong> in Kamusi erklärt "
-"nur <strong><em>ein Konzept</em></strong>.</li>"
+"<li>Neceso kaj sufiĉo: Difino estu kiel eble plej mallonga, sed tamen sufiĉe "
+"longa por plene reprezenti la difinatan ideon. Se iu vorto havas <strong><em>"
+"plurajn signifojn</em></strong>, temas pri <strong><em>malsamaj "
+"nocioj</em></strong> kiuj havu malsamajn difinojn. Ĉe Kamusi "
+"<strong><em>difino</em></strong> nur temu pri <strong><em>unu "
+"nocio</em></strong>.</li>"
 
 #: index.php:238
 msgid ""
@@ -295,9 +287,9 @@ msgid ""
 "force readers to jump around the dictionary more, unless technical terms are "
 "absolutely necessary.</li>"
 msgstr ""
-"  <li>Einfachheit zählt: Benutzen Sie möglichst einfache Wörter. "
-"Definitionen sollten den Leser nicht dazu zwingen noch mehr im Wörterbuch zu "
-"blättern, außer sie beinhalten unverzichtbare technische Ausdrücke.</li>"
+"<li>Komprenebleco: Difino estu verkita per la plej simplaj vortoj eblaj, "
+"tiel ke uzantoj ne devu traserĉi la vortaron por kompreni ilin, krom en "
+"escepta kazo kiam fakaj terminoj nepre necesas.</li>"
 
 #: index.php:239
 msgid ""
@@ -306,11 +298,11 @@ msgid ""
 ", not \"The feeling of being happy.\" Definitions should not be circular - "
 "we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
 msgstr ""
-"<li>Keine Zirkelschlüsse: Definitionen sollten NICHT das Wort enthalten, das "
-"sie definieren oder ähnliche Wörter. <em>Fröhlichkeit</em> ist \"Ein Gefühl "
-"von Freude.\", und nicht \"Das Gefühl fröhlichzu sein.\" Definitionen "
-"sollten keine Zirkelschlüsse enthalten - wir können also auch nicht sagen "
-"<em>Freude</em> ist \"Ein Gefühl von Fröhlichkeit.\"</li>"
+"<li>Neniu cirkleca referenco: Difinoj NE enhavu nek la difinatan vorton nek "
+"proksimajn vortojn. Ekzemple <em>\"feliĉo\"</em> estas \"sento de "
+"plenkontenteco\", ne \"la sento kiam oni feliĉas\". Difinoj ne kreu "
+"cirklecajn referencojn, ekzemple oni ne diru ke <em>\"ĝojo\"</em> estas \"la "
+"sento de feliĉo.\"</li>"
 
 #: index.php:240
 msgid ""
@@ -318,9 +310,9 @@ msgid ""
 "X refers to\", etc. Style: Begin with a Capital letter and end with a "
 "period.</li>"
 msgstr ""
-"<li>Keine Füllwörter: Beginnen Sie nicht mit  \"Ein Ausdruck, der folgendes "
-"bedeutet\", oder \"Das ist ein\", oder \"X bezieht sich auf\", usw. Stil: "
-"Beginnen Sie mit einem Großbuchstaben und enden Sie mit einem Punkt.</li>"
+"<li>Neniuj ornamaĵoj: Difino ne komencu ekzemple per \"Vorto, kiu signifas..."
+"\" aŭ \"Tio estas ...\" aŭ \"Vorto ... rilatas al ...\", k.t.p. Pri la stilo:"
+" Difino komenciĝu per majuskla litero kaj finiĝu per punkto.</li>"
 
 #: index.php:243
 msgid ""
@@ -331,12 +323,11 @@ msgid ""
 "English, we can provide better guidance for translations across "
 "languages.</p>"
 msgstr ""
-"Für <strong>Englisch</strong> haben wir 200.000 Einträge mit \""
-"Arbeitsdefinitionen\", die wir uns aus dem <a href=\"http://wordnet-"
-"rdf.princeton.edu\" target=\"_blank\">Princeton WordNet</a> geliehen haben. "
-"Manche dieser Definitionen sind super, aber viele könnten besser sein. Wenn "
-"Sie die englischen Definitionen verbessern, können wir damit bessere "
-"Hinweise für die Übersetzung in andere Sprachen geben.</p>"
+"Por la <strong><strong>angla lingvo</strong>, estas 200000 registraĵoj kun \""
+"provizoraj\" difinoj ĉerpitaj el la vortaro <a href=\"http://wordnet-"
+"rdf.princeton.edu\" target=\"_blank\">Princeton WordNet</a>.  Kelkaj el tiuj "
+"difinoj bonegas, sed oni povus plibonigi multajn el ili. Kiam oni plibonigas "
+"la anglajn difinojn, tio helpas por la alilingvaj ekvivalentoj.</p>"
 
 #: index.php:244
 msgid ""
@@ -344,24 +335,24 @@ msgid ""
 "https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
 "video</a>.</p>"
 msgstr ""
-" <a href=\"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">"
-"In diesem Video</a> kriegst du einen weiteren Einblick über das Schreiben "
-"von Defintionen.</p>"
+"Por lerni pli pri la redaktado de difinoj, vi povas <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">spekti tiun "
+"filmeton</a> (en la angla).</p>"
 
 #: index.php:254
 msgid " <p><strong>Translation Game</strong><br />"
-msgstr " <p><strong>Übersetzungsspiel</strong><br />"
+msgstr "<p><strong>Ludo de samsignifaj vortoj vialingvaj</strong><br />"
 
 #: index.php:255
 msgid "   Submit a term that becomes the consensus: 3 points<br />"
-msgstr "   Eine Benennung einreichen, die Konsens wird: 3 Punkte<br />"
+msgstr "Aldono de vorto kiu atingas interkonsenton: 3 poentoj<br />"
 
 #: index.php:256
 msgid ""
 "   Skip a term where the consensus is \"skip\" for this language: 1 point</p>"
 msgstr ""
-"Einen Ausdruck überspringen, den die Mehrheit in dieser Sprache überspringt: "
-"1 Punkt</p>"
+"Preterpasado de vorto je kiu la interkonsento estas \"preterpasado\" por la "
+"pria lingvo: 1 poento</p>"
 
 #: index.php:257
 msgid ""
@@ -369,9 +360,9 @@ msgid ""
 "idea that we have in our English dataset, we ask you to tell us the best way "
 "to express the same meaning.</p>"
 msgstr ""
-"<p>Wenn wir nicht bereits einen Äquivalenten Ausdruck für eine Idee in "
-"unserer englischen Datenbank in Ihrer Sprache haben, bitten wir Sie darum "
-"uns zu sagen, wie man die gleiche Bedeutung am besten ausdrückt.</p>"
+"<p>Se ni ankoraŭ ne havas vorton en via lingvo kiu ekvivalas al nocio en nia "
+"anglalingva datenaro, ni petas, ke vi diru al ni kiel plej bone esprimi tiun "
+"nocion en via lingvo.</p>"
 
 #: index.php:259
 msgid ""
@@ -380,10 +371,11 @@ msgid ""
 "the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
 " to the next.</li>"
 msgstr ""
-"   <li>Du kannst vielleicht nimmer immer eine Übersetzung abgeben. Beispiel: "
-"Viele Sprachen haben keine Benennung für das Wort "
-"<strong><em>Run</em></strong>, \"ein Punktgewinn im Baseball \". Wenn du ein "
-"Wort nicht übersetzen kannst, <strong>überspringe</strong> zum nächsten.</li>"
+"<li>Povas okazi, ke vi ne povos indiki vorton en via lingvo. Ekzemple, en "
+"multaj lingvoj, ne ekzistas vorto por diri la angla \""
+"<strong><em>run</em></strong>\", kiu estas poento en la ludo de bazpilkado. "
+"Se ne eblas por vi indiki vorton en via lingvo, <strong>preterpasu</strong> "
+"ĝin kaj iru al la sekva.</li>"
 
 #: index.php:260
 msgid ""
@@ -394,12 +386,13 @@ msgid ""
 "closest equivalent, and we'll figure out non-parallel meanings in a "
 "different game.</li>"
 msgstr ""
-"   <li>Dein Wort hat vielleicht nicht die exakt gleiche Bedeutung wie das "
-"englische Wort. Beispiel: Im Englischen gibt es 10 <strong><em>fingers "
-"(Finger)</em></strong> und 10 <strong><em>toes (Zehen)</em></strong>, im "
-"Spanisch dagegen 20 <strong><em>dedos</em></strong>. Beim Übersetzungsspiel "
-"brauchen wir nur die Variante, die dem Ausgangswort am nächsten kommt. Nicht-"
-"parallele Bedeutungen werden in einem anderen Spiel herausgefunden.</li>"
+"<li>Povas okazi, ke la vorto en via lingvo ne tute samsignifas kiel la angla "
+"vorto. Ekzemple, en la angla oni havas 10 \"<strong><em>fingers</em></strong>"
+"\" (manfingroj) kaj 10 \"<strong><em>toes</em></strong>\" (piedfingroj), dum "
+"en la hispana oni havas 20 \"<strong><em>dedos</em></strong>\" (fingroj "
+"manaj kaj piedaj). Dum la ludo de samsignifaj vortoj vialingvaj, simple "
+"indiku al ni la plej bonan ekvivalenton en via lingvo. Ni eltrovos "
+"diferencojn je la signifo kadre de alia ludo.</li>"
 
 #: index.php:261
 msgid ""
@@ -410,57 +403,57 @@ msgid ""
 "game, and you'll earn your points if you provide an answer that eventually "
 "reaches consensus.</li>"
 msgstr ""
-"   <li>In deiner Sprache gibt es vielleicht mehr als ein Wort für eine "
-"Sache. Beispiel: Die Worte <strong><em>Sofa</em></strong> und "
-"<strong><em>Couch</em></strong> können austauschbar verwendet werden. "
-"Schreib uns für das Übersetzungsspiel dein Lieblingswort. Synonyme werden in "
-"einem anderen Spiel herausgefunden und du wirst Punkte verdienen, wenn deine "
-"Antwort Konsens erreicht.</li>"
+"<li>Povas okazi, ke en via lingvo ekzistas pli ol unu vorto kun la sama "
+"signifo. Ekzemple, povas esti ke vi uzas kaj la vorton "
+"<strong><em>klarigi</em></strong> kaj la vorton "
+"<strong><em>ekspliki</em></strong> en samaj kontekstoj. Kadre de la ludo de "
+"samsignifaj vortoj vialingvaj, simple diru al ni, kiun vorton vi plej ŝatas. "
+"Ni eltrovos sinonimojn kadre de alia ludo (kaj vi poentos se vi proponos "
+"respondon kiu atingos interkonsenton).</li>"
 
 #: index.php:273
 msgid " <p><strong>Examples Games (Tweets and Sentences)</strong><br />"
-msgstr "<p><strong>Beispielspiele(Tweets und Sätze)</strong><br />"
+msgstr ""
+"<p><strong>Ekzemplaj ludoj (Tviteraj tekst-mesaĝoj kaj frazoj)</strong><br />"
 
 #: index.php:274
 msgid "   Skip an example where the consensus is \"skip\": 1 point<br />"
 msgstr ""
-"   Ein Beispiel überspringen, wo der Konsens \"Überspringen\" ist: 1 Punkt<"
-"br />"
+"Preterpasado de ekzemplo je kiu la interkonsento estas \"preterpasado\": 1 "
+"poento<br />"
 
 #: index.php:275
 msgid "   Select an example where the consensus is \"select\": 1 point</p>"
 msgstr ""
-"   Ein Beispiel auswählen, wo der Konsens \"Auswählen\" ist: 1 Punkt<br />"
+"Elekto de ekzemplo je kiu la interkonsento estas \"elekto\": 1 poento</p>"
 
 #: index.php:276
 msgid ""
 " <p>Usage examples help people understand how a term is really used. Finding "
 "a good example can be hard, however.</p>"
 msgstr ""
-" <p>Verwendungsbeispiele können helfen zu verstehen, wie eine Benennung "
-"tatsächlich verwendet wird. Gute Beispiele zu finden kann jedoch schwierig "
-"sein.</p>"
+"<p>Ekzemplo pri la uzo helpas onin kompreni kiumaniere vorto estas uzita en "
+"la reala uzo de parolantoj. Tamen foje malfacilas trovi bonan ekzemplon.</p>"
 
 #: index.php:278
 msgid "   <li>Bad: \"Your eyes are blue.\"</li>"
-msgstr "   <li>Schlecht: \"Deine Augen sind blau.\"</li>"
+msgstr "<li>Malbona ekzemplo: \"Viaj okuloj estas verdaj.\"</li>"
 
 #: index.php:279
 msgid ""
 "   <li>Good: \"Your eyes are the same blue as the water in the bay, and "
 "sparkle even more in the sunlight.\"</li>"
 msgstr ""
-"   <li>Gut: \"Deine Augen haben das gleiche Blau wie das Meereswasser und "
-"leuchten sogar noch mehr im Sonnenlicht.</li>"
+"<li>Bona ekzemplo: \"Multaj centoj da grandegaj konkoj, ruĝaj kiel rozoj kaj "
+"verdaj kiel herbo, staris en vicoj sur ĉiu flanko kun blue brulanta flamo.\""
 
 #: index.php:281
 msgid ""
 " <p>Because words have different senses, an example might be excellent in "
 "one context but completely wrong in another.</p>"
 msgstr ""
-" <p>Da Wörter unterschiedliche Bedeutungen haben, kann ein Beispiel in dem "
-"einen Kontext ausgezeichnet sein, im einer anderen aber eine komplett "
-"falsche Bedeutung haben.</p>"
+"<p>Ĉar iu vorto povas estis plursignifa, iu ekzemplo povas bonegi en iu "
+"konteksto, sed tute malĝusti en alia.</p>"
 
 #: index.php:283
 msgid ""
@@ -468,9 +461,9 @@ msgid ""
 "<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
 "missing you, I'm feeling so blue.\"</li>"
 msgstr ""
-"<li>Gutes Beispiel für eine andere Bedeutung von "
-"<strong><em>blau</em></strong>: \"Ich bin total blau, nachdem ich so viel "
-"getrunken habe.\"</li>"
+"<li>Jen trafa ekzemplo de alia signifo de la vorto "
+"<strong><em>verda</em></strong>: \"Tamen laŭŝajne neniu planas grandskalan "
+"uzon de t.n. verdaj energifontoj anstataŭ la mankonta.\"</li>"
 
 #: index.php:285
 msgid ""
@@ -481,28 +474,28 @@ msgid ""
 "will be a great help for dictionary users to understand the exact meaning we "
 "show.</p>"
 msgstr ""
-"<p>In Beispiel-Spielen ist es Ihr Ziel Sätze zu finden, die eine bestimmte "
-"Bedeutung wunderbar beispielhaft verdeutlichen. Das Tweet Spiel zeigt Ihnen "
-"mehrere aktuelle Postings in Twitter, das Satz-Spiel holt sich Sätze aus "
-"anderen Quellen. Sie lesen die Definition und klicken auf die Tweets oder "
-"Sätze, die den Nutzern des Wörterbuchs dabei helfen die Bedeutung zu "
-"verstehen, die wir zeigen.</p>"
+"<p>En la Ludo de ekzemploj, via celo estas trovi frazojn, kiuj elstare "
+"ilustras iun signifon de iu vorto. Kadre de tio, oni proponas al vi "
+"unuflanke Tviterajn tekst-mesaĝojn en la Ludo de Tviteraj mesaĝoj kaj "
+"aliflanke aliajn ekzemplojn el aliaj fontoj en la Ludo de frazoj. Legu la "
+"difinon kaj alklaku la mesaĝojn aŭ la frazojn kiuj plej helpos la uzantojn "
+"de la vortaro pli bone kompreni tiun signifon, kiun ni montras.</p>"
 
 #: index.php:287
 msgid ""
 "   <li>Do NOT click on an entry if it is a good example of a "
 "<em>different</em> meaning.</li>"
 msgstr ""
-"<li>Klicken Sie NICHT auf einen Eintrag, wenn er ein gutes Beispiel für eine "
-"<em>andere</em>  Bedeutung ist.</li>"
+"<li>NE elektu proponon, se ĝi estas bona ekzemplo de <em>alia</em> "
+"signifo.</li>"
 
 #: index.php:288
 msgid ""
 "   <li>Do NOT click on an entry if it kind-of, sort-of works with the "
 "meaning in question.</li>"
 msgstr ""
-"<li>Klicken Sie NICHT auf einen Eintrag, wenn er - so lala - auf die "
-"betreffende Bedeutung passt.</li>"
+"<li>NE elektu proponon, se ĝi nur iugrade, iomete kongruas kun la pria "
+"signifo.</li>"
 
 #: index.php:289
 msgid ""
@@ -510,22 +503,21 @@ msgid ""
 "demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
 "written in orange</font></strong>.</li>"
 msgstr ""
-"<li>Klicken Sie NUR auf einen Eintrag wenn er "
-"<strong><em>perfekt</em></strong> zu der Bedeutung passt, die <strong><font "
-"color=\"#EBA634\">in Orange dargestellt ist</font></strong>.</li>"
+"<li>NUR TIAM elektu proponon, se ĝi <strong><em>perfekte "
+"ilustras</em></strong> la signifon <strong><font color=\"#EBA634\">kun la "
+"oranĝa koloro</font></strong>.</li>"
 
 #: index.php:291
 msgid ""
 " <p>Remember, you will score points if you and others all agree to \"skip\", "
 "and you will score points if you and others all agree to \"select\". </p>"
 msgstr ""
-"<p>Denken Sie daran, dass Sie Punkte bekommen, wenn Sie und alle anderen "
-"eine Frage überspringen aber auch, wenn Sie und alle anderen eine Frage "
-"auswählen. </p>"
+"<p>Memoru, ke vi poentas se vi kaj aliaj interkonsentas pri \"preterpasado\" "
+"aŭ se vi kaj aliaj interkonsentas pri \"elekto\".</p>"
 
 #: index.php:292
 msgid " <p><strong>Play at your own risk </strong><br />"
-msgstr "<p><strong>Spielen Sie auf eigenes risiko</strong><br />"
+msgstr "<p><strong>Ludi propra-riske</strong><br />"
 
 #: index.php:293
 msgid ""
@@ -536,183 +528,178 @@ msgid ""
 "Examples games - YOU are the filter. By ignoring offensive examples, you "
 "will help make them vanish from our data collection.</p>"
 msgstr ""
-"Wir versuchen im Vorfeld unangemessene Inhalte herauszufiltern. Wir möchten "
-"Sie dennoch warnen, dass der ein oder andere anstößige Inhalt durch unseren "
-"automatischen Filter rutschen könnte. Wir entschuldigen uns dafür, dass Sie "
-"anstößige Tweets zu sehen bekommen könnten. Im Beispiel-Spiel übernehmen "
-"keine Menschen die Auswahl - SIE sind der Filter. Indem Sie anstößige "
-"Inhalte ignorieren, helfen Sie mit sie aus unserer Datensammlung "
-"verschwinden zu lassen.</p>"
+"Ni provas anticipe filtri kaj forigi netaŭgajn enhavojn. Tamen sciu, ke nia "
+"aŭtomataj filtriloj povus preterpasi iujn tiajn enhavojn. Ni "
+"antaŭpardonpetas pro la fakto, ke vi eble legos ofendajn Tviterajn mesaĝojn. "
+"Ni ne havas homfortojn por provlegi la enhavojn, kiujn vi vidas dum la Ludo "
+"de ekzemploj. Do VI mem estas nia filtrilo: se vi ignoros la ofendajn "
+"ekzemplojn, ili malaperos el nia datenaro.</p>"
 
 #: index.php:310
 msgid "Name"
-msgstr "Name"
+msgstr "Nomo"
 
 #: index.php:314
 msgid "Points"
-msgstr "Punkte"
+msgstr "Poentoj"
 
 #: index.php:318
 msgid "Pending points"
-msgstr "Ausstehende Punkte"
+msgstr "Ludataj poentoj"
 
 #: index.php:322
 #: index.php:438
 msgid "Success Rate"
-msgstr "Erfolgsrate"
+msgstr "Proporcio da sukcesoj"
 
 #: index.php:341
 msgid "Hints and Help Language"
-msgstr "Sprache für Hinweise und Hilfe"
+msgstr "Konsiloj kaj helpo-lingvo"
 
 #: index.php:351
 msgid "Game Language"
-msgstr "Spielsprache"
+msgstr "Ludo-lingvo"
 
 #: index.php:359
 msgid "Notify me about new points I earn..."
-msgstr "Benachrichtigen Sie mich über neue Punkte, die ich bekomme ..."
+msgstr "Sciigu min, kiam mi poentas..."
 
 #: index.php:361
 msgid "Real time"
-msgstr "Echtzeit"
+msgstr "Realtempe"
 
 #: index.php:362
 msgid "Once daily"
-msgstr "Einmal täglich"
+msgstr "Unufoje tage"
 
 #: index.php:363
 msgid "Once weekly"
-msgstr "Einmal wöchentlich"
+msgstr "Unufoje semajne"
 
 #: index.php:364
 msgid "When pigs fly..."
-msgstr "Wenn Schweine fliegen ..."
+msgstr "Neniam!"
 
 #: index.php:367
 msgid "Post achievements to my timeline..."
-msgstr "Erfolge in meiner Timeline anzeigen ..."
+msgstr "Konigu miajn atingaĵojn en mia kronologio..."
 
 #: index.php:370
 msgid "Always (Every time I have a winning entry)"
-msgstr "Immer (Jedes mal, wenn ich einen erfolgreichen Eintrag habe)"
+msgstr "Ĉiam (ĉiam, kiam mi havas venkantan registraĵon)"
 
 #: index.php:371
 msgid "Often (Max once a day)"
-msgstr "Oft (Maximal einmal am Tag)"
+msgstr "Ofte (maksimume unufoje tage)"
 
 #: index.php:372
 msgid "Sometimes (Max once a week)"
-msgstr "Manchmal (Maximal einmal pro Woche)"
+msgstr "Kelkfoje (maksimume unufoje semajne)"
 
 #: index.php:373
 msgid "Occasionally (Max once monthly)"
-msgstr "Gelegentlich (Maximal einmal pro Monat)"
+msgstr "De tempo al tempo (maksimume unufoje monate)"
 
 #: index.php:374
 msgid "When pigs fly... (Never)"
-msgstr "Wenn Schweine fliegen ... (nie)"
+msgstr "Neniam!"
 
 #: index.php:404
 msgid "Language"
-msgstr "Sprache"
+msgstr "Lingvo"
 
 #: index.php:406
 msgid "All languages"
-msgstr "Alle Sprachen"
+msgstr "Ĉiuj lingvoj"
 
 #: index.php:415
 msgid "Game"
-msgstr "Spiel"
+msgstr "Ludo"
 
 #: index.php:417
 msgid "All games"
-msgstr "Alle Spiele"
+msgstr "Ĉiuj ludoj"
 
 #: index.php:425
 msgid "TimePeriod"
-msgstr "Zeitraum"
+msgstr "Tempoperiodo"
 
 #: index.php:427
 msgid "All time"
-msgstr "Allzeit"
+msgstr "Ĉiam"
 
 #: index.php:428
 msgid "Last Month"
-msgstr "Vergangener Monat"
+msgstr "Pasinta monato"
 
 #: index.php:429
 msgid "Last Week"
-msgstr "Vergangene Woche"
+msgstr "Pasinta semajno"
 
 #: index.php:430
 msgid "Last 24 Hours"
-msgstr "Vergangene 24 Stunden"
+msgstr "Pasintaj 24 horoj"
 
 #: index.php:434
 msgid "What to compare"
-msgstr "Was vergleichen"
+msgstr "Komparendaĵo(j)"
 
 #: index.php:436
 msgid "Points Earned"
-msgstr "Verdiente Punkte"
+msgstr "Ricevitaj poentoj"
 
 #: index.php:437
 msgid "# of Submissions"
-msgstr "# der Einreichungen"
+msgstr "Kvanto da aldonoj"
 
 #: index.php:443
 msgid "Auto-Loop"
-msgstr "Automatischer Loop"
+msgstr "Aŭtomata iteracio"
 
 #: index.php:446
 msgid "Leaderboard"
-msgstr "Bestenliste"
+msgstr "Tabelo kun la plej bonaj ludantoj"
 
 #: index.php:466
 msgid " I can't say - skip this one..."
-msgstr "Kann ich nicht sagen - überspringen ..."
+msgstr "Mi ne scias - preterpasu ĝin..."
 
 #: index.php:467
 msgid " I can translate this word!"
-msgstr "Ich kann das übersetzen!"
+msgstr "Mi povas indiki samsignifan vorton mialingvan!"
 
 #: index.php:468
 msgid " Keep the working definition. It's spectacular as it is!"
-msgstr "Arbeitsdefinition beibehalten. Sie ist jetzt schon super!"
+msgstr "Konservu la provizoran difinon. Ĝi estas mojosa tiel!"
 
 #: index.php:469
 msgid "Working definition: "
-msgstr "Arbeitsdefinition:"
+msgstr "Provizora difino:"
 
 #: index.php:470
 msgid "Translate the following word to : "
-msgstr "Das folgende Wort übersetzen als:"
+msgstr "Indiku samsignifan vorton por la sekva vorto en:"
 
 #: index.php:471
 msgid "Your achievements for the "
-msgstr "Ihre Erfolge für"
+msgstr "Viaj atingaĵoj por la"
 
 #: index.php:472
 msgid " in "
-msgstr "in"
+msgstr "en"
 
 #: index.php:473
 msgid "Write or vote for a definition in "
-msgstr "Schreiben oder stimmen Sie für eine Definition in"
+msgstr "Skribu difinon aŭ voĉdonu pri ĝi en"
 
 #: index.php:474
 msgid "Rank: "
-msgstr "Rang:"
+msgstr "Rango:"
 
 #: index.php:476
 msgid "In Play: "
-msgstr "Im Spiel:"
+msgstr "Ludata(j):"
 
 #: index.php:477
 msgid "Banked: "
-msgstr "Gutgeschrieben:"
-
-#, php-format
-#~ msgid "Write or vote for a definition!"
-#~ msgstr "Schreibe oder Vote füR eine Definition!"
+msgstr "Ricevita(j):"
