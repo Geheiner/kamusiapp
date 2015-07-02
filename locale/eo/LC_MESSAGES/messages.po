@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE kamusi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-17 23:56+0000\n"
-"PO-Revision-Date: 2015-06-23 20:09+0000\n"
-"Last-Translator: Mélanie <melmaradan@yahoo.fr>\n"
+"PO-Revision-Date: 2015-07-02 22:20+0100\n"
+"Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.1-rc1\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-POOTLE-MTIME: 1435090186.000000\n"
 
 #: index.php:45
@@ -34,29 +34,19 @@ msgstr "Ludo de frazoj"
 msgid "Undefined Language"
 msgstr "Nedifinita lingvo"
 
-#: index.php:46
-#: index.php:345
-#: index.php:353
-#: index.php:407
+#: index.php:46 index.php:345 index.php:353 index.php:407
 msgid "English"
 msgstr "Angla"
 
-#: index.php:46
-#: index.php:346
-#: index.php:354
-#: index.php:408
+#: index.php:46 index.php:346 index.php:354 index.php:408
 msgid "French"
 msgstr "Franca"
 
-#: index.php:46
-#: index.php:355
-#: index.php:409
+#: index.php:46 index.php:355 index.php:409
 msgid "Vietnamese"
 msgstr "Vjetnama"
 
-#: index.php:46
-#: index.php:356
-#: index.php:410
+#: index.php:46 index.php:356 index.php:410
 msgid "Swahili"
 msgstr "Svahila"
 
@@ -84,19 +74,12 @@ msgstr "Adverbo"
 msgid "phrase"
 msgstr "Frazo"
 
-#: index.php:84
-#: index.php:133
-#: index.php:162
-#: index.php:187
-#: index.php:418
-#: index.php:419
-#: index.php:420
-#: index.php:421
+#: index.php:84 index.php:133 index.php:162 index.php:187 index.php:418
+#: index.php:419 index.php:420 index.php:421
 msgid "%s"
 msgstr "%s"
 
-#: index.php:98
-#: index.php:465
+#: index.php:98 index.php:465
 msgid " I can write the winning definition for this idea!"
 msgstr "Mi povas skribi la venkontan difinon por tiu ĉi ideo!"
 
@@ -126,11 +109,11 @@ msgid ""
 "other language resources for every language, and to make those resources "
 "available for free to everyone.</p>"
 msgstr ""
-"La projekto <em>Kamusi Project</em> (<a href=\"http://kamusi.org/\""
-">http://kamusi.org/</a>) estas kunlabora kaj internacia. Ĝi celas plibonigi "
-"onies sciojn pri la lingvoj de la mondo. La longdaŭra objektivo estas la "
-"kreado de vortaroj kaj aliaj lingvaj resursoj por ĉiuj lingvoj, kaj ties "
-"disponigo por ĉies senpaga uzado.</p>"
+"La projekto <em>Kamusi Project</em> (<a href=\"http://kamusi.org/\">http://"
+"kamusi.org/</a>) estas kunlabora kaj internacia. Ĝi celas plibonigi onies "
+"sciojn pri la lingvoj de la mondo. La longdaŭra objektivo estas la kreado de "
+"vortaroj kaj aliaj lingvaj resursoj por ĉiuj lingvoj, kaj ties disponigo por "
+"ĉies senpaga uzado.</p>"
 
 #: index.php:210
 msgid "<p><strong>Purpose</strong><br />"
@@ -160,11 +143,11 @@ msgstr "<p><strong>Ludi</strong><br />"
 msgid ""
 "Our games ask you a variety of types of questions. You earn points when your "
 "answer agrees with the consensus. Your points will remain <strong><em>in "
-"play</em></strong> until consensus, when they are "
-"<strong><em>banked</em></strong> if you are on the winning team. If you do "
-"not have an answer, just skip to the next question! When enough people agree "
-"to the same answer, it is published to the live Kamusi. For definitions, the "
-"winning author will receive credit on the entry page.</p>"
+"play</em></strong> until consensus, when they are <strong><em>banked</em></"
+"strong> if you are on the winning team. If you do not have an answer, just "
+"skip to the next question! When enough people agree to the same answer, it "
+"is published to the live Kamusi. For definitions, the winning author will "
+"receive credit on the entry page.</p>"
 msgstr ""
 "Niaj ludoj starigas diversecajn demandojn. Se via respondo al demando "
 "kongruas kun la plejmulta opinio, vi poentas. Viaj poentoj restas "
@@ -269,17 +252,17 @@ msgstr "<p>Bonvolu respekti la sekvajn regulojn:</p>"
 msgid ""
 "  <li>Short and sweet: A definition should be as brief as possible to "
 "explain the concept, but long enough to describe it fully. If the same word "
-"has <strong><em>different meanings</em></strong>, those are <strong><em>"
-"different concepts</em></strong> with different definitions. <strong><em>A "
-"definition</em></strong> in Kamusi only explains <strong><em>one "
-"concept</em></strong>.</li>"
+"has <strong><em>different meanings</em></strong>, those are "
+"<strong><em>different concepts</em></strong> with different definitions. "
+"<strong><em>A definition</em></strong> in Kamusi only explains "
+"<strong><em>one concept</em></strong>.</li>"
 msgstr ""
 "<li>Neceso kaj sufiĉo: Difino estu kiel eble plej mallonga, sed tamen sufiĉe "
-"longa por plene reprezenti la difinatan ideon. Se iu vorto havas <strong><em>"
-"plurajn signifojn</em></strong>, temas pri <strong><em>malsamaj "
+"longa por plene reprezenti la difinatan ideon. Se iu vorto havas "
+"<strong><em>plurajn signifojn</em></strong>, temas pri <strong><em>malsamaj "
 "nocioj</em></strong> kiuj havu malsamajn difinojn. Ĉe Kamusi "
-"<strong><em>difino</em></strong> nur temu pri <strong><em>unu "
-"nocio</em></strong>.</li>"
+"<strong><em>difino</em></strong> nur temu pri <strong><em>unu nocio</em></"
+"strong>.</li>"
 
 #: index.php:238
 msgid ""
@@ -294,8 +277,8 @@ msgstr ""
 #: index.php:239
 msgid ""
 "  <li>No circles: Definitions should NOT contain the word that is being "
-"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
-", not \"The feeling of being happy.\" Definitions should not be circular - "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy."
+"\", not \"The feeling of being happy.\" Definitions should not be circular - "
 "we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
 msgstr ""
 "<li>Neniu cirkleca referenco: Difinoj NE enhavu nek la difinatan vorton nek "
@@ -306,13 +289,13 @@ msgstr ""
 
 #: index.php:240
 msgid ""
-"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
-"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or "
+"\"X refers to\", etc. Style: Begin with a Capital letter and end with a "
 "period.</li>"
 msgstr ""
 "<li>Neniuj ornamaĵoj: Difino ne komencu ekzemple per \"Vorto, kiu signifas..."
-"\" aŭ \"Tio estas ...\" aŭ \"Vorto ... rilatas al ...\", k.t.p. Pri la stilo:"
-" Difino komenciĝu per majuskla litero kaj finiĝu per punkto.</li>"
+"\" aŭ \"Tio estas ...\" aŭ \"Vorto ... rilatas al ...\", k.t.p. Pri la "
+"stilo: Difino komenciĝu per majuskla litero kaj finiĝu per punkto.</li>"
 
 #: index.php:243
 msgid ""
@@ -320,24 +303,23 @@ msgid ""
 "definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
 "target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
 "great, but many can be much better. When you improve the definitions in "
-"English, we can provide better guidance for translations across "
-"languages.</p>"
+"English, we can provide better guidance for translations across languages.</"
+"p>"
 msgstr ""
-"Por la <strong><strong>angla lingvo</strong>, estas 200000 registraĵoj kun \""
-"provizoraj\" difinoj ĉerpitaj el la vortaro <a href=\"http://wordnet-"
-"rdf.princeton.edu\" target=\"_blank\">Princeton WordNet</a>.  Kelkaj el tiuj "
+"Por la <strong><strong>angla lingvo</strong>, estas 200000 registraĵoj kun "
+"\"provizoraj\" difinoj ĉerpitaj el la vortaro <a href=\"http://wordnet-rdf."
+"princeton.edu\" target=\"_blank\">Princeton WordNet</a>.  Kelkaj el tiuj "
 "difinoj bonegas, sed oni povus plibonigi multajn el ili. Kiam oni plibonigas "
 "la anglajn difinojn, tio helpas por la alilingvaj ekvivalentoj.</p>"
 
 #: index.php:244
 msgid ""
-" For more insight about writing definitions, you can <a href=\""
-"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
-"video</a>.</p>"
+" For more insight about writing definitions, you can <a href=\"https://www."
+"youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this video</a>.</p>"
 msgstr ""
-"Por lerni pli pri la redaktado de difinoj, vi povas <a href=\""
-"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">spekti tiun "
-"filmeton</a> (en la angla).</p>"
+"Por lerni pli pri la redaktado de difinoj, vi povas <a href=\"https://www."
+"youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">spekti tiun filmeton</a> "
+"(en la angla).</p>"
 
 #: index.php:254
 msgid " <p><strong>Translation Game</strong><br />"
@@ -368,23 +350,22 @@ msgstr ""
 msgid ""
 "   <li>You may not be able to give any translation. For example, many "
 "languages do not have a term for <strong><em>run</em></strong>, \"a point in "
-"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
-" to the next.</li>"
+"the game of baseball\". If you cannot translate a term, <strong>skip</"
+"strong> to the next.</li>"
 msgstr ""
 "<li>Povas okazi, ke vi ne povos indiki vorton en via lingvo. Ekzemple, en "
-"multaj lingvoj, ne ekzistas vorto por diri la angla \""
-"<strong><em>run</em></strong>\", kiu estas poento en la ludo de bazpilkado. "
-"Se ne eblas por vi indiki vorton en via lingvo, <strong>preterpasu</strong> "
-"ĝin kaj iru al la sekva.</li>"
+"multaj lingvoj, ne ekzistas vorto por diri la angla \"<strong><em>run</em></"
+"strong>\", kiu estas poento en la ludo de bazpilkado. Se ne eblas por vi "
+"indiki vorton en via lingvo, <strong>preterpasu</strong> ĝin kaj iru al la "
+"sekva.</li>"
 
 #: index.php:260
 msgid ""
 "   <li>Your term may not have exactly the same meaning as the English term. "
 "For example, English has 10 <strong><em>fingers</em></strong> and 10 "
-"<strong><em>toes</em></strong>, while Spanish has 20 "
-"<strong><em>dedos</em></strong>. For the translation game, just give us the "
-"closest equivalent, and we'll figure out non-parallel meanings in a "
-"different game.</li>"
+"<strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></"
+"strong>. For the translation game, just give us the closest equivalent, and "
+"we'll figure out non-parallel meanings in a different game.</li>"
 msgstr ""
 "<li>Povas okazi, ke la vorto en via lingvo ne tute samsignifas kiel la angla "
 "vorto. Ekzemple, en la angla oni havas 10 \"<strong><em>fingers</em></strong>"
@@ -404,12 +385,11 @@ msgid ""
 "reaches consensus.</li>"
 msgstr ""
 "<li>Povas okazi, ke en via lingvo ekzistas pli ol unu vorto kun la sama "
-"signifo. Ekzemple, povas esti ke vi uzas kaj la vorton "
-"<strong><em>klarigi</em></strong> kaj la vorton "
-"<strong><em>ekspliki</em></strong> en samaj kontekstoj. Kadre de la ludo de "
-"samsignifaj vortoj vialingvaj, simple diru al ni, kiun vorton vi plej ŝatas. "
-"Ni eltrovos sinonimojn kadre de alia ludo (kaj vi poentos se vi proponos "
-"respondon kiu atingos interkonsenton).</li>"
+"signifo. Ekzemple, povas esti ke vi uzas kaj la vorton <strong><em>klarigi</"
+"em></strong> kaj la vorton <strong><em>ekspliki</em></strong> en samaj "
+"kontekstoj. Kadre de la ludo de samsignifaj vortoj vialingvaj, simple diru "
+"al ni, kiun vorton vi plej ŝatas. Ni eltrovos sinonimojn kadre de alia ludo "
+"(kaj vi poentos se vi proponos respondon kiu atingos interkonsenton).</li>"
 
 #: index.php:273
 msgid " <p><strong>Examples Games (Tweets and Sentences)</strong><br />"
@@ -457,13 +437,13 @@ msgstr ""
 
 #: index.php:283
 msgid ""
-"   <li>Good example for a different meaning of "
-"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
-"missing you, I'm feeling so blue.\"</li>"
+"   <li>Good example for a different meaning of <strong><em>blue</em></"
+"strong>: \"My heart is aching from the pain of missing you, I'm feeling so "
+"blue.\"</li>"
 msgstr ""
-"<li>Jen trafa ekzemplo de alia signifo de la vorto "
-"<strong><em>verda</em></strong>: \"Tamen laŭŝajne neniu planas grandskalan "
-"uzon de t.n. verdaj energifontoj anstataŭ la mankonta.\"</li>"
+"<li>Jen trafa ekzemplo de alia signifo de la vorto <strong><em>verda</em></"
+"strong>: \"Tamen laŭŝajne neniu planas grandskalan uzon de t.n. verdaj "
+"energifontoj anstataŭ la mankonta.\"</li>"
 
 #: index.php:285
 msgid ""
@@ -483,11 +463,11 @@ msgstr ""
 
 #: index.php:287
 msgid ""
-"   <li>Do NOT click on an entry if it is a good example of a "
-"<em>different</em> meaning.</li>"
+"   <li>Do NOT click on an entry if it is a good example of a <em>different</"
+"em> meaning.</li>"
 msgstr ""
-"<li>NE elektu proponon, se ĝi estas bona ekzemplo de <em>alia</em> "
-"signifo.</li>"
+"<li>NE elektu proponon, se ĝi estas bona ekzemplo de <em>alia</em> signifo.</"
+"li>"
 
 #: index.php:288
 msgid ""
@@ -499,13 +479,13 @@ msgstr ""
 
 #: index.php:289
 msgid ""
-"   <li>ONLY click on an entry if it <strong><em>perfectly "
-"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
-"written in orange</font></strong>.</li>"
+"   <li>ONLY click on an entry if it <strong><em>perfectly demonstrates</em></"
+"strong> the meaning <strong><font color=\"#EBA634\">written in orange</"
+"font></strong>.</li>"
 msgstr ""
-"<li>NUR TIAM elektu proponon, se ĝi <strong><em>perfekte "
-"ilustras</em></strong> la signifon <strong><font color=\"#EBA634\">kun la "
-"oranĝa koloro</font></strong>.</li>"
+"<li>NUR TIAM elektu proponon, se ĝi <strong><em>perfekte ilustras</em></"
+"strong> la signifon <strong><font color=\"#EBA634\">kun la oranĝa koloro</"
+"font></strong>.</li>"
 
 #: index.php:291
 msgid ""
@@ -547,8 +527,7 @@ msgstr "Poentoj"
 msgid "Pending points"
 msgstr "Ludataj poentoj"
 
-#: index.php:322
-#: index.php:438
+#: index.php:322 index.php:438
 msgid "Success Rate"
 msgstr "Proporcio da sukcesoj"
 
