@@ -356,12 +356,12 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<p><?php echo _("Game Language"); ?></p>
 <select id="language" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
-	<option><?php echo _("Esperanto"); ?></option>
 	<option><?php echo _("French"); ?></option>
+	<option><?php echo _("Vietnamese"); ?></option>
+	<option><?php echo _("Swahili"); ?></option>
 	<option><?php echo _("German"); ?></option>
 	<option><?php echo _("Italian"); ?></option>
-	<option><?php echo _("Swahili"); ?></option>
-	<option><?php echo _("Vietnamese"); ?></option>
+	<option><?php echo _("Esperanto"); ?></option>
 </select>
 </br></br>
 <p><?php echo _("Notify me about new points I earn..."); ?></p>
