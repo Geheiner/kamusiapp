@@ -1,6 +1,6 @@
 <?php
 //global variables used throughout the application
-$acceptedModes = array("1","2","3","4");
+$acceptedModes = array("1","2","3","4","5","6");
 $allUsers = "allusers";
 $mysqli= null;
 
