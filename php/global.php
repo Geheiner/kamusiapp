@@ -1,11 +1,10 @@
 <?php
 //global variables used throughout the application
-$acceptedModes = array("1","2","3","4","5","6");
+$acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
 $mysqli= null;
 
 $partOfSpeechArray= array();
-
 
 $languageMap = array ("1" => "en_US", "2" => "de_DE", "3" => "eo", "4" => "fr_FR", "5" => "it_IT", "6" => "vi_VN" );
 
