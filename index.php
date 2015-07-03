@@ -43,8 +43,8 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
-$gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"), '4' => _("Swahili"), '5' => _("German"), '6' => _("Italian"), '7' => _("Esperanto"));
-$implementedGames= array('1' => array(1), '2' => array(2,3,4,5,6,7), '3' => array(1), '4' => array(4));
+$gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"), '4' => _("Swahili"), '5' => _("German"), '6' => _("Italian"), '7' => _("Esperanto"), '8' => _("Russian"));
+$implementedGames= array('1' => array(1), '2' => array(2,3,4,5,6,7,8), '3' => array(1), '4' => array(4));
 $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' => _('adjective'), 'adjective_satellite' => _('adjective_satellite'), 'adverb' => _('adverb'), 'phrase' => _('phrase'));
 
 ?>
@@ -347,6 +347,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
     <option><?php echo ("Esperanto"); ?></option>
 	<option><?php echo ("Français"); ?></option>
 	<option><?php echo ("Italiano"); ?></option>
+	<option><?php echo ("Русский язык"); ?></option>
 	<option><?php echo ("Việt"); ?></option>
 	
 </select>
@@ -399,6 +400,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<option><?php echo ("Esperanto"); ?></option>
 	<option><?php echo ("Français"); ?></option>
 	<option><?php echo ("Italiano"); ?></option>
+	<option><?php echo ("Русский язык"); ?></option>
     <option><?php echo ("tiếng Việt"); ?></option>
 	
 <!-- The languages are not translated yet
