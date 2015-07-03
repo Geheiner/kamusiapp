@@ -363,6 +363,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<option><?php echo _("German"); ?></option>
 	<option><?php echo _("Italian"); ?></option>
 	<option><?php echo _("Esperanto"); ?></option>
+	<option><?php echo _("Russian"); ?></option>
 </select>
 </br></br>
 <p><?php echo _("Notify me about new points I earn..."); ?></p>
@@ -401,7 +402,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<option><?php echo ("Français"); ?></option>
 	<option><?php echo ("Italiano"); ?></option>
 	<option><?php echo ("Русский язык"); ?></option>
-    <option><?php echo ("tiếng Việt"); ?></option>
+    <option><?php echo ("Việt"); ?></option>
 	
 <!-- The languages are not translated yet
 	<option><?php echo ("Swahili"); ?></option> -->
@@ -425,6 +426,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<option><?php echo _("German"); ?></option>
 				<option><?php echo _("Italiano"); ?></option>
 				<option><?php echo _("Esperanto"); ?></option>
+				<option><?php echo _("Russian"); ?></option>
 
 
 			</select>
