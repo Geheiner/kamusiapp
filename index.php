@@ -410,7 +410,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </br></br>
 </br></br>
 <div id="menuLanguage-footer">
-	<img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveMenuLanguage("menuLanguage");">
+	<img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveMenuLanguage(menuLanguage);">
 </div>
 </div>
 <div id="leaderboard">
