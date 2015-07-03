@@ -21,6 +21,8 @@ $groupID = $_GET['groupID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
+addXSubmissionsInGame($userID, $language, $mode, 1);
+addXToPointsInGame($userID, $language, $mode, 1);
 
 
 
