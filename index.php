@@ -141,9 +141,9 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 							<table id="translations">
 								<tr><td>
 								</div>	
-								<ul>								
+																
 								<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">✎ <?php echo gettext("I can translate this word!"); ?></li>
-								</ul>
+								
 								<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
 								<input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
 								<img title="Submit" id="SubmitTrans" ng-click="submitGame2($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
