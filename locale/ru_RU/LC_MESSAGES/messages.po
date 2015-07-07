@@ -1,19 +1,19 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE kamusi\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-17 23:56+0000\n"
-"PO-Revision-Date: 2015-07-03 14:12+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2015-07-05 16:14+0000\n"
+"Last-Translator: betya <betya.slon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ru_RU\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-POOTLE-MTIME: 1435902087.000000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.5.1-rc1\n"
+"X-POOTLE-MTIME: 1436112879.000000\n"
 
 #: index.php:45
 msgid "Definition Game"
@@ -25,7 +25,7 @@ msgstr "Игра в переводики"
 
 #: index.php:45
 msgid "Tweet Game"
-msgstr ""
+msgstr "твит-игра"
 
 #: index.php:45
 msgid "Sentence Game"
@@ -35,19 +35,29 @@ msgstr "Игра с предложениями"
 msgid "Undefined Language"
 msgstr "Неизвестный язык "
 
-#: index.php:46 index.php:345 index.php:353 index.php:407
+#: index.php:46
+#: index.php:345
+#: index.php:353
+#: index.php:407
 msgid "English"
 msgstr "Английский"
 
-#: index.php:46 index.php:346 index.php:354 index.php:408
+#: index.php:46
+#: index.php:346
+#: index.php:354
+#: index.php:408
 msgid "French"
 msgstr "Французский"
 
-#: index.php:46 index.php:355 index.php:409
+#: index.php:46
+#: index.php:355
+#: index.php:409
 msgid "Vietnamese"
 msgstr "Вьетнамский"
 
-#: index.php:46 index.php:356 index.php:410
+#: index.php:46
+#: index.php:356
+#: index.php:410
 msgid "Swahili"
 msgstr "Суахили"
 
@@ -65,7 +75,7 @@ msgstr "прилагательное"
 
 #: index.php:48
 msgid "adjective_satellite"
-msgstr ""
+msgstr "needs work"
 
 #: index.php:48
 msgid "adverb"
@@ -73,32 +83,39 @@ msgstr "Наречие"
 
 #: index.php:48
 msgid "phrase"
-msgstr "Выражение"
+msgstr "фраза"
 
-#: index.php:84 index.php:133 index.php:162 index.php:187 index.php:418
-#: index.php:419 index.php:420 index.php:421
+#: index.php:84
+#: index.php:133
+#: index.php:162
+#: index.php:187
+#: index.php:418
+#: index.php:419
+#: index.php:420
+#: index.php:421
 msgid "%s"
-msgstr ""
+msgstr "%s"
 
-#: index.php:98 index.php:465
+#: index.php:98
+#: index.php:465
 msgid " I can write the winning definition for this idea!"
-msgstr ""
+msgstr "я могу написать лучшее определение для этой идеи!"
 
 #: index.php:145
 msgid "I can translate this word!"
-msgstr ""
+msgstr "я могу перевести это слово!"
 
 #: index.php:163
 msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
-msgstr ""
+msgstr "Выберете только те твиты, которые хорошо иллюстрируют вот это понятие: "
 
 #: index.php:188
 msgid "Check the sentences that correspond well to this word: "
-msgstr ""
+msgstr "Отметьте предложения которые подходят к этому слову: "
 
 #: index.php:208
 msgid "<p><strong>About</strong><br />"
-msgstr ""
+msgstr "Описание"
 
 #: index.php:209
 msgid ""
@@ -108,10 +125,14 @@ msgid ""
 "other language resources for every language, and to make those resources "
 "available for free to everyone.</p>"
 msgstr ""
+"Проeкт Камуси -- это попытка общими усилиями участников разных стран "
+"расширить знания o языкax мира. Наша основная цель создать словари и другие "
+"справочные материалы для каждого языка и сделать их доступными и бесплатными "
+"для всех."
 
 #: index.php:210
 msgid "<p><strong>Purpose</strong><br />"
-msgstr ""
+msgstr "цель"
 
 #: index.php:211
 msgid ""
@@ -122,25 +143,34 @@ msgid ""
 "your language, linked to translations for all other languages, available to "
 "you for free.</p>"
 msgstr ""
+"Наши игры должны помочь узнать все о вашем языке от вас, чтобы поделиться "
+"этими знаниями с остальным миром. Разные игры нацелены на получение разной "
+"информации. То, что мы узнаём с помощью одной игры, помогает нам получить "
+"информацию для следующей игры. Наша цель - создание бесплатного детального "
+"словаря вашего языка, связанного с другими языками."
 
 #: index.php:212
 msgid "<p><strong>Play</strong><br />"
-msgstr ""
+msgstr "играть"
 
 #: index.php:213
+#, fuzzy
 msgid ""
 "Our games ask you a variety of types of questions. You earn points when your "
 "answer agrees with the consensus. Your points will remain <strong><em>in "
-"play</em></strong> until consensus, when they are <strong><em>banked</em></"
-"strong> if you are on the winning team. If you do not have an answer, just "
-"skip to the next question! When enough people agree to the same answer, it "
-"is published to the live Kamusi. For definitions, the winning author will "
-"receive credit on the entry page.</p>"
+"play</em></strong> until consensus, when they are "
+"<strong><em>banked</em></strong> if you are on the winning team. If you do "
+"not have an answer, just skip to the next question! When enough people agree "
+"to the same answer, it is published to the live Kamusi. For definitions, the "
+"winning author will receive credit on the entry page.</p>"
 msgstr ""
+"В наши играх вам задают самые разнообразные типы вопросов. Вы получаете "
+"очки, если ваш ответ совпадает с большинством ответов. Очки сохраняются до "
+"тех пор пока"
 
 #: index.php:214
 msgid "<p><strong>Honor Code</strong><br />"
-msgstr ""
+msgstr "На честном слове"
 
 #: index.php:215
 msgid ""
@@ -148,6 +178,10 @@ msgid ""
 "not attempt to game the game, and please alert us to suspicious items so we "
 "can remove spammers and all their spam.</p>"
 msgstr ""
+"Мы просим каждого игрока дать то, что они считают наилучшим ответом на "
+"каждый вопрос.  Пожалуйста, не пробуйте обыграть саму игру, а так же "
+"пожалуйста дайте нам знать если вы увидите подозрительные статьи чтобы мы "
+"могли удалить спэм и спэмерские регистрации. "
 
 #: index.php:216
 msgid "<p><strong>Friends</strong><br />"
@@ -185,10 +219,12 @@ msgstr ""
 #: index.php:231
 msgid " Submit a <em>spam</em> definition: -10 points + watchlist</p>"
 msgstr ""
+"Предложение спам-определения: -10 очков и занесение в предупредительный "
+"список. "
 
 #: index.php:232
 msgid "<p><strong>How to write a great definition</strong><br />"
-msgstr ""
+msgstr "Как написать замечательное определение"
 
 #: index.php:233
 msgid ""
@@ -196,6 +232,9 @@ msgid ""
 "words (those are synonyms). You can usually use a definition instead of the "
 "actual word. </p>"
 msgstr ""
+"Определения -- это объяснение того, что означает слово.  Определения не "
+"являются отдельными словами (т.е., это не синонимы).  Обычно определение "
+"можно использовать вместо слова которое оно определяет."
 
 #: index.php:234
 msgid ""
@@ -205,20 +244,29 @@ msgid ""
 "what the term means in your language - the meaning may differ somewhat from "
 "the English definition we show of a matched English concept!</p>"
 msgstr ""
+"Определения не являются переводами.  Они написаны на том же языке что и само "
+"понятие, которое они определяют.  Вы определяете слово на своем языке, т.е., "
+"определение должно быть на том же языке.  Определение должно помогать понять "
+"что данный термин означает на вашем языке -- значение может отличаться от "
+"английского определения показанного от спаренного английского концепта!"
 
 #: index.php:235
 msgid "<p>Stick to these rules:</p>"
-msgstr ""
+msgstr "Придерживайтесь следующих правил:"
 
 #: index.php:237
 msgid ""
 "  <li>Short and sweet: A definition should be as brief as possible to "
 "explain the concept, but long enough to describe it fully. If the same word "
-"has <strong><em>different meanings</em></strong>, those are "
-"<strong><em>different concepts</em></strong> with different definitions. "
-"<strong><em>A definition</em></strong> in Kamusi only explains "
-"<strong><em>one concept</em></strong>.</li>"
+"has <strong><em>different meanings</em></strong>, those are <strong><em>"
+"different concepts</em></strong> with different definitions. <strong><em>A "
+"definition</em></strong> in Kamusi only explains <strong><em>one "
+"concept</em></strong>.</li>"
 msgstr ""
+"Краткость -- мать таланта: определение должно быть как можно короче чтобы "
+"объяснить понятие, но достаточно длинным чтобы полностью описать его.  Если "
+"одно и то же слово имеет разные значения, это разные концепты, с разными "
+"определениями.  Определение в Камуси объясняет только один концепт. "
 
 #: index.php:238
 msgid ""
@@ -226,21 +274,31 @@ msgid ""
 "force readers to jump around the dictionary more, unless technical terms are "
 "absolutely necessary.</li>"
 msgstr ""
+"Чем проще тем лучше: используйте наиболее простые из подходящих слов.  "
+"Определения не должны заставить читателей искать слова в словаре, если, "
+"конечно, нельзя не обойтись без технических терминов."
 
 #: index.php:239
 msgid ""
 "  <li>No circles: Definitions should NOT contain the word that is being "
-"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy."
-"\", not \"The feeling of being happy.\" Definitions should not be circular - "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
+", not \"The feeling of being happy.\" Definitions should not be circular - "
 "we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
 msgstr ""
+"Не по кругу: определение не должно включать в себя слово которое оно "
+"определяет, а также однокоренные слова.  \"Счастье\" это \"ощущение радости\""
+", а не \"ощущение счастья\".  Определения не должны быть замкнутыми: мы "
+"теперь не можем сказать   что \"радость -- это ощущение счастья\"."
 
 #: index.php:240
+#, fuzzy
 msgid ""
-"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or "
-"\"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
+"X refers to\", etc. Style: Begin with a Capital letter and end with a "
 "period.</li>"
 msgstr ""
+"Без начинки: Не начинайте с \"слово означающее\" или \"Это является...\" или "
+"\" Х относится к\" итд. Стиль должен быть следующим: "
 
 #: index.php:243
 msgid ""
@@ -248,14 +306,15 @@ msgid ""
 "definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
 "target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
 "great, but many can be much better. When you improve the definitions in "
-"English, we can provide better guidance for translations across languages.</"
-"p>"
+"English, we can provide better guidance for translations across "
+"languages.</p>"
 msgstr ""
 
 #: index.php:244
 msgid ""
-" For more insight about writing definitions, you can <a href=\"https://www."
-"youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this video</a>.</p>"
+" For more insight about writing definitions, you can <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
+"video</a>.</p>"
 msgstr ""
 
 #: index.php:254
@@ -282,17 +341,18 @@ msgstr ""
 msgid ""
 "   <li>You may not be able to give any translation. For example, many "
 "languages do not have a term for <strong><em>run</em></strong>, \"a point in "
-"the game of baseball\". If you cannot translate a term, <strong>skip</"
-"strong> to the next.</li>"
+"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
+" to the next.</li>"
 msgstr ""
 
 #: index.php:260
 msgid ""
 "   <li>Your term may not have exactly the same meaning as the English term. "
 "For example, English has 10 <strong><em>fingers</em></strong> and 10 "
-"<strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></"
-"strong>. For the translation game, just give us the closest equivalent, and "
-"we'll figure out non-parallel meanings in a different game.</li>"
+"<strong><em>toes</em></strong>, while Spanish has 20 "
+"<strong><em>dedos</em></strong>. For the translation game, just give us the "
+"closest equivalent, and we'll figure out non-parallel meanings in a "
+"different game.</li>"
 msgstr ""
 
 #: index.php:261
@@ -343,9 +403,9 @@ msgstr ""
 
 #: index.php:283
 msgid ""
-"   <li>Good example for a different meaning of <strong><em>blue</em></"
-"strong>: \"My heart is aching from the pain of missing you, I'm feeling so "
-"blue.\"</li>"
+"   <li>Good example for a different meaning of "
+"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
+"missing you, I'm feeling so blue.\"</li>"
 msgstr ""
 "<li>Хороший пример использования слова  <strong><em>ручка</em></strong> в "
 "другом значении: \"Дай мне твою  <strong><em>ручку</em></strong>, чтобы "
@@ -363,8 +423,8 @@ msgstr ""
 
 #: index.php:287
 msgid ""
-"   <li>Do NOT click on an entry if it is a good example of a <em>different</"
-"em> meaning.</li>"
+"   <li>Do NOT click on an entry if it is a good example of a "
+"<em>different</em> meaning.</li>"
 msgstr ""
 
 #: index.php:288
@@ -375,9 +435,9 @@ msgstr ""
 
 #: index.php:289
 msgid ""
-"   <li>ONLY click on an entry if it <strong><em>perfectly demonstrates</em></"
-"strong> the meaning <strong><font color=\"#EBA634\">written in orange</"
-"font></strong>.</li>"
+"   <li>ONLY click on an entry if it <strong><em>perfectly "
+"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
+"written in orange</font></strong>.</li>"
 msgstr ""
 
 #: index.php:291
@@ -412,7 +472,8 @@ msgstr ""
 msgid "Pending points"
 msgstr ""
 
-#: index.php:322 index.php:438
+#: index.php:322
+#: index.php:438
 msgid "Success Rate"
 msgstr ""
 
@@ -442,7 +503,7 @@ msgstr ""
 
 #: index.php:364
 msgid "When pigs fly..."
-msgstr "когда рак на горе свистнет"
+msgstr "когда рак на горе свистнет (никогда)"
 
 #: index.php:367
 msgid "Post achievements to my timeline..."
