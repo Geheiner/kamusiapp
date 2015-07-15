@@ -1,0 +1,686 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-17 23:56+0000\n"
+"PO-Revision-Date: 2015-07-12 07:33+0000\n"
+"Last-Translator: Amidou <mixamidou@yahoo.fr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: run\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 2.5.1-rc1\n"
+"X-POOTLE-MTIME: 1436686431.000000\n"
+
+#: index.php:45
+msgid "Definition Game"
+msgstr "Urukino nsiguramajambo"
+
+#: index.php:45
+msgid "Translation Game"
+msgstr "Urukino mpinduramajambo (Gutradwiza)"
+
+#: index.php:45
+msgid "Tweet Game"
+msgstr "Urukino rwa tweet"
+
+#: index.php:45
+msgid "Sentence Game"
+msgstr "Urukino n'amungane"
+
+#: index.php:46
+msgid "Undefined Language"
+msgstr "Ururimi rutazwi"
+
+#: index.php:46
+#: index.php:345
+#: index.php:353
+#: index.php:407
+msgid "English"
+msgstr "Icongereza"
+
+#: index.php:46
+#: index.php:346
+#: index.php:354
+#: index.php:408
+msgid "French"
+msgstr "Igifaransa"
+
+#: index.php:46
+#: index.php:355
+#: index.php:409
+msgid "Vietnamese"
+msgstr "Ikivyetinamu"
+
+#: index.php:46
+#: index.php:356
+#: index.php:410
+msgid "Swahili"
+msgstr "Igiswahiri"
+
+#: index.php:48
+msgid "noun"
+msgstr "izina"
+
+#: index.php:48
+msgid "verb"
+msgstr "Irivuga"
+
+#: index.php:48
+msgid "adjective"
+msgstr "ingereka"
+
+#: index.php:48
+msgid "adjective_satellite"
+msgstr "ingereka Satellite"
+
+#: index.php:48
+msgid "adverb"
+msgstr "intumbuzi"
+
+#: index.php:48
+msgid "phrase"
+msgstr "iryungane"
+
+#: index.php:84
+#: index.php:133
+#: index.php:162
+#: index.php:187
+#: index.php:418
+#: index.php:419
+#: index.php:420
+#: index.php:421
+msgid "%s"
+msgstr "%s"
+
+#: index.php:98
+#: index.php:465
+msgid " I can write the winning definition for this idea!"
+msgstr "Ndashoboye kwandika insiguro itomoye y'iki ciyumviro!"
+
+#: index.php:145
+msgid "I can translate this word!"
+msgstr "Ndashoboye guhindura mu rundi rurimi rino jambo!"
+
+#: index.php:163
+msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
+msgstr "Rondera GUSA ama tweet y'uburorero nyabwo y'iyi nsiguro:"
+
+#: index.php:188
+msgid "Check the sentences that correspond well to this word: "
+msgstr "Rondera amungane ajanye neza n'iri jambo:"
+
+#: index.php:208
+msgid "<p><strong>About</strong><br />"
+msgstr "<p><strong>-erekeye</strong><br />"
+
+#: index.php:209
+msgid ""
+"The Kamusi Project (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
+"is a participatory international effort dedicated to improving knowledge of "
+"the world's languages. Our long term mission is to produce dictionaries and "
+"other language resources for every language, and to make those resources "
+"available for free to everyone.</p>"
+msgstr ""
+"Umugambi Kamusi (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
+"n'igikorwa mpuzamakungu c'ukwitanga mu ntumbero y'iterambere mu bumenyi "
+"bw'indimi zivugwa kw'isi. Igikorwa nyamukuru cacu n'ugushiraho za kazinduzi "
+"n'ibindi bikoresho bikenewe kuri buri rurimi hamwe n'ukubironsa abantu bose "
+"ku buntu.</p>"
+
+#: index.php:210
+msgid "<p><strong>Purpose</strong><br />"
+msgstr "<p><strong>Intumbero</strong><br />"
+
+#: index.php:211
+msgid ""
+"Our games are designed to learn all about your language, from you, so that "
+"we can share that knowledge with the rest of the world. Different games seek "
+"different pieces of information. What we learn in one game builds "
+"information we can use in the next. Our goal is a detailed dictionary for "
+"your language, linked to translations for all other languages, available to "
+"you for free.</p>"
+msgstr ""
+"Inkino zacu ziriho kugira hirwe ibikenewe vyose kuvyerekeye indimi zanyu, "
+"bivuye muri mwebwe; gutyo tugashobora gusangira ubwo bumenyi n'abandi bantu "
+"bose bo mw'isi yose. Hari inkino zitandukanye zigatanga amakuru atandukanye. "
+"Ivyo twiga mu rukino rumwe bitanga inkuru dushobora gukoresha mu nkino "
+"zikurikira. Intumbero yacu ni kazinduzi isigura bihagije ururimi rwawe, "
+"hagakurikira insiguro mu zindi ndimi zose, zigashirwaho ku bwawe kandi ku "
+"buntu."
+
+#: index.php:212
+msgid "<p><strong>Play</strong><br />"
+msgstr "<p><strong>Kina</strong><br />"
+
+#: index.php:213
+msgid ""
+"Our games ask you a variety of types of questions. You earn points when your "
+"answer agrees with the consensus. Your points will remain <strong><em>in "
+"play</em></strong> until consensus, when they are "
+"<strong><em>banked</em></strong> if you are on the winning team. If you do "
+"not have an answer, just skip to the next question! When enough people agree "
+"to the same answer, it is published to the live Kamusi. For definitions, the "
+"winning author will receive credit on the entry page.</p>"
+msgstr ""
+"Inkino zacu zikubaza ubwoko butandukanye bw'ibibazo. Wunguka amanota iyo "
+"inyishu yawe yemewe mu mwumvikano. Amanota yawe azogumaho <strong><em>mu "
+"rukino</em></strong>gushika uwo mwumvikano ubayeho, ayo manota araheza "
+"<strong><em>agatsindirwa</em></strong> mu gihe uri mu murwi watsinze. Iyo "
+"atanyishu ufise wotanga, bandanya ku kibazo gikurikira! Iyo abantu benshi "
+"bahuriye ku nyishu imwe, iraheza igashirwa muri Kamusi nyezina. Kuvyerekeye "
+"insiguro, umuntu azoba yatsinze azohabwa uburenganzira kw'ikoreshwa rya "
+"conti ya Kamusi.</p>"
+
+#: index.php:214
+msgid "<p><strong>Honor Code</strong><br />"
+msgstr "<p><strong>Ibwirizwa ry'iteka</strong><br />"
+
+#: index.php:215
+msgid ""
+"We ask each player to give their one best answer to each question. Please do "
+"not attempt to game the game, and please alert us to suspicious items so we "
+"can remove spammers and all their spam.</p>"
+msgstr ""
+"Dusaba umukinyi uwo ariwe wese gutanga inyishu yiwe ya mbere nziza kuri buri "
+"kibazo. Tubasavye kwirinda kunobera kandi tunabasaba kutumenyesha igihe "
+"mwobona ubutumwa butabereye kugirango tubukuremwo.</p>"
+
+#: index.php:216
+msgid "<p><strong>Friends</strong><br />"
+msgstr "<p><strong>Abagenzi</strong><br />"
+
+#: index.php:217
+msgid ""
+"The more people who play for your language, the more fun you will have - you "
+"score points more quickly, and move toward more advanced questions. If you "
+"enjoy playing, please tell your friends to join us! They&rsquo;ll have fun "
+"too, and together you will contribute to a great resource for your whole "
+"community.</p>"
+msgstr ""
+"Uko abantu bakina mu rurimi rwawe batera baba benshi, niko akanovera "
+"kiyongera gutyo ukinjiza n'amanota vuba bwango ugaheza ukabandanya n'ibibazo "
+"bikurikira. Niwaba ushimishwa n'uru rukino, tumira abagenzi bawe! Nabo "
+"bizobashimisha, gutyo muri hamwe muzoba muriko muraterera mw'iterambera "
+"ry'umuryango wanyu.</p>"
+
+#: index.php:227
+msgid "<p><strong>Definition Game</strong><br />"
+msgstr "<p><strong>Urukino nsiguramajambo</strong><br />"
+
+#: index.php:228
+msgid "Write a definition: 1 point<br />"
+msgstr "Andika insiguro: 1 inota<br />"
+
+#: index.php:229
+msgid " Vote for the winning definition: 1 point<br />"
+msgstr "Hitamwo insiguro itomoye: 1 inota<br />"
+
+#: index.php:230
+msgid ""
+" <em><strong>Write the winning definition</strong></em>: 5 points + credit "
+"on the dictionary entry page<br />"
+msgstr ""
+"<em><strong>Andika insiguro itomoye</strong></em>: 5 amanota + uburenganzira "
+"muri Kamusi nyezina<br />"
+
+#: index.php:231
+msgid " Submit a <em>spam</em> definition: -10 points + watchlist</p>"
+msgstr "Utanze<em>insiguro</em> itajanye: -10 amanota + urutonde</p>"
+
+#: index.php:232
+msgid "<p><strong>How to write a great definition</strong><br />"
+msgstr "<p><strong>Uburyo insiguro ihambaye yandikwa</strong><br />"
+
+#: index.php:233
+msgid ""
+" Definitions are explanations of what a word means. They are not single "
+"words (those are synonyms). You can usually use a definition instead of the "
+"actual word. </p>"
+msgstr ""
+"Insiguro ni ugusobanura ico ijambo rivuga. Si amajambo yirebanga "
+"(ivyitiranwa). Kenshi na kenshi ushobora gukoresha insiguro mukibanza c'iryo "
+"jambo."
+
+#: index.php:234
+msgid ""
+"<p>Definitions are NOT translations. They are written in the same language "
+"as the term you are defining. If you are defining a word in your language, "
+"the definition should be in that language, too. Definitions should define "
+"what the term means in your language - the meaning may differ somewhat from "
+"the English definition we show of a matched English concept!</p>"
+msgstr ""
+"<p>Insiguro SI ivyahinduwe mu rundi rurimi kuko biba vyanditswe muri urwo "
+"rurimi nyene cokimwe n'ijambo uriko urasigura. Igihe uriko urasigura ijambo "
+"mu rurimi rwawe, n'insiguro yaryo itegerezwa kuba muri runo rurimi nyene.</p>"
+
+#: index.php:235
+msgid "<p>Stick to these rules:</p>"
+msgstr "<p>Ubahiriza aya mategeko:</p>"
+
+#: index.php:237
+msgid ""
+"  <li>Short and sweet: A definition should be as brief as possible to "
+"explain the concept, but long enough to describe it fully. If the same word "
+"has <strong><em>different meanings</em></strong>, those are <strong><em>"
+"different concepts</em></strong> with different definitions. <strong><em>A "
+"definition</em></strong> in Kamusi only explains <strong><em>one "
+"concept</em></strong>.</li>"
+msgstr ""
+"<li>Ngufi kandi iryohoye: Insiguro itegererwa kuba ngufi bishoboka kugira "
+"itomore neza ijambo, ariko ikanaba ndende kugira irisigure bihagije. Iyo "
+"iryo jambo nyene rifise<strong><em>insiguro nyinshi</em></strong>, ayo aca "
+"yitwa<strong><em>amajambo atandukanye</em></strong>afise n'insiguro "
+"zitandukanye. <strong><em> Insiguro</em></strong>muri Kamusi "
+"idondora<strong><em>ijambo rimwe gusa</em></strong>.</li>"
+
+#: index.php:238
+msgid ""
+"  <li>Easy does it: Use the simplest words you can. Definitions should not "
+"force readers to jump around the dictionary more, unless technical terms are "
+"absolutely necessary.</li>"
+msgstr ""
+"<li>Iroroshe kwubaka: Koresha amajambo asanzwe ashoboka. Insiguro nziza "
+"niyituma umusomyi adakenera kazinduzi, kiretse habayemwo amajambo amwamwe "
+"afobetse.</li>"
+
+#: index.php:239
+msgid ""
+"  <li>No circles: Definitions should NOT contain the word that is being "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
+", not \"The feeling of being happy.\" Definitions should not be circular - "
+"we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
+msgstr ""
+"</li>Nta majambo yisubiriza: Insiguro ntizibamwo ijambo ririko rirasigurwa "
+"canke iryo bisa. <em>Umunezero <em> ni \"Ukwiyumvamwo akanyamuneza.\", si \""
+"Ukwiyumvamwo ibinezereza\". Ntitwonavuga ko <em>akanyamuneza</em> ari \""
+"ukwiyumvamwo ibinezereza.\"</li>"
+
+#: index.php:240
+msgid ""
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
+"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"period.</li>"
+msgstr ""
+"<li> Ikizira: Ntugatanguze \" Bisigura\", canke \"Iki ni\", canke \"X "
+"gisigura\", n'ibindi. Inyubako: Tanguza urudome rukuru uhereze "
+"akaburungu.</li>"
+
+#: index.php:243
+msgid ""
+" For <strong>English</strong>, we have 200,000 entries with \"working "
+"definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
+"target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
+"great, but many can be much better. When you improve the definitions in "
+"English, we can provide better guidance for translations across "
+"languages.</p>"
+msgstr ""
+"Mu <strong>Icongereza</strong>, dufise amajambo 200,000 asiguye atiwe muri <"
+"a href=\"http://wordnet-rdf.princeton.edu\" target=\"_blank\">Princeton "
+"WordNet</a>. Zimwe muri izi nsiguro ni nziza ariko, hashobora kuba na nziza "
+"kurusha. Iyo haryohowe insiguro mu congereza bituma haboneka umuco "
+"mw'ihindurwa ry'amajambo mu zindi ndimi. </p>"
+
+#: index.php:244
+msgid ""
+" For more insight about writing definitions, you can <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
+"video</a>.</p>"
+msgstr ""
+"Kubindi bijanye n'iyandikwa ryiza ry'insiguro, mushobora kuraba <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">ino "
+"sanamu</a>.</p>"
+
+#: index.php:254
+msgid " <p><strong>Translation Game</strong><br />"
+msgstr "<p><strong>Urukino nsiguramajambo</strong><br />"
+
+#: index.php:255
+msgid "   Submit a term that becomes the consensus: 3 points<br />"
+msgstr "Tanga ijambo rica riba akabirya: 3 amanota<br />"
+
+#: index.php:256
+msgid ""
+"   Skip a term where the consensus is \"skip\" for this language: 1 point</p>"
+msgstr "Simba ijambo aho hose usabwa \"simba\" kuri runo rurimi: 1 inota </p>"
+
+#: index.php:257
+msgid ""
+" <p>When we do not already have an equivalent term in your language for an "
+"idea that we have in our English dataset, we ask you to tell us the best way "
+"to express the same meaning.</p>"
+msgstr ""
+"<p> Bishitse tukabura mu rurimi rwawe ijambo rihura n'uryo mu congereza, "
+"usabwa kutubwira uburyo bwiza ubona bwo kurisigura<p>"
+
+#: index.php:259
+msgid ""
+"   <li>You may not be able to give any translation. For example, many "
+"languages do not have a term for <strong><em>run</em></strong>, \"a point in "
+"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
+" to the next.</li>"
+msgstr ""
+"<li>Birashobora gushika aho usanga utoronka uko uhindura ijambo mu rundi "
+"rurimi. Nk'akarorero, indimi nyinshi ntizifise ijambo risigura "
+"<strong>kuja<em>run</em></strong>, \"mu burundi\". Iyo usanze hari ijambo "
+"udashoboye guhindura mu rundi rurimi, <strong>simba</strong> uheze uje ku "
+"rikurikira.</li>"
+
+#: index.php:260
+msgid ""
+"   <li>Your term may not have exactly the same meaning as the English term. "
+"For example, English has 10 <strong><em>fingers</em></strong> and 10 "
+"<strong><em>toes</em></strong>, while Spanish has 20 "
+"<strong><em>dedos</em></strong>. For the translation game, just give us the "
+"closest equivalent, and we'll figure out non-parallel meanings in a "
+"different game.</li>"
+msgstr ""
+"<li>Birashika ko ijambo rishobora kugira insiguro idahuye neza n'iyo rifise "
+"mu congereza. Nk'akarorero, icongereza gifise 10 "
+"<strong><em>intoke</em></strong> na 10 <strong><em>amano</em></strong>, mu "
+"gihe igisupanyore gifise 20 </strong><strong><em>dedos</em></strong>. "
+"Kubijanye n'urukino mpinduramajambo, tanga ijambo mu rundi rurimi rifise "
+"insiguro yegereye cane, gutyo natwe tuzoheza dushireho urundi rukino rujanye "
+"n'insiguro zindi zitajanye. </li>"
+
+#: index.php:261
+msgid ""
+"   <li>Your language might have more than one word that means the same "
+"thing. For example, you might use the words <strong><em>sofa</em></strong> "
+"and <strong><em>couch</em></strong> interchangeably. For the translation "
+"game, just tell us your favorite. We'll figure out synonyms in a different "
+"game, and you'll earn your points if you provide an answer that eventually "
+"reaches consensus.</li>"
+msgstr ""
+"<li> Ururimi rwawe rushobora kugira amajambo menshi afise insiguro imwe.  "
+"Nk'akarorero, woshobora gukoresha <strong><em>umuduga</em></strong> na "
+"<strong><em>imodoka</em></strong>kimwe mu kibanza c'ikindi. Kuvyerekeye "
+"urukino mpinduramajambo, duhe insiguro wumva ibereye. Tuzoheza dushireho "
+"urundi rukino rujanye n'ivyitiranwa, bizotuma uronka amanota mu gihe utanze "
+"inyishu ihuriweko na benshi. </li>"
+
+#: index.php:273
+msgid " <p><strong>Examples Games (Tweets and Sentences)</strong><br />"
+msgstr "<p><strong>Inkino ku burorero (Tweet n'amungane)</strong><br /"
+
+#: index.php:274
+msgid "   Skip an example where the consensus is \"skip\": 1 point<br />"
+msgstr "Simba gushirako akarorero iyo ubonye \"simba\": 1 inota <br />"
+
+#: index.php:275
+msgid "   Select an example where the consensus is \"select\": 1 point</p>"
+msgstr "Tora akarorero iyo ubonye \"tora\": 1 inota</p>"
+
+#: index.php:276
+msgid ""
+" <p>Usage examples help people understand how a term is really used. Finding "
+"a good example can be hard, however.</p>"
+msgstr ""
+"<p>Ikoreshwa ry'uburorero rifasha abantu gutahura uburyo ijambo rikoreshwa "
+"vy'ukuri. Ariko rero biragoye gushoka umuntu aronka akarorero gatomoye. </p>"
+
+#: index.php:278
+msgid "   <li>Bad: \"Your eyes are blue.\"</li>"
+msgstr "<li>Ni bibi kuvuga: \"Uri maso y'inyana.\"</li>"
+
+#: index.php:279
+msgid ""
+"   <li>Good: \"Your eyes are the same blue as the water in the bay, and "
+"sparkle even more in the sunlight.\"</li>"
+msgstr "<li> Ni vyiza kuvuga: \"Ufise amaso meza nk'ayinyana y'inka.\"</li>"
+
+#: index.php:281
+msgid ""
+" <p>Because words have different senses, an example might be excellent in "
+"one context but completely wrong in another.</p>"
+msgstr ""
+"<p>Kubera amajambo afise insiguro zitandukanye, akarorero gashobora kuba "
+"keza mu mvugo imwe ariko kagashobora kuba katabereye mu yindi mvugo.</p>"
+
+#: index.php:283
+msgid ""
+"   <li>Good example for a different meaning of "
+"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
+"missing you, I'm feeling so blue.\"</li>"
+msgstr ""
+"<li>Akarorero kandi kabereye gafise iyindi nsiguro itandukanye "
+"k'<strong><em>amaso</em></strong>: \"Yohani yari yijiriwe amaso yabaye "
+"umunani.\"</li>"
+
+#: index.php:285
+msgid ""
+" <p>In the Examples games, your goal is to find sentences that are real gems "
+"for a specific meaning of a term. The Tweet game shows you a bunch of recent "
+"postings to Twitter, while the Sentences game grabs examples from other "
+"sources. You read the definition, and click on the tweets or sentences that "
+"will be a great help for dictionary users to understand the exact meaning we "
+"show.</p>"
+msgstr ""
+"<p>Mu nkino n'uburorero, intumbero yawe ni ukurondera amungane atanga "
+"insiguro nyakuri y'ijambo. Urukino rwa tweet rukwereka amakuru ya mashasha "
+"yashizwe kuri Twitter, mu gihe urukino n'amungane rukura uburorero ku yandi "
+"ma sôko. Usoma insiguro, ugaheza ukadoma kuma tweets canke ku mungane mubona "
+"afitiye akamaro ka nini abakoresha iyo kazinduzi mu gutahura neza insiguro "
+"dutanga.</p>"
+
+#: index.php:287
+msgid ""
+"   <li>Do NOT click on an entry if it is a good example of a "
+"<em>different</em> meaning.</li>"
+msgstr ""
+"<li>NTIWEMEZE mu gihe ryoba ari akarorero kabereye ariko gafise "
+"iyindi<em>itandukanye</em>insiguro.</li>"
+
+#: index.php:288
+msgid ""
+"   <li>Do NOT click on an entry if it kind-of, sort-of works with the "
+"meaning in question.</li>"
+msgstr ""
+"<li>NTIWEMEZE mu gihe ubona ko insiguro ituzuye bishimishishe urugero.</li>"
+
+#: index.php:289
+msgid ""
+"   <li>ONLY click on an entry if it <strong><em>perfectly "
+"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
+"written in orange</font></strong>.</li>"
+msgstr ""
+"<li>EMEZA mu gihe<strong><em>itanga</em></strong>insiguro<strong><font color="
+"\"#EBA634\"> itomoye neza yanditse mw'ibára rya oranje</font></strong>.</li>"
+
+#: index.php:291
+msgid ""
+" <p>Remember, you will score points if you and others all agree to \"skip\", "
+"and you will score points if you and others all agree to \"select\". </p>"
+msgstr ""
+"<p>Wibuke ko uzunguka amanota mu gihe wewe n'abandi muhuriye kuri \"simba\", "
+"canke mu gihe muhuriye kuri \"tora\". </p>"
+
+#: index.php:292
+msgid " <p><strong>Play at your own risk </strong><br />"
+msgstr "<p><strong>Kina ugavye</strong><br />"
+
+#: index.php:293
+msgid ""
+"   We try to filter out inappropriate content in advance. Please be warned, "
+"however, that some objectionable content might slip through our automated "
+"filters. We apologize in advance for the possibility that you might see "
+"offensive Tweets. We do not have humans reviewing the content you see in the "
+"Examples games - YOU are the filter. By ignoring offensive examples, you "
+"will help make them vanish from our data collection.</p>"
+msgstr ""
+"Turagerageza gukuramwo  hakiri kare  insiguro zitabereye. Ariko "
+"turabagabishije ko hari insiguro zikurwamwo n'integuro isanzwe mu mashini. "
+"Tubaye turabasavye kutwihanganira mu gihe mwobona ama tweet adashimishije "
+"kubera bidashoboka ko haba abantu batunganya  neza itoranywa ry' Inkino "
+"n'uburorero- Ni WEWE utoranya amajambo abereye mu gukumira uburorero bubi, "
+"gutyo uzoba ufashije mw'ijonjora ry'amajambo meza.</p>"
+
+#: index.php:310
+msgid "Name"
+msgstr "Izina"
+
+#: index.php:314
+msgid "Points"
+msgstr "Amanota"
+
+#: index.php:318
+msgid "Pending points"
+msgstr "Amanota arindiriwe"
+
+#: index.php:322
+#: index.php:438
+msgid "Success Rate"
+msgstr "Urugero rw'ubushobozi"
+
+#: index.php:341
+msgid "Hints and Help Language"
+msgstr "Ururimi rwo kwisunga n'ukwifashisha"
+
+#: index.php:351
+msgid "Game Language"
+msgstr "Ururimi rw'urukino"
+
+#: index.php:359
+msgid "Notify me about new points I earn..."
+msgstr "Mbwira amanota mashasha nungutse..."
+
+#: index.php:361
+msgid "Real time"
+msgstr "Umwanya nyawo"
+
+#: index.php:362
+msgid "Once daily"
+msgstr "Rimwe ku musi"
+
+#: index.php:363
+msgid "Once weekly"
+msgstr "Rimwe mu ndwi"
+
+#: index.php:364
+msgid "When pigs fly..."
+msgstr "Ntibibaho nk'ukubona umuzi w'ibuye"
+
+#: index.php:367
+msgid "Post achievements to my timeline..."
+msgstr "Kumenyekanisha ibikorwa maze gukora..."
+
+#: index.php:370
+msgid "Always (Every time I have a winning entry)"
+msgstr "Igihe cose ntsinze"
+
+#: index.php:371
+msgid "Often (Max once a day)"
+msgstr "Kenshi na kenshi (Rimwe ku musi)"
+
+#: index.php:372
+msgid "Sometimes (Max once a week)"
+msgstr "Rimwe na rimwe (Rimwe mu ndwi)"
+
+#: index.php:373
+msgid "Occasionally (Max once monthly)"
+msgstr "Igihe bishobotse (Rimwe mu kwezi)"
+
+#: index.php:374
+msgid "When pigs fly... (Never)"
+msgstr "Ntibibaho nk'ukuronka umuzi w'ibuye... (Ntanarimwe)"
+
+#: index.php:404
+msgid "Language"
+msgstr "Ururimi"
+
+#: index.php:406
+msgid "All languages"
+msgstr "Indimi zose"
+
+#: index.php:415
+msgid "Game"
+msgstr "Urukino"
+
+#: index.php:417
+msgid "All games"
+msgstr "Inkino zose"
+
+#: index.php:425
+msgid "TimePeriod"
+msgstr "Igihe"
+
+#: index.php:427
+msgid "All time"
+msgstr "Igihe cose"
+
+#: index.php:428
+msgid "Last Month"
+msgstr "Ukwezi guheze"
+
+#: index.php:429
+msgid "Last Week"
+msgstr "Indwi iheze"
+
+#: index.php:430
+msgid "Last 24 Hours"
+msgstr "Amasaha 24 aheze"
+
+#: index.php:434
+msgid "What to compare"
+msgstr "Ivyo tugereranya"
+
+#: index.php:436
+msgid "Points Earned"
+msgstr "Amanota yatsindiwe"
+
+#: index.php:437
+msgid "# of Submissions"
+msgstr "# yiyongeyeko"
+
+#: index.php:443
+msgid "Auto-Loop"
+msgstr "Kwisubiriza otomatike"
+
+#: index.php:446
+msgid "Leaderboard"
+msgstr "Urutonde rw'amanota"
+
+#: index.php:466
+msgid " I can't say - skip this one..."
+msgstr "Ntaco novuga- Ndunguruje"
+
+#: index.php:467
+msgid " I can translate this word!"
+msgstr "Ndashoboye guhindura mu rundi rurimi rino jambo"
+
+#: index.php:468
+msgid " Keep the working definition. It's spectacular as it is!"
+msgstr "Gumya aka karorero wahawe. Karashimishije ukwo kari!"
+
+#: index.php:469
+msgid "Working definition: "
+msgstr "Akarorero katanzwe :"
+
+#: index.php:470
+msgid "Translate the following word to : "
+msgstr "Hindura mu rundi rurimi ijambo rikurikira :"
+
+#: index.php:471
+msgid "Your achievements for the "
+msgstr "Amanota watsindiye kuri"
+
+#: index.php:472
+msgid " in "
+msgstr "mu"
+
+#: index.php:473
+msgid "Write or vote for a definition in "
+msgstr "Andika canke tora insiguro mu"
+
+#: index.php:474
+msgid "Rank: "
+msgstr "Urwego"
+
+#: index.php:476
+msgid "In Play: "
+msgstr "Mu rukino:"
+
+#: index.php:477
+msgid "Banked: "
+msgstr "Yashinguwe"

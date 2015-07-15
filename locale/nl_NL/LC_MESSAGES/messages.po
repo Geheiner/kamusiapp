@@ -1,0 +1,699 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-17 23:56+0000\n"
+"PO-Revision-Date: 2015-06-23 18:46+0000\n"
+"Last-Translator: aravis <dorien_kamphuis@sil.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.1-rc1\n"
+"X-POOTLE-MTIME: 1435085165.000000\n"
+
+#: index.php:45
+msgid "Definition Game"
+msgstr "Vertaalspel"
+
+#: index.php:45
+msgid "Translation Game"
+msgstr "Vertaalspel"
+
+#: index.php:45
+msgid "Tweet Game"
+msgstr "Tweetspel"
+
+#: index.php:45
+msgid "Sentence Game"
+msgstr "Zinnenspel"
+
+#: index.php:46
+msgid "Undefined Language"
+msgstr "Ongedefineerd spel"
+
+#: index.php:46
+#: index.php:345
+#: index.php:353
+#: index.php:407
+msgid "English"
+msgstr "Engels"
+
+#: index.php:46
+#: index.php:346
+#: index.php:354
+#: index.php:408
+msgid "French"
+msgstr "Frans"
+
+#: index.php:46
+#: index.php:355
+#: index.php:409
+msgid "Vietnamese"
+msgstr "Vietnamees"
+
+#: index.php:46
+#: index.php:356
+#: index.php:410
+msgid "Swahili"
+msgstr "Swahili"
+
+#: index.php:48
+msgid "noun"
+msgstr "Zelfstandig naamwoord"
+
+#: index.php:48
+msgid "verb"
+msgstr "werkwoord"
+
+#: index.php:48
+msgid "adjective"
+msgstr "bijvoeglijk naamwoord"
+
+#: index.php:48
+#, fuzzy
+msgid "adjective_satellite"
+msgstr "bijvoeglijk naamwoord_synoniem"
+
+#: index.php:48
+msgid "adverb"
+msgstr "bijwoord"
+
+#: index.php:48
+msgid "phrase"
+msgstr "Uitdrukking"
+
+#: index.php:84
+#: index.php:133
+#: index.php:162
+#: index.php:187
+#: index.php:418
+#: index.php:419
+#: index.php:420
+#: index.php:421
+msgid "%s"
+msgstr "percentages"
+
+#: index.php:98
+#: index.php:465
+msgid " I can write the winning definition for this idea!"
+msgstr "Ik kan de winnende definitie voor dit idee schrijven!"
+
+#: index.php:145
+msgid "I can translate this word!"
+msgstr "Ik kan dit woord vertalen!"
+
+#: index.php:163
+msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
+msgstr ""
+"Controleer ALLEEN de tweets die uitstekende voorbeelden van DEZE betekenis "
+"zijn:"
+
+#: index.php:188
+msgid "Check the sentences that correspond well to this word: "
+msgstr "Controleer de zinnen die goed overeenkomen met dit woord:"
+
+#: index.php:208
+msgid "<p><strong>About</strong><br />"
+msgstr "<p><strong>Over</strong><br />"
+
+#: index.php:209
+msgid ""
+"The Kamusi Project (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
+"is a participatory international effort dedicated to improving knowledge of "
+"the world's languages. Our long term mission is to produce dictionaries and "
+"other language resources for every language, and to make those resources "
+"available for free to everyone.</p>"
+msgstr ""
+"Het Kamusi Project (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
+"is een internationaal samenwerkingsproject gericht op het verbeteren van de "
+"kennis over de wereldwijde talen. Onze lange-termijnmissie is om "
+"woordenboeken en andere taalmiddelen te produceren voor alle talen en deze "
+"middelen gratis ter beschikking te stellen.</p>"
+
+#: index.php:210
+msgid "<p><strong>Purpose</strong><br />"
+msgstr "<p><strong>Doel</strong><br />"
+
+#: index.php:211
+msgid ""
+"Our games are designed to learn all about your language, from you, so that "
+"we can share that knowledge with the rest of the world. Different games seek "
+"different pieces of information. What we learn in one game builds "
+"information we can use in the next. Our goal is a detailed dictionary for "
+"your language, linked to translations for all other languages, available to "
+"you for free.</p>"
+msgstr ""
+"Onze spellen zijn ontwikkeld om, via jou, alles over jouw taal te leren "
+"zodat we deze kennis kunnen delen met de rest van de wereld. Andere spellen "
+"zoeken naar andere stukken informatie. Wat we leren in het ene spel, geeft "
+"informatie die we voor het volgende spel kunnen gebruiken. Ons doel is een "
+"gedetailleerd woordenboek voor jouw taal, gelinkt aan vertalingen voor alle "
+"andere talen, gratis voor jou beschikbaar. </p>"
+
+#: index.php:212
+msgid "<p><strong>Play</strong><br />"
+msgstr "<p><strong>Speel</strong><br />"
+
+#: index.php:213
+msgid ""
+"Our games ask you a variety of types of questions. You earn points when your "
+"answer agrees with the consensus. Your points will remain <strong><em>in "
+"play</em></strong> until consensus, when they are "
+"<strong><em>banked</em></strong> if you are on the winning team. If you do "
+"not have an answer, just skip to the next question! When enough people agree "
+"to the same answer, it is published to the live Kamusi. For definitions, the "
+"winning author will receive credit on the entry page.</p>"
+msgstr ""
+"Onze spellen stellen verschillende soorten vragen. Je verdient punten als je "
+"antwoorden overeenkomen met de consensus. Je punten blijven <strong><em>in "
+"het spel</em></strong>totdat er consensus bereikt is, daarna worden ze "
+"<strong><em>weggeschreven</em></strong> als je bij het winnende team zit. "
+"Als je geen antwoord heb, ga je simpelweg door naar de volgende vraag! Als "
+"er genoeg mensen in overeenstemming zijn, wordt het gepubliceerd naar de "
+"'live' Kamushi. Voor definities ontvangt de winnende auteur de credit op de "
+"entree pagina.</p>"
+
+#: index.php:214
+msgid "<p><strong>Honor Code</strong><br />"
+msgstr "<p><strong>Erecode</strong><br />"
+
+#: index.php:215
+msgid ""
+"We ask each player to give their one best answer to each question. Please do "
+"not attempt to game the game, and please alert us to suspicious items so we "
+"can remove spammers and all their spam.</p>"
+msgstr ""
+"We vragen iedere speler om hun enkele, beste antwoord op elke vraag. Probeer "
+"niet het spel te manipuleren, en laat ons weten als er verdachte onderdelen "
+"zijn zodat we spammers en hun spam kunnen verwijderen. </p>"
+
+#: index.php:216
+msgid "<p><strong>Friends</strong><br />"
+msgstr "<p><strong>Vrienden</strong><br />"
+
+#: index.php:217
+msgid ""
+"The more people who play for your language, the more fun you will have - you "
+"score points more quickly, and move toward more advanced questions. If you "
+"enjoy playing, please tell your friends to join us! They&rsquo;ll have fun "
+"too, and together you will contribute to a great resource for your whole "
+"community.</p>"
+msgstr ""
+"Des te meer mensen in jouw taal spelen, des te meer plezier zul je eraan "
+"beleven - je scoort sneller punten, en gaat sneller door naar meer "
+"geavanceerde vragen. Als je het leuk vindt om te spelen nodig dan ook je "
+"vrienden uit! Ook zou kunnen er plezier aan beleven en samen bouw je aan een "
+"fantastisch hulpmiddel voor de hele gemeenschap.</p>"
+
+#: index.php:227
+msgid "<p><strong>Definition Game</strong><br />"
+msgstr "<p><strong>Definitiespel</strong><br />"
+
+#: index.php:228
+msgid "Write a definition: 1 point<br />"
+msgstr "Een definitie schrijven: 1 punt<br />"
+
+#: index.php:229
+msgid " Vote for the winning definition: 1 point<br />"
+msgstr " Voor de winnende definitie stemmen: 1 punt<br />"
+
+#: index.php:230
+msgid ""
+" <em><strong>Write the winning definition</strong></em>: 5 points + credit "
+"on the dictionary entry page<br />"
+msgstr ""
+" <em><strong>De winnende definitie schrijven</strong></em>: 5 punten+ credit "
+"op de entreepagina van het woordenboek<br />"
+
+#: index.php:231
+msgid " Submit a <em>spam</em> definition: -10 points + watchlist</p>"
+msgstr " Een <em>spam</em> definitie indienen: -10 punten+ watchlist</p>"
+
+#: index.php:232
+msgid "<p><strong>How to write a great definition</strong><br />"
+msgstr "<p><strong>Hoe een goede definitie te schrijven</strong><br />"
+
+#: index.php:233
+msgid ""
+" Definitions are explanations of what a word means. They are not single "
+"words (those are synonyms). You can usually use a definition instead of the "
+"actual word. </p>"
+msgstr ""
+"Definities zijn een uitleg wat woorden betekenen. Dat zijn geen enkele "
+"woorden (dat zijn synoniemen). Gewoonlijk kan je een definitie gebruiken  in "
+"plaats van het eigenlijke woord. </p>"
+
+#: index.php:234
+msgid ""
+"<p>Definitions are NOT translations. They are written in the same language "
+"as the term you are defining. If you are defining a word in your language, "
+"the definition should be in that language, too. Definitions should define "
+"what the term means in your language - the meaning may differ somewhat from "
+"the English definition we show of a matched English concept!</p>"
+msgstr ""
+"</p>Definities zijn GEEN vertalingen. Ze zijn geschreven in dezelfde taal "
+"als de term die je definieert. Als je een woord definieert in jouw taal, dan "
+"moet de definitie ook in die taal worden geschreven. Definities dienen aan "
+"te geven wat de term in jouw taal betekent - de betekenis kan ietwat "
+"afwijken van de Engelse definitie die we laten zien van een overeenkomend "
+"Engels concept!</p>"
+
+#: index.php:235
+msgid "<p>Stick to these rules:</p>"
+msgstr "<p>Hou je aan deze regels:</p>"
+
+#: index.php:237
+msgid ""
+"  <li>Short and sweet: A definition should be as brief as possible to "
+"explain the concept, but long enough to describe it fully. If the same word "
+"has <strong><em>different meanings</em></strong>, those are <strong><em>"
+"different concepts</em></strong> with different definitions. <strong><em>A "
+"definition</em></strong> in Kamusi only explains <strong><em>one "
+"concept</em></strong>.</li>"
+msgstr ""
+"  <li>Kort en bondig: een definitie dient zo kort mogelijk te zijn om het "
+"concept te beschrijven, maar lang genoeg om het volledig te beschrijven. Als "
+"hetzelfde woord<strong><em>verschillende betekenissen </em></strong>heeft, "
+"dan zijn dat<strong><em>verschillende concepten</em></strong> met "
+"verschillende definities. <strong><em>Een definitie</em></strong> in Kamusi "
+"verklaart alleen een <strong><em>enkel concept</em></strong>.</li>"
+
+#: index.php:238
+msgid ""
+"  <li>Easy does it: Use the simplest words you can. Definitions should not "
+"force readers to jump around the dictionary more, unless technical terms are "
+"absolutely necessary.</li>"
+msgstr ""
+"  <li>Eenvoud telt: Gebruik de simpelste woorden die je kent. Definities "
+"horen de lezers niet te dwingen om nog meer te speuren in het woordenboek, "
+"tenzij technische termen absoluut vereist zijn.</li>"
+
+#: index.php:239
+msgid ""
+"  <li>No circles: Definitions should NOT contain the word that is being "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
+", not \"The feeling of being happy.\" Definitions should not be circular - "
+"we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
+msgstr ""
+"<li>Niet cirkelen: Definities horen NIET het woord te bevatten dat "
+"gedefinieerd wordt of dat wat er nauw aan verwant is. <em>Vrolijkheid</em> "
+"is \"een gevoel van plezier.\", niet \"het gevoel van vrolijk zijn.\" "
+"Definities moeten niet teruggecirkeld worden - nu kunnen we niet meer zeggen "
+"<em>plezier</em> is \"Een gevoel van vrolijkheid.\"</li>"
+
+#: index.php:240
+msgid ""
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
+"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"period.</li>"
+msgstr ""
+"<li>Geen filler: Begin niet met \"Een term betekent\", of \"Dit is een\", of "
+"\"X refereert aan\", enz. Stijlvorm: Begin met een hoofdletter en eindig met "
+"een punt.</li>"
+
+#: index.php:243
+msgid ""
+" For <strong>English</strong>, we have 200,000 entries with \"working "
+"definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
+"target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
+"great, but many can be much better. When you improve the definitions in "
+"English, we can provide better guidance for translations across "
+"languages.</p>"
+msgstr ""
+"Voor het <strong>Engels</strong>, hebben we 200.000 ingevoerde \""
+"werkdefinities\" geleend van het <a href=\"http://wordnet-rdf.princeton.edu\""
+" target=\"_blank\">Princeton WordNet</a>. Sommige van deze definities zijn "
+"heel goed, maar veel van het kunnen veel beter. Als je de definities in het "
+"Engels kan verbeteren, kunnen we betere ondersteuning voor vertalingen "
+"bieden voor alle talen.</p>"
+
+#: index.php:244
+msgid ""
+" For more insight about writing definitions, you can <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
+"video</a>.</p>"
+msgstr ""
+"Kijk naar deze video <a href=\"https://www.youtube.com/watch?v=aaqOQQOYuHA\" "
+"target=\"_blank\"> als je meer inzicht wil krijgen in het schrijven van "
+"definities</a>.</p>"
+
+#: index.php:254
+msgid " <p><strong>Translation Game</strong><br />"
+msgstr " <p><strong>Vertaalspel</strong><br />"
+
+#: index.php:255
+msgid "   Submit a term that becomes the consensus: 3 points<br />"
+msgstr "Dien een term in die de consensus wordt: 3 punten<br />"
+
+#: index.php:256
+msgid ""
+"   Skip a term where the consensus is \"skip\" for this language: 1 point</p>"
+msgstr ""
+"Een term overslaan waar de consensus op \"overslaan\" voor deze taal staat: "
+"1 punt</p>"
+
+#: index.php:257
+msgid ""
+" <p>When we do not already have an equivalent term in your language for an "
+"idea that we have in our English dataset, we ask you to tell us the best way "
+"to express the same meaning.</p>"
+msgstr ""
+"Wanneer we nog geen gelijkwaardige term in je taal hebben voor een idee dat "
+"we in onze Engelse data-verzameling hebben, vragen we je ons de beste manier "
+"te geven om dezelfde betekenis uit te drukken."
+
+#: index.php:259
+msgid ""
+"   <li>You may not be able to give any translation. For example, many "
+"languages do not have a term for <strong><em>run</em></strong>, \"a point in "
+"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
+" to the next.</li>"
+msgstr ""
+"<li>Misschien kun je geen enkele vertaling geven. Bijvoorbeeld, veel talen "
+"hebben geen term voor <strong><em>run</em></strong>, \"a point in the game "
+"of baseball\". Als je een term niet kunt vertalen, <strong> sla over "
+"</strong> naar de volgende.</li>"
+
+#: index.php:260
+msgid ""
+"   <li>Your term may not have exactly the same meaning as the English term. "
+"For example, English has 10 <strong><em>fingers</em></strong> and 10 "
+"<strong><em>toes</em></strong>, while Spanish has 20 "
+"<strong><em>dedos</em></strong>. For the translation game, just give us the "
+"closest equivalent, and we'll figure out non-parallel meanings in a "
+"different game.</li>"
+msgstr ""
+"<li>Jouw term heeft misschien niet exact dezelfde betekenis als de Engelse "
+"term. Bijvoorbeeld, Engels heeft 10 <strong><em> fingers</em></strong> en 10 "
+"<strong><em>toes</em></strong>, terwijl Spaans 20 "
+"<strong><em>dedos</em></strong> heeft. Geef ons de vertaling die er het "
+"dichtst bij komt voor het vertaalspel, dan zullen we niet-parallelle "
+"betekenissen in een ander spel uitvogelen.</li>"
+
+#: index.php:261
+msgid ""
+"   <li>Your language might have more than one word that means the same "
+"thing. For example, you might use the words <strong><em>sofa</em></strong> "
+"and <strong><em>couch</em></strong> interchangeably. For the translation "
+"game, just tell us your favorite. We'll figure out synonyms in a different "
+"game, and you'll earn your points if you provide an answer that eventually "
+"reaches consensus.</li>"
+msgstr ""
+"<li>Jouw taal kan meer dan een woord hebben met dezelfde betekenis. "
+"Bijvoorbeeld, je zou de woorden <strong><em>sofa</em></strong> "
+"en<strong><em>bank</em></strong> door elkaar heen kunnen gebruiken. Voor het "
+"vertaalspel moet je gewoon je favoriet gebruiken. Synoniemen bepalen we wel "
+"in een ander spel, en je verdient punten als je een antwoord geeft dat "
+"uiteindelijk consensus bereikt.</li>"
+
+#: index.php:273
+msgid " <p><strong>Examples Games (Tweets and Sentences)</strong><br />"
+msgstr " <p><strong>Spelvoorbeelden (Tweets en Zinnen)</strong><br />"
+
+#: index.php:274
+msgid "   Skip an example where the consensus is \"skip\": 1 point<br />"
+msgstr ""
+"Een voorbeeld overslaan waar de consensus \"overslaan\" is: 1 punt<br />"
+
+#: index.php:275
+msgid "   Select an example where the consensus is \"select\": 1 point</p>"
+msgstr "Een voorbeeld kiezen waar de consensus \"selecteer\" is: 1 punt </p>"
+
+#: index.php:276
+msgid ""
+" <p>Usage examples help people understand how a term is really used. Finding "
+"a good example can be hard, however.</p>"
+msgstr ""
+"<p>Praktijkvoorbeelden laten mensen begrijpen hoe een term echt gebruikt "
+"wordt. Een goed voorbeeld vinden kan echter moeilijk zijn.</p>"
+
+#: index.php:278
+msgid "   <li>Bad: \"Your eyes are blue.\"</li>"
+msgstr "   <li>Slecht: \"Jouw ogen zijn blauw.\"</li>"
+
+#: index.php:279
+msgid ""
+"   <li>Good: \"Your eyes are the same blue as the water in the bay, and "
+"sparkle even more in the sunlight.\"</li>"
+msgstr ""
+"   <li>Goed: \"Jouw ogen zijn hetzelfde blauw als het water in het meer en "
+"glinsteren zelfs nog meer in het zonlicht.\"</li>"
+
+#: index.php:281
+msgid ""
+" <p>Because words have different senses, an example might be excellent in "
+"one context but completely wrong in another.</p>"
+msgstr ""
+"<p>Omdat woorden verschillende betekenissen hebben, kan een voorbeeld "
+"uitmuntend zijn in de ene context maar totaal verkeerd in een andere.</p>"
+
+#: index.php:283
+msgid ""
+"   <li>Good example for a different meaning of "
+"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
+"missing you, I'm feeling so blue.\"</li>"
+msgstr ""
+
+#: index.php:285
+msgid ""
+" <p>In the Examples games, your goal is to find sentences that are real gems "
+"for a specific meaning of a term. The Tweet game shows you a bunch of recent "
+"postings to Twitter, while the Sentences game grabs examples from other "
+"sources. You read the definition, and click on the tweets or sentences that "
+"will be a great help for dictionary users to understand the exact meaning we "
+"show.</p>"
+msgstr ""
+"<p>In het Voorbeelden spel is het je doel om zinnen te vinden die een "
+"specifieke betekenis van een term perfect weergeven. Het Tweet spel toont je "
+"een aantal recente posts van Twitter, terwijl het Zinnen spel voorbeelden "
+"uit andere bronnen haalt. Lees de definitie, en klik op de tweets of zinnen "
+"die het meest behulpzaam zijn voor woordenboek gebruikers om precies die "
+"betekenis te begrijpen die we laten zien.</p>"
+
+#: index.php:287
+msgid ""
+"   <li>Do NOT click on an entry if it is a good example of a "
+"<em>different</em> meaning.</li>"
+msgstr ""
+"<li>Klik NIET op een item als het een goed voorbeeld is van een "
+"<em>andere</em> betekenis.</li>"
+
+#: index.php:288
+msgid ""
+"   <li>Do NOT click on an entry if it kind-of, sort-of works with the "
+"meaning in question.</li>"
+msgstr ""
+"<li>Klik NIET op een item als het slechts gedeeltelijk werkt of onvolledig "
+"is wat betreft de betekenis die we op het oog hebben.</li> "
+
+#: index.php:289
+msgid ""
+"   <li>ONLY click on an entry if it <strong><em>perfectly "
+"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
+"written in orange</font></strong>.</li>"
+msgstr ""
+"<li>Klik ALLEEN op een item als het de <strong><font color=\"#EBA634\">in "
+"oranje geschreven</font></strong> betekenis <strong><em>perfect laat "
+"zien</em></strong>.</li>"
+
+#: index.php:291
+msgid ""
+" <p>Remember, you will score points if you and others all agree to \"skip\", "
+"and you will score points if you and others all agree to \"select\". </p>"
+msgstr ""
+"<p>Onthoud goed, je scoort punten als jij en de anderen allemaal besluiten \""
+"over te slaan\", en je scoort punten als jij en de anderen allemaal "
+"besluiten te \"selecteren\".</p>"
+
+#: index.php:292
+msgid " <p><strong>Play at your own risk </strong><br />"
+msgstr "<p><strong>Speel voor eigen risico</strong><br />"
+
+#: index.php:293
+msgid ""
+"   We try to filter out inappropriate content in advance. Please be warned, "
+"however, that some objectionable content might slip through our automated "
+"filters. We apologize in advance for the possibility that you might see "
+"offensive Tweets. We do not have humans reviewing the content you see in the "
+"Examples games - YOU are the filter. By ignoring offensive examples, you "
+"will help make them vanish from our data collection.</p>"
+msgstr ""
+"We proberen ongepaste inhoud er van tevoren uit te filteren. Wees echter "
+"gewaarschuwd dat sommige bezwaarlijke inhoud door onze automatische filters "
+"kan glippen. We verontschuldigen ons bij voorbaat voor de mogelijkheid dat "
+"je grove Tweets kunt zien. We hebben geen menselijke beoordelaars van de "
+"inhoud die je in de Voorbeelden spellen ziet - JIJ bent de filter. Door "
+"grove voorbeelden te negeren, draag je bij aan het verdwijnen ervan uit onze "
+"data verzameling.</p>"
+
+#: index.php:310
+msgid "Name"
+msgstr "Naam"
+
+#: index.php:314
+msgid "Points"
+msgstr "Punten"
+
+#: index.php:318
+msgid "Pending points"
+msgstr "Openstaande punten"
+
+#: index.php:322
+#: index.php:438
+msgid "Success Rate"
+msgstr "Succes waarde"
+
+#: index.php:341
+msgid "Hints and Help Language"
+msgstr "Hinten en Hulp Taal"
+
+#: index.php:351
+msgid "Game Language"
+msgstr ""
+
+#: index.php:359
+msgid "Notify me about new points I earn..."
+msgstr ""
+
+#: index.php:361
+msgid "Real time"
+msgstr ""
+
+#: index.php:362
+msgid "Once daily"
+msgstr ""
+
+#: index.php:363
+msgid "Once weekly"
+msgstr ""
+
+#: index.php:364
+msgid "When pigs fly..."
+msgstr ""
+
+#: index.php:367
+msgid "Post achievements to my timeline..."
+msgstr ""
+
+#: index.php:370
+msgid "Always (Every time I have a winning entry)"
+msgstr ""
+
+#: index.php:371
+msgid "Often (Max once a day)"
+msgstr "Vaak (Hooguit eenmaal per dag)"
+
+#: index.php:372
+msgid "Sometimes (Max once a week)"
+msgstr "Soms (Hooguit eenmaal per week)"
+
+#: index.php:373
+msgid "Occasionally (Max once monthly)"
+msgstr "Af en toe (Hooguit eenmaal per maand)"
+
+#: index.php:374
+msgid "When pigs fly... (Never)"
+msgstr "Als de koeien op het ijs dansen... (Nooit)"
+
+#: index.php:404
+msgid "Language"
+msgstr "Taal"
+
+#: index.php:406
+msgid "All languages"
+msgstr "Alle talen"
+
+#: index.php:415
+msgid "Game"
+msgstr "Spel"
+
+#: index.php:417
+msgid "All games"
+msgstr "Alle spellen"
+
+#: index.php:425
+msgid "TimePeriod"
+msgstr "Tijdvak"
+
+#: index.php:427
+msgid "All time"
+msgstr ""
+
+#: index.php:428
+msgid "Last Month"
+msgstr ""
+
+#: index.php:429
+msgid "Last Week"
+msgstr ""
+
+#: index.php:430
+msgid "Last 24 Hours"
+msgstr ""
+
+#: index.php:434
+msgid "What to compare"
+msgstr ""
+
+#: index.php:436
+msgid "Points Earned"
+msgstr ""
+
+#: index.php:437
+msgid "# of Submissions"
+msgstr ""
+
+#: index.php:443
+msgid "Auto-Loop"
+msgstr ""
+
+#: index.php:446
+msgid "Leaderboard"
+msgstr ""
+
+#: index.php:466
+msgid " I can't say - skip this one..."
+msgstr "Ik zou het niet weten - deze overslaan..."
+
+#: index.php:467
+msgid " I can translate this word!"
+msgstr "Ik kan dit woord niet vertalen!"
+
+#: index.php:468
+msgid " Keep the working definition. It's spectacular as it is!"
+msgstr "Houd het bij de werkdefinitie. Het is prima zo!"
+
+#: index.php:469
+msgid "Working definition: "
+msgstr "Werkdefinitie:"
+
+#: index.php:470
+msgid "Translate the following word to : "
+msgstr "Vertaal het volgende woord in het:"
+
+#: index.php:471
+msgid "Your achievements for the "
+msgstr ""
+
+#: index.php:472
+msgid " in "
+msgstr "in"
+
+#: index.php:473
+msgid "Write or vote for a definition in "
+msgstr "Schrijf of stem voor een definitie in het"
+
+#: index.php:474
+msgid "Rank: "
+msgstr "Rang"
+
+#: index.php:476
+msgid "In Play: "
+msgstr ""
+
+#: index.php:477
+msgid "Banked: "
+msgstr ""

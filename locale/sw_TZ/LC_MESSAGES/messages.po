@@ -1,0 +1,608 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-17 23:56+0000\n"
+"PO-Revision-Date: 2015-06-30 15:05+0000\n"
+"Last-Translator: Martin <martin@kamusi.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.1-rc1\n"
+"X-POOTLE-MTIME: 1435676729.000000\n"
+
+#: index.php:45
+msgid "Definition Game"
+msgstr "Mchezo wa Mafafanuzi"
+
+#: index.php:45
+msgid "Translation Game"
+msgstr "Mchezo wa Kutafsiri"
+
+#: index.php:45
+msgid "Tweet Game"
+msgstr "Mchezo wa Mtwito"
+
+#: index.php:45
+msgid "Sentence Game"
+msgstr "Mchezo wa Sentensi"
+
+#: index.php:46
+msgid "Undefined Language"
+msgstr "Lugha Isiyojulikana"
+
+#: index.php:46
+#: index.php:345
+#: index.php:353
+#: index.php:407
+msgid "English"
+msgstr "Kiingereza"
+
+#: index.php:46
+#: index.php:346
+#: index.php:354
+#: index.php:408
+msgid "French"
+msgstr "Kifaransa"
+
+#: index.php:46
+#: index.php:355
+#: index.php:409
+msgid "Vietnamese"
+msgstr "Kivietnamu"
+
+#: index.php:46
+#: index.php:356
+#: index.php:410
+msgid "Swahili"
+msgstr "Kiswahili"
+
+#: index.php:48
+msgid "noun"
+msgstr "nomino"
+
+#: index.php:48
+msgid "verb"
+msgstr "kitenzi"
+
+#: index.php:48
+msgid "adjective"
+msgstr "kivumishi"
+
+#: index.php:48
+msgid "adjective_satellite"
+msgstr "kivumishi_satilaiti"
+
+#: index.php:48
+msgid "adverb"
+msgstr "kielezi"
+
+#: index.php:48
+msgid "phrase"
+msgstr "kirai"
+
+#: index.php:84
+#: index.php:133
+#: index.php:162
+#: index.php:187
+#: index.php:418
+#: index.php:419
+#: index.php:420
+#: index.php:421
+msgid "%s"
+msgstr ""
+
+#: index.php:98
+#: index.php:465
+msgid " I can write the winning definition for this idea!"
+msgstr "Ninaweza kuandika ufafanuzi wa kushinda kwa wazo hili!"
+
+#: index.php:145
+msgid "I can translate this word!"
+msgstr "Ninaweza kutafsiri neno hili!"
+
+#: index.php:163
+msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
+msgstr ""
+
+#: index.php:188
+msgid "Check the sentences that correspond well to this word: "
+msgstr "Chagua sentensi zinazorejea vyema neno hili:"
+
+#: index.php:208
+msgid "<p><strong>About</strong><br />"
+msgstr "<p><strong>Kuhusu</strong><br />"
+
+#: index.php:209
+msgid ""
+"The Kamusi Project (<a href=\"http://kamusi.org/\">http://kamusi.org/</a>) "
+"is a participatory international effort dedicated to improving knowledge of "
+"the world's languages. Our long term mission is to produce dictionaries and "
+"other language resources for every language, and to make those resources "
+"available for free to everyone.</p>"
+msgstr ""
+
+#: index.php:210
+msgid "<p><strong>Purpose</strong><br />"
+msgstr "<p><strong>Dhumuni</strong><br />"
+
+#: index.php:211
+msgid ""
+"Our games are designed to learn all about your language, from you, so that "
+"we can share that knowledge with the rest of the world. Different games seek "
+"different pieces of information. What we learn in one game builds "
+"information we can use in the next. Our goal is a detailed dictionary for "
+"your language, linked to translations for all other languages, available to "
+"you for free.</p>"
+msgstr ""
+"Michezo yetu imebuniwa kutambua yote kuhusu lugha yako, kupitia wewe, basi "
+"tunaweza kugawana maarifa hayo na dunia nzima. Michezo mbalimbali inataka "
+"taarifa mbalimbali vilevile. Tunachojifunza katika michezo yetu tunaweza "
+"kuyatumia hapo baadaye. Lengo letu ni kamusi iliyojieleza kwa lugha yako, "
+"imeungana na tafsiri kwa lugha nyingine zote, ipo kwa ajili yako bure "
+"kabisa.</p>"
+
+#: index.php:212
+msgid "<p><strong>Play</strong><br />"
+msgstr "<p><strong>Cheza</strong><br />"
+
+#: index.php:213
+msgid ""
+"Our games ask you a variety of types of questions. You earn points when your "
+"answer agrees with the consensus. Your points will remain <strong><em>in "
+"play</em></strong> until consensus, when they are "
+"<strong><em>banked</em></strong> if you are on the winning team. If you do "
+"not have an answer, just skip to the next question! When enough people agree "
+"to the same answer, it is published to the live Kamusi. For definitions, the "
+"winning author will receive credit on the entry page.</p>"
+msgstr ""
+"Michezo yetu inakuuliza maswali ya aina mbalimbali. Unapata alama kama jibu "
+"lako linakubaliana na  muaafaka. Alama zako zitabaki<strong><em>katika "
+"mchezo</em></strong>hadi muafaka, watakapo<strong>hifadhi</em></strong> kama "
+"utakuwa katika upande wa washindi. Kama huna jibu, we ruka katika swali "
+"lingine! Kama watu kiasi wanakubaliana na jibu moja, linachapishwa moja kwa "
+"moja katika Kamusi. Kwa ufafanunzi, mwandishi mshindi atapokea muamana "
+"kwenye ukurasa husika.</p>  "
+
+#: index.php:214
+msgid "<p><strong>Honor Code</strong><br />"
+msgstr "<p><strong>Msimbo wa Heshima</strong><br />"
+
+#: index.php:215
+msgid ""
+"We ask each player to give their one best answer to each question. Please do "
+"not attempt to game the game, and please alert us to suspicious items so we "
+"can remove spammers and all their spam.</p>"
+msgstr ""
+"Tunataka kila mchezaji atoe jibu lake moja kwa kila swali, jibu liwe cha "
+"hali ya juu. Tafadhali usithubutu kuletea mchezo mchezo huu, na utujulishe "
+"wakati utakapoona mambo ambayo yanakutia mashaka, hivyo tunaweza kuondoa "
+"watu jau na jau zao zote. </p>"
+
+#: index.php:216
+msgid "<p><strong>Friends</strong><br />"
+msgstr "<p><strong>Marafiki</strong><br />"
+
+#: index.php:217
+msgid ""
+"The more people who play for your language, the more fun you will have - you "
+"score points more quickly, and move toward more advanced questions. If you "
+"enjoy playing, please tell your friends to join us! They&rsquo;ll have fun "
+"too, and together you will contribute to a great resource for your whole "
+"community.</p>"
+msgstr ""
+"Ikiwa watu wengi wanaoongea lugha yako watacheza, basi utafurahia mchezo "
+"zaidi na zaidi - utajipatia pointi haraka zaidi, na kuulizwa maswali magumu "
+"zaidi. Ukifurahia mchezo huo, uwaalike rafiki zenu wajiungane nasi katika "
+"kucheza. Wao nao watafurahia mchezo, na nyinyi kwa pamoja mtachangia na "
+"kujipatia kitu chenye manufaa kubwa kwa jamii yako yote."
+
+#: index.php:227
+msgid "<p><strong>Definition Game</strong><br />"
+msgstr "<p><strong>Mchezo wa Ufafanuzi</strong><br />"
+
+#: index.php:228
+msgid "Write a definition: 1 point<br />"
+msgstr "Andika maelezo ya maana: Pointi 1<br />"
+
+#: index.php:229
+msgid " Vote for the winning definition: 1 point<br />"
+msgstr "Pigia kura ufafanuzi ulio bora zaidi: Pointi 1<br />"
+
+#: index.php:230
+msgid ""
+" <em><strong>Write the winning definition</strong></em>: 5 points + credit "
+"on the dictionary entry page<br />"
+msgstr ""
+"<em><strong>Andika ufafanuzi utakaoshinda na kuchapishwa</strong></em>: "
+"Pointi 5 + jina lako litatajwa kwenye ukurasa wa ufafanuzi kwenye kamusi<br "
+"/>"
+
+#: index.php:231
+msgid " Submit a <em>spam</em> definition: -10 points + watchlist</p>"
+msgstr ""
+"Andika ufafanuzi <em>taka</em>: Pointi -10 + kuwekwa kwenye orodha ya "
+"wanaochunguzwa<br />"
+
+#: index.php:232
+msgid "<p><strong>How to write a great definition</strong><br />"
+msgstr "<p><strong>Namna ya kuandika ufafanuzi unaofaa</strong><br />"
+
+#: index.php:233
+msgid ""
+" Definitions are explanations of what a word means. They are not single "
+"words (those are synonyms). You can usually use a definition instead of the "
+"actual word. </p>"
+msgstr ""
+
+#: index.php:234
+msgid ""
+"<p>Definitions are NOT translations. They are written in the same language "
+"as the term you are defining. If you are defining a word in your language, "
+"the definition should be in that language, too. Definitions should define "
+"what the term means in your language - the meaning may differ somewhat from "
+"the English definition we show of a matched English concept!</p>"
+msgstr ""
+
+#: index.php:235
+msgid "<p>Stick to these rules:</p>"
+msgstr "<p>Fuata masharti yafuatayo:</p>"
+
+#: index.php:237
+msgid ""
+"  <li>Short and sweet: A definition should be as brief as possible to "
+"explain the concept, but long enough to describe it fully. If the same word "
+"has <strong><em>different meanings</em></strong>, those are <strong><em>"
+"different concepts</em></strong> with different definitions. <strong><em>A "
+"definition</em></strong> in Kamusi only explains <strong><em>one "
+"concept</em></strong>.</li>"
+msgstr ""
+
+#: index.php:238
+msgid ""
+"  <li>Easy does it: Use the simplest words you can. Definitions should not "
+"force readers to jump around the dictionary more, unless technical terms are "
+"absolutely necessary.</li>"
+msgstr ""
+
+#: index.php:239
+msgid ""
+"  <li>No circles: Definitions should NOT contain the word that is being "
+"defined, nor its close relatives. <em>Happiness</em> is \"A feeling of joy.\""
+", not \"The feeling of being happy.\" Definitions should not be circular - "
+"we cannot now say <em>joy</em> is \"A feeling of happiness.\"</li>"
+msgstr ""
+
+#: index.php:240
+msgid ""
+"  <li>No fluff: Do not start with \"A term meaning\", or \"This is a\", or \""
+"X refers to\", etc. Style: Begin with a Capital letter and end with a "
+"period.</li>"
+msgstr ""
+
+#: index.php:243
+msgid ""
+" For <strong>English</strong>, we have 200,000 entries with \"working "
+"definitions\" borrowed from the <a href=\"http://wordnet-rdf.princeton.edu\" "
+"target=\"_blank\">Princeton WordNet</a>. Some of these definitions are "
+"great, but many can be much better. When you improve the definitions in "
+"English, we can provide better guidance for translations across "
+"languages.</p>"
+msgstr ""
+
+#: index.php:244
+msgid ""
+" For more insight about writing definitions, you can <a href=\""
+"https://www.youtube.com/watch?v=aaqOQQOYuHA\" target=\"_blank\">watch this "
+"video</a>.</p>"
+msgstr ""
+
+#: index.php:254
+msgid " <p><strong>Translation Game</strong><br />"
+msgstr ""
+
+#: index.php:255
+msgid "   Submit a term that becomes the consensus: 3 points<br />"
+msgstr ""
+
+#: index.php:256
+msgid ""
+"   Skip a term where the consensus is \"skip\" for this language: 1 point</p>"
+msgstr ""
+
+#: index.php:257
+msgid ""
+" <p>When we do not already have an equivalent term in your language for an "
+"idea that we have in our English dataset, we ask you to tell us the best way "
+"to express the same meaning.</p>"
+msgstr ""
+
+#: index.php:259
+msgid ""
+"   <li>You may not be able to give any translation. For example, many "
+"languages do not have a term for <strong><em>run</em></strong>, \"a point in "
+"the game of baseball\". If you cannot translate a term, <strong>skip</strong>"
+" to the next.</li>"
+msgstr ""
+
+#: index.php:260
+msgid ""
+"   <li>Your term may not have exactly the same meaning as the English term. "
+"For example, English has 10 <strong><em>fingers</em></strong> and 10 "
+"<strong><em>toes</em></strong>, while Spanish has 20 "
+"<strong><em>dedos</em></strong>. For the translation game, just give us the "
+"closest equivalent, and we'll figure out non-parallel meanings in a "
+"different game.</li>"
+msgstr ""
+
+#: index.php:261
+msgid ""
+"   <li>Your language might have more than one word that means the same "
+"thing. For example, you might use the words <strong><em>sofa</em></strong> "
+"and <strong><em>couch</em></strong> interchangeably. For the translation "
+"game, just tell us your favorite. We'll figure out synonyms in a different "
+"game, and you'll earn your points if you provide an answer that eventually "
+"reaches consensus.</li>"
+msgstr ""
+
+#: index.php:273
+msgid " <p><strong>Examples Games (Tweets and Sentences)</strong><br />"
+msgstr ""
+
+#: index.php:274
+msgid "   Skip an example where the consensus is \"skip\": 1 point<br />"
+msgstr ""
+
+#: index.php:275
+msgid "   Select an example where the consensus is \"select\": 1 point</p>"
+msgstr ""
+
+#: index.php:276
+msgid ""
+" <p>Usage examples help people understand how a term is really used. Finding "
+"a good example can be hard, however.</p>"
+msgstr ""
+
+#: index.php:278
+msgid "   <li>Bad: \"Your eyes are blue.\"</li>"
+msgstr ""
+
+#: index.php:279
+msgid ""
+"   <li>Good: \"Your eyes are the same blue as the water in the bay, and "
+"sparkle even more in the sunlight.\"</li>"
+msgstr ""
+
+#: index.php:281
+msgid ""
+" <p>Because words have different senses, an example might be excellent in "
+"one context but completely wrong in another.</p>"
+msgstr ""
+
+#: index.php:283
+msgid ""
+"   <li>Good example for a different meaning of "
+"<strong><em>blue</em></strong>: \"My heart is aching from the pain of "
+"missing you, I'm feeling so blue.\"</li>"
+msgstr ""
+
+#: index.php:285
+msgid ""
+" <p>In the Examples games, your goal is to find sentences that are real gems "
+"for a specific meaning of a term. The Tweet game shows you a bunch of recent "
+"postings to Twitter, while the Sentences game grabs examples from other "
+"sources. You read the definition, and click on the tweets or sentences that "
+"will be a great help for dictionary users to understand the exact meaning we "
+"show.</p>"
+msgstr ""
+
+#: index.php:287
+msgid ""
+"   <li>Do NOT click on an entry if it is a good example of a "
+"<em>different</em> meaning.</li>"
+msgstr ""
+
+#: index.php:288
+msgid ""
+"   <li>Do NOT click on an entry if it kind-of, sort-of works with the "
+"meaning in question.</li>"
+msgstr ""
+
+#: index.php:289
+msgid ""
+"   <li>ONLY click on an entry if it <strong><em>perfectly "
+"demonstrates</em></strong> the meaning <strong><font color=\"#EBA634\">"
+"written in orange</font></strong>.</li>"
+msgstr ""
+
+#: index.php:291
+msgid ""
+" <p>Remember, you will score points if you and others all agree to \"skip\", "
+"and you will score points if you and others all agree to \"select\". </p>"
+msgstr ""
+
+#: index.php:292
+msgid " <p><strong>Play at your own risk </strong><br />"
+msgstr ""
+
+#: index.php:293
+msgid ""
+"   We try to filter out inappropriate content in advance. Please be warned, "
+"however, that some objectionable content might slip through our automated "
+"filters. We apologize in advance for the possibility that you might see "
+"offensive Tweets. We do not have humans reviewing the content you see in the "
+"Examples games - YOU are the filter. By ignoring offensive examples, you "
+"will help make them vanish from our data collection.</p>"
+msgstr ""
+
+#: index.php:310
+msgid "Name"
+msgstr ""
+
+#: index.php:314
+msgid "Points"
+msgstr ""
+
+#: index.php:318
+msgid "Pending points"
+msgstr ""
+
+#: index.php:322
+#: index.php:438
+msgid "Success Rate"
+msgstr ""
+
+#: index.php:341
+msgid "Hints and Help Language"
+msgstr ""
+
+#: index.php:351
+msgid "Game Language"
+msgstr "Lugha ya Kucheza Kupitia"
+
+#: index.php:359
+msgid "Notify me about new points I earn..."
+msgstr ""
+
+#: index.php:361
+msgid "Real time"
+msgstr "Moja kwa moja"
+
+#: index.php:362
+msgid "Once daily"
+msgstr "Mara moja kwa siku"
+
+#: index.php:363
+msgid "Once weekly"
+msgstr "Mara moja kwa juma"
+
+#: index.php:364
+msgid "When pigs fly..."
+msgstr "Wakati ambapo nguruwe hupaa..."
+
+#: index.php:367
+msgid "Post achievements to my timeline..."
+msgstr ""
+
+#: index.php:370
+msgid "Always (Every time I have a winning entry)"
+msgstr ""
+
+#: index.php:371
+msgid "Often (Max once a day)"
+msgstr ""
+
+#: index.php:372
+msgid "Sometimes (Max once a week)"
+msgstr ""
+
+#: index.php:373
+msgid "Occasionally (Max once monthly)"
+msgstr ""
+
+#: index.php:374
+msgid "When pigs fly... (Never)"
+msgstr ""
+
+#: index.php:404
+msgid "Language"
+msgstr "Lugha"
+
+#: index.php:406
+msgid "All languages"
+msgstr "Lugha zote"
+
+#: index.php:415
+msgid "Game"
+msgstr "Mchezo"
+
+#: index.php:417
+msgid "All games"
+msgstr "Michezo yote"
+
+#: index.php:425
+msgid "TimePeriod"
+msgstr ""
+
+#: index.php:427
+msgid "All time"
+msgstr "Wakati wote"
+
+#: index.php:428
+msgid "Last Month"
+msgstr "Mwezi Uliyopita"
+
+#: index.php:429
+msgid "Last Week"
+msgstr "Wiki Iloyopita"
+
+#: index.php:430
+msgid "Last 24 Hours"
+msgstr ""
+
+#: index.php:434
+msgid "What to compare"
+msgstr ""
+
+#: index.php:436
+msgid "Points Earned"
+msgstr ""
+
+#: index.php:437
+msgid "# of Submissions"
+msgstr ""
+
+#: index.php:443
+msgid "Auto-Loop"
+msgstr ""
+
+#: index.php:446
+msgid "Leaderboard"
+msgstr "Wanaoongoza"
+
+#: index.php:466
+msgid " I can't say - skip this one..."
+msgstr ""
+
+#: index.php:467
+msgid " I can translate this word!"
+msgstr "Ninaweza kutafsiri neno hili!"
+
+#: index.php:468
+msgid " Keep the working definition. It's spectacular as it is!"
+msgstr ""
+
+#: index.php:469
+msgid "Working definition: "
+msgstr ""
+
+#: index.php:470
+msgid "Translate the following word to : "
+msgstr ""
+
+#: index.php:471
+msgid "Your achievements for the "
+msgstr ""
+
+#: index.php:472
+msgid " in "
+msgstr ""
+
+#: index.php:473
+msgid "Write or vote for a definition in "
+msgstr ""
+
+#: index.php:474
+msgid "Rank: "
+msgstr ""
+
+#: index.php:476
+msgid "In Play: "
+msgstr ""
+
+#: index.php:477
+msgid "Banked: "
+msgstr ""
