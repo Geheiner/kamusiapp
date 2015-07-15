@@ -6,7 +6,7 @@ $mysqli= null;
 
 $partOfSpeechArray= array();
 
-$languageMap = array ("1" => "en_US", "2" => "es_ES", "3" => "da_DK", "4" => "da_DK", "5" => "fr_FR", "6" => "ga_IE", "7" => "it_IT" , "8" => "run_BI" , "9" => "sw_TZ" , "10" => "nl_NL" , "11" => "ru_RU" , "12" => "vi_VN" );
+$languageMap = array ("1" => "en_US", "2" => "de_DK", "3" => "es_ES", "4" => "da_DK", "5" => "fr_FR", "6" => "ga_IE", "7" => "it_IT" , "8" => "run_BI" , "9" => "sw_TZ" , "10" => "nl_NL" , "11" => "ru_RU" , "12" => "vi_VN" );
 
 $config = parse_ini_file('/var/www/passwords/config.ini');
 $helsinkiUserName = $config['helusername'];
