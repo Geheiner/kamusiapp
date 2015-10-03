@@ -11,25 +11,14 @@ function loadGameLanguages() {
             console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT")
             var results_array = JSON.parse(xmlhttp.responseText);
 
-            /*
-            var listOfAll = results_array.filter(function(elem, pos) {
-                return results_array.indexOf(elem) == pos;
-            });
-            realIndex = 0
-            listOfAll.forEach( function(elem,pos) {
-                realIndex = alreadyDisplayed + pos;
-                last20Tweets[realIndex] = elem;
-                displayTextWithCheckboxes(elem.Text,realIndex,"twitterWords")
-            }
-            );
+            var languageIdMap = results_array.languageIdMap;
+            var gameIdMap = results_array.gameIdMap;
+            var gameLanguageActive = results_array.gameLanguageActive;
 
-            if(realIndex == 0){
-                console.log("Nothing found for this keyword")
-                
-                updateTweetDB("noTweetFound")
-                getRankedForTweets();
-            }
-            */
+            document.getElementById("settings").innerHTML =
+                languageIdMap + 
+                gameIdMap +
+                gameLanguageActive;
 
         }
     }

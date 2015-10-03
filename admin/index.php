@@ -8,7 +8,7 @@
     <script src="js/server_requests.js"></script>
     <h1>Admin Panel</h1>
     <ul>
-        <li><a onclick="loadGameLanguages()">Manage Games & Languages</li>
+        <li><a onclick="loadGameLanguages()">Manage Games & Languages</a></li>
     </li>
     <div id="settings">
     </div>
