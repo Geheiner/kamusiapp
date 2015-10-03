@@ -24,12 +24,17 @@ function loadGameLanguages() {
             }
             html += "</tr>";
 
-            for (var key in languageIdMap) {
+            for (var lang in languageIdMap) {
                 html += "<tr><td>";
-                html += languageIdMap[key];
+                html += languageIdMap[lang];
                 html += "</td>";
-                for (var key in gameIdMap) {
+                for (var game in gameIdMap) {
                     html += "<td>";
+                    if(gameLanguageActive.hasOwnProperty(lang)) {
+                        if(gameLanguageActive[lang].hasOwnProperty(game)) {
+                            html += gameLanguageActive[lang][game];
+                        }
+                    }
                     html += "</td>";
                 }
                 html += "</tr>";

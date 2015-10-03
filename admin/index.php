@@ -9,7 +9,7 @@
     <h1>Admin Panel</h1>
     <ul>
         <li><a onclick="loadGameLanguages()">Manage Games & Languages</a></li>
-    </li>
+    </ul>
     <div id="settings">
     </div>
 </table>
