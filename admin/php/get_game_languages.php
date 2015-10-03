@@ -25,16 +25,16 @@
     }
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()) {
-        $lang[] = $row["lang"];
-        $game[] = $row["game"];
+        $lang = $row["lang"];
+        $game = $row["game"];
         $languageIdMap[$lang] = $row["langName"];
         $gameIdMap[$game] = $row["gameName"];
         $gameLanguageActive[$lang][$game] = $row["IsActive"];
     }
 
     // remove duplicates from languages and games
-    array_unique($lang);
-    array_unique($game);
+    array_unique($languageIdMap);
+    array_unique($gameIdMap);
 
     $stmt->close();
 
