@@ -4,7 +4,12 @@
 
     // fetch list of games that are available in certain languages
     $sql = "
-        SELECT ISO_639_3.Ref_Name as langName, gamelist.Name as gameName, gamelanguages.IsActive, ISO_639_3.Id as lang, gamelist.ID as game
+        SELECT 
+            ISO_639_3.Ref_Name as langName,
+            gamelist.Name as gameName,
+            gamelanguages.IsActive,
+            ISO_639_3.Id as lang,
+            gamelist.ID as game
         FROM gamelanguages
         INNER JOIN ISO_639_3
         ON lang=gamelanguages.LanguageID
@@ -13,7 +18,11 @@
         ORDER BY lang;";
 
     $stmt = $mysqli->prepare($sql);
-    $stmt->execute();
+    if($stmt) {
+        $stmt->execute();
+    } else {
+        die("Unable to prepare");
+    }
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()) {
         $lang = $row["lang"];
