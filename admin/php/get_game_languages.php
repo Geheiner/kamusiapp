@@ -10,7 +10,7 @@
         ON lang=gamelanguages.LanguageID
         INNER JOIN gamelist
         ON game=gamelanguages.GameID
-        ORDER BY lang;"
+        ORDER BY lang;";
 
     $stmt = $mysqli->prepare($sql);
     $stmt->execute();
