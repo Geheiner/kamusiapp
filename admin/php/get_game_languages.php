@@ -25,8 +25,8 @@
     }
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()) {
-        $lang = $row["lang"];
-        $game = $row["game"];
+        $lang[] = $row["lang"];
+        $game[] = $row["game"];
         $languageIdMap[$lang] = $row["langName"];
         $gameIdMap[$game] = $row["gameName"];
         $gameLanguageActive[$lang][$game] = $row["IsActive"];
