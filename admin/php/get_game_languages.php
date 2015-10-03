@@ -12,9 +12,9 @@
             gamelist.ID as game
         FROM gamelanguages
         INNER JOIN ISO_639_3
-        ON lang=gamelanguages.LanguageID
+        ON ISO_639_3=gamelanguages.LanguageID
         INNER JOIN gamelist
-        ON game=gamelanguages.GameID
+        ON gamelist.ID=gamelanguages.GameID
         ORDER BY lang;";
 
     $stmt = $mysqli->prepare($sql);
