@@ -6,7 +6,7 @@ include 'validate_token.php';
 $userID = $_GET['userID'];
 
 
-
+// TODO Sanitize this input!!
 $sql =  "SELECT * FROM users WHERE UserID='" . $userID . "';";
 
 $stmt = $mysqli->prepare($sql);
