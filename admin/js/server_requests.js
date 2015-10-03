@@ -31,9 +31,13 @@ function loadGameLanguages() {
                 for (var game in gameIdMap) {
                     html += "<td>";
                     if(gameLanguageActive.hasOwnProperty(lang)) {
+                        var checked = "";
                         if(gameLanguageActive[lang].hasOwnProperty(game)) {
-                            html += gameLanguageActive[lang][game];
+                            if(gameLanguageActive[lang][game] == 1) {
+                                checked = " checked";
+                            }
                         }
+                        html += "<input type='checkbox'" + checked + ">";
                     }
                     html += "</td>";
                 }
