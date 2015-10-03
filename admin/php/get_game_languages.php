@@ -21,7 +21,7 @@
     if($stmt) {
         $stmt->execute();
     } else {
-        die("Unable to prepare: ".$stmt->error);
+        die("Unable to prepare: ".var_dump($mysqli));
     }
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()) {
