@@ -12,7 +12,7 @@
             gamelist.ID as game
         FROM gamelanguages
         INNER JOIN ISO_639_3
-        ON ISO_639_3=gamelanguages.LanguageID
+        ON ISO_639_3.Id=gamelanguages.LanguageID
         INNER JOIN gamelist
         ON gamelist.ID=gamelanguages.GameID
         ORDER BY lang;";
