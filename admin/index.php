@@ -3,6 +3,10 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
 
+    if($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
     // fetch list of games that are available in certain languages
     $sql = "
         SELECT ISO_639_3.Ref_Name as langName, gamelist.Name as gameName, gamelanguages.IsActive, ISO_639_3.Id as lang, gamelist.ID as game
