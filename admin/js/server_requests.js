@@ -15,6 +15,28 @@ function loadGameLanguages() {
             var gameIdMap = results_array.gameIdMap;
             var gameLanguageActive = results_array.gameLanguageActive;
 
+            // fill header with games
+            var html = "<table><tr><td></td>";
+            for (var key in gameIdMap) {
+                html += "<td>";
+                html += gameIdMap[key];
+                html += "</td>";
+            }
+            html += "</tr>";
+
+            for (var key in languageIdMap) {
+                html += "<tr><td>";
+                html += languageIdMap[key];
+                html += "</td>";
+                for (var key in gameIdMap) {
+                    html += "<td>";
+                    html += "</td>";
+                }
+                html += "</tr>";
+            }
+
+            html += "</table>";
+
             document.getElementById("settings").innerHTML =
                 languageIdMap + 
                 gameIdMap +
