@@ -37,10 +37,7 @@ function loadGameLanguages() {
 
             html += "</table>";
 
-            document.getElementById("settings").innerHTML =
-                languageIdMap + 
-                gameIdMap +
-                gameLanguageActive;
+            document.getElementById("settings").innerHTML = html;
 
         }
     }
