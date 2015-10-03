@@ -33,7 +33,7 @@ function loadGameLanguages() {
 
         }
     }
-    xmlhttp.open("GET","php/get_game_languages.php"));
+    xmlhttp.open("GET","php/get_game_languages.php");
 
     xmlhttp.send();
 }
