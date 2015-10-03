@@ -21,7 +21,7 @@
     if($stmt) {
         $stmt->execute();
     } else {
-        die("Unable to prepare");
+        die("Unable to prepare: ".$stmt->error);
     }
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()) {
