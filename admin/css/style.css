@@ -1,7 +1,27 @@
 ul.menu {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-ul.menu li a {
+ul.menu li {
+    display: inline;
+}
+
+ul.menu a:link a:visited {
+    display: block;
     text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background-color: #BBB;
+    text-align:center;
+}
+
+ul.menu a:hover, a:active {
+    background-color: #7A991A;
+}
+
+table td {
+    padding: 8px;
+    text-align: center;
 }

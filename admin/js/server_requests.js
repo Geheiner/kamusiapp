@@ -8,7 +8,6 @@ function loadGameLanguages() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT")
             var results_array = JSON.parse(xmlhttp.responseText);
 
             var languageIdMap = results_array.languageIdMap;
@@ -44,6 +43,16 @@ function loadGameLanguages() {
                 html += "</tr>";
             }
 
+            html+= "<tr>";
+            html+= "<td>";
+            html+= "<input type='text' id='lang' onkeyup='lang_autocomplete()'>";
+            html+= "</td>";
+            for (var game in gameIdMap) {
+                html += "<td>";
+                html += "<input type='checkbox'>";
+                html += "</td>";
+            }
+            html += "</tr>";
             html += "</table>";
 
             document.getElementById("settings").innerHTML = html;
