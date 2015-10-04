@@ -8,13 +8,15 @@ ul.menu li {
     display: inline;
 }
 
-ul.menu a:link a:visited {
+ul.menu a:link, a:visited {
     display: block;
+    width:120px;
     text-decoration: none;
     font-weight: bold;
     color: white;
     background-color: #BBB;
     text-align:center;
+    padding:5px;
 }
 
 ul.menu a:hover, a:active {
