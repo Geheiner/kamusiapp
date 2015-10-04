@@ -47,10 +47,8 @@ function loadGameLanguages() {
             html += "</table>";
 
             document.getElementById("settings").innerHTML = html;
-
         }
     }
     xmlhttp.open("GET","php/get_game_languages.php");
-
     xmlhttp.send();
 }
