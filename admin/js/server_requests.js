@@ -66,7 +66,7 @@ function lang_autocomplete() {
     min_length = 0;
     var lang = $("#newlang").val();
     if(lang.length >= min_length) {
-        $.get("autocomplete_language.php", {lang: lang})
+        $.get("php/autocomplete_language.php", {lang: lang})
             .done(function(data) {
                 console.log(data);
             });
