@@ -19,5 +19,5 @@
 
     $stmt->close();
 
-    echo json_encode($row);
+    echo json_encode($result);
 ?>
