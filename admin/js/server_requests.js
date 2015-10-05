@@ -70,13 +70,13 @@ function lang_autocomplete() {
     if(lang.length >= min_length) {
         $.get("php/autocomplete_language.php", {lang: lang})
             .done(function(data) {
-                console.log(data);
                 var results = JSON.parse(data);
+                console.log(results);
                 var ids = [];
                 var names = "";
 
                 for(var row in results) {
-                    names += "<option value='"+row[Ref_Name]+"'>";
+                    names += "<option value='"+results[row].Ref_Name+"'>";
                 }
 
                 $("#langlist").html(names);
