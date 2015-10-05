@@ -60,9 +60,11 @@ function loadGameLanguages() {
  * Gets languages from the ISO list based on input
  */
 function lang_autocomplete() {
+    /*
     min_length = 2;
     var lang = $("#newlang").val();
     if(lang.length >= min_length) {
+        // load iso languages from db
         $.get("php/autocomplete_language.php", {lang: lang})
             .done(function(data) {
                 var results = JSON.parse(data);
@@ -81,6 +83,26 @@ function lang_autocomplete() {
 
             });
     } else {
+        // disable autocomplete for <= 2 characters
         $("#newlang").autocomplete("disable");
     }
+    */
+
+    $("#newlang").autocomplete({
+        minLength: 2,
+        source: function(request, response) {
+            $.get("php/autocomplete_language.php", {lang: $("#newlang").val()})
+                .done(function(data) {
+                    response($.map(data, function(obj) {
+                        return {
+                            label: obj.Ref_Name,
+                            value: obj.Id
+                        }
+                    }));
+                });
+        },
+        select: function(event, ui) {
+            $("langId").val(ui.item.value);
+        }
+    });
 }
