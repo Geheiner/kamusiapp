@@ -1,14 +1,10 @@
+/*
+ * Displays a table to see which games are active for which languages
+ */
 function loadGameLanguages() {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            var results_array = JSON.parse(xmlhttp.responseText);
+    $.get("php/get_game_languages.php")
+        .done(function(data) {
+            var results_array = JSON.parse(data);
 
             var languageIdMap = results_array.languageIdMap;
             var gameIdMap = results_array.gameIdMap;
@@ -45,11 +41,8 @@ function loadGameLanguages() {
 
             html+= "<tr>";
             html+= "<td>";
-            html+= "<input list='langlist' type='text' id='newlang' onkeyup='lang_autocomplete()'>";
-            /*
-            html+= "<datalist id='langlist'>";
-            html+= "</datalist>";
-            */
+            html+= "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
+            html+= "<input type='hidden' id='langId' value=''>";
             html+= "</td>";
             for (var game in gameIdMap) {
                 html += "<td>";
@@ -60,14 +53,14 @@ function loadGameLanguages() {
             html += "</table>";
 
             document.getElementById("settings").innerHTML = html;
-        }
-    }
-    xmlhttp.open("GET","php/get_game_languages.php");
-    xmlhttp.send();
+        });
 }
 
+/*
+ * Gets languages from the ISO list based on input
+ */
 function lang_autocomplete() {
-    min_length = 0;
+    min_length = 2;
     var lang = $("#newlang").val();
     if(lang.length >= min_length) {
         $.get("php/autocomplete_language.php", {lang: lang})
@@ -84,14 +77,6 @@ function lang_autocomplete() {
                 $("#newlang").autocomplete({
                     source: names
                 });
-
-                /*
-                for(var row in results) {
-                    names += "<option value='"+results[row].Ref_Name+"'>";
-                }
-
-                $("#langlist").html(names);
-                */
 
             });
     }
