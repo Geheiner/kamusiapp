@@ -79,7 +79,7 @@ function lang_autocomplete() {
                     names += "<option value='"+row.Ref_Name+"'>";
                 }
 
-                $("langlist").innerHTML = names;
+                $("langlist").html() = names;
 
             });
     }
