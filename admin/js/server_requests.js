@@ -103,7 +103,7 @@ function lang_autocomplete() {
                 });
         },
         select: function(event, ui) {
-            $("langId").val(ui.item.id);
+            $("#langId").val(ui.item.id);
         }
     });
 }
