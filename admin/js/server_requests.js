@@ -75,9 +75,12 @@ function lang_autocomplete() {
                 }
 
                 $("#newlang").autocomplete({
-                    source: names
+                    source: names,
+                    disabled: false
                 });
 
             });
+    } else {
+        $("#newlang").autocomplete("disable");
     }
 }
