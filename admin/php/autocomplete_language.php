@@ -12,7 +12,7 @@
         LIMIT 20;";
 
     $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("s", $lang);
+    $stmt->bind_param("ss", $lang, $lang);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
