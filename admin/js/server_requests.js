@@ -46,7 +46,7 @@ function loadGameLanguages() {
             html+= "<tr>";
             html+= "<td>";
             html+= "<input list='langlist' type='text' id='newlang' onkeyup='lang_autocomplete()'>";
-            html+= "<datalist id='langlist'>;
+            html+= "<datalist id='langlist'>";
             html+= "</datalist>";
             html+= "</td>";
             for (var game in gameIdMap) {
