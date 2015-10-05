@@ -45,7 +45,7 @@ function loadGameLanguages() {
 
             html+= "<tr>";
             html+= "<td>";
-            html+= "<input type='text' id='lang' onkeyup='lang_autocomplete()'>";
+            html+= "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
             html+= "</td>";
             for (var game in gameIdMap) {
                 html += "<td>";
@@ -60,4 +60,15 @@ function loadGameLanguages() {
     }
     xmlhttp.open("GET","php/get_game_languages.php");
     xmlhttp.send();
+}
+
+function lang_autocomplete() {
+    min_length = 0;
+    var lang = $("#newlang").val();
+    if(lang.length >= min_length) {
+        $.get("autocomplete_language.php", {lang: lang})
+            .done(function(data) {
+                console.log(data);
+            });
+    }
 }
