@@ -17,7 +17,7 @@
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
-    $stmt->close()
+    $stmt->close();
 
-        echo json_encode($row);
+    echo json_encode($row);
 ?>
