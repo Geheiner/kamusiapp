@@ -91,7 +91,7 @@ function lang_autocomplete() {
     $("#newlang").autocomplete({
         minLength: 2,
         source: function(request, response) {
-            $.get("php/autocomplete_language.php", {lang: $("#newlang").val()})
+            $.getJSON("php/autocomplete_language.php", {lang: $("#newlang").val()})
                 .done(function(data) {
                     response($.map(data, function(obj) {
                         return {
