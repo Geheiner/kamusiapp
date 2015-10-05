@@ -96,13 +96,14 @@ function lang_autocomplete() {
                     response($.map(data, function(obj) {
                         return {
                             label: obj.Ref_Name,
-                            value: obj.Id
+                            value: obj.Ref_Name,
+                            id: obj.Id
                         }
                     }));
                 });
         },
         select: function(event, ui) {
-            $("langId").val(ui.item.value);
+            $("langId").val(ui.item.id);
         }
     });
 }
