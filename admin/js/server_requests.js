@@ -76,7 +76,7 @@ function lang_autocomplete() {
                 var names = "";
 
                 for(var row in results) {
-                    names += "<option value='"+row.Ref_Name+"'>";
+                    names += "<option value='"+row[Ref_Name]+"'>";
                 }
 
                 $("#langlist").html(names);
