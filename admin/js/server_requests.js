@@ -69,6 +69,17 @@ function lang_autocomplete() {
         $.get("php/autocomplete_language.php", {lang: lang})
             .done(function(data) {
                 console.log(data);
+                $("newlang").autocomplete({
+                    var results = JSON.parse(data);
+                    var ids = [];
+                    var names = [];
+
+                    for(var row in results) {
+                        names.push(row.Ref_Name);
+                    }
+
+                    source(names)
+
             });
     }
 }
