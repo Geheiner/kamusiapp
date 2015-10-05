@@ -15,9 +15,12 @@
     $stmt->bind_param("ss", $lang, $lang);
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+    $array = array();
+    while($row = $result->fetch_assoc()) {
+        $array[] = $row;
+    }
 
     $stmt->close();
 
-    echo json_encode($result);
+    echo json_encode($array);
 ?>
