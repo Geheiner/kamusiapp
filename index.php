@@ -1,5 +1,10 @@
 <?php
 
+// This will prevent access to the game for maintenance
+$GAME_OFF = true;
+if($GAME_OFF) {
+    header("Location: offline.html");
+}
 session_start();
 function generateToken() {
 	// generate token from random value
