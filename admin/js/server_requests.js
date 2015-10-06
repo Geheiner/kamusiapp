@@ -19,6 +19,7 @@ function loadGameLanguages() {
             }
             html += "</tr>";
 
+            // loop through all languages to display active state
             for (var lang in languageIdMap) {
                 html += "<tr><td>";
                 html += languageIdMap[lang];
@@ -46,7 +47,7 @@ function loadGameLanguages() {
             html+= "</td>";
             for (var game in gameIdMap) {
                 html += "<td>";
-                html += "<input type='checkbox'>";
+                html += "<input type='checkbox' id='"+game+"'>";
                 html += "</td>";
             }
             html += "</tr>";
@@ -60,36 +61,9 @@ function loadGameLanguages() {
  * Gets languages from the ISO list based on input
  */
 function lang_autocomplete() {
-    /*
-    min_length = 2;
-    var lang = $("#newlang").val();
-    if(lang.length >= min_length) {
-        // load iso languages from db
-        $.get("php/autocomplete_language.php", {lang: lang})
-            .done(function(data) {
-                var results = JSON.parse(data);
-                console.log(results);
-                var ids = [];
-                var names = [];
-
-                for(var row in results) {
-                    names.push(results[row].Ref_Name);
-                }
-
-                $("#newlang").autocomplete({
-                    source: names,
-                    disabled: false
-                });
-
-            });
-    } else {
-        // disable autocomplete for <= 2 characters
-        $("#newlang").autocomplete("disable");
-    }
-    */
-
     $("#newlang").autocomplete({
         minLength: 2,
+        // get data
         source: function(request, response) {
             $.getJSON("php/autocomplete_language.php", {lang: $("#newlang").val()})
                 .done(function(data) {
@@ -102,6 +76,7 @@ function lang_autocomplete() {
                     }));
                 });
         },
+        // write id to hidden field so db entry can be written later
         select: function(event, ui) {
             $("#langId").val(ui.item.id);
         }

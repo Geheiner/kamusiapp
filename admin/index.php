@@ -12,6 +12,7 @@
     <h1>Admin Panel</h1>
     <ul class="menu">
         <li><a href="#" onclick="loadGameLanguages()">Manage Games & Languages</a></li>
+        <li><a href="#" onclick="loadInterfaceLanguages()">Manage Interface Languages</a></li>
     </ul>
     <div id="settings">
     </div>
