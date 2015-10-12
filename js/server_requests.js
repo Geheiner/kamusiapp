@@ -564,17 +564,17 @@ function initialise() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             //alert(xmlhttp.responseText);
             var obj = JSON.parse(xmlhttp.responseText);
-            whenToNotify = obj.NotificationTimeUnit
-                whenToPost = obj.PostTimeUnit
-                gameLanguageSliderValue= obj.gamelanguage -1;
+            whenToNotify = obj.NotificationTimeUnit;
+            whenToPost = obj.PostTimeUnit;
+            gameLanguageSliderValue= obj.gamelanguage -1;
             gameLanguage = obj.gamelanguage;
             console.log("The game language is now : " + gameLanguage);
 
-            document.getElementById('notifications').selectedIndex = whenToNotify 
-                document.getElementById('posts').selectedIndex= whenToPost
-                document.getElementById('language').selectedIndex= gameLanguageSliderValue
+            document.getElementById('notifications').selectedIndex = whenToNotify;
+            document.getElementById('posts').selectedIndex= whenToPost;
+            document.getElementById('language').selectedIndex= gameLanguageSliderValue;
 
-                display_welcome();
+            display_welcome();
         }
     }
     xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);

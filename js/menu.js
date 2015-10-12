@@ -247,7 +247,7 @@ function display_welcome() {
     $("#changeMenuLanguage").css("display", "none");
     //display only the games that are avilable in the currentlanguage
 
-    $.getJSON("php/get_games_by_language.php?languageID=" + gameLanguage)
+    $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
         .done(function(data, status) {
             console.log(status);
             console.log(data);
