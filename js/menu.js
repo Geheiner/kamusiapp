@@ -22,7 +22,6 @@ function InlineEditorController($scope){
 
         $scope.showtooltip = !$scope.showtooltip;
 
-
         if($scope.showtooltip) {
             remove_active();
             $("#user_definition").attr("class", "active_definition");
@@ -53,7 +52,7 @@ function InlineEditorController($scope){
         $scope.hideTooltip();
         playClick();vote();
         get_ranked();
-        $scope.value = '';  
+        $scope.value = '';
         getGameScore();
     }
 }
@@ -103,16 +102,14 @@ function InlineEditorController2($scope){
     }
 
     $scope.submitGame2 = function() {
-        soumettre_traduction(); 
+        soumettre_traduction();
         get_ranked_mode_2();
         getGameScore();
         $scope.hideTooltip2();
         playClick();
-        $scope.translation = translation_default_value; 
+        $scope.translation = translation_default_value;
     }
 }
-
-
 
 function enter_game1() {
     pause_animation();
@@ -136,8 +133,8 @@ function enter_game1() {
 }
 
 function enter_game2() {
-    pause_animation()
-        game = 2;
+    pause_animation();
+    game = 2;
     getGameScore();
     get_ranked_mode_2();
     $("#instructions2").html(translateTheFollowing + gameLanguages[gameLanguage]);
@@ -162,9 +159,6 @@ function enter_game3() {
     $("#gamezone2").css("display", "none");
     $("#gamezone3").css("display", "inline-block");
     $("#gamezone4").css("display", "none");
-
-
-
 }
 
 function enter_game4() {
@@ -177,11 +171,8 @@ function enter_game4() {
     $("#gamezone3").css("display", "none");
     $("#gamezone4").css("display", "inline-block");
 
-
     pause_animation();
     getRankedForSwahili();
-
-
 }
 
 function display_settings() {
@@ -192,7 +183,7 @@ function display_settings() {
 
 function display_leaderboard() {
     $("#profile").css("display", "none");
-    $("#leaderboard").css("display", "inline-block");   
+    $("#leaderboard").css("display", "inline-block");
 }
 
 function display_info1(){
@@ -225,7 +216,7 @@ function display_profile() {
     stopAutoUpdateOfLeaderboard();
     $("#settings").css("display", "none");
     $("#leaderboard").css("display", "none");
-    $("#changeMenuLanguage").css("display", "none");    
+    $("#changeMenuLanguage").css("display", "none");
     $("#welcome").css("display", "none");
     $("#game").css("display", "none");
 
@@ -237,7 +228,7 @@ function display_changeLanguage() {
     $("#welcome").css("display", "none");
     $("#profile").css("display", "none");
     $("#settings").css("display", "none");
-    $("#changeMenuLanguage").css("display", "inline-block");    
+    $("#changeMenuLanguage").css("display", "inline-block");
 }
 
 function return_to_game() {
@@ -296,7 +287,7 @@ function changeColorOnClick(tweetDisplay,newInput){
     }
 }
 
-function animate_logo_firstTime(){  
+function animate_logo_firstTime(){
     $("logo").addClass("animatelogo");
     $("enter0").classList.remove("shaded_enter");
     $("enter0").addClass("animateenter");
@@ -307,7 +298,6 @@ function animate_logo_login(){
     $("enterLogin").classList.remove("shaded_enterLogin");
     $("enterLogin").addClass("animateenterLogin");
 }
-
 
 function set_consensus(definition) {
     $("#consensus").html(generalSense + "<strong>" + definition + "</strong>");
@@ -375,8 +365,6 @@ function add_translation_dunno(definition) {
 
     ul.appendChild(li);
 }
-
-
 
 function add_definition(id, definition, spam) {
     var ul = document.getElementById('definitions');
@@ -471,7 +459,6 @@ function startAutoUpdateOfLeaderboard() {
 
     var whichSliderToChange = 0;
 
-
     autoUpdateIntervalJobID= setInterval(function () {
         if(document.getElementById("autoloop").checked) {
             var whatTochange = languageSelect;
@@ -491,7 +478,7 @@ function startAutoUpdateOfLeaderboard() {
                     break;
                 default:
                     console.log("PEROGVJEöRKFJ")
-                        break;        
+                        break;
             }
             whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
             whichSliderToChange= (whichSliderToChange +1) % 4;

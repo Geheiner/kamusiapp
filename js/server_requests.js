@@ -30,9 +30,6 @@ var lastSwahiliSentences = {}
 
 //Current points for the current game
 
-
-
-
 function getRankedForTweets() {
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
@@ -47,13 +44,12 @@ function getRankedForTweets() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("TweetResponse was : " + xmlhttp.responseText)
+            console.log("TweetResponse was : " + xmlhttp.responseText);
 
-                obj = JSON.parse(xmlhttp.responseText);
+            obj = JSON.parse(xmlhttp.responseText);
             groupID = obj[0].GroupID;
             wordID = obj[0].WordID;
             word = obj[0].Word;
-
 
             if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
                 updateTweetDB("noTweetFound")
@@ -91,9 +87,9 @@ function getRankedForSwahili() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("JSON DATA SWAHILI LOOKS LIKE : " +xmlhttp.responseText)
+            console.log("JSON DATA SWAHILI LOOKS LIKE : " +xmlhttp.responseText);
 
-                obj = JSON.parse(xmlhttp.responseText);
+            obj = JSON.parse(xmlhttp.responseText);
             console.log("response was : " + xmlhttp.responseText);
             word = obj.title;
             wordID = obj.nid;
@@ -114,8 +110,8 @@ function getRankedForSwahili() {
 //One JS call to verify number of sentences available.
 //Then If enough, 2 parallel calls: one to get sentences from the DB, one other to fetch new ones.
 function getGame4Sentences(keyword, amount) {
-    console.log("Checking if the DB contains enough sentences for this keyword")
-        var xmlhttp;
+    console.log("Checking if the DB contains enough sentences for this keyword");
+    var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
@@ -146,8 +142,8 @@ function getGame4Sentences(keyword, amount) {
 }
 
 function updateBufferForDatabase(keyword, amount){
-    console.log("Updating buffer...")
-        var xmlhttp;
+    console.log("Updating buffer...");
+    var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
@@ -157,7 +153,7 @@ function updateBufferForDatabase(keyword, amount){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             //console.log(xmlhttp.responseText);
-            console.log("BUFFER UPDATED!!!")
+            console.log("BUFFER UPDATED!!!");
         }
     }
     xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount , true);
@@ -166,8 +162,8 @@ function updateBufferForDatabase(keyword, amount){
 }
 
 function queryForSentences(keyword, amount, source){
-    console.log("Querying the helsinki DB...")
-        amountGame4=amount
+    console.log("Querying the helsinki DB...");
+    amountGame4=amount
         var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -177,8 +173,8 @@ function queryForSentences(keyword, amount, source){
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Returned from helsinki query: ")
-                console.log(xmlhttp.responseText);
+            console.log("Returned from helsinki query: ");
+            console.log(xmlhttp.responseText);
             var results_array = JSON.parse(xmlhttp.responseText);
             for( i = 0; i<amount ;i++) {
                 //last20Tweets[i] = results_array[i];
@@ -199,9 +195,8 @@ function queryForSentences(keyword, amount, source){
 }
 
 function get_tweets(alreadyDisplayed) {
-    console.log("inside the tweets function: ")
-
-        var xmlhttp;
+    console.log("inside the tweets function: ");
+    var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
@@ -210,9 +205,8 @@ function get_tweets(alreadyDisplayed) {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT")
-                var results_array = JSON.parse(xmlhttp.responseText);
-
+            console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT");
+            var results_array = JSON.parse(xmlhttp.responseText);
             var listOfAll = results_array.filter(function(elem, pos) {
                 return results_array.indexOf(elem) == pos;
             });
@@ -225,9 +219,9 @@ function get_tweets(alreadyDisplayed) {
                 );
 
             if(realIndex == 0){
-                console.log("Nothing found for this keyword")
+                console.log("Nothing found for this keyword");
 
-                    updateTweetDB("noTweetFound")
+                updateTweetDB("noTweetFound")
                     getRankedForTweets();
             }
 
@@ -239,8 +233,6 @@ function get_tweets(alreadyDisplayed) {
 }
 
 function displayTextWithCheckboxes(elemText, index, whereToInsert){
-
-
     var tweetDisplay = document.createElement("P");
     tweetDisplay.id = "tweetDisplay" + index;
     tweetDisplay.name = "elem" ;
@@ -260,8 +252,8 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
     }
 
     var t = document.createTextNode(elemText);
-    console.log("STYLEEEEE " + tweetDisplay.style.color)
-        tweetDisplay.appendChild(newInput);
+    console.log("STYLEEEEE " + tweetDisplay.style.color);
+    tweetDisplay.appendChild(newInput);
     tweetDisplay.appendChild(t);
     document.getElementById(whereToInsert).appendChild(tweetDisplay);
 }
@@ -276,7 +268,7 @@ function updateTweetDB(status) {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Response from TweetDB update was: " + xmlhttp.responseText )
+            console.log("Response from TweetDB update was: " + xmlhttp.responseText );
         }
     }
     var json_data= {"wordID":wordID, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
@@ -294,8 +286,6 @@ function updateTweetDB(status) {
         console.log('fail');
         console.log(data);
     });
-
-
 }
 
 function fetchTweetsFromDB(amount) {
@@ -324,9 +314,9 @@ function fetchTweetsFromDB(amount) {
             }
         }
     }
-    console.log("WORD ID IS : "+ wordID)
+    console.log("WORD ID IS : "+ wordID);
 
-        xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+    xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
     xmlhttp.send();
 }
@@ -366,8 +356,8 @@ function submitCheckBoxData(whatToSubmit) {
 }
 
 function sendGame4SentenceToDB(sentence, good){
-    console.log("Sending swahili results to DB:...")
-        var xmlhttp;
+    console.log("Sending swahili results to DB:...");
+    var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
@@ -376,14 +366,14 @@ function sendGame4SentenceToDB(sentence, good){
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("DB Response t sending swahili results was:  " + xmlhttp.responseText)
-                getGameScore();
+            console.log("DB Response t sending swahili results was:  " + xmlhttp.responseText);
+            getGameScore();
         }
 
     }
     //wordID, sentenceID, userID, game lang
-    console.log("When submitting sentence, good is : " + good)
-        xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence.sentenceid + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
+    console.log("When submitting sentence, good is : " + good);
+    xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence.sentenceid + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();
 }
 
@@ -397,7 +387,7 @@ function sendTweetToDB(tweet, good){
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("DB esponse was:  : " + xmlhttp.responseText)
+            console.log("DB esponse was:  : " + xmlhttp.responseText);
         }
     }
     var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good  }
@@ -422,7 +412,6 @@ function sendTweetToDB(tweet, good){
 function get_ranked() {
 
     $(".entry").addClass("fade");
-
 
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -472,10 +461,8 @@ function get_ranked() {
             }
 
             definitionID = -1;
-            $(".entry").removeClass("fade");                
+            $(".entry").removeClass("fade");
             //}, 1000);
-
-
 
         }
     }
@@ -495,71 +482,69 @@ function submit_definition(definition) {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("submit definition returns : " + xmlhttp.responseText)
-                getGameScore();
+            console.log("submit definition returns : " + xmlhttp.responseText);
+            getGameScore();
         }
 
     }
-    console.log("When submitting definition, wordID is : " + wordID)
-        xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
+    console.log("When submitting definition, wordID is : " + wordID);
+    xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();
 }
 
 function isNewUser() {
     if(siteLanguage == "-1"){
-        console.log("Checking if New USER")
-            if(userID == "???"){
-                console.log("Waiting until becoming defined!" + userID)
+        console.log("Checking if New USER");
+        if(userID == "???"){
+            console.log("Waiting until becoming defined!" + userID);
+        }
+        else {
+            console.log("Defined!" + userID);
+
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
             }
-            else {
-                console.log("Defined!" + userID)
+            else {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
-                    var xmlhttp;
-                if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp=new XMLHttpRequest();
-                }
-                else {// code for IE6, IE5
-                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange=function() {
-                    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                    console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
+                    obj = JSON.parse(xmlhttp.responseText);
 
-                        console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
-                        obj = JSON.parse(xmlhttp.responseText);
+                    if(obj[1] != "unknown user") {
 
-                        if(obj[1] != "unknown user") {
+                        siteLanguage=obj[0]
+                            document.getElementById('menuLanguageSettings').selectedIndex= siteLanguage - 1
 
-                            siteLanguage=obj[0]
-                                document.getElementById('menuLanguageSettings').selectedIndex= siteLanguage - 1
-
-                                console.log("Site lanuguage is: " + siteLanguage)
-                                if(obj[1] != "aleadyDoneBefore") {
-                                    location.reload();
-                                }
-                                else {
-                                    if(obj[2] == "showSettings"){
-                                        display_settings();
-                                        //alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
-                                    }
-                                    else {
-                                        initialise();   
-                                        animate_logo(); 
-                                    }                       
-                                }
+                            console.log("Site lanuguage is: " + siteLanguage);
+                        if(obj[1] != "aleadyDoneBefore") {
+                            location.reload();
                         }
                         else {
-                            firsttime= true;
-                            animate_logo_firstTime(); 
+                            if(obj[2] == "showSettings"){
+                                display_settings();
+                                //alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
+                            }
+                            else {
+                                initialise();   
+                                animate_logo(); 
+                            }                       
                         }
-
                     }
+                    else {
+                        firsttime= true;
+                        animate_logo_firstTime(); 
+                    }
+
                 }
-                xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
-                xmlhttp.send();
             }
+            xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
+            xmlhttp.send();
+        }
     }
-
-
 }
 
 function initialise() {
@@ -589,9 +574,7 @@ function initialise() {
                 document.getElementById('posts').selectedIndex= whenToPost
                 document.getElementById('language').selectedIndex= gameLanguageSliderValue
 
-
                 display_welcome();
-
         }
     }
     xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
@@ -608,15 +591,15 @@ function getGameScore(){
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("getGameScore returned this : " + xmlhttp.responseText)
-                var obj = JSON.parse(xmlhttp.responseText);
+            console.log("getGameScore returned this : " + xmlhttp.responseText);
+            var obj = JSON.parse(xmlhttp.responseText);
 
             set_profile_data(obj.points, obj.pendingpoints, (obj.points / ( parseInt(obj.submissions) + 1)).toFixed(5));
             updatePermanentMetrics(obj.points,obj.pendingpoints);
         }
     }
-    console.log("gameLAnugage is : " + gameLanguage)
-        xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
+    console.log("gameLAnugage is : " + gameLanguage);
+    xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();    
 }
 
@@ -631,13 +614,13 @@ function submit_vote(definition_id, vote) {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Submit_Vote returned : " + xmlhttp.responseText)
-                getGameScore();
+            console.log("Submit_Vote returned : " + xmlhttp.responseText);
+            getGameScore();
         }
     }
-    console.log("WordID when submitting Vote : " + wordID)
+    console.log("WordID when submitting Vote : " + wordID);
 
-        xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID + "&mode=" + game + "&language=" + gameLanguage, true);
+    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();
 }
 
@@ -648,7 +631,6 @@ function report_spam() {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-
 
     }
     xmlhttp.onreadystatechange=function() {
@@ -685,8 +667,8 @@ function get_ranked_mode_2() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("GEt ranked2 : " + xmlhttp.responseText)
-                obj = JSON.parse(xmlhttp.responseText);
+            console.log("GEt ranked2 : " + xmlhttp.responseText);
+            obj = JSON.parse(xmlhttp.responseText);
             document.getElementById("translation_word").innerHTML = obj[0].Word;
             document.getElementById("translation_pos").innerHTML = partOfSpeechArray[obj[0].PartOfSpeech];
             document.getElementById("translation_definition").innerHTML = generalSense + "<strong>" + obj[0].Definition + "</strong>";
@@ -714,8 +696,8 @@ function submit_translation(translation) {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("END submit tranlsation : " + xmlhttp.responseText)
-                getGameScore();
+            console.log("END submit tranlsation : " + xmlhttp.responseText);
+            getGameScore();
         }
     }
     xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + wordID + "&userID=" + userID  + "&language=" + gameLanguage + "&mode=" +'2', true);
@@ -725,8 +707,8 @@ function submit_translation(translation) {
 function saveSettings() {
     menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
         if(siteLanguage != menuLanguageSliderValue +1 ){
-            console.log("Changing language...")
-                saveMenuLanguage("menuLanguageSettings")
+            console.log("Changing language...");
+            saveMenuLanguage("menuLanguageSettings")
         }
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
@@ -744,7 +726,7 @@ function saveSettings() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("END save settings : " + xmlhttp.responseText)
+            console.log("END save settings : " + xmlhttp.responseText);
         }
     }
     xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&gameLanguage=" + gameLanguage);
@@ -767,12 +749,12 @@ function saveMenuLanguage(whichSlider) {
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("ALL RIGHT");
-            console.log(xmlhttp.responseText)
-                location.reload();
+            console.log(xmlhttp.responseText);
+            location.reload();
         }
     }
-    console.log("Sending LANG : " + siteLanguage)
-        xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
+    console.log("Sending LANG : " + siteLanguage);
+    xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
     xmlhttp.send();
 }
 
@@ -788,14 +770,14 @@ function post_timeline() {
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
-            console.log("# of new definitions from user : " + obj)
-                if(obj == 0){
-                    console.log("No activity to post")
-                }
-                else {
+            console.log("# of new definitions from user : " + obj);
+            if(obj == 0){
+                console.log("No activity to post");
+            }
+            else {
 
-                    publishStory(obj)
-                }
+                publishStory(obj)
+            }
         }
     }
 
@@ -805,17 +787,17 @@ function post_timeline() {
 
 function trigger_notification() {
     var xmlhttp;
-    console.log("In trigger notification")
+    console.log("In trigger notification");
 
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("NOTIFICATION RESPONSE" + xmlhttp.responseText)
+            console.log("NOTIFICATION RESPONSE" + xmlhttp.responseText);
 
         }
     }
@@ -823,8 +805,6 @@ function trigger_notification() {
     xmlhttp.open("GET","php/notification_tweet.php?userID=" + userID); 
     xmlhttp.send();   
 }
-
-
 
 function updateLeaderboard(){
 
@@ -838,44 +818,41 @@ function updateLeaderboard(){
         scoreMetric = metricSelect.selectedIndex;
 
     var xmlhttp;
-    console.log("In update leaderboard")
+    console.log("In update leaderboard");
 
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Leaderboard response : " + xmlhttp.responseText)
+            console.log("Leaderboard response : " + xmlhttp.responseText);
 
-                table = document.getElementById("score_table");
+            table = document.getElementById("score_table");
 
             obj = JSON.parse(xmlhttp.responseText);
-            console.log("This will be the obj")
-                console.log(obj);
-
+            console.log("This will be the obj");
+            console.log(obj);
 
             max = table.rows.length;
             for(var i = 0; i < max; i++){
-                console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
-                    table.deleteRow(0);
+                console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length);
+                table.deleteRow(0);
             }
 
             for(var i = 0; i <  obj[0].length; i++) {
                 var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount);
                 rowUserID=  obj[1][i].toString();
-                console.log("This is the rowCount: " + rowCount)
-                    if(rowUserID == userID){
-                        row.className = "highlightCurrentUser"; 
-                    }
-                    else {
-                        row.className = "otherUsersInTable"; 
+                console.log("This is the rowCount: " + rowCount);
 
-                    }
-
+                if(rowUserID == userID){
+                    row.className = "highlightCurrentUser"; 
+                } else {
+                    row.className = "otherUsersInTable"; 
+                }
 
                 row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
                 row.insertCell(1).innerHTML= obj[2][rowUserID];
