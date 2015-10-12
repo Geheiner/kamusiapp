@@ -29,7 +29,7 @@ if($numberOfTranslationAlreadyInDatabase == 1){
 	$returnValue= "transAlreadyExists";
 }
 else {
-	$sql = 	"INSERT INTO translations (LanguageID, WordID, UserID, Translation) VALUES (?,?,?,?);";
+	$sql = 	"INSERT INTO translations (language, WordID, UserID, Translation) VALUES (?,?,?,?);";
 
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("iiss", $language,$wordID, $userID ,$translation);
@@ -37,7 +37,7 @@ else {
 	$stmt->close();
 
 
-	$sql = 	"SELECT Count(Wordid) FROM translations WHERE WordID= ? AND Translation = ? AND LanguageID = ?;";
+	$sql = 	"SELECT Count(Wordid) FROM translations WHERE WordID= ? AND Translation = ? AND language = ?;";
 
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("isi", $wordID, $translation, $language);
@@ -51,7 +51,7 @@ else {
 if($numberOfTranslationAlreadyInDatabase > 2 ) {
 
 #get all concerned users;
-	$stmt = $mysqli->prepare("SELECT DISTINCT UserID FROM translations WHERE WordID= ? AND Translation= ? AND LanguageID = ?;");
+	$stmt = $mysqli->prepare("SELECT DISTINCT UserID FROM translations WHERE WordID= ? AND Translation= ? AND language = ?;");
 	$stmt->bind_param("isi", $wordID, $translation, $language);
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -65,7 +65,7 @@ if($numberOfTranslationAlreadyInDatabase > 2 ) {
 	addXToPendingPointsInGame($userID, $language, $mode, -10);
 //remove this translation from the temporal database
 
-	$sql = 	"DELETE FROM translations WHERE WordID= ? AND Translation= ? AND LanguageID = ?;";
+	$sql = 	"DELETE FROM translations WHERE WordID= ? AND Translation= ? AND language = ?;";
 
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("isi", $wordID, $translation, $language);

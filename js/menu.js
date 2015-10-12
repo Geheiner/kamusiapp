@@ -277,15 +277,15 @@ continue_animation();
 
 function animate_logo() {
 
-	document.getElementById("logo").classList.add("animatelogo");
-	document.getElementById("enter1").classList.remove("shaded_enter");
-	document.getElementById("enter1").classList.add("animateenter");
-	document.getElementById("enter2").classList.remove("shaded_enter");
-	document.getElementById("enter2").classList.add("animateenter");
-	document.getElementById("enter3").classList.remove("shaded_enter");
-	document.getElementById("enter3").classList.add("animateenter");
-	document.getElementById("enter4").classList.remove("shaded_enter");
-	document.getElementById("enter4").classList.add("animateenter");
+	$("logo").addClass("animatelogo");
+	$("enter1").classList.remove("shaded_enter");
+	$("enter1").addClass("animateenter");
+	$("enter2").classList.remove("shaded_enter");
+	$("enter2").addClass("animateenter");
+	$("enter3").classList.remove("shaded_enter");
+	$("enter3").addClass("animateenter");
+	$("enter4").classList.remove("shaded_enter");
+	$("enter4").addClass("animateenter");
 
 }
 
@@ -301,15 +301,15 @@ function changeColorOnClick(tweetDisplay,newInput){
 
 function animate_logo_firstTime(){	
 
-	document.getElementById("logo").classList.add("animatelogo");
-	document.getElementById("enter0").classList.remove("shaded_enter");
-	document.getElementById("enter0").classList.add("animateenter");
+	$("logo").addClass("animatelogo");
+	$("enter0").classList.remove("shaded_enter");
+	$("enter0").addClass("animateenter");
 }
 
 function animate_logo_login(){
-	document.getElementById("logo").classList.add("animatelogo");
-	document.getElementById("enterLogin").classList.remove("shaded_enterLogin");
-	document.getElementById("enterLogin").classList.add("animateenterLogin");
+	$("logo").addClass("animatelogo");
+	$("enterLogin").classList.remove("shaded_enterLogin");
+	$("enterLogin").addClass("animateenterLogin");
 }
 
 

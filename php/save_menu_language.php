@@ -20,7 +20,7 @@ ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 $language = $_GET['menuLanguage'];
 
-$stmt = $mysqli->prepare("UPDATE users SET Language=? WHERE UserID= ?;");
+$stmt = $mysqli->prepare("UPDATE users SET interfacelanguage=? WHERE UserID= ?;");
 $stmt->bind_param("is",  $language, $userID);
 $stmt->execute();
 $stmt->close();

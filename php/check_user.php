@@ -4,7 +4,7 @@ $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
 
-$stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ;");
+$stmt = $mysqli->prepare("SELECT interfacelanguage FROM users WHERE UserID = ? ;");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
 $stmt->bind_result($checkResult);

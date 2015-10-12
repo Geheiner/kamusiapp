@@ -19,7 +19,7 @@ $stmt->bind_param("s",  $post);
 $stmt->execute();
 $stmt->close();
 
-$stmt = $mysqli->prepare("UPDATE users SET gameLanguage=? WHERE UserID=$userID;");
+$stmt = $mysqli->prepare("UPDATE users SET gamelanguage=? WHERE UserID=$userID;");
 $stmt->bind_param("i",  $language);
 $stmt->execute();
 $stmt->close();
