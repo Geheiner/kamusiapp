@@ -259,6 +259,9 @@ function display_welcome() {
                     $("#enter"+i).css("display", "inline-block");
                 }
             }
+        })
+        .fail(function() {
+            console.log("Fetching games for language " + gameLanguage + " failed");
         });
 
 
