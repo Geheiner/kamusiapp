@@ -19,7 +19,7 @@ function generateToken() {
 $locale= isset($_SESSION['lang']) ? $_SESSION['lang'] : $languageMap["1"];
 
 
-setlocale(LC_ALL, $locale .'.utf8');
+//setlocale(LC_ALL, $locale .'.utf8');
 
 /**
  * Because the .po file is named messages.po, the text domain must be named
