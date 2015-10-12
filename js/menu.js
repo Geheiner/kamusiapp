@@ -250,6 +250,7 @@ function display_welcome() {
     $.getJSON("php/get_games_by_language.php?languageID=" + gameLanguage)
         .done(function(data, status) {
             console.log(status);
+            console.log(data);
             for( i = 1; i < 5; i++){
                 if(  $.inArray(i, data.GameID) == -1) {
                     $("#enter"+i).css("display", "none");
@@ -279,15 +280,15 @@ function display_welcome() {
 
 function animate_logo() {
 
-    $("logo").addClass("animatelogo");
-    $("enter1").classList.remove("shaded_enter");
-    $("enter1").addClass("animateenter");
-    $("enter2").classList.remove("shaded_enter");
-    $("enter2").addClass("animateenter");
-    $("enter3").classList.remove("shaded_enter");
-    $("enter3").addClass("animateenter");
-    $("enter4").classList.remove("shaded_enter");
-    $("enter4").addClass("animateenter");
+    $("#logo").addClass("animatelogo");
+    $("#enter1").classList.remove("shaded_enter");
+    $("#enter1").addClass("animateenter");
+    $("#enter2").classList.remove("shaded_enter");
+    $("#enter2").addClass("animateenter");
+    $("#enter3").classList.remove("shaded_enter");
+    $("#enter3").addClass("animateenter");
+    $("#enter4").classList.remove("shaded_enter");
+    $("#enter4").addClass("animateenter");
 
 }
 
@@ -301,15 +302,15 @@ function changeColorOnClick(tweetDisplay,newInput){
 }
 
 function animate_logo_firstTime(){
-    $("logo").addClass("animatelogo");
-    $("enter0").classList.remove("shaded_enter");
-    $("enter0").addClass("animateenter");
+    $("#logo").addClass("animatelogo");
+    $("#enter0").classList.remove("shaded_enter");
+    $("#enter0").addClass("animateenter");
 }
 
 function animate_logo_login(){
-    $("logo").addClass("animatelogo");
-    $("enterLogin").classList.remove("shaded_enterLogin");
-    $("enterLogin").addClass("animateenterLogin");
+    $("#logo").addClass("animatelogo");
+    $("#enterLogin").classList.remove("shaded_enterLogin");
+    $("#enterLogin").addClass("animateenterLogin");
 }
 
 function set_consensus(definition) {
