@@ -16,6 +16,11 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
+$data = array();
+while($row = $result->fetch_assoc()) {
+    $data[] = $row;
+}
+
 $stmt->close();
 
-echo json_encode($row);
+echo json_encode($data);
