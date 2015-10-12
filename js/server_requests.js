@@ -721,6 +721,7 @@ function saveSettings() {
             "&post=" + whenToPost + 
             "&gameLanguage=" + gameLanguage).done(function(data) {
         console.log("Settings saved");
+    });
 
 /*
     var xmlhttp;
