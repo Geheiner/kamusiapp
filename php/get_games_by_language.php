@@ -1,0 +1,21 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
+$language = $_GET('languageID');
+
+$sql = "SELECT DISTINCT(GameID), gamelist.Name
+        FROM gamelanguages
+        JOIN gamelist
+        ON GameID=ID
+        WHERE LanguageID = ? AND IsActive==1"
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("i", $language);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+$stmt->close();
+
+echo json_encode($row);

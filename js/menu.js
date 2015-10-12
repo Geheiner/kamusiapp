@@ -246,6 +246,22 @@ function display_welcome() {
     $("#leaderboard").css("display", "none");
     $("#changeMenuLanguage").css("display", "none");
     //display only the games that are avilable in the currentlanguage
+
+    $.getJSON("php/get_games_by_language.php?languageID=" + gameLanguage)
+        .done(function(data, status) {
+            console.log(status);
+            for( i = 1; i < 5; i++){
+                if(  $.inArray(i, data.GameID) == -1) {
+                    $("#enter"+i).css("display", "none");
+                }
+                else {
+                    $("#enter"+i).css("display", "inline-block");
+                }
+            }
+        });
+
+
+/*
     console.log(implementedGames)
         console.log(gameLanguage)
         for( i = 1; i < 5; i++){
@@ -255,7 +271,8 @@ function display_welcome() {
             else {
                 $("#enter"+i).css("display", "inline-block");
             }
-        }
+    }
+*/
 
     continue_animation();
 }
