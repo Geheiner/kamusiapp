@@ -1,7 +1,7 @@
 <?php
 
 // This will prevent access to the game for maintenance
-$GAME_OFF = true;
+$GAME_OFF = false;
 if($GAME_OFF) {
     header("Location: offline.html");
 }
@@ -364,18 +364,18 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <br><br>
         <p><?php echo _("Game Language"); ?></p>
         <select id="language" onchange= size="1">
-            <option><?php echo _("English"); ?></option>
-            <option><?php echo _("French"); ?></option>
-            <option><?php echo _("Vietnamese"); ?></option>
-            <option><?php echo _("Swahili"); ?></option>
-            <option><?php echo _("German"); ?></option>
-            <option><?php echo _("Italian"); ?></option>
-            <option><?php echo _("Esperanto"); ?></option>
-            <option><?php echo _("Russian"); ?></option>
-            <option><?php echo _("Kirundi"); ?></option>
-            <option><?php echo _("Spanish"); ?></option>
-            <option><?php echo _("Dutch"); ?></option>
-            <option><?php echo _("Irish"); ?></option>
+            <option value="eng"><?php echo _("English"); ?></option>
+            <option value="fra"><?php echo _("French"); ?></option>
+            <option value="vie"><?php echo _("Vietnamese"); ?></option>
+            <option value="swa"><?php echo _("Swahili"); ?></option>
+            <option value="deu"><?php echo _("German"); ?></option>
+            <option value="ita"><?php echo _("Italian"); ?></option>
+            <option value="epo"><?php echo _("Esperanto"); ?></option>
+            <option value="rus"><?php echo _("Russian"); ?></option>
+            <option value="run"><?php echo _("Kirundi"); ?></option>
+            <option value="spa"><?php echo _("Spanish"); ?></option>
+            <option value="nld"><?php echo _("Dutch"); ?></option>
+            <option value="gle"><?php echo _("Irish"); ?></option>
         </select>
         <br><br>
         <p><?php echo _("Notify me about new points I earn..."); ?></p>

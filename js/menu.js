@@ -187,27 +187,23 @@ function display_leaderboard() {
 }
 
 function display_info1(){
-    console.log("Displaying info 1")
-        $("#game").css("display", "none");
-
+    console.log("Displaying info 1");
+    $("#game").css("display", "none");
     $("#info1").css("display", "inline-block");
 }
 function display_info2(){
-    console.log("Displaying info 1")
-        $("#game").css("display", "none");
-
+    console.log("Displaying info 1");
+    $("#game").css("display", "none");
     $("#info2").css("display", "inline-block");
 }
 function display_info3(){
-    console.log("Displaying info 1")
-        $("#game").css("display", "none");
-
+    console.log("Displaying info 1");
+    $("#game").css("display", "none");
     $("#info3").css("display", "inline-block");
 }
 
 function display_about() {
     $("#game").css("display", "none");
-
     $("#about").css("display", "inline-block");
 }
 

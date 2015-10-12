@@ -708,14 +708,21 @@ function saveSettings() {
     menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
         if(siteLanguage != menuLanguageSliderValue +1 ){
             console.log("Changing language...");
-            saveMenuLanguage("menuLanguageSettings")
+            //saveMenuLanguage("menuLanguageSettings")
         }
-    whenToNotify = document.getElementById("notifications").selectedIndex;
-    whenToPost = document.getElementById("posts").selectedIndex;
-    gameLanguageSliderValue = document.getElementById("language").selectedIndex
-        gameLanguage = gameLanguageSliderValue +1;
+    whenToNotify = $("notifications option:selected").index();
+    whenToPost = $("posts option:selcted").index();
+    //gameLanguageSliderValue = document.getElementById("language").selectedIndex
+    gameLanguage = $("#language").val();
     //siteLanguage = document.getElementById("menuLanguageSettings").selectedIndex + 1;
 
+    $.get("php/save_settings.php?userID=" + userID + 
+            "&notify=" + whenToNotify + 
+            "&post=" + whenToPost + 
+            "&gameLanguage=" + gameLanguage).done(function(data) {
+        console.log("Settings saved");
+
+/*
     var xmlhttp;
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -731,6 +738,7 @@ function saveSettings() {
     }
     xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&gameLanguage=" + gameLanguage);
     xmlhttp.send();
+    */
 }
 
 function saveMenuLanguage(whichSlider) {
