@@ -76,12 +76,12 @@ else {
         $stmt = $mysqli->prepare("SELECT Part1 FROM ISO_639_3 WHERE Id = ?");
         $stmt->bind_param("s", $checkResult);
         $stmt->execute();
-        $row = $stmt->get_result()->fetch_assoc();
+        $result = $stmt->get_result();
         $stmt->close();
 
+        $row = $result->fetch_assoc();
         $_SESSION['lang']=$row['Part1'];
         $returnValue[]= "done";
-
     }
     else {
         $returnValue[]= "aleadyDoneBefore";
