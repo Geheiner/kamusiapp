@@ -8,7 +8,7 @@ $sql = "SELECT LanguageID, Ref_Name
         FROM gamelanguages 
         JOIN ISO_639_3
         ON LanguageID=Id
-        WHERE GameID = ?"
+        WHERE GameID = ?";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("i", $game);

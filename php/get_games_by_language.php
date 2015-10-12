@@ -8,7 +8,7 @@ $sql = "SELECT DISTINCT(GameID), gamelist.Name
         FROM gamelanguages
         JOIN gamelist
         ON GameID=ID
-        WHERE LanguageID = ? AND IsActive==1"
+        WHERE LanguageID = ? AND IsActive==1";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("i", $language);
