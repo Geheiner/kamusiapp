@@ -76,10 +76,10 @@ else {
         $stmt = $mysqli->prepare("SELECT Part1 FROM ISO_639_3 WHERE Id = ?");
         $stmt->bind_param("s", $checkResult);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $row = $stmt->get_result()->fetch_assoc();
         $stmt->close();
 
-        $_SESSION['lang']=$result;
+        $_SESSION['lang']=$row['Part1'];
         $returnValue[]= "done";
 
     }
