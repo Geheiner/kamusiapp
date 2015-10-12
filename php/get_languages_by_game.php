@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-$game = $_GET('gameID');
+$game = $_GET['gameID'];
 
 $sql = "SELECT LanguageID, Ref_Name 
         FROM gamelanguages 

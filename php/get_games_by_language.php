@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-$language = $_GET('languageID');
+$language = $_GET['languageID'];
 
 $sql = "SELECT DISTINCT(GameID), gamelist.Name
         FROM gamelanguages
