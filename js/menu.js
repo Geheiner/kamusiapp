@@ -247,8 +247,8 @@ function display_welcome() {
             console.log(games);
 
             $.each(games, function(index) {
-                $("#game"+index).remove();
                 var id = games[index].GameID;
+                $("#game"+id).remove();
                 var name = games[index].Name;
                 var html = "<img title='" + name + "' id='game" + id + "'"
                     + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
