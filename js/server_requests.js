@@ -544,7 +544,7 @@ function initialise() {
             document.getElementById('language').selectedIndex= gameLanguageSliderValue;
 
             display_welcome();
-    }
+    });
 }
 
 function getGameScore(){
