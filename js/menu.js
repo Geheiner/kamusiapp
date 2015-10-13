@@ -59,10 +59,9 @@ function InlineEditorController($scope){
 
 //THIS IS REALLY UGLY - TO BE REWORKED
 function InlineEditorController2($scope){
+    console.log("in this thing");
 
-    console.log("in this thing")
-
-        $scope.showtooltip2 = false;
+    $scope.showtooltip2 = false;
     $scope.translation = translation_default_value;
 
     $scope.hideTooltip2 = function(){
@@ -248,17 +247,17 @@ function display_welcome() {
     //display only the games that are avilable in the currentlanguage
 
     $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
-        .done(function(data, status) {
+        .done(function(games, status) {
             console.log(status);
             console.log(data);
-            for( i = 1; i < 5; i++){
-                if(  $.inArray(i, data.GameID) == -1) {
-                    $("#enter"+i).css("display", "none");
-                }
-                else {
-                    $("#enter"+i).css("display", "inline-block");
-                }
-            }
+
+            $.each(games, function(index) {
+                var id = games[index].GameID;
+                var name = games[index].Name;
+                var html = "<img title='" + name + "' id='game" + id + "'"
+                    + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
+                    + "onmousedown='playClick();enter_game" + id + "();'>";
+                $("#logo").insertAfter(html);
         })
         .fail(function() {
             console.log("Fetching games for language " + gameLanguage + " failed");
@@ -326,8 +325,8 @@ function set_word(word, pos) {
 }
 
 function set_avatar() {
-    document.getElementById("avatar").src = "https://graph.facebook.com/" + userID + "/picture";
-    document.getElementById("profile_avatar").src = "https://graph.facebook.com/" + userID + "/picture??width=200&height=200";
+    $("#avatar").attr("src", "https://graph.facebook.com/" + userID + "/picture");
+    $("#profile_avatar").attr("src", "https://graph.facebook.com/" + userID + "/picture??width=200&height=200");
 }
 
 function set_profile_data(points, pendingPoints, ratio) {
@@ -338,21 +337,15 @@ function set_profile_data(points, pendingPoints, ratio) {
 }
 
 function remove_active_translations() {
-    var ul = document.getElementById("translations");
-    var li =  ul.getElementsByTagName("li");
-
-    for(var i = 0; i < li.length; i++) {
-        li[i].className = "inactive_definition";
-    }
+    $("#translations li").each(function(i, li) {
+        $(li).addClass("inactive_definition");
+    });
 }
 
 function remove_active() {
-    var ul = document.getElementById("definitions");
-    var li =  ul.getElementsByTagName("li");
-
-    for(var i = 0; i < li.length; i++) {
-        li[i].className = "inactive_definition";
-    }
+    $("#definitions li").each(function(i, li) {
+        $(li).addClass("inactive_definition");
+    });
 }
 
 function clear_definitions() {
@@ -441,18 +434,17 @@ function add_trophy(word, definition) {
     cell1.appendChild(img);
     cell2.innerHTML = word;
     cell3.innerHTML = definition;
-
 }
 
 function vote() {
     var user_definition = document.getElementById("input_tool_box").value;
     if(definitionID != -1) {
-        console.log("Submitting Vote for definitionID : " + definitionID)
-            submit_vote(definitionID, 1);
+        console.log("Submitting Vote for definitionID : " + definitionID);
+        submit_vote(definitionID, 1);
     }
     else if(user_definition != default_value && user_definition.length >= min_length) {
-        console.log("Submitting new definition : " + user_definition)
-            submit_definition(user_definition);
+        console.log("Submitting new definition : " + user_definition);
+        submit_definition(user_definition);
     }
 }
 
@@ -471,8 +463,8 @@ function startAutoUpdateOfLeaderboard() {
     scoreGame= gameSelect.selectedIndex;
     timePeriodSelect = document.getElementById("scoretimePeriod");
     scoretimePeriod = timePeriodSelect.selectedIndex;
-    metricSelect = document.getElementById("scoreMetric")
-        scoreMetric = metricSelect.selectedIndex;
+    metricSelect = document.getElementById("scoreMetric");
+    scoreMetric = metricSelect.selectedIndex;
 
     var whichSliderToChange = 0;
 
@@ -508,11 +500,11 @@ function startAutoUpdateOfLeaderboard() {
 }
 
 function stopAutoUpdateOfLeaderboard() {
-    clearInterval(autoUpdateIntervalJobID)
+    clearInterval(autoUpdateIntervalJobID);
 }
 
 function updatePermanentMetrics(points, pendingPoints){
-    console.debug("Udpating permanent metrics: " + points + pendingPoints)
-        $("#points-pending").html(pointsInPlay + pendingPoints)
-        $("#points-total").html(pointsBanked + points)
+    console.debug("Udpating permanent metrics: " + points + pendingPoints);
+    $("#points-pending").html(pointsInPlay + pendingPoints)
+    $("#points-total").html(pointsBanked + points)
 }

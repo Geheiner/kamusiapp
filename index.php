@@ -60,10 +60,6 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             <div id="welcome">
                 <canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
                 <img id="logo" src="media/logo.png" onmousedown="isNewUser();">
-                <img title="Definition Game" id="enter1" class="shaded_enter" src="media/definition2.png" onmousedown="playClick();enter_game1();">
-                <img title="Translation Game" id="enter2" class="shaded_enter" src="media/translation.png" onmousedown="playClick();enter_game2();">
-                <img title="Tweet Game" id="enter3" class="shaded_enter" src="media/twitterBird.png" onmousedown="playClick();enter_game3();">
-                <img title="Sentence Game" id="enter4" class="shaded_enter" src="media/book.png" onmousedown="playClick();enter_game4();">
                 <img title="Choose Language" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
                 <fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginState();"></fb:login-button>
 
