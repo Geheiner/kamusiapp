@@ -533,9 +533,10 @@ function initialise() {
         token: token
     })
     .done(function(obj) {
+            console.log(obj);
             whenToNotify = obj.NotificationTimeUnit;
             whenToPost = obj.PostTimeUnit;
-            gameLanguageSliderValue= obj.gamelanguage -1;
+            gameLanguageSliderValue= obj.gamelanguage;
             gameLanguage = obj.gamelanguage;
             console.log("The game language is now : " + gameLanguage);
 
