@@ -7,7 +7,7 @@ $userID = $_GET['userID'];
 
 $sql =  "SELECT * FROM users WHERE UserID= ? ;";
 $stmt = $mysqli->prepare($sql);
-$stmt-bind_param("i", $userID);
+$stmt->bind_param("i", $userID);
 $stmt->execute();
 $result = $stmt->get_result();
 
