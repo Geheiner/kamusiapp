@@ -254,7 +254,7 @@ function display_welcome() {
                     + "onmousedown='playClick();enter_game" + id + "();'>";
                 $(html).insertAfter("#logo");
 
-                animate_logo();
+                animate_logo_login();
             });
         })
         .fail(function() {

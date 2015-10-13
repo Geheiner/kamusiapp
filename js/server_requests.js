@@ -54,8 +54,7 @@ function getRankedForTweets() {
             if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
                 updateTweetDB("noTweetFound")
                     getRankedForTweets();
-            }
-            else {
+            } else  {
                 document.getElementById("word3").innerHTML = obj[0].Word;
 
                 document.getElementById("def3").innerHTML = generalSense + "<strong>" + obj[0].Definition + "</strong>";
@@ -81,8 +80,7 @@ function getRankedForSwahili() {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -100,7 +98,7 @@ function getRankedForSwahili() {
             document.getElementById("defSwahili4").innerHTML = "Swahili def Not accessible yet";
 
             //getGame4Sentences(word, 3);
-            $(".entry").removeClass("fade"); 
+            $(".entry").removeClass("fade");
         }
     }
     xmlhttp.open("GET","php/get_swahili_word.php?userID=" + userID, true);
@@ -114,8 +112,7 @@ function getGame4Sentences(keyword, amount) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -129,8 +126,7 @@ function getGame4Sentences(keyword, amount) {
                 }
                 document.getElementById("swahiliSentences").innerHTML = "Searching the web for new sentences, this may take some time...";
                 setTimeout( function(){getGame4Sentences(keyword, amount)}, 5000)
-            }
-            else {
+            } else  {
                 document.getElementById("swahiliSentences").innerHTML = "";
                 queryForSentences(keyword, amount, "local");
                 updateBufferForDatabase(keyword, amount);
@@ -138,7 +134,7 @@ function getGame4Sentences(keyword, amount) {
         }
     }
     xmlhttp.open("GET","php/check_buffered_sentences.php?keyword=" + keyword , true);
-    xmlhttp.send(); 
+    xmlhttp.send();
 }
 
 function updateBufferForDatabase(keyword, amount){
@@ -146,8 +142,7 @@ function updateBufferForDatabase(keyword, amount){
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -158,7 +153,7 @@ function updateBufferForDatabase(keyword, amount){
     }
     xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount , true);
 
-    xmlhttp.send(); 
+    xmlhttp.send();
 }
 
 function queryForSentences(keyword, amount, source){
@@ -167,8 +162,7 @@ function queryForSentences(keyword, amount, source){
         var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -179,19 +173,18 @@ function queryForSentences(keyword, amount, source){
             for( i = 0; i<amount ;i++) {
                 //last20Tweets[i] = results_array[i];
                 lastSwahiliSentences[i] = results_array[i];
-                displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences")               
+                displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences")
             }
         }
     }
     prefix = "php/get_swahiliSentences.php"
         if(source == "local"){
             prefix = "php/get_swahiliSentences_DB.php"
-        }
-        else {
+        } else  {
             prefix = "php/get_swahiliSentences.php"
         }
     xmlhttp.open("GET",prefix + "?keyword=" + keyword + "&amount=" + amount , true);
-    xmlhttp.send();  
+    xmlhttp.send();
 }
 
 function get_tweets(alreadyDisplayed) {
@@ -199,8 +192,7 @@ function get_tweets(alreadyDisplayed) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -262,8 +254,7 @@ function updateTweetDB(status) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -293,8 +284,7 @@ function fetchTweetsFromDB(amount) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -328,22 +318,19 @@ function submitCheckBoxData(whatToSubmit) {
             if(document.getElementById("checkbox"+i).checked) {
                 sendTweetToDB(last20Tweets[i],1)
                     allTweetsWereBad= false;
-            }
-            else {
+            } else  {
                 sendTweetToDB(last20Tweets[i],-1);
             }
         }
         if(allTweetsWereBad){
             updateTweetDB("allTweetsWereBad")
         }
-    }
-    else if (whatToSubmit == "game4")  {
+    } else  if (whatToSubmit == "game4")  {
 
         for(var i= 0; i < amountGame4; i++) {
             if(document.getElementById("checkbox"+i).checked) {
                 sendGame4SentenceToDB(lastSwahiliSentences[i],1)
-            }
-            else {
+            } else  {
                 sendGame4SentenceToDB(lastSwahiliSentences[i],-1);
             }
         }
@@ -360,8 +347,7 @@ function sendGame4SentenceToDB(sentence, good){
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -381,8 +367,7 @@ function sendTweetToDB(tweet, good){
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -416,8 +401,7 @@ function get_ranked() {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -433,8 +417,7 @@ function get_ranked() {
             var wordToDisplay;
             if(gameLanguage != '1' && results_array[0].trans != "Nothing Found"){
                 wordToDisplay = results_array[0].trans
-            }
-            else {
+            } else  {
                 wordToDisplay = results_array[0].Word
             }
             var underscored_word = wordToDisplay.replace(" /g", "_");
@@ -476,8 +459,7 @@ function submit_definition(definition) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -497,15 +479,13 @@ function isNewUser() {
         console.log("Checking if New USER");
         if(userID == "???"){
             console.log("Waiting until becoming defined!" + userID);
-        }
-        else {
+        } else  {
             console.log("Defined!" + userID);
 
             var xmlhttp;
             if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp=new XMLHttpRequest();
-            }
-            else {// code for IE6, IE5
+            } else {// code for IE6, IE5
                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange=function() {
@@ -522,21 +502,18 @@ function isNewUser() {
                             console.log("Site lanuguage is: " + siteLanguage);
                         if(obj[1] != "aleadyDoneBefore") {
                             location.reload();
-                        }
-                        else {
+                        } else {
                             if(obj[2] == "showSettings"){
                                 display_settings();
                                 //alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
+                            } else {
+                                initialise();
+                                animate_logo();
                             }
-                            else {
-                                initialise();   
-                                animate_logo(); 
-                            }                       
                         }
-                    }
-                    else {
+                    } else {
                         firsttime= true;
-                        animate_logo_firstTime(); 
+                        animate_logo_firstTime();
                     }
 
                 }
@@ -548,22 +525,14 @@ function isNewUser() {
 }
 
 function initialise() {
-
     set_avatar();
-
     add_translation_dunno('? ' + ICantSay);
 
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            //alert(xmlhttp.responseText);
-            var obj = JSON.parse(xmlhttp.responseText);
+    $.get("php/get_profile.php", {
+        userID: userID,
+        token: token
+    })
+    .done(function(obj) {
             whenToNotify = obj.NotificationTimeUnit;
             whenToPost = obj.PostTimeUnit;
             gameLanguageSliderValue= obj.gamelanguage -1;
@@ -575,18 +544,14 @@ function initialise() {
             document.getElementById('language').selectedIndex= gameLanguageSliderValue;
 
             display_welcome();
-        }
     }
-    xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
-    xmlhttp.send();
 }
 
 function getGameScore(){
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -600,15 +565,14 @@ function getGameScore(){
     }
     console.log("gameLAnugage is : " + gameLanguage);
     xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
-    xmlhttp.send();    
+    xmlhttp.send();
 }
 
 function submit_vote(definition_id, vote) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 
     }
@@ -628,8 +592,7 @@ function report_spam() {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 
     }
@@ -647,8 +610,7 @@ function complete_notification() {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
 
@@ -661,8 +623,7 @@ function get_ranked_mode_2() {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -690,8 +651,7 @@ function submit_translation(translation) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -716,9 +676,9 @@ function saveSettings() {
     gameLanguage = $("#language").val();
     //siteLanguage = document.getElementById("menuLanguageSettings").selectedIndex + 1;
 
-    $.get("php/save_settings.php?userID=" + userID + 
-            "&notify=" + whenToNotify + 
-            "&post=" + whenToPost + 
+    $.get("php/save_settings.php?userID=" + userID +
+            "&notify=" + whenToNotify +
+            "&post=" + whenToPost +
             "&gameLanguage=" + gameLanguage).done(function(data) {
         console.log("Settings saved");
     });
@@ -728,8 +688,7 @@ function saveSettings() {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -751,8 +710,7 @@ function saveMenuLanguage(whichSlider) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -772,8 +730,7 @@ function post_timeline() {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -782,16 +739,15 @@ function post_timeline() {
             console.log("# of new definitions from user : " + obj);
             if(obj == 0){
                 console.log("No activity to post");
-            }
-            else {
+            } else  {
 
                 publishStory(obj)
             }
         }
     }
 
-    xmlhttp.open("GET","php/post_timeline.php?userID=" + userID); 
-    xmlhttp.send();   
+    xmlhttp.open("GET","php/post_timeline.php?userID=" + userID);
+    xmlhttp.send();
 }
 
 function trigger_notification() {
@@ -800,8 +756,7 @@ function trigger_notification() {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -811,8 +766,8 @@ function trigger_notification() {
         }
     }
 
-    xmlhttp.open("GET","php/notification_tweet.php?userID=" + userID); 
-    xmlhttp.send();   
+    xmlhttp.open("GET","php/notification_tweet.php?userID=" + userID);
+    xmlhttp.send();
 }
 
 function updateLeaderboard(){
@@ -823,16 +778,15 @@ function updateLeaderboard(){
     scoreGame= gameSelect.selectedIndex;
     timePeriodSelect = document.getElementById("scoretimePeriod");
     scoretimePeriod = timePeriodSelect.selectedIndex;
-    metricSelect = document.getElementById("scoreMetric")
-        scoreMetric = metricSelect.selectedIndex;
+    metricSelect = document.getElementById("scoreMetric");
+    scoreMetric = metricSelect.selectedIndex;
 
     var xmlhttp;
     console.log("In update leaderboard");
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
+    } else  {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
@@ -858,9 +812,9 @@ function updateLeaderboard(){
                 console.log("This is the rowCount: " + rowCount);
 
                 if(rowUserID == userID){
-                    row.className = "highlightCurrentUser"; 
+                    row.className = "highlightCurrentUser";
                 } else {
-                    row.className = "otherUsersInTable"; 
+                    row.className = "otherUsersInTable";
                 }
 
                 row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
@@ -874,25 +828,25 @@ function updateLeaderboard(){
             if( obj[3].rank > 4) {
                 var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount);
-                row.className = "spaceUnder"; 
-                row.insertCell(0).innerHTML="  "
+                row.className = "spaceUnder";
+                row.insertCell(0).innerHTML="  ";
 
-                    addScoreEntry(4,table) 
+                addScoreEntry(4,table);
             }
 
             //add this user s score if he is not in the top3
             if(obj[3].rank > 3) {
-                addScoreEntry(3,table)  
+                addScoreEntry(3,table);
             }
 
             if( obj[5].id != "NOPE" ) {
-                addScoreEntry(5,table) 
-            }    
+                addScoreEntry(5,table);
+            }
         }
     }
 
     xmlhttp.open("GET","php/get_user_rank.php?userID=" + userID + "&language=" + scoreLanguage + "&mode=" +scoreGame + "&metric=" + scoreMetric + "&period=" + scoretimePeriod , true);
-    xmlhttp.send();  
+    xmlhttp.send();
 
 }
 
@@ -900,10 +854,9 @@ function addScoreEntry(indexOfArray, table){
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     if(obj[indexOfArray].id == userID){
-        row.className = "highlightCurrentUser"; 
-    }
-    else {
-        row.className = "otherUsersInTable"; 
+        row.className = "highlightCurrentUser";
+    } else  {
+        row.className = "otherUsersInTable";
 
     }
     row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
