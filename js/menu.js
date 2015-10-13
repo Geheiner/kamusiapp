@@ -257,7 +257,7 @@ function display_welcome() {
                 var html = "<img title='" + name + "' id='game" + id + "'"
                     + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
                     + "onmousedown='playClick();enter_game" + id + "();'>";
-                $("#logo").insertAfter(html);
+                $(html).insertAfter("#logo");
             });
         })
         .fail(function() {
