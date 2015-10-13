@@ -112,13 +112,15 @@ function InlineEditorController2($scope){
 
 function enter_game(gameID) {
     pause_animation();
+    // TODO: maybe remove this variable?
     game = gameID;
     getGameScore();
 
+    // hide welcome screen, show game screen
     $("#welcome").css("display", "none");
     $("#game").css("display", "inline-block");
 
-    switch(i) {
+    switch(gameID) {
         case 1:
             get_ranked();
             $("#instructions1").html(writeOrVote + gameLanguages[gameLanguage]);
