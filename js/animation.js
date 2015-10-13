@@ -9,6 +9,7 @@ var colours = [{r:235, g:166, b:52}, {r:128, g:128, b:128}];
 var min_opacity = -500;
 var max_opacity = 700;
 var font_size = 30;
+var interval_duration = 40;
 
 var symbols = 	["قاموس", "ਕੋਸ਼", "字典", "orðabók", "מילון",
 "tự điển", "kamus", "isichazamazwi", "k'amus", "maanatiira", "rimayqillqa",
@@ -39,7 +40,7 @@ function start_animation() {
 
 	if(animationID > -1)
 		clearInterval(animationID);
-	animationID = setInterval(animation, 20);
+	animationID = setInterval(animation, interval_duration);
 }
 
 function stop_animation() {
@@ -56,7 +57,7 @@ function pause_animation() {
 function continue_animation() {
 	if(animationID > -1)
 		clearInterval(animationID);
-	animationID = setInterval(animation, 20);
+	animationID = setInterval(animation, interval_duration);
 }
 
 function animation() {

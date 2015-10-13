@@ -219,7 +219,7 @@ li {
 		
 	}
 
-	#game, #game2, #game3 {
+	#game {
 		width: 100%;
 		height: 100%;
 		display:none;

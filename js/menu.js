@@ -254,6 +254,8 @@ function display_welcome() {
                     + "onmousedown='playClick();enter_game" + id + "();'>";
                 $(html).insertAfter("#logo");
             });
+
+            animate_logo();
         })
         .fail(function() {
             console.log("Fetching games for language " + gameLanguage + " failed");
