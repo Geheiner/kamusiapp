@@ -249,7 +249,7 @@ function display_welcome() {
     $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
         .done(function(games, status) {
             console.log(status);
-            console.log(data);
+            console.log(games);
 
             $.each(games, function(index) {
                 var id = games[index].GameID;
