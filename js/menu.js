@@ -253,9 +253,9 @@ function display_welcome() {
                     + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
                     + "onmousedown='playClick();enter_game" + id + "();'>";
                 $(html).insertAfter("#logo");
-            });
 
-            animate_logo();
+                animate_logo();
+            });
         })
         .fail(function() {
             console.log("Fetching games for language " + gameLanguage + " failed");
