@@ -528,7 +528,7 @@ function initialise() {
     set_avatar();
     add_translation_dunno('? ' + ICantSay);
 
-    $.get("php/get_profile.php", {
+    $.getJSON("php/get_profile.php", {
         userID: userID,
         token: token
     })
