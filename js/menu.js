@@ -240,12 +240,7 @@ function return_to_game() {
 }
 
 function display_welcome() {
-    $("#game").css("display", "none");
-    $("#welcome").css("display", "inline-block");
-    $("#leaderboard").css("display", "none");
-    $("#changeMenuLanguage").css("display", "none");
-    //display only the games that are avilable in the currentlanguage
-
+    // get games that are available in current language
     $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
         .done(function(games, status) {
             console.log(status);
@@ -264,19 +259,10 @@ function display_welcome() {
             console.log("Fetching games for language " + gameLanguage + " failed");
         });
 
-
-/*
-    console.log(implementedGames)
-        console.log(gameLanguage)
-        for( i = 1; i < 5; i++){
-            if(  $.inArray(gameLanguage, implementedGames[i]) == -1) {
-                $("#enter"+i).css("display", "none");
-            }
-            else {
-                $("#enter"+i).css("display", "inline-block");
-            }
-    }
-*/
+    $("#game").css("display", "none");
+    $("#welcome").css("display", "inline-block");
+    $("#leaderboard").css("display", "none");
+    $("#changeMenuLanguage").css("display", "none");
 
     continue_animation();
 }
