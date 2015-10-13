@@ -665,16 +665,16 @@ function submit_translation(translation) {
 }
 
 function saveSettings() {
-    menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
-        if(siteLanguage != menuLanguageSliderValue +1 ){
-            console.log("Changing language...");
-            //saveMenuLanguage("menuLanguageSettings")
-        }
-    whenToNotify = $("notifications option:selected").index();
-    whenToPost = $("posts option:selcted").index();
-    //gameLanguageSliderValue = document.getElementById("language").selectedIndex
+    menuLanguageSliderValue = $("#menuLanguageSettings option:selected").val();
+    if(siteLanguage != menuLanguageSliderValue +1 ){
+        console.log("Changing language...");
+        saveMenuLanguage("menuLanguageSettings")
+    }
+    whenToNotify = $("#notifications option:selected").index();
+    whenToPost = $("#posts option:selcted").index();
+    gameLanguageSliderValue = $("#language option:selected").val();
     gameLanguage = $("#language").val();
-    //siteLanguage = document.getElementById("menuLanguageSettings").selectedIndex + 1;
+    siteLanguage = $("#menuLanguageSettings option:selected").val();
 
     $.get("php/save_settings.php?userID=" + userID +
             "&notify=" + whenToNotify +
@@ -702,9 +702,7 @@ function saveSettings() {
 }
 
 function saveMenuLanguage(whichSlider) {
-
-    menuLanguageSliderValue = document.getElementById(whichSlider).selectedIndex
-        siteLanguage = menuLanguageSliderValue +1;
+    siteLanguage = $("#"+whichslider+" option.selected").val();
 
     var xmlhttp;
 
