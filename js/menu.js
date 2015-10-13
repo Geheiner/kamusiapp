@@ -149,6 +149,10 @@ function enter_game(gameID) {
             $("#gamezone3").css("display", "none");
             $("#gamezone4").css("display", "inline-block");
             break;
+        default:
+            console.log("Entered non-implemented game");
+            break;
+    }
 }
 
 function display_settings() {
