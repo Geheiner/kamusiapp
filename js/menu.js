@@ -110,68 +110,45 @@ function InlineEditorController2($scope){
     }
 }
 
-function enter_game1() {
+function enter_game(gameID) {
     pause_animation();
-    game = 1;
+    game = gameID;
     getGameScore();
 
-    get_ranked();
-    $("#instructions1").html(writeOrVote + gameLanguages[gameLanguage]);
     $("#welcome").css("display", "none");
     $("#game").css("display", "inline-block");
-    $("#gamezone1").css("display", "inline-block");
-    $("#gamezone2").css("display", "none");
-    $("#gamezone3").css("display", "none");
-    $("#gamezone4").css("display", "none");
 
-    // $("#gamezone-main1").css("display", "inline-block");
-    // $("#gamezone-main2").css("display", "none");
-    // $("#footer-next1").css("display", "inline-block");
-    // $("#footer-next2").css("display", "none");
-
-}
-
-function enter_game2() {
-    pause_animation();
-    game = 2;
-    getGameScore();
-    get_ranked_mode_2();
-    $("#instructions2").html(translateTheFollowing + gameLanguages[gameLanguage]);
-    $("#welcome").css("display", "none");
-    $("#game").css("display", "inline-block");
-    $("#gamezone1").css("display", "none");
-    $("#gamezone2").css("display", "inline-block");
-    $("#gamezone3").css("display", "none");
-    $("#gamezone4").css("display", "none");
-
-}
-
-function enter_game3() {
-    pause_animation();
-
-    game = 3;
-    getGameScore();
-    getRankedForTweets();
-    $("#welcome").css("display", "none");
-    $("#game").css("display", "inline-block");
-    $("#gamezone1").css("display", "none");
-    $("#gamezone2").css("display", "none");
-    $("#gamezone3").css("display", "inline-block");
-    $("#gamezone4").css("display", "none");
-}
-
-function enter_game4() {
-    game = 4;
-    getGameScore();
-    $("#welcome").css("display", "none");
-    $("#game").css("display", "inline-block");
-    $("#gamezone1").css("display", "none");
-    $("#gamezone2").css("display", "none");
-    $("#gamezone3").css("display", "none");
-    $("#gamezone4").css("display", "inline-block");
-
-    pause_animation();
-    getRankedForSwahili();
+    switch(i) {
+        case 1:
+            get_ranked();
+            $("#instructions1").html(writeOrVote + gameLanguages[gameLanguage]);
+            $("#gamezone1").css("display", "inline-block");
+            $("#gamezone2").css("display", "none");
+            $("#gamezone3").css("display", "none");
+            $("#gamezone4").css("display", "none");
+            break;
+        case 2:
+            get_ranked_mode_2();
+            $("#instructions2").html(translateTheFollowing + gameLanguages[gameLanguage]);
+            $("#gamezone1").css("display", "none");
+            $("#gamezone2").css("display", "inline-block");
+            $("#gamezone3").css("display", "none");
+            $("#gamezone4").css("display", "none");
+            break;
+        case 3:
+            getRankedForTweets();
+            $("#gamezone1").css("display", "none");
+            $("#gamezone2").css("display", "none");
+            $("#gamezone3").css("display", "inline-block");
+            $("#gamezone4").css("display", "none");
+            break;
+        case 4:
+            getRankedForSwahili();
+            $("#gamezone1").css("display", "none");
+            $("#gamezone2").css("display", "none");
+            $("#gamezone3").css("display", "none");
+            $("#gamezone4").css("display", "inline-block");
+            break;
 }
 
 function display_settings() {
@@ -252,7 +229,7 @@ function display_welcome() {
                 var name = games[index].Name;
                 var html = "<img title='" + name + "' id='game" + id + "'"
                     + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
-                    + "onmousedown='playClick();enter_game" + id + "();'>";
+                    + "onmousedown='playClick();enter_game(" + id + ");'>";
                 $(html).insertAfter("#logo");
 
                 animate_logo_login();
