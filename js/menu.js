@@ -259,7 +259,7 @@ function display_welcome() {
                     + "onmousedown='playClick();enter_game" + id + "();'>";
                 $("#logo").insertAfter(html);
             });
-        });
+        })
         .fail(function() {
             console.log("Fetching games for language " + gameLanguage + " failed");
         });
