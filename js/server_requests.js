@@ -1,6 +1,5 @@
 //This file contains all code responsible for client-server communication
 
-
 var userID = "???" //"???"; //so that it works offline:  10203265649994971
 userName = "???"
 var wordID;
@@ -671,8 +670,8 @@ function saveSettings() {
     }
     whenToNotify = $("#notifications option:selected").index();
     whenToPost = $("#posts option:selcted").index();
-    gameLanguageSliderValue = $("#language option:selected").val();
-    gameLanguage = $("#language").val();
+    gameLanguageSliderValue = $("#gamelanguage option:selected").val();
+    gameLanguage = $("#gamelanguage").val();
     siteLanguage = $("#menuLanguageSettings option:selected").val();
 
     $.get("php/save_settings.php?userID=" + userID +
@@ -681,23 +680,6 @@ function saveSettings() {
             "&gameLanguage=" + gameLanguage).done(function(data) {
         console.log("Settings saved");
     });
-
-/*
-    var xmlhttp;
-
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("END save settings : " + xmlhttp.responseText);
-        }
-    }
-    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&gameLanguage=" + gameLanguage);
-    xmlhttp.send();
-    */
 }
 
 function saveMenuLanguage(whichSlider) {
@@ -884,4 +866,30 @@ function insert_game_icons(gameLanguage) {
         .fail(function() {
             console.log("Fetching games for language " + gameLanguage + " failed");
         });
+}
+
+function get_game_names() {
+    var gamelist;
+    $.getJSON("php/get_games.php")
+        .done(function(games, status) {
+            console.log(status);
+            console.log(games);
+            gamelist = games;
+        })
+        .fail(function() {
+            console.log("Getting games failed");
+        });
+    // TODO: this might not work since gamelist is set in callback
+    return gamelist;
+}
+
+function get_active_game_languages() {
+    var gamelanguages;
+    $.getJSON("php/get_active_languages.php")
+        .done(function(languages, status) {
+            console.log(status);
+            console.log(languages);
+            gamelanguages = languages;
+        });
+    return gamelanguages;
 }

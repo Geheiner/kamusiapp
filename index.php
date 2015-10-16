@@ -342,24 +342,24 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <p><?php echo _("Hints and Help Language"); ?></p>
         <br>
         <select id="menuLanguageSettings" onchange= size="1">
-            <option><?php echo ("English"); ?></option>
-            <option><?php echo ("Deutsch"); ?></option>
-            <option><?php echo ("Español"); ?></option>
-            <option><?php echo ("Esperanto"); ?></option>
-            <option><?php echo ("Français"); ?></option>
-            <option><?php echo ("Gaeilge"); ?></option> 
-            <option><?php echo ("Italiano"); ?></option>
-            <option><?php echo ("Kirundi"); ?></option>
-            <option><?php echo ("Kiswahili"); ?></option>
-            <option><?php echo ("Nederlands"); ?></option>
-            <option><?php echo ("Русский язык"); ?></option>
-            <option><?php echo ("Việt"); ?></option>
+            <option value="eng"><?php echo ("English"); ?></option>
+            <option value="fra"><?php echo ("Français"); ?></option>
+            <option value="vie"><?php echo ("Việt"); ?></option>
+            <option value="swa"><?php echo ("Kiswahili"); ?></option>
+            <option value="deu"><?php echo ("Deutsch"); ?></option>
+            <option value="ita"><?php echo ("Italiano"); ?></option>
+            <option value="epo"><?php echo ("Esperanto"); ?></option>
+            <option value="rus"><?php echo ("Русский язык"); ?></option>
+            <option value="run"><?php echo ("Kirundi"); ?></option>
+            <option value="spa"><?php echo ("Español"); ?></option>
+            <option value="nld"><?php echo ("Nederlands"); ?></option>
+            <option value="gle"><?php echo ("Gaeilge"); ?></option> 
         </select>
 
         <br><br>
         <br><br>
         <p><?php echo _("Game Language"); ?></p>
-        <select id="language" onchange= size="1">
+        <select id="gamelanguage" onchange= size="1">
             <option value="eng"><?php echo _("English"); ?></option>
             <option value="fra"><?php echo _("French"); ?></option>
             <option value="vie"><?php echo _("Vietnamese"); ?></option>

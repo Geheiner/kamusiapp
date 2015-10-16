@@ -158,6 +158,9 @@ function enter_game(gameID) {
 }
 
 function display_settings() {
+    // fetch list of available game languages
+    get_active_game_languages();
+
     $("#welcome").css("display", "none");
     $("#profile").css("display", "none");
     $("#settings").css("display", "inline-block");
