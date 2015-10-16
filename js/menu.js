@@ -223,27 +223,9 @@ function return_to_game() {
 }
 
 function display_welcome() {
-    // get games that are available in current language
-    $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
-        .done(function(games, status) {
-            console.log(status);
-            console.log(games);
-
-            $.each(games, function(index) {
-                var id = games[index].GameID;
-                $("#game"+id).remove();
-                var name = games[index].Name;
-                var html = "<img title='" + name + "' id='game" + id + "'"
-                    + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
-                    + "onmousedown='playClick();enter_game(" + id + ");'>";
-                $(html).insertAfter("#logo");
-
-                animate_logo_login();
-            });
-        })
-        .fail(function() {
-            console.log("Fetching games for language " + gameLanguage + " failed");
-        });
+    // gets games that are available in current language
+    // and adds their icons to the welcome screen
+    insert_game_icons(gameLanguage);
 
     $("#game").css("display", "none");
     $("#welcome").css("display", "inline-block");

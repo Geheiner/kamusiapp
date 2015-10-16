@@ -445,12 +445,10 @@ function get_ranked() {
 
             definitionID = -1;
             $(".entry").removeClass("fade");
-            //}, 1000);
 
         }
     }
     xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
-    //xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
     xmlhttp.send();
 }
@@ -863,4 +861,27 @@ function addScoreEntry(indexOfArray, table){
 
     row.insertCell(2).innerHTML= obj[indexOfArray].score;
     row.insertCell(3).innerHTML= "Rank: " + obj[indexOfArray].rank;
+}
+
+function insert_game_icons(gameLanguage) {
+    $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
+        .done(function(games, status) {
+            console.log(status);
+            console.log(games);
+
+            $.each(games, function(index) {
+                var id = games[index].GameID;
+                $("#game"+id).remove();
+                var name = games[index].Name;
+                var html = "<img title='" + name + "' id='game" + id + "'"
+                    + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
+                    + "onmousedown='playClick();enter_game(" + id + ");'>";
+                $(html).insertAfter("#logo");
+
+                animate_logo();
+            });
+        })
+        .fail(function() {
+            console.log("Fetching games for language " + gameLanguage + " failed");
+        });
 }
