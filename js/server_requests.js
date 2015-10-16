@@ -539,7 +539,7 @@ function initialise() {
 
             document.getElementById('notifications').selectedIndex = whenToNotify;
             document.getElementById('posts').selectedIndex= whenToPost;
-            document.getElementById('language').selectedIndex= gameLanguageSliderValue;
+            document.getElementById('gamelanguage').selectedIndex= gameLanguageSliderValue;
 
             display_welcome();
     });
