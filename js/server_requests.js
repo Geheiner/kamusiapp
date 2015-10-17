@@ -31,21 +31,14 @@ var lastSwahiliSentences = {}
 
 function getRankedForTweets() {
     //remove previous tweet entries
-    document.getElementById("twitterWords").innerHTML = '';
+    $("#twitterWords").html('');
 
     $(".entry").addClass("fade");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("TweetResponse was : " + xmlhttp.responseText);
+    // TODO: check why we submit hardcoded strings here
+    $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: "3"})
+        .done(function(obj, status) {
+            console.log("TweetResponse was : " + obj);
 
-            obj = JSON.parse(xmlhttp.responseText);
             groupID = obj[0].GroupID;
             wordID = obj[0].WordID;
             word = obj[0].Word;
@@ -54,54 +47,44 @@ function getRankedForTweets() {
                 updateTweetDB("noTweetFound")
                     getRankedForTweets();
             } else  {
-                document.getElementById("word3").innerHTML = obj[0].Word;
-
-                document.getElementById("def3").innerHTML = generalSense + "<strong>" + obj[0].Definition + "</strong>";
-                document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
+                $("#word3").html(obj[0].Word);
+                $("#def3").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
+                $("#pos3").html(obj[0].PartOfSpeech);
 
                 fetchTweetsFromDB(8);
             }
             $(".entry").removeClass("fade");
-        }
+        })
+        .fail(function() {
+            console.log("Getting ranked for Tweets failed");
+        });
     }
-
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'3', true);
-    //xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
-
-    xmlhttp.send();
 }
 
 function getRankedForSwahili() {
 
-    document.getElementById("swahiliSentences").innerHTML = '';
+    $("#swahiliSentences").html('');
     wordID= 12345;
     $(".entry").addClass("fade");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("JSON DATA SWAHILI LOOKS LIKE : " +xmlhttp.responseText);
 
-            obj = JSON.parse(xmlhttp.responseText);
-            console.log("response was : " + xmlhttp.responseText);
+    $.getJSON("php/get_swahili_word.php", {userID: userID})
+        .done(function(obj, status) {
+            console.log("JSON DATA SWAHILI LOOKS LIKE : " + obj);
+
             word = obj.title;
             wordID = obj.nid;
 
-            document.getElementById("word4").innerHTML = word;
-            document.getElementById("pos4").innerHTML = "Not set Yet";
-            document.getElementById("transEnglish4").innerHTML = "English def Not accessible yet";
-            document.getElementById("defSwahili4").innerHTML = "Swahili def Not accessible yet";
+            $("#word4").html(word);
+            $("#pos4").html("Not set Yet");
+            $("#transEnglish4").html("English def Not accessible yet");
+            $("#defSwahili4").html("Swahili def Not accessible yet");
 
             //getGame4Sentences(word, 3);
             $(".entry").removeClass("fade");
-        }
-    }
-    xmlhttp.open("GET","php/get_swahili_word.php?userID=" + userID, true);
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("getRankedForSwahili failed");
+        });
 }
 
 //One JS call to verify number of sentences available.
@@ -120,13 +103,13 @@ function getGame4Sentences(keyword, amount) {
             var numberOfSentences = JSON.parse(xmlhttp.responseText);
             if(numberOfSentences < amount ){
                 //We need to fetch sentences right away in order to get to the desired numner
-                if (document.getElementById("swahiliSentences").innerHTML == ""){
+                if ($("#swahiliSentences").html() == ""){
                     updateBufferForDatabase(keyword, amount);
                 }
-                document.getElementById("swahiliSentences").innerHTML = "Searching the web for new sentences, this may take some time...";
+                $("#swahiliSentences").html("Searching the web for new sentences, this may take some time...");
                 setTimeout( function(){getGame4Sentences(keyword, amount)}, 5000)
             } else  {
-                document.getElementById("swahiliSentences").innerHTML = "";
+                $("#swahiliSentences").html("");
                 queryForSentences(keyword, amount, "local");
                 updateBufferForDatabase(keyword, amount);
             }
@@ -233,12 +216,12 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
     newInput.id = "checkbox" + index;
     newInput.name = "checkbox" ;
     newInput.type = "checkbox";
-    tweetDisplay.onclick=function(){
 
-        newInput.checked = !newInput.checked
-            changeColorOnClick(tweetDisplay,newInput);
+    tweetDisplay.onclick = function(){
+        newInput.checked = !newInput.checked;
+        changeColorOnClick(tweetDisplay,newInput);
     };
-    newInput.onchange=function(){
+    newInput.onchange = function(){
         changeColorOnClick(tweetDisplay,newInput);
     }
 
@@ -394,20 +377,12 @@ function sendTweetToDB(tweet, good){
 }
 
 function get_ranked() {
-
     $(".entry").addClass("fade");
 
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.debug("GET ranked result is : " + xmlhttp.responseText)
-                //setTimeout(function(){
-                var results_array = JSON.parse(xmlhttp.responseText);
+    $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: "1"})
+        .done(function(results_array, status) {
+            console.log(status);
+            console.debug("GET ranked result is : " + results_array)
 
             clear_definitions();
             wordID = results_array[0].WordID;
@@ -427,7 +402,7 @@ function get_ranked() {
             set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
             add_definition(-1, "? " + ICantSay, false);
 
-            document.getElementById("consensus").innerHTML = generalSense;
+            $("#consensus").html(generalSense);
 
             for(var i = 0; i < results_array.length ; i++) {
                 if(results_array[i].Author == 'wordnet') {
@@ -444,12 +419,10 @@ function get_ranked() {
 
             definitionID = -1;
             $(".entry").removeClass("fade");
-
-        }
-    }
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
-
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("Ranking mode 1 failed");
+        });
 }
 
 function submit_definition(definition) {
@@ -628,9 +601,9 @@ function get_ranked_mode_2() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("GEt ranked2 : " + xmlhttp.responseText);
             obj = JSON.parse(xmlhttp.responseText);
-            document.getElementById("translation_word").innerHTML = obj[0].Word;
-            document.getElementById("translation_pos").innerHTML = partOfSpeechArray[obj[0].PartOfSpeech];
-            document.getElementById("translation_definition").innerHTML = generalSense + "<strong>" + obj[0].Definition + "</strong>";
+            $("#translation_word").html(obj[0].Word);
+            $("#translation_pos").html(partOfSpeechArray[obj[0].PartOfSpeech]);
+            $("#translation_definition").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
 
             wordID = obj[0].WordID;
             groupID = obj[0].GroupID;
