@@ -58,7 +58,6 @@ function getRankedForTweets() {
         .fail(function() {
             console.log("Getting ranked for Tweets failed");
         });
-    }
 }
 
 function getRankedForSwahili() {
