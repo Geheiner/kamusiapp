@@ -20,7 +20,7 @@ $stmt->execute();
 $stmt->close();
 
 $stmt = $mysqli->prepare("UPDATE users SET gamelanguage=? WHERE UserID=$userID;");
-$stmt->bind_param("i",  $language);
+$stmt->bind_param("s",  $language);
 $stmt->execute();
 $stmt->close();
 
