@@ -49,7 +49,7 @@ function loadGameLanguages() {
             html+= "</td>";
             for (var game in gameIdMap) {
                 html += "<td>";
-                html += "<input type='checkbox' class='new' id='"+game+"'>";
+                html += "<input type='checkbox' class='new' value='"+game+"'>";
                 html += "</td>";
             }
             html += "<td><input type='button' value='Add language' onclick='add_language()'></td>";
@@ -93,7 +93,7 @@ function add_language() {
         }
     });
 
-    var language = $("#langID").val();
+    var language = $("#langId").val();
     console.log("Adding language " + language);
     console.log(active_boxes);
 
