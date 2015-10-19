@@ -26,6 +26,6 @@ $stmt->execute();
 $stmt->close();
 
 $return = "Menu Language Changed to " . $language;
-json_encode($return);
+echo json_encode($return);
 
 ?>
