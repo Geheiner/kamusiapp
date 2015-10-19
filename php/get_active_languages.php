@@ -12,7 +12,12 @@ $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$languages = $result->fetch_assoc();
+$languages = array();
+while($row = $result->fetch_assoc()) {
+    $languages[] = $row;
+}
+
+$stmt->close();
 
 echo json_encode($languages);
 ?>
