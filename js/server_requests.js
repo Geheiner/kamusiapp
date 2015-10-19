@@ -595,7 +595,7 @@ function get_ranked_mode_2() {
 
 function submit_translation(translation) {
     $.get("php/submit_translation.php", {translation: translation, wordID: wordID,
-        userID: userID, language: gameLanguage, mode: "2"}
+        userID: userID, language: gameLanguage, mode: "2"})
         .done(function(obj, status) {
             console.log(status);
             console.log(obj);
