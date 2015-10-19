@@ -519,88 +519,68 @@ function initialise() {
 }
 
 function getGameScore(){
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("getGameScore returned this : " + xmlhttp.responseText);
-            var obj = JSON.parse(xmlhttp.responseText);
+    $.getJSON("php/get_game_score.php", {userID: userID, mode: game, language: gameLanguage)
+        .done(function(obj, status) {
+            console.log(status);
+            console.log(obj);
 
             set_profile_data(obj.points, obj.pendingpoints, (obj.points / ( parseInt(obj.submissions) + 1)).toFixed(5));
             updatePermanentMetrics(obj.points,obj.pendingpoints);
-        }
-    }
-    console.log("gameLAnugage is : " + gameLanguage);
-    xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
-    xmlhttp.send();
+            console.log("gameLAnugage is : " + gameLanguage);
+        })
+        .fail(function() {
+            console.log("Getting game score failed");
+        });
 }
 
 function submit_vote(definition_id, vote) {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    $.getJSON("php/submit_vote.php", 
+            {   wordID: wordID,
+                definitionID: definition_id,
+                vote: vote, 
+                groupID: groupID,
+                mode: game,
+                language: gameLanguage})
+        .done(function(result, status) {
             console.log("Submit_Vote returned : " + xmlhttp.responseText);
             getGameScore();
-        }
-    }
-    console.log("WordID when submitting Vote : " + wordID);
 
-    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID + "&mode=" + game + "&language=" + gameLanguage, true);
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("Submitting vote failed");
+        });
+    console.log("WordID when submitting Vote : " + wordID);
 }
 
 function report_spam() {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-
-            alert("A spam report has been sent! Thanks!" + xmlhttp.responseText)
-        }
-    }
-    xmlhttp.open("GET","php/report_spam.php?wordID=" + wordID + "&definitionID=" + definitionID + "&userID=" + userID, true);
-    xmlhttp.send();
+    $.get("php/report_spam.php", {wordID: wordID, definitionID: definitionID, userID: userID})
+        .done(function(result, status) {
+            alert("A spam report has been sent! Thanks!" + result)
+        })
+        .fail(function() {
+            console.log("Reporting spam failed");
+        });
 }
 
 function complete_notification() {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-
-    xmlhttp.open("GET","php/complete_notification.php?userID=" + userID, true);
-    xmlhttp.send();
+    $.get("php/complete_notification.php", {userID: userID})
+        .done(function(result, status) {
+            console.log(status);
+        })
+        .fail(function() {
+            console.log("Completing notification failed");
+        }
 }
 
 function get_ranked_mode_2() {
     $(".entry").addClass("fade");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("GEt ranked2 : " + xmlhttp.responseText);
-            obj = JSON.parse(xmlhttp.responseText);
+
+    //Lanugage is always 1 since we take english words as words to translate
+    $.getJSON("php/get_ranked.php", {userID: userID, language: 1, mode: "2"})
+        .done(function(obj, status) {
+            console.log(status);
+            console.log(obj);
+
             $("#translation_word").html(obj[0].Word);
             $("#translation_pos").html(partOfSpeechArray[obj[0].PartOfSpeech]);
             $("#translation_definition").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
@@ -608,31 +588,23 @@ function get_ranked_mode_2() {
             wordID = obj[0].WordID;
             groupID = obj[0].GroupID;
             $(".entry").removeClass("fade");
-
-        }
-    }
-    //Lanugage is always 1 since we take english words as words to translate
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + 1 + "&mode=" +'2', true);
-    //xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
-
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("Get ranked mode 2 failed");
+        });
 }
 
 function submit_translation(translation) {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("END submit tranlsation : " + xmlhttp.responseText);
+    $.get("php/submit_translation.php", {translation: translation, wordID: wordID,
+        userID: userID, language: gameLanguage, mode: "2"}
+        .done(function(obj, status) {
+            console.log(status);
+            console.log(obj);
             getGameScore();
-        }
-    }
-    xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + wordID + "&userID=" + userID  + "&language=" + gameLanguage + "&mode=" +'2', true);
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("Submitting translation failed");
+        });
 }
 
 function saveSettings() {
