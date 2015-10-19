@@ -629,7 +629,7 @@ function saveSettings() {
 function saveMenuLanguage(whichSlider) {
     siteLanguage = $("#"+whichSlider+" option:selected").val();
 
-    $.get("php/save_menu_language.php", {userID: userID, menuLanguage: siteLanguage})
+    $.getJSON("php/save_menu_language.php", {userID: userID, menuLanguage: siteLanguage})
         .done(function(result, status) {
             console.log(status);
             console.log(result);
