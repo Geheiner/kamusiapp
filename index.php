@@ -49,7 +49,6 @@ textdomain('messages');
 $newToken = generateToken();
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $gameLanguages= array('0' => _("Undefined Language"), 'eng' => _("English"), '2' => _("French") , '3' => _("Vietnamese"), '4' => _("Swahili"), '5' => _("German"), '6' => _("Italian"), '7' => _("Esperanto"), '8' => _("Russian"), '9' => _("Kirundi"), '10' => _("Spanish"), '11' => _("Dutch"), '12' => _("Irish"));
-$implementedGames= array('1' => array(1), '2' => array(2,3,4,5,6,7,8,9,10,11,12), '3' => array(1), '4' => array(4));
 $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' => _('adjective'), 'adjective_satellite' => _('adjective_satellite'), 'adverb' => _('adverb'), 'phrase' => _('phrase'));
 
 ?>
@@ -360,6 +359,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <br><br>
         <p><?php echo _("Game Language"); ?></p>
         <select id="gamelanguage" onchange= size="1">
+        <!--
             <option value="eng"><?php echo _("English"); ?></option>
             <option value="fra"><?php echo _("French"); ?></option>
             <option value="vie"><?php echo _("Vietnamese"); ?></option>
@@ -372,6 +372,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             <option value="spa"><?php echo _("Spanish"); ?></option>
             <option value="nld"><?php echo _("Dutch"); ?></option>
             <option value="gle"><?php echo _("Irish"); ?></option>
+        -->
         </select>
         <br><br>
         <p><?php echo _("Notify me about new points I earn..."); ?></p>
@@ -516,8 +517,6 @@ ICanWrite = "<?php echo gettext(" I can write the winning definition for this id
 <?php
 $js_array = json_encode($gameLanguages);
 echo "var gameLanguages = ". $js_array . ";\n";
-$js_array = json_encode($implementedGames);
-echo "var implementedGames = ". $js_array . ";\n"; 
 $js_array = json_encode($gameNames);
 echo "var gameNames = ". $js_array . ";\n"; 
 $js_array = json_encode($partOfSpeechArray);
