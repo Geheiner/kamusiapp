@@ -394,7 +394,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         </select>
     </div>
     <br><br>
-    <img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings(); location.reload();">
+    <img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings();">
 
 
 </div>

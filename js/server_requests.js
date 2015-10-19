@@ -629,23 +629,14 @@ function saveSettings() {
 function saveMenuLanguage(whichSlider) {
     siteLanguage = $("#"+whichSlider+" option:selected").val();
 
-    var xmlhttp;
-
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("ALL RIGHT");
-            console.log(xmlhttp.responseText);
-            location.reload();
-        }
-    }
-    console.log("Sending LANG : " + siteLanguage);
-    xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
-    xmlhttp.send();
+    $.get("php/save_menu_language.php", {userID: userID, menuLanguage: siteLanguage})
+        .done(function(result, status) {
+            console.log(status);
+            console.log(result);
+        })
+        .fail(function() {
+            console.log("Failed to save menuLanguage");
+        });
 }
 
 function post_timeline() {
@@ -828,7 +819,6 @@ function get_game_names() {
 }
 
 function get_active_game_languages() {
-    var gamelanguages;
     $.getJSON("php/get_active_languages.php")
         .done(function(languages, status) {
             console.log(status);
