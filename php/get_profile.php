@@ -14,5 +14,6 @@ $result = $stmt->get_result();
 $profileData = $result->fetch_array(MYSQLI_ASSOC);
 
 $jsonData = json_encode($profileData);
+$stmt->close();
 echo $jsonData;
 ?>

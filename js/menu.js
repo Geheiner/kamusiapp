@@ -280,14 +280,12 @@ function set_consensus(definition) {
 // populates the game language list in settings
 function set_game_languages(languages) {
     console.log("Populating game_languages");
-    var languageOptions = "";
     $.each(languages, function(index, value) {
+        $("#gameLanguage").append($("<option>").text(value["Ref_Name"])
+                .attr("value", value["LanguageID"]));
         console.log(value["LanguageID"]);
         console.log(value["Ref_Name"]);
-        languageOptions += "<option value='" + value["LanguageID"] +
-            "'>" + value["Ref_Name"] + "</option>";
     });
-    $("#gameLanguage").html(languageOptions);
 }
 
 function set_word(word, pos) {
