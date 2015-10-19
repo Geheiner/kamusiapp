@@ -3,7 +3,7 @@
     ini_set('display_errors', 'On');
 
     $language = $_POST['language'];
-    $games = $_POST['games'];
+    $games = json_decode($_POST['games']);
 
     $sql = "INSERT INTO gamelanguages (LanguageID, GameID, IsActive) VALUES (?, ?, ?)";
 
@@ -17,5 +17,5 @@
 
     $stmt->close();
 
-    $result = array('language' => "$language", 'games' => "$games");
+    $result = array('language' => "$language", 'games' => $games);
     echo json_encode($result);
