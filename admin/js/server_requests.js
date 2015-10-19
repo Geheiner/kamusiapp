@@ -50,8 +50,8 @@ function loadGameLanguages() {
                 html += "<td>";
                 html += "<input type='checkbox' class='new' id='"+game+"'>";
                 html += "</td>";
-                html += "<td><input type='submit' value='Add language' onclick='add_language()'></td>";
             }
+            html += "<td><input type='submit' value='Add language' onclick='add_language()'></td>";
             html += "</tr>";
             html += "</table>";
 

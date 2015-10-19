@@ -17,4 +17,4 @@
     $stmt->close();
 
     $result = array('language' => "$language", 'games' => "$games");
-    echo json_encode($result)
+    echo json_encode($result);
