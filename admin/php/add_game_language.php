@@ -10,7 +10,8 @@
     $stmt = $mysqli->prepare($sql);
 
     for($i = 0; $i < count($games); $i++) {
-        $stmt->bind_param("sii", $language, $games[$i], 1);
+        $active = 1;
+        $stmt->bind_param("sii", $language, $games[$i], $active);
         $stmt->execute();
     }
 

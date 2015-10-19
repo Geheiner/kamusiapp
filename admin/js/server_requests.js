@@ -36,8 +36,9 @@ function loadGameLanguages() {
                         html += "<input type='checkbox'" + checked + ">";
                     }
                     html += "</td>";
-                    html += "<td></td>";
                 }
+                // extra column for add language button
+                html += "<td></td>";
                 html += "</tr>";
             }
 
@@ -51,7 +52,7 @@ function loadGameLanguages() {
                 html += "<input type='checkbox' class='new' id='"+game+"'>";
                 html += "</td>";
             }
-            html += "<td><input type='submit' value='Add language' onclick='add_language()'></td>";
+            html += "<td><input type='button' value='Add language' onclick='add_language()'></td>";
             html += "</tr>";
             html += "</table>";
 
@@ -94,7 +95,7 @@ function add_language() {
 
     var language = $("#langID").val();
 
-    $.post("php/add_game_language.php", {language: language, games: active_boxes})
+    $.post("php/add_game_language.php", {language: language, games[]: active_boxes})
         .done(function(result, status) {
             console.log(result);
             loadGameLanguages();
