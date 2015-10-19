@@ -827,3 +827,12 @@ function get_active_game_languages() {
             set_game_languages(languages);
         });
 }
+
+function get_interface_languages() {
+    $.getJSON("php/get_interface_languages.php")
+        .done(function(languages, status) {
+            console.log(status);
+            console.log(languages);
+            set_interface_languages(languages);
+        });
+}

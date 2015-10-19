@@ -160,6 +160,7 @@ function enter_game(gameID) {
 function display_settings() {
     // fetch list of available game languages
     get_active_game_languages();
+    get_interface_languages();
 
     $("#welcome").css("display", "none");
     $("#profile").css("display", "none");
@@ -239,7 +240,6 @@ function display_welcome() {
 }
 
 function animate_logo() {
-
     $("#logo").addClass("animatelogo");
     $("#enter1").removeClass("shaded_enter");
     $("#enter1").addClass("animateenter");
@@ -249,7 +249,6 @@ function animate_logo() {
     $("#enter3").addClass("animateenter");
     $("#enter4").removeClass("shaded_enter");
     $("#enter4").addClass("animateenter");
-
 }
 
 function changeColorOnClick(tweetDisplay,newInput){
@@ -287,6 +286,17 @@ function set_game_languages(languages) {
         console.log(value["Ref_Name"]);
     });
 }
+
+function set_interace_languages(languages) {
+    console.log("Populating game_languages");
+    $.each(languages, function(index, value) {
+        $("#menuLanguageSettings").append($("<option>").text(value["Ref_Name"])
+                .attr("value", value["LanguageID"]));
+        console.log(value["LanguageID"]);
+        console.log(value["Ref_Name"]);
+    });
+}
+
 
 function set_word(word, pos) {
     $("#word").html(word);
