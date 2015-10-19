@@ -623,6 +623,7 @@ function saveSettings() {
             "&post=" + whenToPost +
             "&gameLanguage=" + gameLanguage).done(function(data) {
         console.log("Settings saved");
+        location.reload();
     });
 }
 
@@ -795,8 +796,8 @@ function insert_game_icons(gameLanguage) {
                     + "onmousedown='playClick();enter_game(" + id + ");'>";
                 $(html).insertAfter("#logo");
 
-                animate_logo();
             });
+            animate_logo();
         })
         .fail(function() {
             console.log("Fetching games for language " + gameLanguage + " failed");
