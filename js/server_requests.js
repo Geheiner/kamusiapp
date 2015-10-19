@@ -627,7 +627,7 @@ function saveSettings() {
 }
 
 function saveMenuLanguage(whichSlider) {
-    siteLanguage = $("#"+whichSlider+" option.selected").val();
+    siteLanguage = $("#"+whichSlider+" option:selected").val();
 
     var xmlhttp;
 
