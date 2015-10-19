@@ -10,7 +10,7 @@ $sql = "SELECT DISTINCT(LanguageID), Ref_Name FROM gamelanguages
 
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
-$result = $stmt->$get_result();
+$result = $stmt->get_result();
 
 $languages = $result->fetch_assoc();
 
