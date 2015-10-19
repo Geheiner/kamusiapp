@@ -277,6 +277,15 @@ function set_consensus(definition) {
     $("#consensus").html(generalSense + "<strong>" + definition + "</strong>");
 }
 
+// populates the game language list in settings
+function set_game_languages(languages) {
+    console.log("Populating game_languages");
+    $.each(languages, function(index, value) {
+        console.log(value["LanguageID"]);
+        console.log(value["Ref_Name"]);
+    });
+}
+
 function set_word(word, pos) {
     $("#word").html(word);
     $("#pos").html(pos);

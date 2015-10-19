@@ -834,7 +834,6 @@ function get_active_game_languages() {
         .done(function(languages, status) {
             console.log(status);
             console.log(languages);
-            gamelanguages = languages;
+            set_game_languages(languages);
         });
-    return gamelanguages;
 }
