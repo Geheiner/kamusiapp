@@ -90,7 +90,7 @@ function add_language() {
         if($(item).is(":checked")) {
             return $(item).val();
         }
-    }
+    });
 
     var language = $("#langID").val();
 
