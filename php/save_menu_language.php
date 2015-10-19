@@ -21,7 +21,7 @@ $userID = $_GET['userID'];
 $language = $_GET['menuLanguage'];
 
 $stmt = $mysqli->prepare("UPDATE users SET interfacelanguage=? WHERE UserID= ?;");
-$stmt->bind_param("is",  $language, $userID);
+$stmt->bind_param("ss",  $language, $userID);
 $stmt->execute();
 $stmt->close();
 
