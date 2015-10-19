@@ -568,7 +568,7 @@ function complete_notification() {
         })
         .fail(function() {
             console.log("Completing notification failed");
-        }
+        });
 }
 
 function get_ranked_mode_2() {
