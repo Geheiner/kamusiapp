@@ -613,7 +613,7 @@ function saveSettings() {
         saveMenuLanguage("menuLanguageSettings")
     }
     whenToNotify = $("#notifications option:selected").index();
-    whenToPost = $("#posts option:selcted").index();
+    whenToPost = $("#posts option:selected").index();
     gameLanguageSliderValue = $("#gamelanguage option:selected").val();
     gameLanguage = $("#gamelanguage").val();
     siteLanguage = $("#menuLanguageSettings option:selected").val();
