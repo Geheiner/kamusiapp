@@ -518,7 +518,7 @@ function initialise() {
 }
 
 function getGameScore(){
-    $.getJSON("php/get_game_score.php", {userID: userID, mode: game, language: gameLanguage)
+    $.getJSON("php/get_game_score.php", {userID: userID, mode: game, language: gameLanguage})
         .done(function(obj, status) {
             console.log(status);
             console.log(obj);
