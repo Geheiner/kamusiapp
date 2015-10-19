@@ -287,7 +287,7 @@ function set_game_languages(languages) {
     });
 }
 
-function set_interace_languages(languages) {
+function set_interface_languages(languages) {
     console.log("Populating game_languages");
     $.each(languages, function(index, value) {
         $("#menuLanguageSettings").append($("<option>").text(value["Ref_Name"])
