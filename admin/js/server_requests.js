@@ -94,6 +94,8 @@ function add_language() {
     });
 
     var language = $("#langID").val();
+    console.log("Adding language " + language);
+    console.log(active_boxes);
 
     $.post("php/add_game_language.php", {language: language, games: JSON.stringify(active_boxes)})
         .done(function(result, status) {
