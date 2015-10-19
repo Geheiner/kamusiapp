@@ -36,6 +36,7 @@ function loadGameLanguages() {
                         html += "<input type='checkbox'" + checked + ">";
                     }
                     html += "</td>";
+                    html += "<td></td>";
                 }
                 html += "</tr>";
             }
@@ -47,13 +48,14 @@ function loadGameLanguages() {
             html+= "</td>";
             for (var game in gameIdMap) {
                 html += "<td>";
-                html += "<input type='checkbox' id='"+game+"'>";
+                html += "<input type='checkbox' class='new' id='"+game+"'>";
                 html += "</td>";
+                html += "<td><input type='submit' value='Add language' onclick='add_language()'></td>";
             }
             html += "</tr>";
             html += "</table>";
 
-            document.getElementById("settings").innerHTML = html;
+            $("#settings").html(html);
         });
 }
 
@@ -81,4 +83,20 @@ function lang_autocomplete() {
             $("#langId").val(ui.item.id);
         }
     });
+}
+
+function add_language() {
+    var active_boxes = $.map($(".new"), function(item, index) {
+        if($(item).is(":checked")) {
+            return $(item).val();
+        }
+    }
+
+    var language = $("#langID").val();
+
+    $.post("php/add_game_language.php", {language: language, games: active_boxes})
+        .done(function(result, status) {
+            console.log(result);
+            loadGameLanguages();
+        });
 }

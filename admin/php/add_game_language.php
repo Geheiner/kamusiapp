@@ -1,0 +1,20 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'On');
+
+    $language = $_POST['language'];
+    $games = $_POST['games'];
+
+    $sql = "INSERT INTO gamelanguages (LanguageID, GameID, IsActive) VALUES (?, ?, ?)";
+
+    $stmt = $mysqli->prepare($sql);
+
+    for($i = 0; $i < count($games); $i++) {
+        $stmt->bind_param("sii", $language, $games[$i], 1);
+        $stmt->execute();
+    }
+
+    $stmt->close();
+
+    $result = array('language' => "$language", 'games' => "$games");
+    echo json_encode($result)
