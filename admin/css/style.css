@@ -26,3 +26,7 @@ table td {
     padding: 8px;
     text-align: center;
 }
+
+.langentry {
+    text-align:left;
+}

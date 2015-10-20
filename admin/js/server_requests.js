@@ -19,9 +19,23 @@ function loadGameLanguages() {
             }
             html += "</tr>";
 
+            html+= "<tr>";
+            html+= "<td>";
+            html+= "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
+            html+= "<input type='hidden' id='langId' value=''>";
+            html+= "</td>";
+            for (var game in gameIdMap) {
+                html += "<td>";
+                html += "<input type='checkbox' class='new' value='"+game+"'>";
+                html += "</td>";
+            }
+            html += "<td><input type='button' value='Add language' onclick='add_language()'></td>";
+            html += "</tr>";
+
             // loop through all languages to display active state
             for (var lang in languageIdMap) {
-                html += "<tr><td>";
+                html += "<tr><td class='langentry'>";
+                html += lang + " - ";
                 html += languageIdMap[lang];
                 html += "</td>";
                 for (var game in gameIdMap) {
@@ -42,18 +56,6 @@ function loadGameLanguages() {
                 html += "</tr>";
             }
 
-            html+= "<tr>";
-            html+= "<td>";
-            html+= "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
-            html+= "<input type='hidden' id='langId' value=''>";
-            html+= "</td>";
-            for (var game in gameIdMap) {
-                html += "<td>";
-                html += "<input type='checkbox' class='new' value='"+game+"'>";
-                html += "</td>";
-            }
-            html += "<td><input type='button' value='Add language' onclick='add_language()'></td>";
-            html += "</tr>";
             html += "</table>";
 
             $("#settings").html(html);
