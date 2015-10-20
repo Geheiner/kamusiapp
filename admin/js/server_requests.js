@@ -11,16 +11,15 @@ function loadGameLanguages() {
             var gameLanguageActive = results_array.gameLanguageActive;
 
             // fill header with games
-            var html = "<table><tr><td></td>";
+            var html = "<table><tr><td>ISO</td><td>Language Name</td>";
             for (var key in gameIdMap) {
                 html += "<td>";
                 html += gameIdMap[key];
                 html += "</td>";
             }
             html += "</tr>";
-
-            html+= "<tr>";
-            html+= "<td>";
+            html+= "<tr><td></td>";
+            html+= "<td class='langentry'>";
             html+= "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
             html+= "<input type='hidden' id='langId' value=''>";
             html+= "</td>";
@@ -34,8 +33,8 @@ function loadGameLanguages() {
 
             // loop through all languages to display active state
             for (var lang in languageIdMap) {
+                html += "<td>" + lang + "</td>";
                 html += "<tr><td class='langentry'>";
-                html += lang + " - ";
                 html += languageIdMap[lang];
                 html += "</td>";
                 for (var game in gameIdMap) {
