@@ -33,8 +33,8 @@ function loadGameLanguages() {
 
             // loop through all languages to display active state
             for (var lang in languageIdMap) {
-                html += "<td>" + lang + "</td>";
-                html += "<tr><td class='langentry'>";
+                html += "<tr><td>" + lang + "</td>";
+                html += "<td class='langentry'>";
                 html += languageIdMap[lang];
                 html += "</td>";
                 for (var game in gameIdMap) {
