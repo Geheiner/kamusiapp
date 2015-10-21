@@ -30,3 +30,11 @@ table td {
 .langentry {
     text-align:left;
 }
+
+tr:hover {
+    background-color:#DDD;
+}
+
+table {
+    border-collapse: collapse;
+}

@@ -11,11 +11,11 @@ function loadGameLanguages() {
             var gameLanguageActive = results_array.gameLanguageActive;
 
             // fill header with games
-            var html = "<table><tr><td>ISO</td><td>Language Name</td>";
+            var html = "<table><tr><th>ISO</th><th>Language Name</th>";
             for (var key in gameIdMap) {
-                html += "<td>";
+                html += "<th>";
                 html += gameIdMap[key];
-                html += "</td>";
+                html += "</th>";
             }
             html += "</tr>";
             html+= "<tr><td></td>";
