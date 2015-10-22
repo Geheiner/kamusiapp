@@ -134,7 +134,7 @@ function queryForSentences(keyword, amount, source){
         suffix = "_DB";
     }
 
-    $.getJSON("php/get_swahiliSentences" + suffix ".php", {keyword: keyword, amount: amount})
+    $.getJSON("php/get_swahiliSentences" + suffix + ".php", {keyword: keyword, amount: amount})
         .done(function(results_array, textStatus) {
             console.log(textStatus);
             console.log(results_array);
