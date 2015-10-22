@@ -36,7 +36,7 @@ function getRankedForTweets() {
     $(".entry").addClass("fade");
     // TODO: check why we submit hardcoded strings here
     $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: "3"})
-        .done(function(obj, status) {
+        .done(function(obj, textStatus) {
             console.log("TweetResponse was : " + obj);
 
             groupID = obj[0].GroupID;
@@ -67,7 +67,7 @@ function getRankedForSwahili() {
     $(".entry").addClass("fade");
 
     $.getJSON("php/get_swahili_word.php", {userID: userID})
-        .done(function(obj, status) {
+        .done(function(obj, textStatus) {
             console.log("JSON DATA SWAHILI LOOKS LIKE : " + obj);
 
             word = obj.title;
@@ -90,16 +90,11 @@ function getRankedForSwahili() {
 //Then If enough, 2 parallel calls: one to get sentences from the DB, one other to fetch new ones.
 function getGame4Sentences(keyword, amount) {
     console.log("Checking if the DB contains enough sentences for this keyword");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log(xmlhttp.responseText);
-            var numberOfSentences = JSON.parse(xmlhttp.responseText);
+    $.getJSON("php/check_buffered_sentences.php", {keyword: keyword})
+        .done(function(numberOfSentences, textStatus) {
+            console.log(textStatus);
+            console.log(numberOfSentences);
+
             if(numberOfSentences < amount ){
                 //We need to fetch sentences right away in order to get to the desired numner
                 if ($("#swahiliSentences").html() == ""){
@@ -112,74 +107,55 @@ function getGame4Sentences(keyword, amount) {
                 queryForSentences(keyword, amount, "local");
                 updateBufferForDatabase(keyword, amount);
             }
-        }
-    }
-    xmlhttp.open("GET","php/check_buffered_sentences.php?keyword=" + keyword , true);
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("Verifying number of sentences failed");
+        });
 }
 
 function updateBufferForDatabase(keyword, amount){
     console.log("Updating buffer...");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            //console.log(xmlhttp.responseText);
-            console.log("BUFFER UPDATED!!!");
-        }
-    }
-    xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount , true);
-
-    xmlhttp.send();
+    $.get("php/get_swahiliSentences.php", {keyword: keyword, amount: amount})
+        .done(function(result, textStatus) {
+            console.log(textStatus);
+            console.log("Buffer Updated");
+        })
+        .fail(function() {
+            console.log("Failed to update buffer");
+        });
 }
 
 function queryForSentences(keyword, amount, source){
     console.log("Querying the helsinki DB...");
-    amountGame4=amount
-        var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    amountGame4=amount;
+
+    suffix = "";
+    if(source == "local"){
+        suffix = "_DB";
     }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Returned from helsinki query: ");
-            console.log(xmlhttp.responseText);
-            var results_array = JSON.parse(xmlhttp.responseText);
+
+    $.getJSON("php/get_swahiliSentences" + suffix ".php", {keyword: keyword, amount: amount})
+        .done(function(results_array, textStatus) {
+            console.log(textStatus);
+            console.log(results_array);
             for( i = 0; i<amount ;i++) {
                 //last20Tweets[i] = results_array[i];
                 lastSwahiliSentences[i] = results_array[i];
                 displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences")
             }
-        }
-    }
-    prefix = "php/get_swahiliSentences.php"
-        if(source == "local"){
-            prefix = "php/get_swahiliSentences_DB.php"
-        } else  {
-            prefix = "php/get_swahiliSentences.php"
-        }
-    xmlhttp.open("GET",prefix + "?keyword=" + keyword + "&amount=" + amount , true);
-    xmlhttp.send();
+        })
+        .fail(function() {
+            console.log("Querying for sentences failed");
+        });
 }
 
 function get_tweets(alreadyDisplayed) {
     console.log("inside the tweets function: ");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT");
-            var results_array = JSON.parse(xmlhttp.responseText);
+    var totalAmount = amountOfTweets - alreadyDisplayed;
+    $.getJSON("php/get_tweets.php", {keyword: encodeURIComponent(word), amount: totalAmount})
+        .done(function(results_array, textStatus) {
+            console.log(textStatus);
+            console.log(results_array);
             var listOfAll = results_array.filter(function(elem, pos) {
                 return results_array.indexOf(elem) == pos;
             });
@@ -197,12 +173,10 @@ function get_tweets(alreadyDisplayed) {
                 updateTweetDB("noTweetFound")
                     getRankedForTweets();
             }
-
-        }
-    }
-    xmlhttp.open("GET","php/get_tweets.php?keyword=" + encodeURIComponent(word) + "&amount=" + (amountOfTweets - alreadyDisplayed));
-
-    xmlhttp.send();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Getting tweets failed" + textStatus);
+        });
 }
 
 function displayTextWithCheckboxes(elemText, index, whereToInsert){
@@ -232,18 +206,13 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
 }
 
 function updateTweetDB(status) {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    var json_data= {
+        "wordID":wordID,
+        "userID":userID,
+        "mode":game,
+        "language":gameLanguage,
+        "status" : status
     }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Response from TweetDB update was: " + xmlhttp.responseText );
-        }
-    }
-    var json_data= {"wordID":wordID, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
 
     $.ajax({
         type: 'POST',
@@ -262,18 +231,9 @@ function updateTweetDB(status) {
 
 function fetchTweetsFromDB(amount) {
     amountOfTweets = amount;
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-
-            console.log("REsPONSE : " + xmlhttp.responseText + "End response");
-
-            var results_array = JSON.parse(xmlhttp.responseText);
+    $.getJSON("php/fetch_tweet_db.php", {wordID: wordID, amount: amount})
+        .done(function(results_array, textStatus) {
+            console.log("Response : " + results_array + "End response");
             var i = 0
                 for( i = 0; i<amount && typeof results_array[i] !== 'undefined' && results_array[i] != null; i++) {
                     last20Tweets[i] = results_array[i];
@@ -283,13 +243,10 @@ function fetchTweetsFromDB(amount) {
             if(i < amountOfTweets) {
                 get_tweets( i);
             }
-        }
-    }
-    console.log("WORD ID IS : "+ wordID);
-
-    xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
-
-    xmlhttp.send();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Fetching tweets from DB failed: " + textStatus);
+        });
 }
 
 function submitCheckBoxData(whatToSubmit) {
@@ -325,42 +282,39 @@ function submitCheckBoxData(whatToSubmit) {
 
 function sendGame4SentenceToDB(sentence, good){
     console.log("Sending swahili results to DB:...");
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("DB Response t sending swahili results was:  " + xmlhttp.responseText);
+    var json_data = {
+        wordID: wordID,
+        userID: userID,
+        sentenceID: sentence.sentenceID,
+        good: good,
+        mode: game,
+        language: gameLanguage
+    };
+    $.get("php/submit_sentence.php", json_data)
+        .done(function(result, textStatus) {
+            console.log("DB Response t sending swahili results was:  " + result);
             getGameScore();
-        }
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Sending game for sentence to DB failed: " + textStatus);
+        });
 
-    }
-    //wordID, sentenceID, userID, game lang
     console.log("When submitting sentence, good is : " + good);
-    xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence.sentenceid + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
-    xmlhttp.send();
 }
 
 function sendTweetToDB(tweet, good){
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    var json_data= {
+        "wordID": wordID,
+        "tweetID": tweet.TweetID,
+        "tweetText": tweet.Text,
+        "userID": userID,
+        "mode": game,
+        "language": gameLanguage,
+        "tweetAuthor": tweet.Author,
+        "good" : good
     }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("DB esponse was:  : " + xmlhttp.responseText);
-        }
-    }
-    var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good  }
 
     $.ajax({
-        type: 'POST',
-        url: 'php/submit_tweet.php',
         data: {json: JSON.stringify(json_data)},
         dataType: 'json'
     })
@@ -379,8 +333,8 @@ function get_ranked() {
     $(".entry").addClass("fade");
 
     $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: "1"})
-        .done(function(results_array, status) {
-            console.log(status);
+        .done(function(results_array, textStatus) {
+            console.log(textStatus);
             console.debug("GET ranked result is : " + results_array)
 
             clear_definitions();
@@ -395,9 +349,9 @@ function get_ranked() {
             }
             var underscored_word = wordToDisplay.replace(" /g", "_");
 
-            document.getElementById("wiktionary").href = "https://en.wiktionary.org/wiki/" + underscored_word;
-            document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
-            document.getElementById("wordnik").href = "https://www.wordnik.com/words/" + underscored_word;
+            $("#wiktionary").attr("https://en.wiktionary.org/wiki/" + underscored_word);
+            $("#dictionary").attr("http://dictionary.reference.com/browse/" + underscored_word);
+            $("#wordnik").attr("https://www.wordnik.com/words/" + underscored_word);
             set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
             add_definition(-1, "? " + ICantSay, false);
 
@@ -425,22 +379,22 @@ function get_ranked() {
 }
 
 function submit_definition(definition) {
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("submit definition returns : " + xmlhttp.responseText);
+    var json_data = {
+        wordID: wordID,
+        groupID: groupID,
+        definition: definition,
+        userID: userID,
+        mode: game, 
+        language: gameLanguage
+    };
+    $.get("php/submit_definition.php", json_data)
+        .done(function(result, textStatus) {
+            console.log(textStatus, result);
             getGameScore();
-        }
-
-    }
-    console.log("When submitting definition, wordID is : " + wordID);
-    xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
-    xmlhttp.send();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Submitting definition failed:" + textStatus);
+        });
 }
 
 function isNewUser() {
@@ -448,33 +402,22 @@ function isNewUser() {
         console.log("Checking if New USER");
         if(userID == "???"){
             console.log("Waiting until becoming defined!" + userID);
-        } else  {
+        } else {
             console.log("Defined!" + userID);
-
-            var xmlhttp;
-            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp=new XMLHttpRequest();
-            } else {// code for IE6, IE5
-                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange=function() {
-                if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-
-                    console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
-                    obj = JSON.parse(xmlhttp.responseText);
+            $.getJSON("php/check_user.php", {userID: userID, userName: userName})
+                .done(function(obj, textStatus) {
+                    console.log(textStatus);
+                    console.log(obj);
 
                     if(obj[1] != "unknown user") {
-
                         siteLanguage=obj[0]
-                            document.getElementById('menuLanguageSettings').selectedIndex= siteLanguage - 1
-
+                            $('#menuLanguageSettings').prop("selectedIndex", siteLanguage - 1);
                             console.log("Site lanuguage is: " + siteLanguage);
                         if(obj[1] != "aleadyDoneBefore") {
                             location.reload();
                         } else {
                             if(obj[2] == "showSettings"){
                                 display_settings();
-                                //alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
                             } else {
                                 initialise();
                                 animate_logo();
@@ -484,11 +427,10 @@ function isNewUser() {
                         firsttime= true;
                         animate_logo_firstTime();
                     }
-
-                }
-            }
-            xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
-            xmlhttp.send();
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Checking user failed: " + textStatus);
+            });
         }
     }
 }
@@ -519,8 +461,8 @@ function initialise() {
 
 function getGameScore(){
     $.getJSON("php/get_game_score.php", {userID: userID, mode: game, language: gameLanguage})
-        .done(function(obj, status) {
-            console.log(status);
+        .done(function(obj, textStatus) {
+            console.log(textStatus);
             console.log(obj);
 
             set_profile_data(obj.points, obj.pendingpoints, (obj.points / ( parseInt(obj.submissions) + 1)).toFixed(5));
@@ -540,8 +482,8 @@ function submit_vote(definition_id, vote) {
                 groupID: groupID,
                 mode: game,
                 language: gameLanguage})
-        .done(function(result, status) {
-            console.log("Submit_Vote returned : " + xmlhttp.responseText);
+        .done(function(result, textStatus) {
+            console.log("Submit_Vote returned : " + result);
             getGameScore();
 
         })
@@ -553,7 +495,7 @@ function submit_vote(definition_id, vote) {
 
 function report_spam() {
     $.get("php/report_spam.php", {wordID: wordID, definitionID: definitionID, userID: userID})
-        .done(function(result, status) {
+        .done(function(result, textStatus) {
             alert("A spam report has been sent! Thanks!" + result)
         })
         .fail(function() {
@@ -563,8 +505,8 @@ function report_spam() {
 
 function complete_notification() {
     $.get("php/complete_notification.php", {userID: userID})
-        .done(function(result, status) {
-            console.log(status);
+        .done(function(result, textStatus) {
+            console.log(textStatus);
         })
         .fail(function() {
             console.log("Completing notification failed");
@@ -576,8 +518,8 @@ function get_ranked_mode_2() {
 
     //Lanugage is always 1 since we take english words as words to translate
     $.getJSON("php/get_ranked.php", {userID: userID, language: 1, mode: "2"})
-        .done(function(obj, status) {
-            console.log(status);
+        .done(function(obj, textStatus) {
+            console.log(textStatus);
             console.log(obj);
 
             $("#translation_word").html(obj[0].Word);
@@ -596,8 +538,8 @@ function get_ranked_mode_2() {
 function submit_translation(translation) {
     $.get("php/submit_translation.php", {translation: translation, wordID: wordID,
         userID: userID, language: gameLanguage, mode: "2"})
-        .done(function(obj, status) {
-            console.log(status);
+        .done(function(obj, textStatus) {
+            console.log(textStatus);
             console.log(obj);
             getGameScore();
         })
@@ -618,21 +560,23 @@ function saveSettings() {
     gameLanguage = $("#gamelanguage").val();
     siteLanguage = $("#menuLanguageSettings option:selected").val();
 
-    $.get("php/save_settings.php?userID=" + userID +
-            "&notify=" + whenToNotify +
-            "&post=" + whenToPost +
-            "&gameLanguage=" + gameLanguage).done(function(data) {
-        console.log("Settings saved");
-        location.reload();
-    });
+    var json_data = {userID: userID, notify: whenToNotify, post: whenToPost, gameLanguage: gameLanguage};
+    $.get("php/save_settings.php", json_data)
+        .done(function(data) {
+            console.log("Settings saved");
+            location.reload();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Saving settings failed: " + textStatus);
+        });
 }
 
 function saveMenuLanguage(whichSlider) {
     siteLanguage = $("#"+whichSlider+" option:selected").val();
 
     $.getJSON("php/save_menu_language.php", {userID: userID, menuLanguage: siteLanguage})
-        .done(function(result, status) {
-            console.log(status);
+        .done(function(result, textStatus) {
+            console.log(textStatus);
             console.log(result);
         })
         .fail(function() {
@@ -641,80 +585,55 @@ function saveMenuLanguage(whichSlider) {
 }
 
 function post_timeline() {
-    var xmlhttp;
-
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            obj = JSON.parse(xmlhttp.responseText);
-            console.log("# of new definitions from user : " + obj);
-            if(obj == 0){
+    $.getJSON("php/post_timeline.php", {userID: userID})
+        .done(function(result, textStatus) {
+            console.log(textStatus);
+            console.log("# of new definitions from user : " + result);
+            if(result == 0){
                 console.log("No activity to post");
             } else  {
-
-                publishStory(obj)
+                publishStory(result)
             }
-        }
-    }
-
-    xmlhttp.open("GET","php/post_timeline.php?userID=" + userID);
-    xmlhttp.send();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Posting timeline failed: " + textStatus);
+        });
 }
 
 function trigger_notification() {
-    var xmlhttp;
-    console.log("In trigger notification");
-
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("NOTIFICATION RESPONSE" + xmlhttp.responseText);
-
-        }
-    }
-
-    xmlhttp.open("GET","php/notification_tweet.php?userID=" + userID);
-    xmlhttp.send();
+    $.get("php/notification_tweet.php", {userID: userID})
+        .done(function(result, textStatus) {
+            console.log(result);
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Triggering notification failed: " + textStatus);
+        });
 }
 
 function updateLeaderboard(){
-
-    languageSelect = document.getElementById("scoreLanguage");
-    scoreLanguage = languageSelect.selectedIndex;
-    gameSelect = document.getElementById("scoreGame");
-    scoreGame= gameSelect.selectedIndex;
-    timePeriodSelect = document.getElementById("scoretimePeriod");
-    scoretimePeriod = timePeriodSelect.selectedIndex;
-    metricSelect = document.getElementById("scoreMetric");
-    scoreMetric = metricSelect.selectedIndex;
-
-    var xmlhttp;
     console.log("In update leaderboard");
 
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    } else  {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("Leaderboard response : " + xmlhttp.responseText);
+    scoreLanguage = $("#scoreLanguage option:selected").index();
+    scoreGame = $("#scoreGame option:selected").index();
+    scoretimePeriod = $("#scoretimePeriod option:selected").index();
+    scoreMetric = $("#scoreMetric option:selected").index();
 
-            table = document.getElementById("score_table");
+    var json_data = {
+        userID: userID,
+        language: scoreLanguage,
+        mode: scoreGame,
+        metric: scoreMetric,
+        period: scoretimePeriod
+    };
 
-            obj = JSON.parse(xmlhttp.responseText);
+    $.getJSON("php/get_user_rank.php", json_data)
+        .done(function(obj, textStatus) {
+            console.log("Leaderboard response : " + obj);
             console.log("This will be the obj");
             console.log(obj);
+            var table = document.getElementById("score_table");
 
-            max = table.rows.length;
+            var max = table.rows.length;
             for(var i = 0; i < max; i++){
                 console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length);
                 table.deleteRow(0);
@@ -723,7 +642,7 @@ function updateLeaderboard(){
             for(var i = 0; i <  obj[0].length; i++) {
                 var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount);
-                rowUserID=  obj[1][i].toString();
+                var rowUserID =  obj[1][i].toString();
                 console.log("This is the rowCount: " + rowCount);
 
                 if(rowUserID == userID){
@@ -731,8 +650,7 @@ function updateLeaderboard(){
                 } else {
                     row.className = "otherUsersInTable";
                 }
-
-                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
+                row.insertCell(0).innerHTML= '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >';
                 row.insertCell(1).innerHTML= obj[2][rowUserID];
 
                 row.insertCell(2).innerHTML= obj[0][i];
@@ -757,12 +675,10 @@ function updateLeaderboard(){
             if( obj[5].id != "NOPE" ) {
                 addScoreEntry(5,table);
             }
-        }
-    }
-
-    xmlhttp.open("GET","php/get_user_rank.php?userID=" + userID + "&language=" + scoreLanguage + "&mode=" +scoreGame + "&metric=" + scoreMetric + "&period=" + scoretimePeriod , true);
-    xmlhttp.send();
-
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Getting user rank failed: " + textStatus);
+        });
 }
 
 function addScoreEntry(indexOfArray, table){
@@ -783,8 +699,8 @@ function addScoreEntry(indexOfArray, table){
 
 function insert_game_icons(gameLanguage) {
     $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
-        .done(function(games, status) {
-            console.log(status);
+        .done(function(games, textStatus) {
+            console.log(textStatus);
             console.log(games);
 
             $.each(games, function(index) {
@@ -807,8 +723,8 @@ function insert_game_icons(gameLanguage) {
 function get_game_names() {
     var gamelist;
     $.getJSON("php/get_games.php")
-        .done(function(games, status) {
-            console.log(status);
+        .done(function(games, textStatus) {
+            console.log(textStatus);
             console.log(games);
             gamelist = games;
         })
@@ -821,18 +737,24 @@ function get_game_names() {
 
 function get_active_game_languages() {
     $.getJSON("php/get_active_languages.php")
-        .done(function(languages, status) {
-            console.log(status);
+        .done(function(languages, textStatus) {
+            console.log(textStatus);
             console.log(languages);
             set_game_languages(languages);
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Getting active game language failed: " + textStatus);
         });
 }
 
 function get_interface_languages() {
     $.getJSON("php/get_interface_languages.php")
-        .done(function(languages, status) {
-            console.log(status);
+        .done(function(languages, textStatus) {
+            console.log(textStatus);
             console.log(languages);
             set_interface_languages(languages);
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Getting interface language failed: " + textStatus);
         });
 }
