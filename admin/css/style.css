@@ -25,7 +25,6 @@ ul.menu a:hover, a:active {
 table td {
     padding: 8px;
     text-align: center;
-    margin-top: 20px;
 }
 
 td, th {
@@ -43,4 +42,5 @@ tr:hover {
 
 table {
     border-collapse: collapse;
+    margin-top: 20px;
 }
