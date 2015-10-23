@@ -61,6 +61,11 @@ function loadInterfaceLanguages() {
     $.getJSON("php/get_interface_languages.php")
         .done(function(languages, textStatus) {
             var html = "<table>";
+            html += "<tr><td></td>";
+            html += "<td class='langentry'>";
+            html += "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
+            html += "<input type='hidden' id='langId' value=''>";
+            html += "</td></tr>";
             for(var lang in languages) {
                 html += "<tr><td>" + lang + "</td>";
                 html += "<td>" + languages[lang] + "</td>";
