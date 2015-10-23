@@ -2,10 +2,8 @@
  * Displays a table to see which games are active for which languages
  */
 function loadGameLanguages() {
-    $.get("php/get_game_languages.php")
-        .done(function(data) {
-            var results_array = JSON.parse(data);
-
+    $.getJSON("php/get_game_languages.php")
+        .done(function(results_array) {
             var languageIdMap = results_array.languageIdMap;
             var gameIdMap = results_array.gameIdMap;
             var gameLanguageActive = results_array.gameLanguageActive;
@@ -54,10 +52,25 @@ function loadGameLanguages() {
                 html += "<td></td>";
                 html += "</tr>";
             }
-
             html += "</table>";
-
             $("#settings").html(html);
+        });
+}
+
+function loadInterfaceLanguages() {
+    $.getJSON("php/get_interface_languages.php")
+        .done(function(languages, textStatus) {
+            var html = "<table>";
+            for(var lang in languages) {
+                html += "<tr><td>" + lang + "</td>";
+                html += "<td>" + languages[lang] + "</td>";
+                html += "</tr>";
+            }
+            html += "</table>";
+            $("#settings").html(html);
+        }
+        .fail(function(jqXHR, textStatus) {
+            console.log("Loading interface languages failed: " + textStatus);
         });
 }
 

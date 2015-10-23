@@ -25,6 +25,12 @@ ul.menu a:hover, a:active {
 table td {
     padding: 8px;
     text-align: center;
+    margin-top: 20px;
+}
+
+td, th {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .langentry {

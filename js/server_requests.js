@@ -690,7 +690,7 @@ function addScoreEntry(indexOfArray, table){
         row.className = "otherUsersInTable";
 
     }
-    row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
+    row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >';
     row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
 
     row.insertCell(2).innerHTML= obj[indexOfArray].score;
