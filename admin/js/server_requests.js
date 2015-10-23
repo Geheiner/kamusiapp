@@ -68,7 +68,7 @@ function loadInterfaceLanguages() {
             }
             html += "</table>";
             $("#settings").html(html);
-        }
+        })
         .fail(function(jqXHR, textStatus) {
             console.log("Loading interface languages failed: " + textStatus);
         });
