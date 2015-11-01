@@ -413,7 +413,7 @@ function isNewUser() {
                         siteLanguage=obj[0]
                             $('#menuLanguageSettings').prop("selectedIndex", siteLanguage - 1);
                             console.log("Site lanuguage is: " + siteLanguage);
-                        if(obj[1] != "aleadyDoneBefore") {
+                        if(obj[1] != "languageAlreadySet") {
                             location.reload();
                         } else {
                             if(obj[2] == "showSettings"){
@@ -707,7 +707,7 @@ function insert_game_icons(gameLanguage) {
                 var id = games[index].GameID;
                 $("#game"+id).remove();
                 var name = games[index].Name;
-                var html = "<img title='" + name + "' id='game" + id + "'"
+                var html = "<img title='" + name + "' id='enter" + id + "'"
                     + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
                     + "onmousedown='playClick();enter_game(" + id + ");'>";
                 $(html).insertAfter("#logo");
