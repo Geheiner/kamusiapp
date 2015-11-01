@@ -26,82 +26,82 @@ $kamusiUser= array();
 
 //Functions used throughout the app in order to keep track of the scores
 function addXToValueInGame($userID, $language, $mode, $value, $x){
-	global $mysqli;
-	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ? AND game=?;");
-	$stmt->bind_param("isii", $x, $userID, $language, $mode);
-	$stmt->execute();
-	$stmt->close();	
+    global $mysqli;
+    $stmt = $mysqli->prepare("UPDATE games SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ? AND game=?;");
+    $stmt->bind_param("isii", $x, $userID, $language, $mode);
+    $stmt->execute();
+    $stmt->close(); 
 }
 
 function setXToValueInGame($userID, $language, $mode, $value, $x){
-	global $mysqli;
-	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = ? WHERE userid=? and language = ? AND game=?;");
-	$stmt->bind_param("isii", $x, $userID, $language, $mode);
-	$stmt->execute();
-	$stmt->close();	
+    global $mysqli;
+    $stmt = $mysqli->prepare("UPDATE games SET ". $value . " = ? WHERE userid=? and language = ? AND game=?;");
+    $stmt->bind_param("isii", $x, $userID, $language, $mode);
+    $stmt->execute();
+    $stmt->close(); 
 }
 
 function addXToPendingPointsInGame($userID, $language, $mode, $x){
-	global $mysqli;
-	addXToValueInGame($userID, $language, $mode, "pendingpoints", $x);
+    global $mysqli;
+    addXToValueInGame($userID, $language, $mode, "pendingpoints", $x);
 
 }
 
 function setXToPendingPointsInGame($userID, $language, $mode, $x){
-	global $mysqli;
-	setXToValueInGame($userID, $language, $mode, "pendingpoints", $x);
+    global $mysqli;
+    setXToValueInGame($userID, $language, $mode, "pendingpoints", $x);
 
 }
 
 function addXToPointsInGame($userID, $language, $mode, $x) {
-	global $mysqli;
+    global $mysqli;
 
-	addXToValueInGame($userID, $language, $mode, "points", $x);
-	addXToValueInGame($userID, $language, $mode, "pointsmonth", $x);
-	addXToValueInGame($userID, $language, $mode, "pointsweek", $x);
-	
-	$sql = "INSERT INTO pointtime (userID, language, game, amount, ts) VALUES ";
-	$sql .= "(?,?,?,?, UTC_TIMESTAMP());";
+    addXToValueInGame($userID, $language, $mode, "points", $x);
+    addXToValueInGame($userID, $language, $mode, "pointsmonth", $x);
+    addXToValueInGame($userID, $language, $mode, "pointsweek", $x);
+    
+    $sql = "INSERT INTO pointtime (userID, language, game, amount, ts) VALUES ";
+    $sql .= "(?,?,?,?, UTC_TIMESTAMP());";
 
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("siii", $userID, $language, $mode, $x);
-	$stmt->execute();
-	$stmt->close();	
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("siii", $userID, $language, $mode, $x);
+    $stmt->execute();
+    $stmt->close(); 
 }
 
 function addXSubmissionsInGame($userID, $language, $mode, $x){
-	global $mysqli;
-	addXToValueInGame($userID, $language, $mode, "submissions", $x);
-	addXToValueInGame($userID, $language, $mode, "submissionsweek", $x);
-	addXToValueInGame($userID, $language, $mode, "submissionsmonth", $x);
-	$sql = "INSERT INTO submissiontime (userID, language, game, amount, ts) VALUES ";
-	$sql .= "(?,?,?,?, UTC_TIMESTAMP());";
+    global $mysqli;
+    addXToValueInGame($userID, $language, $mode, "submissions", $x);
+    addXToValueInGame($userID, $language, $mode, "submissionsweek", $x);
+    addXToValueInGame($userID, $language, $mode, "submissionsmonth", $x);
+    $sql = "INSERT INTO submissiontime (userID, language, game, amount, ts) VALUES ";
+    $sql .= "(?,?,?,?, UTC_TIMESTAMP());";
 
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("siii", $userID, $language, $mode, $x);
-	$stmt->execute();
-	$stmt->close();	
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("siii", $userID, $language, $mode, $x);
+    $stmt->execute();
+    $stmt->close(); 
 
 }
 
 function giveAllConcernedUsersXPoints($concernedUsers, $x){
-	global $data, $mysqli;
-	foreach($concernedUsers as $user) {
-		addXToPointsInGame($user, $data["language"], $data["mode"], 1);
+    global $data, $mysqli;
+    foreach($concernedUsers as $user) {
+        addXToPointsInGame($user, $data["language"], $data["mode"], 1);
 
-		$returnText = $user;
+        $returnText = $user;
 
-		$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification + ? WHERE UserID=?;");
-		$stmt->bind_param("is", $x, $user);
-		$stmt->execute();
-		$stmt->close();
-	}
+        $stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification + ? WHERE UserID=?;");
+        $stmt->bind_param("is", $x, $user);
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 function debugVariable($var, $name){
-	echo "\n\nBegin " . $name;
-	 echo print_r($var, true);
-	 echo "End " . $name;
+    echo "\n\nBegin " . $name;
+     echo print_r($var, true);
+     echo "End " . $name;
 }
 
 ?>

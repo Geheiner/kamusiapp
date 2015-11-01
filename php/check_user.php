@@ -43,8 +43,7 @@ if( !$checkResult){
         }
     }
     $returnValue[]= "unknown user";
-}
-else {
+} else {
     //Create an entry for user for each game
     $stmt = $mysqli->prepare("SELECT ID FROM languages; ");
     $stmt->execute();
@@ -82,31 +81,21 @@ else {
         $row = $result->fetch_assoc();
         $_SESSION['lang']=$row['Part1'];
         $returnValue[]= "done";
-    }
-    else {
-        $returnValue[]= "aleadyDoneBefore";
+    } else {
+        $returnValue[]= "languageAlreadySet";
         $stmt = $mysqli->prepare("UPDATE users SET firsttime=0 WHERE UserID= ?;");
         $stmt->bind_param("s", $userID);
         $stmt->execute();
-        $stmt->close(); 
+        $stmt->close();
     }
 
     if($firsttime == 1) {
         //First time the user logs in, show him the settings menu
         $returnValue[]= "showSettings";
-    }
-    else {
+    } else {
         $returnValue[]= "doNotShowSettings";
-
     }
-
-    
 }
 
-
-
-
-$jsonData = json_encode($returnValue);
-echo $jsonData;
-
+echo json_encode($returnValue);
 ?>
