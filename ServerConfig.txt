@@ -1,60 +1,65 @@
-Configuation of the serve for the kamusi app
+Configuation of the server for the kamusi app
 
 
 Install LAMP:
 
-sudo yum -y install mysql mysql-server
+    sudo yum -y install mysql mysql-server
 
-sudo yum install httpd24 php54
+    sudo yum install httpd24 php54
 
 Need to have php5.4 for facebook plugins to work correctly
 and need another php plugin
-yum install php54-mbstring
+
+    yum install php54-mbstring
 
 install pip for getting the tweets with python:
 
-sudo yum install python-pip
-sudo pip install tweepy
+    sudo yum install python-pip
+    sudo pip install tweepy
 
 Start HTTP server:
 
-sudo /etc/init.d/httpd start
+    sudo /etc/init.d/httpd start
 
 Start MySql:
 
-sudo /etc/init.d/mysqld start
+    sudo /etc/init.d/mysqld start
 
 Set autostart (on boot) for HTTP server:
 
-sudo chkconfig httpd on
+    sudo chkconfig httpd on
 
 Set autostart (on boot) for MySql server:
 
-sudo chkconfig mysqld on
+    sudo chkconfig mysqld on
 
 Apache server folder:
 
-cd /var/www/html
+    cd /var/www/html
 
 copy all files from local to server :
 
-scp -i /home/timo/.ssh/TimoAwsServerKeyPair.pem . ec2-user@ec2-52-24-108-179.us-west-2.compute.amazonaws.com:/home/ec2-user
+    scp -i ~/.ssh/TimoAwsServerKeyPair.pem . ec2-user@ec2-52-24-108-179.us-west-2.compute.amazonaws.com:/home/ec2-user
 
-sudo su
-SHOW DATABASES;
-CREATE DATABASE kamusi;
-mysql> USE kamusi;
-mysql> CREATE TABLE wordnet (ID INT, Word VARCHAR(64), Definition VARCHAR(256));
+    sudo su
+    SHOW DATABASES;
+    CREATE DATABASE kamusi;
+    mysql> USE kamusi;
+    mysql> CREATE TABLE wordnet (ID INT, Word VARCHAR(64), Definition VARCHAR(256));
 
 Install mysql driver for php
 
-yum install php54-mysqlnd
+    yum install php54-mysqlnd
 
 THE NATIVE DRIVER IS NEEDED FOR LATER!!! mysqli prapre
 
-save old db to sql file :  mysqldump -u root -p kamusi > kamusi.sql
+save old db to sql file:
 
-import sql from file : mysql -u root -p -h localhost kamusi < kamusi.sql
+    mysqldump -u root -p kamusi > kamusi.sql
+
+import sql from file:
+
+    mysql -u root -p -h localhost kamusi < kamusi.sql
 
 Do not forget to make http requests accessile from the outside world on your amazon machine!
 
@@ -69,22 +74,26 @@ Type -> select HTTP, Source -> Anywhere
 Enable the php error log.
 
 find the right php.ini file
-php -i | grep 'Configuration File'
+
+    php -i | grep 'Configuration File'
+
 Then in the php ini file, set display_error=On and set the variable error_log to a file. Don t forget to make it writable for php!
 
 Set up the git synchronization
 http://toroid.org/ams/git-website-howto
 insert into the post_receive file :
-cat > hooks/post-receive
-#!/bin/sh
-GIT_WORK_TREE=/var/www/html git checkout -f
+
+    cat > hooks/post-receive
+    #!/bin/sh
+    GIT_WORK_TREE=/var/www/html git checkout -f
+
 if git post receive hook does not have permission to modify files in case of error remote: error: unable to unlink old 'index.php' (Permission denied)
 
 
-sudo chown ec2-user html/
+    sudo chown ec2-user html/
 
 
-install pyhton in order to get tweets
+install python in order to get tweets
 
 
 ALTER TABLE games ADD UNIQUE ( userid , game, language);
@@ -93,7 +102,7 @@ ALTER TABLE games ADD UNIQUE ( userid , game, language);
 Don t forget to make the folder containing the files for the crontabs readbale and writable by apache!
 include the global.php file in the autoprepend part of php.ini
 
-sudo chmod -R a+rw /var/www/tempText
+    sudo chmod -R a+rw /var/www/tempText
 
 Settings for the taito server in order to get access to the swahili databse for the game
 Passwordless connection : 
@@ -101,24 +110,24 @@ http://www.rebol.com/docs/ssh-auto-login.html
 
 
 copy local taito script to taitoserver
-scp -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi:getDataForWord.sh
+
+    scp -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi:getDataForWord.sh
 
 Create the new table worddefinitions
-create table worddefinitions (id1 int, wordnetid varchar(64), headword varchar(80), title varchar(80), kamusilang int, wordnetlang varchar(64), kamusipos varchar(64), wordnetpos varchar(64), definition varchar(512), example varchar(512), wordnetreference varchar(256));
+    create table worddefinitions (id1 int, wordnetid varchar(64), headword varchar(80), title varchar(80), kamusilang int, wordnetlang varchar(64), kamusipos varchar(64), wordnetpos varchar(64), definition varchar(512), example varchar(512), wordnetreference varchar(256));
 Query OK, 0 rows affected (0.00 sec)
 
 take it s input from the csv file :
 
-LOAD DATA LOCAL INFILE 'kamusiData.csv' INTO TABLE worddefinitions FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+    LOAD DATA LOCAL INFILE 'kamusiData.csv' INTO TABLE worddefinitions FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+
 Then drop unneccsary columns.
 Then in order to split that table into words and definitions :
 
+    SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID INTO words FROM worddefinitions;
 
+    INSERT INTO words (Word, PartOfSpeech,DefinitionID, language, reference)  SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID, 1, wordnetreference FROM worddefinitions
 
-SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID INTO words FROM worddefinitions;
-
-INSERT INTO words (Word, PartOfSpeech,DefinitionID, language, reference)  SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID, 1, wordnetreference FROM worddefinitions
-
-INSERT INTO definitions(GroupID, Definition, UserID) SELECT id,definition,'wordnet' FROM worddefinitions
+    INSERT INTO definitions(GroupID, Definition, UserID) SELECT id,definition,'wordnet' FROM worddefinitions
 
 
