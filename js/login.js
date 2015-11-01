@@ -1,5 +1,12 @@
 <!--Load and initialise the Facebook API. xfbml checks for active login-->
 
+var appID;
+if(window.location.href == 'http://localhost/') {
+    appID = '1672140659691650';
+} else {
+    appID = '1525612724344445';
+}
+
 var firsttime = false;
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
@@ -27,7 +34,7 @@ function checkLoginState() {
 window.fbAsyncInit = function() {
     //Initialise SDK
     FB.init({
-        appId      : '1525612724344445',
+        appId      : appID,
         cookie     : true,  // enable cookies to allow the server to access 
         // the session
         xfbml      : true,  // parse social plugins on this page
