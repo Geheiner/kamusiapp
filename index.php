@@ -8,10 +8,10 @@ if($GAME_OFF) {
 session_start();
 function generateToken() {
     // generate token from random value
-    $token = md5(rand(pow(2, 32), pow(2, 33)));  
+    $token = md5(rand(pow(2, 32), pow(2, 33)));
 
     // Store token in session superglobal
-    $_SESSION['token'] = $token; 
+    $_SESSION['token'] = $token;
 
     return $token;
 }
@@ -31,7 +31,7 @@ bindtextdomain('messages', 'locale');
 /**
  * Tell the application to use this text domain, or messages.mo.
  */
-textdomain('messages'); 
+textdomain('messages');
 
 ?>
 
@@ -81,7 +81,10 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                 <div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
                     <div id="gamezone-main1" >
                         <div class="entry">
-                            <h1 id="title1", class="title"> <?php printf(_("%s"), $gameNames["1"]);; ?> <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info1();"> </h1>
+                            <h1 id="title1", class="title">
+                                <?php printf(_("%s"), $gameNames["1"]);; ?>
+                                <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info1();">
+                            </h1>
 
                             <p id="instructions1"> </p>
 
@@ -90,18 +93,15 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                             <p id="consensus", class="workingDefinition"></p>
                         </div>
                         <div id="definitions_wrapper">
-                                        <table id="definitions">
-
+                            <table id="definitions">
                                 <tr><td>
-
-
-                                    <li ng-click="toggleTooltip($event); " id="user_definition" class="inactive_definition">✎ <?php echo gettext(" I can write the winning definition for this idea!"); ?></li>
+                                    <li ng-click="toggleTooltip($event); " id="user_definition" class="inactive_definition">
+                                        ✎ <?php echo gettext(" I can write the winning definition for this idea!"); ?>
+                                    </li>
                                     <div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
-                                <input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);"/>
-                                <img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
-
-                            </div>                          
-
+                                        <input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);"/>
+                                        <img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
+                                    </div>
                                 </td></tr>
                             </table>
                         </div>
@@ -140,9 +140,11 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                         <div id="translations_wrapper">
                             <table id="translations">
                                 <tr><td>
-                                </div>  
+                                </div>
 
-                                <li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">✎ <?php echo gettext("I can translate this word!"); ?></li>
+                                <li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">
+                                    ✎ <?php echo gettext("I can translate this word!"); ?>
+                                </li>
 
                                 <div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
                                 <input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
@@ -161,8 +163,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                     <div class="entry">
                     <h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
                         <p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
-                        <p id="word3"></p>      
-                        <p id="pos3"></p>                   
+                        <p id="word3"></p>
+                        <p id="pos3"></p>
                         <p id="def3", class="workingDefinition"></p>
                         <div id="definitions_wrapper">
                             <p id="twitterWords"></p>
@@ -186,8 +188,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                     <div class="entry">
                         <h1 id="title4", class="title"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
                         <p id="instructions"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
-                        <p id="word4"></p>      
-                        <p id="pos4"></p>                   
+                        <p id="word4"></p>
+                        <p id="pos4"></p>
                         <p id="transEnglish4"></p>
                         <p id="defSwahili4", class="workingDefinition"></p>
                         <div id="sentences_wrapper">
@@ -383,7 +385,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <option><?php echo ("Español"); ?></option>
         <option><?php echo ("Esperanto"); ?></option>
         <option><?php echo ("Français"); ?></option>
-        <option><?php echo ("Gaeilge"); ?></option> 
+        <option><?php echo ("Gaeilge"); ?></option>
         <option><?php echo ("Italiano"); ?></option>
         <option><?php echo ("Kirundi"); ?></option>
         <option><?php echo ("Kiswahili"); ?></option>
@@ -402,7 +404,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </div>
 <div id="leaderboard">
     <div id="settings-outer">
-        <div class="settings-inner">   
+        <div class="settings-inner">
             <?php echo _("Language"); ?>
             <select class="scoreSelectors" id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
                 <option><?php echo _("All languages"); ?></option>
@@ -474,24 +476,24 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <script>
 //All dynamic text is references here
 ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
-    ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
-    ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
-    keepTheGeneralSense = "<?php echo gettext(" Keep the working definition. It's spectacular as it is!"); ?>"
-    generalSense = "<?php echo _("Working definition: "); ?>"
-    translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
-    yourAchievements = "<?php echo _("Your achievements for the ")  ?>"
-    stringin= "<?php echo _(" in ")  ?>"
-    writeOrVote= "<?php echo _("Write or vote for a definition in "); ?>" 
-    rankString = "<?php echo _("Rank: "); ?>"
+ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
+ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
+keepTheGeneralSense = "<?php echo gettext(" Keep the working definition. It's spectacular as it is!"); ?>"
+generalSense = "<?php echo _("Working definition: "); ?>"
+translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
+yourAchievements = "<?php echo _("Your achievements for the ")  ?>"
+stringin= "<?php echo _(" in ")  ?>"
+writeOrVote= "<?php echo _("Write or vote for a definition in "); ?>"
+rankString = "<?php echo _("Rank: "); ?>"
 
-    pointsInPlay = "<?php echo _("In Play: "); ?>"
-    pointsBanked = "<?php echo _("Banked: "); ?>"
+pointsInPlay = "<?php echo _("In Play: "); ?>"
+pointsBanked = "<?php echo _("Banked: "); ?>"
 
 <?php
 $js_array = json_encode($gameLanguages);
 echo "var gameLanguages = ". $js_array . ";\n";
 $js_array = json_encode($gameNames);
-echo "var gameNames = ". $js_array . ";\n"; 
+echo "var gameNames = ". $js_array . ";\n";
 $js_array = json_encode($partOfSpeechArray);
 echo "var partOfSpeechArray = ". $js_array . ";\n";
 
@@ -501,7 +503,7 @@ echo "var partOfSpeechArray = ". $js_array . ";\n";
 <script src="js/server_requests.js"></script>
 <script src="js/login.js"></script>
 <script src="js/sound.js"></script>
-<script src="js/menu.js"></script>  
+<script src="js/menu.js"></script>
 <script src="js/animation.js"></script>
 </body>
 </html>
