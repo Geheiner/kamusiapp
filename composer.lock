@@ -1,23 +1,24 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "20932fb0104ea6b3e4540fe96e96a0b4",
+    "hash": "330f7d2e2a2fa18b2ad8092e9cde68aa",
+    "content-hash": "a1467afe5b103a59a0d473ccf0b555ca",
     "packages": [
         {
             "name": "facebook/php-sdk-v4",
-            "version": "4.0.18",
+            "version": "4.0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "e3f5645354f516331dc2c9c3f16428ec5a27bb21"
+                "reference": "c82611e05596622c9bd7abfa1cea1512d885c95e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/e3f5645354f516331dc2c9c3f16428ec5a27bb21",
-                "reference": "e3f5645354f516331dc2c9c3f16428ec5a27bb21",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/c82611e05596622c9bd7abfa1cea1512d885c95e",
+                "reference": "c82611e05596622c9bd7abfa1cea1512d885c95e",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +54,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2015-02-24 19:22:51"
+            "time": "2015-04-03 20:31:47"
         }
     ],
     "packages-dev": [],

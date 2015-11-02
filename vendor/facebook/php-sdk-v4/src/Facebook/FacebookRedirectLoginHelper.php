@@ -174,7 +174,6 @@ class FacebookRedirectLoginHelper
    */
   public function getSessionFromRedirect()
   {
-    $this->loadState();
     if ($this->isValidRedirect()) {
       $params = array(
         'client_id' => FacebookSession::_getTargetAppId($this->appId),
@@ -189,8 +188,17 @@ class FacebookRedirectLoginHelper
         '/oauth/access_token',
         $params
       ))->execute()->getResponse();
-      if (isset($response['access_token'])) {
-        return new FacebookSession($response['access_token']);
+
+      // Graph v2.3 and greater return objects on the /oauth/access_token endpoint
+      $accessToken = null;
+      if (is_object($response) && isset($response->access_token)) {
+        $accessToken = $response->access_token;
+      } elseif (is_array($response) && isset($response['access_token'])) {
+        $accessToken = $response['access_token'];
+      }
+
+      if (isset($accessToken)) {
+        return new FacebookSession($accessToken);
       }
     }
     return null;
@@ -203,8 +211,21 @@ class FacebookRedirectLoginHelper
    */
   protected function isValidRedirect()
   {
-    return $this->getCode() && isset($_GET['state'])
-        && $_GET['state'] == $this->state;
+    $savedState = $this->loadState();
+    if (!$this->getCode() || !isset($_GET['state'])) {
+      return false;
+    }
+    $givenState = $_GET['state'];
+    $savedLen = mb_strlen($savedState);
+    $givenLen = mb_strlen($givenState);
+    if ($savedLen !== $givenLen) {
+      return false;
+    }
+    $result = 0;
+    for ($i = 0; $i < $savedLen; $i++) {
+      $result |= ord($savedState[$i]) ^ ord($givenState[$i]);
+    }
+    return $result === 0;
   }
 
   /**
