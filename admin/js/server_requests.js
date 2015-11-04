@@ -113,10 +113,12 @@ function add_language() {
         }
     });
 
+    // Get id of language to add
     var language = $("#langId").val();
 
     $.post("php/add_game_language.php", {language: language, games: JSON.stringify(active_boxes), token: api_token})
         .done(function(result, textStatus) {
+            // refresh screen
             loadGameLanguages();
         })
         .fail(function(jqXHR, textStatus) {
