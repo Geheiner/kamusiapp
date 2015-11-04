@@ -2,8 +2,10 @@
 
 var appID;
 if(window.location.href == 'http://localhost/') {
+    // AppID of Kamusi Test App
     appID = '1672140659691650';
 } else {
+    // AppID of Kamusi Main App
     appID = '1525612724344445';
 }
 
