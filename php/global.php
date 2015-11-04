@@ -9,12 +9,15 @@ $partOfSpeechArray= array();
 $config = parse_ini_file('/var/www/passwords/config.ini');
 $helsinkiUserName = $config['helusername'];
 $helsinkiPassWord= $config['helpassword'];
-//Login information for connecting to services
 
-$sess_user=$config['sess_user'];
+//Login information for connecting to services
+$sess_user = $config['sess_user'];
 $sess_pass = $config['sess_pass'];
 $base_url = "http://dev.kamusi.org:8282";
 
+// Facebook id and secret
+$app_id = $config['app_id'];
+$app_secret = $config['app_secret'];
 
 //The object that allows access to the mysql database
 $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);

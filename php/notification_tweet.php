@@ -1,7 +1,4 @@
 <?php
-
-
-
 session_start();
 require_once( 'Facebook/Entities/AccessToken.php' );
 require_once( 'Facebook/Entities/SignedRequest.php' );
@@ -37,8 +34,6 @@ use Facebook\GraphUser;
 use Facebook\Entities\AccessToken;
 use Facebook\Entities\SignedRequest;
 
-
-
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
@@ -52,7 +47,7 @@ $result = $stmt->get_result();
 $stmt->close();
 $results_array = $result->fetch_assoc();
 
-    //These must be retrieved from the database
+//These must be retrieved from the database
 $app_id = $results_array["app_id"];
 $app_secret = $results_array["app_secret"];
 
@@ -70,8 +65,6 @@ $results_array = $result->fetch_assoc();
 $stmt->close();
 
 $newPoints= $results_array["NewPointsSinceLastNotification"];
-
-
 
 var_dump($newPoints);
 if($newPoints == 0){
