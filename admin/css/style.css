@@ -22,12 +22,9 @@ ul.menu a:hover, a:active {
     background-color: #7A991A;
 }
 
-table td {
+td, th {
     padding: 8px;
     text-align: center;
-}
-
-td, th {
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
