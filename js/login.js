@@ -1,4 +1,4 @@
-<!--Load and initialise the Facebook API. xfbml checks for active login-->
+// Load and initialise the Facebook API. xfbml checks for active login
 
 var appID;
 if(window.location.href == 'http://localhost/') {
@@ -10,25 +10,24 @@ if(window.location.href == 'http://localhost/') {
 }
 
 var firsttime = false;
-function statusChangeCallback(response) {
-    if (response.status === 'connected') {
-        welcome();
-        var child = document.getElementById("enterLogin");
-        if(child != undefined) {
-            var parent = document.getElementById("enterLogin").parentNode.removeChild(child);
-        }
-
-    } else if (response.status === 'not_authorized') {
-        $('#word').html('Please log into this app.');
-    } else {
-        $('#word').html('Please log into Facebook.');
-        animate_logo_login();
-    }
-}
 
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
+        if (response.status === 'connected') {
+            $("#login_button").css("display", "none");
+            $("#enterLogin").remove();
+
+            FB.api('/me', function(response) {
+                userID = response.id;
+                userName = response.name;
+                isNewUser();
+            });
+        } else if (response.status === 'not_authorized') {
+            $('#word').html('Please log into this app.');
+        } else {
+            $('#word').html('Please log into Facebook.');
+            animate_logo_login();
+        }
     });
 }
 
@@ -44,7 +43,7 @@ window.fbAsyncInit = function() {
     });
 
     //Get login status
-    checkLoginState()
+    checkLoginState();
 };
 
 // Load the SDK asynchronously
@@ -56,17 +55,6 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 } (document, 'script', 'facebook-jssdk')
 );
-
-function welcome() {
-    document.getElementById("login_button").style.display = "none";
-
-    FB.api('/me', function(response) {
-        userID = response.id;
-        userName = response.name;
-        isNewUser();
-    });
-
-}
 
 function share() {
     FB.ui({

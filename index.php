@@ -42,7 +42,6 @@ textdomain('messages');
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="css/mstyle.css"/>
-    <!-- <link rel="stylesheet" type="text/css" media="only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)" href="styles/mstyle.css"/> -->
 </head>
 
 <?php
@@ -53,7 +52,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 
 ?>
 
-<body> <!-- onkeypress="secondEnter(event)" -->
+<body>
     <div id="main" >
         <div id="portal">
             <div id="welcome">
@@ -380,6 +379,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
     <br><br>
     <br><br>
     <select id="menuLanguage" onchange= size="1">
+    <!-- Preserving the list to add language translations to the database
         <option><?php echo ("English"); ?></option>
         <option><?php echo ("Deutsch"); ?></option>
         <option><?php echo ("Español"); ?></option>
@@ -393,7 +393,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <option><?php echo ("Русский язык"); ?></option>
         <option><?php echo ("Việt"); ?></option>
 
-        <!-- The languages are not translated yet
+        The languages are not translated yet
             <option><?php echo ("Swahili"); ?></option> -->
     </select>
     <br><br>
@@ -471,8 +471,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </div>
 
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script>
 //All dynamic text is references here
 ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"

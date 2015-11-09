@@ -3,7 +3,67 @@ var min_length = 4;
 var default_value = '✎' + ICanWrite;
 var translation_default_value = '✎ ' + ICanTranslate;
 
-var autoUpdateIntervalJobID
+var autoUpdateIntervalJobID;
+
+// Define application components
+var div_welcome = $("#welcome");
+var div_game = $("#game");
+var div_gamezone1 = $("#gamezone1");
+var div_gamezone2 = $("#gamezone2");
+var div_gamezone3 = $("#gamezone3");
+var div_gamezone4 = $("#gamezone4");
+var div_profile = $("#profile");
+var div_info1 = $("#info1");
+var div_info2 = $("#info2");
+var div_info3 = $("#info3");
+var div_info4 = $("#info4");
+var div_settings = $("#settings");
+var div_about = $("#about");
+var div_instructions1 = $("#instructions1");
+var div_instructions2 = $("#instructions2");
+var div_leaderboard = $("#leaderboard");
+var div_changeMenuLanguage = $("#changeMenuLanguage");
+
+// Create array with all views
+var all_views = [
+    div_welcome,
+    div_game,
+    div_profile,
+    div_info1,
+    div_info2,
+    div_info3,
+    div_info4,
+    div_settings,
+    div_about,
+    div_instructions1,
+    div_instructions2,
+    div_leaderboard,
+    div_changeMenuLanguage
+];
+
+var games = [
+    div_gamezone1,
+    div_gamezone2,
+    div_gamezone3,
+    div_gamezone4,
+];
+
+/*
+ * This function hides all views and then displays the requested views.
+ */
+function show_views(view_to_show) {
+    $.each(all_views, function(index, view) {
+        view.css("display", "none");
+    });
+    view_to_show.css("display", "inline-block");
+}
+
+function activate_game(game_to_activate) {
+    $.each(games, function(index, game) {
+        game.css("display", "none");
+    });
+    $("#"+game_to_activate).css("display", "inline-block");
+}
 
 function InlineEditorController($scope){
     $scope.showtooltip = false;
@@ -11,11 +71,11 @@ function InlineEditorController($scope){
 
     $scope.hideTooltip = function(){
         $scope.showtooltip = false;
-        if ($scope.value == '') {
+        if ($scope.value === '') {
             $scope.value = default_value;
             $("#user_definition").attr("class", "inactive_definition");
         }
-    }
+    };
 
     $scope.toggleTooltip = function(e){
         e.stopPropagation();
@@ -31,22 +91,22 @@ function InlineEditorController($scope){
             console.debug($("#input_tool_box"));
             setTimeout( function() {
                 $("#input_tool_box").focus();
-            }, 20 )
+            }, 20 );
             //document.getElementById("input_tool_box").select();
         }
 
-    }
+    };
 
     $scope.clear = function(e) {
         e.stopPropagation();
         $scope.value = default_value;
-    }
+    };
 
     $scope.searchEnter = function(e) {
         if (e.keyCode == 13) {
             $scope.submitGame1();
         }
-    }
+    };
 
     $scope.submitGame1 = function() {
         $scope.hideTooltip();
@@ -54,7 +114,7 @@ function InlineEditorController($scope){
         get_ranked();
         $scope.value = '';
         getGameScore();
-    }
+    };
 }
 
 //THIS IS REALLY UGLY - TO BE REWORKED
@@ -66,11 +126,11 @@ function InlineEditorController2($scope){
 
     $scope.hideTooltip2 = function(){
         $scope.showtooltip2 = false;
-        if ($scope.translation == '') {
+        if ($scope.translation === '') {
             $scope.translation = translation_default_value;
             $("#user_translation").attr("class", "inactive_definition");
         }
-    }
+    };
 
     $scope.toggleTooltip2 = function(e){
         e.stopPropagation();
@@ -85,20 +145,20 @@ function InlineEditorController2($scope){
             }
             setTimeout( function() {
                 $("#translation_input_tool_box").focus();
-            }, 20 )
+            }, 20 );
         }
-    }
+    };
 
     $scope.clear2 = function(e) {
         e.stopPropagation();
         $scope.translation = translation_default_value;
-    }
+    };
 
     $scope.searchEnter2 = function(e) {
         if (e.keyCode == 13) {
             $scope.submitGame2();
         }
-    }
+    };
 
     $scope.submitGame2 = function() {
         soumettre_traduction();
@@ -107,7 +167,7 @@ function InlineEditorController2($scope){
         $scope.hideTooltip2();
         playClick();
         $scope.translation = translation_default_value;
-    }
+    };
 }
 
 function enter_game(gameID) {
@@ -116,45 +176,10 @@ function enter_game(gameID) {
     game = gameID;
     getGameScore();
 
-    // hide welcome screen, show game screen
-    $("#welcome").css("display", "none");
-    $("#game").css("display", "inline-block");
-
-    switch(gameID) {
-        case 1:
-            get_ranked();
-            $("#instructions1").html(writeOrVote + gameLanguages[gameLanguage]);
-            $("#gamezone1").css("display", "inline-block");
-            $("#gamezone2").css("display", "none");
-            $("#gamezone3").css("display", "none");
-            $("#gamezone4").css("display", "none");
-            break;
-        case 2:
-            get_ranked_mode_2();
-            $("#instructions2").html(translateTheFollowing + gameLanguages[gameLanguage]);
-            $("#gamezone1").css("display", "none");
-            $("#gamezone2").css("display", "inline-block");
-            $("#gamezone3").css("display", "none");
-            $("#gamezone4").css("display", "none");
-            break;
-        case 3:
-            getRankedForTweets();
-            $("#gamezone1").css("display", "none");
-            $("#gamezone2").css("display", "none");
-            $("#gamezone3").css("display", "inline-block");
-            $("#gamezone4").css("display", "none");
-            break;
-        case 4:
-            getRankedForSwahili();
-            $("#gamezone1").css("display", "none");
-            $("#gamezone2").css("display", "none");
-            $("#gamezone3").css("display", "none");
-            $("#gamezone4").css("display", "inline-block");
-            break;
-        default:
-            console.log("Entered non-implemented game");
-            break;
-    }
+    get_ranked();
+    $("#instructions"+gameID).html(writeOrVote + gameLanguages[gameLanguage]);
+    show_views(div_game);
+    activate_game("gamezone"+gameID);
 }
 
 function display_settings() {
@@ -162,68 +187,44 @@ function display_settings() {
     get_active_game_languages();
     get_interface_languages();
 
-    $("#welcome").css("display", "none");
-    $("#profile").css("display", "none");
-    $("#settings").css("display", "inline-block");
+    show_views(div_settings);
 }
 
 function display_leaderboard() {
-    $("#profile").css("display", "none");
-    $("#leaderboard").css("display", "inline-block");
+    show_views(div_leaderboard);
 }
 
 function display_info1(){
     console.log("Displaying info 1");
-    $("#game").css("display", "none");
-    $("#info1").css("display", "inline-block");
+    show_views(div_info1);
 }
 function display_info2(){
     console.log("Displaying info 1");
-    $("#game").css("display", "none");
-    $("#info2").css("display", "inline-block");
+    show_views(div_info2);
 }
 function display_info3(){
     console.log("Displaying info 1");
-    $("#game").css("display", "none");
-    $("#info3").css("display", "inline-block");
+    show_views(div_info3);
 }
 
 function display_about() {
-    $("#game").css("display", "none");
-    $("#about").css("display", "inline-block");
+    show_views(div_about);
 }
 
 function display_profile() {
     getGameScore();
     stopAutoUpdateOfLeaderboard();
-    $("#settings").css("display", "none");
-    $("#leaderboard").css("display", "none");
-    $("#changeMenuLanguage").css("display", "none");
-    $("#welcome").css("display", "none");
-    $("#game").css("display", "none");
 
-    $("#profile").css("display", "inline-block");
+    show_views(div_profile);
     $("#yourachievements").html(yourAchievements + gameNames[game] + stringin + gameLanguages[gameLanguage]);
 }
 
 function display_changeLanguage() {
-    $("#welcome").css("display", "none");
-    $("#profile").css("display", "none");
-    $("#settings").css("display", "none");
-    $("#changeMenuLanguage").css("display", "inline-block");
+    show_views(div_changeMenuLanguage);
 }
 
 function return_to_game() {
-    $("#changeMenuLanguage").css("display", "none");
-    $("#settings").css("display", "none");
-
-    $("#about").css("display", "none");
-    $("#profile").css("display", "none");
-    $("#game").css("display", "inline-block");
-
-    $("#info1").css("display", "none");
-    $("#info2").css("display", "none");
-    $("#info3").css("display", "none");
+    show_views(div_game);
 }
 
 function display_welcome() {
@@ -231,10 +232,7 @@ function display_welcome() {
     // and adds their icons to the welcome screen
     insert_game_icons(gameLanguage);
 
-    $("#game").css("display", "none");
-    $("#welcome").css("display", "inline-block");
-    $("#leaderboard").css("display", "none");
-    $("#changeMenuLanguage").css("display", "none");
+    show_views(div_welcome);
 
     continue_animation();
 }
@@ -254,8 +252,7 @@ function animate_logo() {
 function changeColorOnClick(tweetDisplay,newInput){
     if(newInput.checked){
         tweetDisplay.style.color = "blue";
-    }
-    else {
+    } else {
         tweetDisplay.style.color = "#af0800";
     }
 }
@@ -465,13 +462,13 @@ function startAutoUpdateOfLeaderboard() {
                     whatTochange = metricSelect;
                     break;
                 default:
-                    console.log("PEROGVJEöRKFJ")
-                        break;
+                    console.log("PEROGVJEöRKFJ");
+                    break;
             }
             whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
             whichSliderToChange= (whichSliderToChange +1) % 4;
-            console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
-                updateLeaderboard();
+            console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange);
+            updateLeaderboard();
         }
 
     }, 8000);
@@ -484,6 +481,6 @@ function stopAutoUpdateOfLeaderboard() {
 
 function updatePermanentMetrics(points, pendingPoints){
     console.debug("Udpating permanent metrics: " + points + pendingPoints);
-    $("#points-pending").html(pointsInPlay + pendingPoints)
-    $("#points-total").html(pointsBanked + points)
+    $("#points-pending").html(pointsInPlay + pendingPoints);
+    $("#points-total").html(pointsBanked + points);
 }
