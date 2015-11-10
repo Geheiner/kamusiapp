@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.45, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: kamusi
 -- ------------------------------------------------------
--- Server version	5.5.45
+-- Server version	5.5.46-0ubuntu0.14.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -251,7 +251,7 @@ CREATE TABLE `games` (
   `language` char(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `game` (`game`)
-) ENGINE=InnoDB AUTO_INCREMENT=19949 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21821 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,23 +263,10 @@ DROP TABLE IF EXISTS `interfacelanguages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `interfacelanguages` (
   `LanguageID` char(3) NOT NULL,
+  `locale` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`LanguageID`),
   CONSTRAINT `interfacelanguages_ibfk_1` FOREIGN KEY (`LanguageID`) REFERENCES `ISO_639_3` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `languages`
---
-
-DROP TABLE IF EXISTS `languages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `languages` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `LanguageName` varchar(64) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,7 +286,7 @@ CREATE TABLE `pointtime` (
   PRIMARY KEY (`id`),
   KEY `language` (`language`),
   CONSTRAINT `pointtime_ibfk_1` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=910 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,7 +343,7 @@ CREATE TABLE `seengames` (
   KEY `language_2` (`language`),
   CONSTRAINT `seengames_ibfk_1` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`),
   CONSTRAINT `seengames_words` FOREIGN KEY (`wordid`) REFERENCES `words` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=942 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=875 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -377,7 +364,7 @@ CREATE TABLE `submissiontime` (
   KEY `language` (`language`),
   CONSTRAINT `submissiontime_ibfk_1` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`),
   CONSTRAINT `submissiontime_ibfk_2` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1107 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -406,16 +393,14 @@ CREATE TABLE `translations` (
   `WordID` int(11) DEFAULT NULL,
   `UserID` varchar(64) DEFAULT NULL,
   `Translation` varchar(64) DEFAULT NULL,
-  `Language_old` int(11) DEFAULT NULL,
   `language` char(3) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `WordID` (`WordID`),
   KEY `UserID` (`UserID`),
-  KEY `LanguageID` (`Language_old`),
   KEY `language` (`language`),
-  CONSTRAINT `translations_ibfk_3` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`),
   CONSTRAINT `translations_ibfk_1` FOREIGN KEY (`WordID`) REFERENCES `words` (`ID`),
-  CONSTRAINT `translations_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`)
+  CONSTRAINT `translations_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`),
+  CONSTRAINT `translations_ibfk_3` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -439,13 +424,11 @@ CREATE TABLE `users` (
   `Notify` int(11) DEFAULT '0',
   `Mute` int(11) DEFAULT '0',
   `NumReports` int(11) DEFAULT '0',
-  `Language_old` int(11) DEFAULT NULL,
   `firsttime` tinyint(1) DEFAULT '1',
   `NotificationFrequency` int(11) DEFAULT NULL,
   `gamelanguage` char(3) DEFAULT NULL,
   `interfacelanguage` char(3) DEFAULT NULL,
   PRIMARY KEY (`UserID`),
-  KEY `Language` (`Language_old`),
   KEY `gamelanguage` (`gamelanguage`),
   KEY `interfacelanguage` (`interfacelanguage`),
   CONSTRAINT `users_ibfk_2` FOREIGN KEY (`gamelanguage`) REFERENCES `ISO_639_3` (`Id`),
@@ -570,4 +553,4 @@ CREATE TABLE `wordtranslation` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-23  9:26:25
+-- Dump completed on 2015-11-09 14:45:02
