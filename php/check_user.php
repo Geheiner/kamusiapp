@@ -25,7 +25,7 @@ if( !$checkResult){
     $stmt->close();
 
     //Create an entry for user for each game
-    $stmt = $mysqli->prepare("SELECT ID FROM languages; ");
+    $stmt = $mysqli->prepare("SELECT LanguageID FROM gamelanguages; ");
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
@@ -45,7 +45,7 @@ if( !$checkResult){
     $returnValue[]= "unknown user";
 } else {
     //Create an entry for user for each game
-    $stmt = $mysqli->prepare("SELECT ID FROM languages; ");
+    $stmt = $mysqli->prepare("SELECT LanguageID FROM gamelanguages; ");
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
