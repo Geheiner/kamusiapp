@@ -61,6 +61,12 @@ function loadInterfaceLanguages() {
     $.getJSON("php/get_interface_languages.php", {token: api_token})
         .done(function(languages, textStatus) {
             var html = "<table>";
+            html += "<tr>";
+            html += "<th>ISO</th>";
+            html += "<th>Language Name</th>";
+            html += "<th>Locale</th>";
+            html += "<th></th>";
+            html += "</tr>";
             html += "<tr><td></td>";
             html += "<td class='langentry'>";
             html += "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
@@ -69,6 +75,13 @@ function loadInterfaceLanguages() {
             for(var lang in languages) {
                 html += "<tr><td>" + lang + "</td>";
                 html += "<td>" + languages[lang] + "</td>";
+                html += "<td>";
+                html += "<select>";
+                html += "<option value='de_DE'>de_DE</option>";
+                html += "<option value='en_US'>fr_FR</option>";
+                html += "</select>";
+                html += "</td>";
+                html += "<td><input type='button' value='delete' onclick=''></td>";
                 html += "</tr>";
             }
             html += "</table>";
@@ -94,7 +107,7 @@ function lang_autocomplete() {
                             label: obj.Id + " - " + obj.Ref_Name,
                             value: obj.Ref_Name,
                             id: obj.Id
-                        }
+                        };
                     }));
                 });
         },
