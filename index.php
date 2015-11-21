@@ -35,7 +35,7 @@ textdomain('messages');
 
 ?>
 
-<!DOCTYPE>
+<!doctype html>
 <html>
 <head>
     <title>Kamusi GAME</title>
@@ -57,7 +57,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <div id="portal">
             <div id="welcome">
                 <canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
-                <img id="logo" src="media/logo.png" onmousedown="isNewUser();">
+                <img id="logo" alt="Kamusi Logo" src="media/logo.png" onmousedown="isNewUser();">
                 <img title="Choose Language" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
                 <fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginState();"></fb:login-button>
 
@@ -80,7 +80,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                 <div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
                     <div id="gamezone-main1" >
                         <div class="entry">
-                            <h1 id="title1", class="title">
+                            <h1 id="title1" class="title">
                                 <?php printf(_("%s"), $gameNames["1"]);; ?>
                                 <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info1();">
                             </h1>
@@ -89,14 +89,16 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 
                             <p id="word"></p>
                             <p id="pos"></p>
-                            <p id="consensus", class="workingDefinition"></p>
+                            <p id="consensus" class="workingDefinition"></p>
                         </div>
                         <div id="definitions_wrapper">
                             <table id="definitions">
                                 <tr><td>
+                                    <ul>
                                     <li ng-click="toggleTooltip($event); " id="user_definition" class="inactive_definition">
                                         ✎ <?php echo gettext(" I can write the winning definition for this idea!"); ?>
                                     </li>
+                                    </ul>
                                     <div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
                                         <input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);"/>
                                         <img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
@@ -129,27 +131,25 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                 <div id="gamezone2" ng-controller="InlineEditorController2" ng-click="hideTooltip2();">
                     <div id="gamezone-main2">
                         <div class="entry">
-                        <h1 id="title2", class="title"> <?php printf(_("%s"),$gameNames["2"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info2();"> </h1>
+                        <h1 id="title2" class="title"> <?php printf(_("%s"),$gameNames["2"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info2();"> </h1>
                             <p id="instructions2"></p>
 
                             <p id="translation_word"></p>
                             <p id="translation_pos"></p>
-                            <p id="translation_definition", class="workingDefinition"></p>
+                            <p id="translation_definition" class="workingDefinition"></p>
                         </div>
                         <div id="translations_wrapper">
                             <table id="translations">
                                 <tr><td>
-                                </div>
-
+                                <ul>
                                 <li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">
                                     ✎ <?php echo gettext("I can translate this word!"); ?>
                                 </li>
-
+                                </ul>
                                 <div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
-                                <input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
-                                <img title="Submit" id="SubmitTrans" ng-click="submitGame2($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
-
-                            </div>
+                                    <input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
+                                    <img title="Submit" id="SubmitTrans" ng-click="submitGame2($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
+                                </div>
 
                             </td></tr>
                         </table>
@@ -160,11 +160,11 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             <div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
                 <div id="gamezone-main3" >
                     <div class="entry">
-                    <h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
+                    <h1 id="title3" class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
                         <p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
                         <p id="word3"></p>
                         <p id="pos3"></p>
-                        <p id="def3", class="workingDefinition"></p>
+                        <p id="def3" class="workingDefinition"></p>
                         <div id="definitions_wrapper">
                             <p id="twitterWords"></p>
                         </div>
@@ -185,12 +185,12 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             <div id="gamezone4" ng-controller="InlineEditorController" ng-click="hideTooltip();">
                 <div id="gamezone-main4" >
                     <div class="entry">
-                        <h1 id="title4", class="title"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
+                        <h1 id="title4" class="title"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
                         <p id="instructions"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
                         <p id="word4"></p>
                         <p id="pos4"></p>
                         <p id="transEnglish4"></p>
-                        <p id="defSwahili4", class="workingDefinition"></p>
+                        <p id="defSwahili4" class="workingDefinition"></p>
                         <div id="sentences_wrapper">
                             <p id="swahiliSentences"></p>
                         </div>
@@ -341,12 +341,12 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <img src="media/language_selector.png">
         <p><?php echo _("Hints and Help Language"); ?></p>
         <br>
-        <select id="menuLanguageSettings" onchange= size="1">
+        <select id="menuLanguageSettings" size="1">
         </select>
         <br><br>
         <br><br>
         <p><?php echo _("Game Language"); ?></p>
-        <select id="gamelanguage" onchange= size="1">
+        <select id="gamelanguage" size="1">
         </select>
         <br><br>
         <p><?php echo _("Notify me about new points I earn..."); ?></p>
@@ -453,7 +453,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             </select>
         </div>
         <div class="settings-inner">
-        <input id = "autoloop" class="scoreSelectors" type="checkbox" name="autoloop" value="autoloop" checked="true"; ><?php echo _("Auto-Loop"); ?><br>
+        <input id="autoloop" class="scoreSelectors" type="checkbox" name="autoloop" value="autoloop" checked="true" ><?php echo _("Auto-Loop"); ?><br>
         </div>
     </div>
     <h1><?php echo _("Leaderboard"); ?></h1>
@@ -465,7 +465,6 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
     <div id="leaderboard-footer">
         <img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
     </div>
-</div>
 </div>
 </div>
 </div>

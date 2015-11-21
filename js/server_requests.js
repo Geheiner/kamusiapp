@@ -430,6 +430,7 @@ function isNewUser() {
             })
             .fail(function(jqXHR, textStatus) {
                 console.log("Checking user failed: " + textStatus);
+                console.log("Checking user failed: " + jqXHR.responseText);
             });
         }
     }
