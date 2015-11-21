@@ -26,7 +26,7 @@ function loadGameLanguages() {
                 html += "<input type='checkbox' class='new' value='"+game+"'>";
                 html += "</td>";
             }
-            html += "<td><input type='button' value='Add language' onclick='add_language()'></td>";
+            html += "<td><input type='button' value='Add language' id='addlang'></td>";
             html += "</tr>";
 
             // loop through all languages to display active state
@@ -49,7 +49,7 @@ function loadGameLanguages() {
                     }
                     html += "</td>";
                 }
-                html += "<td><input type='button' value='delete' onclick='delete_game_language(\"" + lang + "\")'></td>";
+                html += "<td><input type='button' value='delete' class='delete' name='" + lang + "'></td>";
                 html += "</tr>";
             }
             html += "</table>";
@@ -71,7 +71,7 @@ function loadInterfaceLanguages() {
             html += "<td class='langentry'>";
             html += "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
             html += "<input type='hidden' id='langId' value=''>";
-            html += "</td></tr>";
+            html += "</td><td></td><td></td></tr>";
             for(var lang in languages) {
                 html += "<tr><td>" + lang + "</td>";
                 html += "<td>" + languages[lang] + "</td>";
@@ -81,7 +81,7 @@ function loadInterfaceLanguages() {
                 html += "<option value='en_US'>fr_FR</option>";
                 html += "</select>";
                 html += "</td>";
-                html += "<td><input type='button' value='delete' onclick=''></td>";
+                html += "<td><input type='button' class='delete' value='delete' onclick=''></td>";
                 html += "</tr>";
             }
             html += "</table>";
@@ -118,7 +118,7 @@ function lang_autocomplete() {
     });
 }
 
-function add_language() {
+$(document).on("click", "#addlang", function() {
     // Collect all checked boxes
     var active_boxes = $.map($(".new"), function(item, index) {
         if($(item).is(":checked")) {
@@ -129,25 +129,28 @@ function add_language() {
     // Get id of language to add
     var language = $("#langId").val();
 
+    // send db request to add language
     $.post("php/add_game_language.php", {language: language, games: JSON.stringify(active_boxes), token: api_token})
         .done(function(result, textStatus) {
             // refresh screen
+            console.log(result);
             loadGameLanguages();
         })
         .fail(function(jqXHR, textStatus) {
             console.log(textStatus);
         });
-}
+});
 
 /*
  * Delete a game language (for all games)
  */
-function delete_game_language(lang) {
+$(document).on("click", ".delete", function() {
+    var lang = $(this).attr('name');
     var confirmation = confirm("Are you sure that you want to delete this language:\n" +lang);
     if(!confirmation) {
         return false;
     }
-    $.post("php/delete_language.php", {lang: lang, token: api_token})
+    $.post("php/delete_game_language.php", {lang: lang, token: api_token})
         .done(function(result, textStatus) {
             console.log(result);
             console.log(textStatus);
@@ -156,7 +159,7 @@ function delete_game_language(lang) {
         .fail(function(jqXHR, textStatus) {
             console.log("Deleting game language failed");
         });
-}
+});
 
 /*
  * Register toggle active handler to checkboxes of languages that already exist
@@ -165,30 +168,25 @@ $(document).on("change", ".toggle_active", function() {
     var value = $(this).val().split("|");
     var game = value[0];
     var lang = value[1];
-    toggle_active(lang, game, this);
-});
+    var box = $(this);
 
-function toggle_active(lang, game, checkbox) {
-    var box = $(checkbox);
     var is_active = box.is(":checked");
     var parent_cell = box.parent();
 
     // Set transition for visual feedback of saving
     parent_cell.css('transition', 'background-color 0.1s linear');
-    function fadeout() {
+    function flash(color) {
+        parent_cell.css('background-color', color);
         setTimeout(function() {
             parent_cell.css('background-color', '');
         }, 200);
     }
     $.post("php/toggle_game_active.php", {lang: lang, game: game, token: api_token, is_active: is_active | 0})
         .done(function(result, textStatus) {
-            parent_cell.css('background-color', 'green');
-            fadeout();
+            flash('green');
         })
         .fail(function(jqXHR, textStatus) {
             box.prop("checked", !is_active);
-            parent_cell.css('background-color', 'red');
-            fadeout();
+            flash('red');
         });
-}
-
+});

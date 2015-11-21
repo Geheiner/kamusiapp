@@ -1,17 +1,7 @@
 <?php
-    session_start();
-    error_reporting(E_ALL);
-    ini_set('display_errors', 'On');
+    require_once('./request_head.php');
 
     $lang = $_GET['lang'];
-    $token = $_GET['token'];
-
-    // Check if request has valid token
-    if(!($token == $_SESSION['api_token'])) {
-        echo "Invalid Token";
-        http_response_code(401);
-        exit;
-    }
 
     // Get the first 20 matches in the ISO code db
     // either by id or by name
