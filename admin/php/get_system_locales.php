@@ -1,12 +1,7 @@
 <?php
-    session_start();
+    require_once('./request_head.php');
 
-    // Check if request has valid token
-//    if(!($token == $_SESSION['api_token'])) {
-//        echo "Invalid Token";
-//        http_response_code(401);
-//        exit;
-//    }
+    $locales = array_slice(scandir('../../locale'), 2);
 
-    print_r(scan_dir('../../locale'));
+    echo json_encode($locales);
 ?>

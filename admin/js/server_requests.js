@@ -18,7 +18,7 @@ function loadGameLanguages() {
             html += "</tr>";
             html+= "<tr><td></td>";
             html+= "<td class='langentry'>";
-            html+= "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
+            html+= "<input type='text' id='newlang'>";
             html+= "<input type='hidden' id='langId' value=''>";
             html+= "</td>";
             for (var game in gameIdMap) {
@@ -60,42 +60,96 @@ function loadGameLanguages() {
 function loadInterfaceLanguages() {
     $.getJSON("php/get_interface_languages.php", {token: api_token})
         .done(function(languages, textStatus) {
-            var html = "<table>";
-            html += "<tr>";
-            html += "<th>ISO</th>";
-            html += "<th>Language Name</th>";
-            html += "<th>Locale</th>";
-            html += "<th></th>";
-            html += "</tr>";
-            html += "<tr><td></td>";
-            html += "<td class='langentry'>";
-            html += "<input type='text' id='newlang' onkeyup='lang_autocomplete()'>";
-            html += "<input type='hidden' id='langId' value=''>";
-            html += "</td><td></td><td></td></tr>";
-            for(var lang in languages) {
-                html += "<tr><td>" + lang + "</td>";
-                html += "<td>" + languages[lang] + "</td>";
-                html += "<td>";
-                html += "<select>";
-                html += "<option value='de_DE'>de_DE</option>";
-                html += "<option value='en_US'>fr_FR</option>";
-                html += "</select>";
-                html += "</td>";
-                html += "<td><input type='button' class='delete' value='delete' onclick=''></td>";
-                html += "</tr>";
-            }
-            html += "</table>";
-            $("#settings").html(html);
+            // Create table
+            var table = $('<table/>');
+
+            // Create table header
+            var header = $('<tr/>').
+                append($('<th/>').text('ISO')).
+                append($('<th/>').text('Language Name')).
+                append($('<th/>').text('Locale')).
+                append($('<th/>'));
+
+            // Create row for new language
+            var newlang = $('<tr/>').
+                append($('<td/>')).
+                append($('<td/>').
+                    append($('<input>').
+                        attr({
+                            type:'hidden',
+                            id: 'langID',
+                            value: ''
+                        })
+                    ).
+                    append($('<input>').
+                        attr({
+                            type: 'text',
+                            id: 'newlang'
+                        })
+                    )
+                ).
+                append($('<td/>')).
+                append($('<td/>'));
+
+            // Compose Table
+            table = table.
+                append(header).
+                append(newlang);
+
+            // Add interface language entries from DB to table
+            $.each(languages, function(index, language) {
+                table.
+                    append($('<tr/>').
+                        append($('<td/>').text(index)).
+                        append($('<td/>').text(language)).
+                        append($('<td/>').
+                            append($('<select/>').
+                                attr({
+                                    class: 'locales'
+                                })
+                            )
+                        ).
+                        append($('<td/>').
+                            append($('<input/>').
+                                attr({
+                                    type: 'button',
+                                    value: 'delete',
+                                    class: 'delete'
+                                })
+                            )
+                        )
+                    );
+            });
+
+            // Attach table
+            $('#settings').html(table);
+
+            // Append locales
+            append_locales();
         })
         .fail(function(jqXHR, textStatus) {
             console.log("Loading interface languages failed: " + textStatus);
         });
 }
 
+function append_locales() {
+    $.getJSON("php/get_system_locales.php", {token: api_token})
+        .done(function(locales, textStatus) {
+            for(var locale in locales) {
+                $('.locales')
+                    .append($('<option>', {value: locales[locale]}).
+                        text(locales[locale]));
+            }
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Getting locales failed");
+        });
+}
+
 /*
  * Gets languages from the ISO list based on input
  */
-function lang_autocomplete() {
+$(document).on("keyup", "#newlang", function() {
     $("#newlang").autocomplete({
         minLength: 2,
         // get data
@@ -116,7 +170,7 @@ function lang_autocomplete() {
             $("#langId").val(ui.item.id);
         }
     });
-}
+});
 
 $(document).on("click", "#addlang", function() {
     // Collect all checked boxes
