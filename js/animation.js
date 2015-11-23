@@ -91,7 +91,7 @@ function Symbol(symbol_text, x, y, opacity, colour) {
 		context.fillStyle = "rgba(" + colours[colour].r + "," + 
 			colours[colour].g + "," + colours[colour].b + "," + opacity/1000.0 + ")";
 		context.fillText(text, x_pos, y_pos);
-	}
+	};
 }
 
 start_animation();

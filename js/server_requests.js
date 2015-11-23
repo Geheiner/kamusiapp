@@ -1,7 +1,7 @@
 //This file contains all code responsible for client-server communication
 
-var userID = "???" //"???"; //so that it works offline:  10203265649994971
-userName = "???"
+var userID = "???"; //"???"; //so that it works offline:  10203265649994971
+userName = "???";
 var wordID;
 var word;
 var definitionID;
@@ -20,12 +20,12 @@ var gameLanguage;
 var game = 0;
 
 //This is the overallLanguage
-var siteLanguage="-1"
+var siteLanguage="-1";
 
 var translationID;
 
-var last20Tweets = {}
-var lastSwahiliSentences = {}
+var last20Tweets = {};
+var lastSwahiliSentences = {};
 
 //Current points for the current game
 
@@ -43,9 +43,9 @@ function getRankedForTweets() {
             wordID = obj[0].WordID;
             word = obj[0].Word;
 
-            if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
-                updateTweetDB("noTweetFound")
-                    getRankedForTweets();
+            if(groupID === '' || wordID === '' || word === '' || obj[0].Definition === '' || obj[0].PartOfSpeech === '') {
+                updateTweetDB("noTweetFound");
+                getRankedForTweets();
             } else  {
                 $("#word3").html(obj[0].Word);
                 $("#def3").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
@@ -97,11 +97,13 @@ function getGame4Sentences(keyword, amount) {
 
             if(numberOfSentences < amount ){
                 //We need to fetch sentences right away in order to get to the desired numner
-                if ($("#swahiliSentences").html() == ""){
+                if ($("#swahiliSentences").html() === ""){
                     updateBufferForDatabase(keyword, amount);
                 }
                 $("#swahiliSentences").html("Searching the web for new sentences, this may take some time...");
-                setTimeout( function(){getGame4Sentences(keyword, amount)}, 5000)
+                setTimeout(function() {
+                    getGame4Sentences(keyword, amount);
+                }, 5000);
             } else  {
                 $("#swahiliSentences").html("");
                 queryForSentences(keyword, amount, "local");
@@ -141,7 +143,7 @@ function queryForSentences(keyword, amount, source){
             for( i = 0; i<amount ;i++) {
                 //last20Tweets[i] = results_array[i];
                 lastSwahiliSentences[i] = results_array[i];
-                displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences")
+                displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences");
             }
         })
         .fail(function() {
@@ -159,18 +161,18 @@ function get_tweets(alreadyDisplayed) {
             var listOfAll = results_array.filter(function(elem, pos) {
                 return results_array.indexOf(elem) == pos;
             });
-            realIndex = 0
-                listOfAll.forEach( function(elem,pos) {
-                    realIndex = alreadyDisplayed + pos;
-                    last20Tweets[realIndex] = elem;
-                    displayTextWithCheckboxes(elem.Text,realIndex,"twitterWords")
-                }
-                );
+            realIndex = 0;
+            listOfAll.forEach( function(elem,pos) {
+                realIndex = alreadyDisplayed + pos;
+                last20Tweets[realIndex] = elem;
+                displayTextWithCheckboxes(elem.Text,realIndex,"twitterWords");
+            }
+            );
 
-            if(realIndex == 0){
+            if(realIndex === 0){
                 console.log("Nothing found for this keyword");
 
-                updateTweetDB("noTweetFound")
+                updateTweetDB("noTweetFound");
                     getRankedForTweets();
             }
         })
@@ -196,7 +198,7 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
     };
     newInput.onchange = function(){
         changeColorOnClick(tweetDisplay,newInput);
-    }
+    };
 
     var t = document.createTextNode(elemText);
     console.log("STYLEEEEE " + tweetDisplay.style.color);
@@ -212,7 +214,7 @@ function updateTweetDB(status) {
         "mode":game,
         "language":gameLanguage,
         "status" : status
-    }
+    };
 
     $.ajax({
         type: 'POST',
@@ -234,11 +236,11 @@ function fetchTweetsFromDB(amount) {
     $.getJSON("php/fetch_tweet_db.php", {wordID: wordID, amount: amount})
         .done(function(results_array, textStatus) {
             console.log("Response : " + results_array + "End response");
-            var i = 0
-                for( i = 0; i<amount && typeof results_array[i] !== 'undefined' && results_array[i] != null; i++) {
-                    last20Tweets[i] = results_array[i];
-                    displayTextWithCheckboxes(last20Tweets[i].Text,i,"twitterWords")
-                }
+            var i = 0;
+            for( i = 0; i<amount && typeof results_array[i] !== 'undefined' && results_array[i] !== null; i++) {
+                last20Tweets[i] = results_array[i];
+                displayTextWithCheckboxes(last20Tweets[i].Text,i,"twitterWords");
+            }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
                 get_tweets( i);
@@ -250,31 +252,32 @@ function fetchTweetsFromDB(amount) {
 }
 
 function submitCheckBoxData(whatToSubmit) {
+    var i;
     if(whatToSubmit == "tweet"){
         var allTweetsWereBad = true;
-        for(var i= 0; i < amountOfTweets; i++) {
+        for(i = 0; i < amountOfTweets; i++) {
             if(document.getElementById("checkbox"+i).checked) {
-                sendTweetToDB(last20Tweets[i],1)
-                    allTweetsWereBad= false;
+                sendTweetToDB(last20Tweets[i],1);
+                allTweetsWereBad= false;
             } else  {
                 sendTweetToDB(last20Tweets[i],-1);
             }
         }
         if(allTweetsWereBad){
-            updateTweetDB("allTweetsWereBad")
+            updateTweetDB("allTweetsWereBad");
         }
     } else  if (whatToSubmit == "game4")  {
 
-        for(var i= 0; i < amountGame4; i++) {
+        for( i = 0; i < amountGame4; i++) {
             if(document.getElementById("checkbox"+i).checked) {
-                sendGame4SentenceToDB(lastSwahiliSentences[i],1)
+                sendGame4SentenceToDB(lastSwahiliSentences[i],1);
             } else  {
                 sendGame4SentenceToDB(lastSwahiliSentences[i],-1);
             }
         }
     }
     if(whenToNotify == "0"){
-        trigger_notification()
+        trigger_notification();
     }
 
     post_timeline();
@@ -312,7 +315,7 @@ function sendTweetToDB(tweet, good){
         "language": gameLanguage,
         "tweetAuthor": tweet.Author,
         "good" : good
-    }
+    };
 
     $.ajax({
         data: {json: JSON.stringify(json_data)},
@@ -335,7 +338,7 @@ function get_ranked() {
     $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: "1"})
         .done(function(results_array, textStatus) {
             console.log(textStatus);
-            console.debug("GET ranked result is : " + results_array)
+            console.debug("GET ranked result is : " + results_array);
 
             clear_definitions();
             wordID = results_array[0].WordID;
@@ -343,9 +346,9 @@ function get_ranked() {
 
             var wordToDisplay;
             if(gameLanguage != '1' && results_array[0].trans != "Nothing Found"){
-                wordToDisplay = results_array[0].trans
+                wordToDisplay = results_array[0].trans;
             } else  {
-                wordToDisplay = results_array[0].Word
+                wordToDisplay = results_array[0].Word;
             }
             var underscored_word = wordToDisplay.replace(" /g", "_");
 
@@ -357,15 +360,16 @@ function get_ranked() {
 
             $("#consensus").html(generalSense);
 
-            for(var i = 0; i < results_array.length ; i++) {
+            var i;
+            for(i = 0; i < results_array.length ; i++) {
                 if(results_array[i].Author == 'wordnet') {
                     set_consensus(results_array[i].Definition);
                     add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
                 }
             }
-            for(var i = 0; i < results_array.length; i++) {
+            for(i = 0; i < results_array.length; i++) {
 
-                if(results_array[i].Definition != undefined && results_array[i].Author != 'wordnet') {
+                if(results_array[i].Definition !== undefined && results_array[i].Author != 'wordnet') {
                     add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
                 }
             }
@@ -410,11 +414,12 @@ function isNewUser() {
                     console.log(obj);
 
                     if(obj[1] != "unknown user") {
-                        siteLanguage=obj[0]
-                            $('#menuLanguageSettings').prop("selectedIndex", siteLanguage - 1);
-                            console.log("Site lanuguage is: " + siteLanguage);
+                        siteLanguage=obj[0];
+                        $('#menuLanguageSettings').prop("selectedIndex", siteLanguage - 1);
+                        console.log("Site lanuguage is: " + siteLanguage);
                         if(obj[1] != "languageAlreadySet") {
-                            location.reload();
+                            // TODO: fix this
+                            //location.reload();
                         } else {
                             if(obj[2] == "showSettings"){
                                 display_settings();
@@ -497,7 +502,7 @@ function submit_vote(definition_id, vote) {
 function report_spam() {
     $.get("php/report_spam.php", {wordID: wordID, definitionID: definitionID, userID: userID})
         .done(function(result, textStatus) {
-            alert("A spam report has been sent! Thanks!" + result)
+            alert("A spam report has been sent! Thanks!" + result);
         })
         .fail(function() {
             console.log("Reporting spam failed");
@@ -553,7 +558,7 @@ function saveSettings() {
     menuLanguageSliderValue = $("#menuLanguageSettings option:selected").val();
     if(siteLanguage != menuLanguageSliderValue +1 ){
         console.log("Changing language...");
-        saveMenuLanguage("menuLanguageSettings")
+        saveMenuLanguage("menuLanguageSettings");
     }
     whenToNotify = $("#notifications option:selected").index();
     whenToPost = $("#posts option:selected").index();
@@ -590,10 +595,10 @@ function post_timeline() {
         .done(function(result, textStatus) {
             console.log(textStatus);
             console.log("# of new definitions from user : " + result);
-            if(result == 0){
+            if(result === 0){
                 console.log("No activity to post");
             } else  {
-                publishStory(result)
+                publishStory(result);
             }
         })
         .fail(function(jqXHR, textStatus) {
@@ -635,14 +640,17 @@ function updateLeaderboard(){
             var table = document.getElementById("score_table");
 
             var max = table.rows.length;
-            for(var i = 0; i < max; i++){
+            var i;
+            for(i = 0; i < max; i++){
                 console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length);
                 table.deleteRow(0);
             }
 
-            for(var i = 0; i <  obj[0].length; i++) {
-                var rowCount = table.rows.length;
-                var row = table.insertRow(rowCount);
+            var rowCount;
+            var row;
+            for(i === 0; i <  obj[0].length; i++) {
+                rowCount = table.rows.length;
+                row = table.insertRow(rowCount);
                 var rowUserID =  obj[1][i].toString();
                 console.log("This is the rowCount: " + rowCount);
 
@@ -660,8 +668,8 @@ function updateLeaderboard(){
             //add the user from before s score if use ris not in top3
 
             if( obj[3].rank > 4) {
-                var rowCount = table.rows.length;
-                var row = table.insertRow(rowCount);
+                rowCount = table.rows.length;
+                row = table.insertRow(rowCount);
                 row.className = "spaceUnder";
                 row.insertCell(0).innerHTML="  ";
 
@@ -708,9 +716,9 @@ function insert_game_icons(gameLanguage) {
                 var id = games[index].GameID;
                 $("#game"+id).remove();
                 var name = games[index].Name;
-                var html = "<img title='" + name + "' id='enter" + id + "'"
-                    + "class='shaded-enter' src='media/gamelogos/" + id + ".png' "
-                    + "onmousedown='playClick();enter_game(" + id + ");'>";
+                var html = "<img title='" + name + "' id='enter" + id + "'" +
+                    "class='shaded-enter' src='media/gamelogos/" + id + ".png' " +
+                    "onmousedown='playClick();enter_game(" + id + ");'>";
                 $(html).insertAfter("#logo");
 
             });

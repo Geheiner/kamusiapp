@@ -277,20 +277,20 @@ function set_consensus(definition) {
 function set_game_languages(languages) {
     console.log("Populating game_languages");
     $.each(languages, function(index, value) {
-        $("#gamelanguage").append($("<option>").text(value["Ref_Name"])
-                .attr("value", value["LanguageID"]));
-        console.log(value["LanguageID"]);
-        console.log(value["Ref_Name"]);
+        $("#gamelanguage").append($("<option>").text(value.Ref_Name)
+                .attr("value", value.LanguageID));
+        console.log(value.LanguageID);
+        console.log(value.Ref_Name);
     });
 }
 
 function set_interface_languages(languages) {
     console.log("Populating game_languages");
     $.each(languages, function(index, value) {
-        $("#menuLanguageSettings").append($("<option>").text(value["Ref_Name"])
-                .attr("value", value["LanguageID"]));
-        console.log(value["LanguageID"]);
-        console.log(value["Ref_Name"]);
+        $("#menuLanguageSettings").append($("<option>").text(value.Ref_Name)
+                .attr("value", value.LanguageID));
+        console.log(value.LanguageID);
+        console.log(value.Ref_Name);
     });
 }
 
