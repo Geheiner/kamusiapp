@@ -21,7 +21,9 @@ function loadGameLanguages() {
             html+= "<input type='text' id='newlang'>";
             html+= "<input type='hidden' id='langId' value=''>";
             html+= "</td>";
-            for (var game in gameIdMap) {
+
+            var game;
+            for (game in gameIdMap) {
                 html += "<td>";
                 html += "<input type='checkbox' class='new' value='"+game+"'>";
                 html += "</td>";
@@ -35,7 +37,7 @@ function loadGameLanguages() {
                 html += "<td class='langentry'>";
                 html += languageIdMap[lang];
                 html += "</td>";
-                for (var game in gameIdMap) {
+                for (game in gameIdMap) {
                     html += "<td>";
                     if(gameLanguageActive.hasOwnProperty(lang)) {
                         var checked = "";
@@ -49,7 +51,7 @@ function loadGameLanguages() {
                     }
                     html += "</td>";
                 }
-                html += "<td><input type='button' value='delete' class='delete' name='" + lang + "'></td>";
+                html += "<td><input type='button' value='delete' class='delete gamelanguage' name='" + lang + "'></td>";
                 html += "</tr>";
             }
             html += "</table>";
@@ -76,8 +78,8 @@ function loadInterfaceLanguages() {
                 append($('<td/>').
                     append($('<input>').
                         attr({
-                            type:'hidden',
-                            id: 'langID',
+                            type: 'hidden',
+                            id: 'langId',
                             value: ''
                         })
                     ).
@@ -88,8 +90,22 @@ function loadInterfaceLanguages() {
                         })
                     )
                 ).
-                append($('<td/>')).
-                append($('<td/>'));
+                append($('<td/>').
+                    append($('<select/>').
+                        attr({
+                            id: 'newlocale',
+                            class: 'locales'
+                        })
+                    )
+                ).
+                append($('<td/>').
+                    append($('<input/>').
+                        attr({
+                            type: 'button',
+                            value: 'Add language',
+                            id: 'addilang'
+                        })
+                    ));
 
             // Compose Table
             table = table.
@@ -101,11 +117,13 @@ function loadInterfaceLanguages() {
                 table.
                     append($('<tr/>').
                         append($('<td/>').text(index)).
-                        append($('<td/>').text(language)).
+                        append($('<td/>').text(language.name)).
                         append($('<td/>').
                             append($('<select/>').
                                 attr({
-                                    class: 'locales'
+                                    class: 'locales',
+                                    name: index,
+                                    id:language.locale
                                 })
                             )
                         ).
@@ -114,7 +132,8 @@ function loadInterfaceLanguages() {
                                 attr({
                                     type: 'button',
                                     value: 'delete',
-                                    class: 'delete'
+                                    name: index,
+                                    class: 'delete interfacelanguage'
                                 })
                             )
                         )
@@ -130,29 +149,59 @@ function loadInterfaceLanguages() {
         .fail(function(jqXHR, textStatus) {
             console.log("Loading interface languages failed: " + textStatus);
         });
+
+    function append_locales() {
+        $.getJSON("php/get_system_locales.php", {token: api_token})
+            .done(function(locales, textStatus) {
+                // Add default option en_US
+                $('.locales').append($('<option>', {value: "en_US"})
+                    .text("en_US"));
+
+                // Add options for which translations exist
+                for(var locale in locales) {
+                    loc = locales[locale];
+                    $('.locales').each(function(index) {
+                        $(this).append($('<option>', {value: loc}).
+                            text(loc).
+                            // select current locale
+                            prop('selected', loc==$(this).attr('id'))
+                        );
+                    });
+                }
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Getting locales failed");
+            });
+    }
 }
 
-function append_locales() {
-    $.getJSON("php/get_system_locales.php", {token: api_token})
-        .done(function(locales, textStatus) {
-            for(var locale in locales) {
-                $('.locales')
-                    .append($('<option>', {value: locales[locale]}).
-                        text(locales[locale]));
-            }
+/*
+ * Set locale for interface language
+ */
+$(document).on("change", ".locales", function() {
+    var lang = $(this).attr('name');
+    var locale = $(this).val();
+    var cell = $(this).parent();
+
+    $.post("php/set_locale_interface_language.php", {token: api_token, lang: lang, locale: locale})
+        .done(function(result, textStatus) {
+            // Visual feedback success
+            flash(cell, 'green');
         })
         .fail(function(jqXHR, textStatus) {
-            console.log("Getting locales failed");
+            // Visual feedback failure
+            flash(cell, 'red');
         });
-}
+});
 
 /*
  * Gets languages from the ISO list based on input
  */
 $(document).on("keyup", "#newlang", function() {
     $("#newlang").autocomplete({
+        // mininum chars entered before autocompletion starts
         minLength: 2,
-        // get data
+        // get languages from ISO list
         source: function(request, response) {
             $.getJSON("php/autocomplete_language.php", {lang: $("#newlang").val(), token: api_token})
                 .done(function(data) {
@@ -172,6 +221,26 @@ $(document).on("keyup", "#newlang", function() {
     });
 });
 
+/*
+ * Add new interface language
+ */
+$(document).on("click", "#addilang", function() {
+    // get id & locale of interface language to add
+    var language = $("#langId").val();
+    var locale = $("#newlocale").val();
+
+    $.post("php/add_interface_language.php", {token: api_token, language: language, locale: locale})
+        .done(function(result, textStatus) {
+            loadInterfaceLanguages();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Adding interface language failed");
+        });
+});
+
+/*
+ * Add new game language
+ */
 $(document).on("click", "#addlang", function() {
     // Collect all checked boxes
     var active_boxes = $.map($(".new"), function(item, index) {
@@ -204,19 +273,32 @@ $(document).on("click", ".delete", function() {
     if(!confirmation) {
         return false;
     }
-    $.post("php/delete_game_language.php", {lang: lang, token: api_token})
-        .done(function(result, textStatus) {
-            console.log(result);
-            console.log(textStatus);
-            loadGameLanguages();
-        })
-        .fail(function(jqXHR, textStatus) {
-            console.log("Deleting game language failed");
-        });
+    if($(this).hasClass('gamelanguage')) {
+        $.post("php/delete_game_language.php", {lang: lang, token: api_token})
+            .done(function(result, textStatus) {
+                console.log(result);
+                console.log(textStatus);
+                loadGameLanguages();
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Deleting game language failed");
+            });
+    } else if($(this).hasClass('interfacelanguage')) {
+        $.post("php/delete_interface_language.php", {lang: lang, token: api_token})
+            .done(function(result, textStatus) {
+                console.log(result);
+                console.log(textStatus);
+                loadInterfaceLanguages();
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Deleting game language failed");
+            });
+    }
+
 });
 
 /*
- * Register toggle active handler to checkboxes of languages that already exist
+ * Toggle checkboxes of languages that already exist
  */
 $(document).on("change", ".toggle_active", function() {
     var value = $(this).val().split("|");
@@ -225,22 +307,26 @@ $(document).on("change", ".toggle_active", function() {
     var box = $(this);
 
     var is_active = box.is(":checked");
-    var parent_cell = box.parent();
+    var cell = box.parent();
 
     // Set transition for visual feedback of saving
-    parent_cell.css('transition', 'background-color 0.1s linear');
-    function flash(color) {
-        parent_cell.css('background-color', color);
-        setTimeout(function() {
-            parent_cell.css('background-color', '');
-        }, 200);
-    }
     $.post("php/toggle_game_active.php", {lang: lang, game: game, token: api_token, is_active: is_active | 0})
         .done(function(result, textStatus) {
-            flash('green');
+            // Visual feedback success
+            flash(cell, 'green');
         })
         .fail(function(jqXHR, textStatus) {
             box.prop("checked", !is_active);
-            flash('red');
+            // Visual feedback failure
+            flash(cell, 'red');
         });
 });
+
+
+function flash(cell, color) {
+    cell.css('transition', 'background-color 0.1s linear');
+    cell.css('background-color', color);
+    setTimeout(function() {
+        cell.css('background-color', '');
+    }, 200);
+}

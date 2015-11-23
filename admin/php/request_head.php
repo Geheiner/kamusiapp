@@ -17,4 +17,27 @@
         http_response_code(401);
         exit;
     }
+
+    function check_statement($stmt, $error, $message) {
+        if($stmt === false) {
+            http_response_code($error);
+            die($message);
+        }
+    }
+
+    function check_prepare($stmt) {
+        check_statement($stmt, 500, "prepare() failed");
+    }
+
+    function check_bind_param($stmt) {
+        check_statement($stmt, 500, "bind_param() failed");
+    }
+
+    function check_execute($stmt) {
+        check_statement($stmt, 500, "execute() failed");
+    }
+
+    function check_get_result($stmt) {
+        check_statement($stmt, 500, "get_result() failed");
+    }
 ?>

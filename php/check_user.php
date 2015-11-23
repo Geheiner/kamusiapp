@@ -51,7 +51,7 @@ if( !$checkResult){
     $stmt->close();
     $languageArray = array();
     while ($row = $result->fetch_assoc()) {
-        $languageArray[] = $row['ID'];
+        $languageArray[] = $row['LanguageID'];
     }
 
     foreach ($acceptedModes as $mode) {
@@ -72,14 +72,14 @@ if( !$checkResult){
 
 
     if(! isset($_SESSION['lang'])){
-        $stmt = $mysqli->prepare("SELECT Part1 FROM ISO_639_3 WHERE Id = ?");
+        $stmt = $mysqli->prepare("SELECT locale FROM interfacelanguages WHERE LanguageID = ?");
         $stmt->bind_param("s", $checkResult);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
 
         $row = $result->fetch_assoc();
-        $_SESSION['lang']=$row['Part1'];
+        $_SESSION['lang']=$row['locale'];
         $returnValue[]= "done";
     } else {
         $returnValue[]= "languageAlreadySet";

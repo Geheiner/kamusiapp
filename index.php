@@ -16,7 +16,7 @@ function generateToken() {
     return $token;
 }
 
-$locale= isset($_SESSION['lang']) ? $_SESSION['lang'] : "en";
+$locale = isset($_SESSION['lang']) ? $_SESSION['lang'] : "en_US";
 
 
 setlocale(LC_ALL, $locale .'.utf8');

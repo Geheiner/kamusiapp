@@ -17,12 +17,14 @@
         ORDER BY lang;";
 
     $stmt = $mysqli->prepare($sql);
-    if($stmt) {
-        $stmt->execute();
-    } else {
-        die("Unable to prepare: ".var_dump($mysqli));
-    }
+    check_prepare($stmt);
+
+    $rc = $stmt->execute();
+    check_execute($rc);
+
     $result = $stmt->get_result();
+    check_get_result($result);
+
     while($row = $result->fetch_assoc()) {
         $lang = $row["lang"];
         $game = $row["game"];

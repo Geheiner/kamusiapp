@@ -11,10 +11,20 @@
         LIMIT 20;";
 
     $stmt = $mysqli->prepare($sql);
+    check_prepare($stmt);
+
+    // Add wildcards to find occurences of $lang
+    // in the middle of language strings
     $langwild = "%".$lang."%";
-    $stmt->bind_param("ss", $langwild, $lang);
-    $stmt->execute();
+    $rc = $stmt->bind_param("ss", $langwild, $lang);
+    check_bind_param($rc);
+
+    $rc = $stmt->execute();
+    check_execute($rc);
+
     $result = $stmt->get_result();
+    check_get_result($result);
+
     $array = array();
     while($row = $result->fetch_assoc()) {
         $array[] = $row;

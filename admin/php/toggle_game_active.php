@@ -10,23 +10,13 @@
             ON DUPLICATE KEY UPDATE IsActive = ?;";
 
     $stmt = $mysqli->prepare($sql);
-    if(!$stmt) {
-        echo "Prepare failed: $stmt->error";
-        http_response_code(500);
-        exit;
-    }
+    check_prepare($stmt);
+
     $rc = $stmt->bind_param("siii", $lang, $game, $is_active, $is_active);
-    if(!$rc) {
-        echo "Bind failed: $stmt->error";
-        http_response_code(500);
-        exit;
-    }
+    check_bind_param($rc);
+
     $rc = $stmt->execute();
-    if(!$rc) {
-        echo "Execute failed: $stmt->error";
-        http_response_code(500);
-        exit;
-    }
+    check_execute($rc);
 
     $stmt->close();
 ?>

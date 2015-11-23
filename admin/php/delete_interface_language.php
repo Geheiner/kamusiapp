@@ -1,9 +1,10 @@
+
 <?php
     require_once('./request_head.php');
 
     $lang = $_POST['lang'];
 
-    $sql = "DELETE FROM gamelanguages
+    $sql = "DELETE FROM interfacelanguages
             WHERE LanguageID=?;";
 
     $stmt = $mysqli->prepare($sql);
