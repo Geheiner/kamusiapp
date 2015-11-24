@@ -318,6 +318,8 @@ function sendTweetToDB(tweet, good){
     };
 
     $.ajax({
+        type: 'POST',
+        url: 'php/submit_tweet.php',
         data: {json: JSON.stringify(json_data)},
         dataType: 'json'
     })
