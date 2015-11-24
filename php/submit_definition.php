@@ -14,7 +14,8 @@ if(!in_array($mode, $acceptedModes)) {
 }
 
 
-//increase the number of submissions for this user
+//increase the number of submissions for this use
+// TODO: change value to 5
 addXSubmissionsInGame($userID, $language, $mode, 1);
 addXToPointsInGame($userID, $language, $mode, 1);
 

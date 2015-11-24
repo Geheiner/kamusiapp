@@ -273,24 +273,25 @@ function set_consensus(definition) {
     $("#consensus").html(generalSense + "<strong>" + definition + "</strong>");
 }
 
-// populates the game language list in settings
+// populate the game language setttings list
 function set_game_languages(languages) {
-    console.log("Populating game_languages");
     $.each(languages, function(index, value) {
         $("#gamelanguage").append($("<option>").text(value.Ref_Name)
                 .attr("value", value.LanguageID));
-        console.log(value.LanguageID);
-        console.log(value.Ref_Name);
+        if(value.gamelanguage !== null) {
+            $("#gamelanguage").val(value.gamelanguage);
+        }
     });
 }
 
+// populate the interface language settings list
 function set_interface_languages(languages) {
-    console.log("Populating game_languages");
     $.each(languages, function(index, value) {
         $("#menuLanguageSettings").append($("<option>").text(value.Ref_Name)
                 .attr("value", value.LanguageID));
-        console.log(value.LanguageID);
-        console.log(value.Ref_Name);
+        if(value.interfacelanguage !== null) {
+            $("#menuLanguageSettings").val(value.interfacelanguage);
+        }
     });
 }
 

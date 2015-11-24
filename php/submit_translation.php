@@ -48,6 +48,7 @@ else {
 
 
 //We have reached consensus
+    // TODO: change value to 5
 if($numberOfTranslationAlreadyInDatabase > 2 ) {
 
 #get all concerned users;

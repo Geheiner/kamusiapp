@@ -18,7 +18,10 @@ function checkLoginState() {
             $("#enterLogin").remove();
 
             FB.api('/me', function(response) {
+                console.log(response);
+                console.log(response.id);
                 userID = response.id;
+                console.log(userID);
                 userName = response.name;
                 isNewUser();
             });

@@ -3,12 +3,25 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 include 'validate_token.php';
 
-$sql = "SELECT DISTINCT(LanguageID), Ref_Name FROM gamelanguages
+$userID = $_GET['userID'];
+
+// Query to fetch a list of gamelanguages, as well as 
+// a column that contains an entry for the language that is
+// currently chosen by the user
+$sql = "SELECT DISTINCT(LanguageID), Ref_Name, gamelanguage FROM gamelanguages
         JOIN ISO_639_3
         ON LanguageID=Id
+        LEFT JOIN (
+            SELECT gamelanguage, UserID
+            FROM users
+            WHERE UserID=?
+        )
+        AS active_language
+        ON LanguageID=active_language.gamelanguage
         WHERE IsActive = 1;";
 
 $stmt = $mysqli->prepare($sql);
+$stmt->bind_param("i", $userID);
 $stmt->execute();
 $result = $stmt->get_result();
 

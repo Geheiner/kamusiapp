@@ -3,17 +3,21 @@ session_start();
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
-
-$stmt = $mysqli->prepare("SELECT interfacelanguage FROM users WHERE UserID = ? ;");
+// Get users interface language
+$stmt = $mysqli->prepare("SELECT users.interfacelanguage, locale
+                          FROM users
+                          INNER JOIN interfacelanguages
+                          ON users.interfacelanguage=interfacelanguages.LanguageID
+                          WHERE UserID = ?;");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
-$stmt->bind_result($checkResult);
+$stmt->bind_result($checkResult, $locale);
 $stmt->fetch();
 $result = $stmt->get_result(); 
 
 $stmt->close();
 
-$returnValue[]= $checkResult;
+$returnValue[]= $locale;
 
 
 //if we have a newUser
@@ -31,10 +35,12 @@ if( !$checkResult){
     $stmt->close();
     $languageArray = array();
     while ($row = $result->fetch_assoc()) {
-        $languageArray[] = $row['ID'];
+        $languageArray[] = $row['LanguageID'];
     }
 
+    // Create game entry per different game
     foreach ($acceptedModes as $mode) {
+        // and per language
         foreach ($languageArray as $language) {
             $stmt = $mysqli->prepare("INSERT INTO games (userID, game, language) VALUES(?,?,?);");
             $stmt->bind_param("sii", $userID, $mode, $language );
@@ -54,7 +60,9 @@ if( !$checkResult){
         $languageArray[] = $row['LanguageID'];
     }
 
+    // Create game entry per different game
     foreach ($acceptedModes as $mode) {
+        // And per language
         foreach ($languageArray as $language) {
             $stmt = $mysqli->prepare("INSERT INTO games (userID, game, language) VALUES(?,?,?);");
             $stmt->bind_param("sii", $userID, $mode, $language );
@@ -62,6 +70,8 @@ if( !$checkResult){
             $stmt->close();
         }
     }
+
+    // Check if user has logged in before
     $stmt = $mysqli->prepare("SELECT firsttime FROM users WHERE UserID = ? ;");
     $stmt->bind_param("s", $userID );
     $stmt->execute();
@@ -71,6 +81,7 @@ if( !$checkResult){
     $stmt->close();
 
 
+    // Set session variable 'lang' if not already set
     if(! isset($_SESSION['lang'])){
         $stmt = $mysqli->prepare("SELECT locale FROM interfacelanguages WHERE LanguageID = ?");
         $stmt->bind_param("s", $checkResult);

@@ -419,7 +419,7 @@ function isNewUser() {
                         console.log("Site lanuguage is: " + siteLanguage);
                         if(obj[1] != "languageAlreadySet") {
                             // TODO: fix this
-                            //location.reload();
+                            location.reload();
                         } else {
                             if(obj[2] == "showSettings"){
                                 display_settings();
@@ -730,25 +730,17 @@ function insert_game_icons(gameLanguage) {
 }
 
 function get_game_names() {
-    var gamelist;
     $.getJSON("php/get_games.php")
         .done(function(games, textStatus) {
-            console.log(textStatus);
-            console.log(games);
-            gamelist = games;
         })
         .fail(function() {
             console.log("Getting games failed");
         });
-    // TODO: this might not work since gamelist is set in callback
-    return gamelist;
 }
 
 function get_active_game_languages() {
-    $.getJSON("php/get_active_languages.php")
+    $.getJSON("php/get_active_languages.php", {userID: userID})
         .done(function(languages, textStatus) {
-            console.log(textStatus);
-            console.log(languages);
             set_game_languages(languages);
         })
         .fail(function(jqXHR, textStatus) {
@@ -757,10 +749,8 @@ function get_active_game_languages() {
 }
 
 function get_interface_languages() {
-    $.getJSON("php/get_interface_languages.php")
+    $.getJSON("php/get_interface_languages.php", {userID: userID})
         .done(function(languages, textStatus) {
-            console.log(textStatus);
-            console.log(languages);
             set_interface_languages(languages);
         })
         .fail(function(jqXHR, textStatus) {
