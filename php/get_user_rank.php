@@ -28,7 +28,7 @@ $stmt->execute();
 $result = $stmt->get_result(); 
 
 if( $result-> num_rows== 0){
-	die("UserID " . $userID . " is not known!!!");
+    die("UserID " . $userID . " is not known!!!");
 }
 
 
@@ -42,8 +42,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-	$users[] = $row["UserID"];
-	$userNameByUserID[$row["UserID"]] = $row["Username"];
+    $users[] = $row["UserID"];
+    $userNameByUserID[$row["UserID"]] = $row["Username"];
 
 }
 
@@ -61,58 +61,60 @@ $stmt->close();
 
 
 foreach ($users as $user) {
-	$value;
-	switch ($metric) {
-		case '0':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points", $timePeriod));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$value = $row["total"];
-		$stmt->close();
-		break;
+    $value;
+    switch ($metric) {
+        case '0': {
+            $stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points", $timePeriod));
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $value = $row["total"];
+            $stmt->close();
+            break;
+        }
 
-		case '1':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions", $timePeriod));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$value = $row["total"];
-		$stmt->close();
-		break;
+        case '1': {
+            $stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions", $timePeriod));
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $value = $row["total"];
+            $stmt->close();
+            break;
+        }
 
-		case '2':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points", $timePeriod));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$tempScore = $row["total"];
-		$stmt->close();
+        case '2': {
+            $stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points", $timePeriod));
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $tempScore = $row["total"];
+            $stmt->close();
 
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions", $timePeriod));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$stmt->close();			
-		$value = $tempScore/ ($row["total"] + 1);
-		break;
+            $stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions", $timePeriod));
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $stmt->close();
+            $value = $tempScore/ ($row["total"] + 1);
+            break;
+        }
 
-		default:
-		die("Unexpected metric " . $metric);
-		break;
-	}
-	if($value == null){
-		$value = 0;
-	}
+        default: {
+            die("Unexpected metric " . $metric);
+            break;
+        }
+    }
+    if($value == null){
+        $value = 0;
+    }
 
-	if($user == $userID){
-		$thisUsersScore = $value;
+    if($user == $userID){
+        $thisUsersScore = $value;
 
-	}
+    }
 
-	$userAndScore[$user] = $value;
-		
-
+    $userAndScore[$user] = $value;
 }
 
 
@@ -134,21 +136,35 @@ $result[] = $userNameByUserID;
 
 $userRank =  array_search($userID, $orderedUsers)+1;
 
-$result[] = array("id"=> $userID, "score"=>$thisUsersScore, "rank"=> $userRank);
+$result[] = array(
+    "id" => $userID,
+    "score" => $thisUsersScore,
+    "rank" => $userRank
+);
 
 if($userRank > 3) {
 
-	$rankFromGuyBeforeMe= $userRank -1;
-	$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe -1];
-	$scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
-	$result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "rank"=> $rankFromGuyBeforeMe );
+    $rankFromGuyBeforeMe= $userRank -1;
+    $idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe -1];
+    $scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
 
-	$rankFromGuyAfterMe= $userRank +1;
-	if($rankFromGuyAfterMe < count($orderedScores)) {
-		$idOfGuyAfterMe= $orderedUsers[$rankFromGuyAfterMe -1];
-		$scoreFromGuyAfterMe= $orderedScores[$rankFromGuyAfterMe -1];
-		$result[] = array("id" => $idOfGuyAfterMe, "score"=>$scoreFromGuyAfterMe, "rank"=> $rankFromGuyAfterMe );
-	}
+    $result[] = array(
+        "id" => $idOfGuyBeforeMe,
+        "score" => $scoreFromGuyBeforeMe,
+        "rank" => $rankFromGuyBeforeMe
+    );
+
+    $rankFromGuyAfterMe= $userRank +1;
+    if($rankFromGuyAfterMe < count($orderedScores)) {
+        $idOfGuyAfterMe= $orderedUsers[$rankFromGuyAfterMe -1];
+        $scoreFromGuyAfterMe= $orderedScores[$rankFromGuyAfterMe -1];
+
+        $result[] = array(
+            "id" => $idOfGuyAfterMe,
+            "score" => $scoreFromGuyAfterMe,
+            "rank" => $rankFromGuyAfterMe
+        );
+    }
 
 }
 
@@ -163,65 +179,73 @@ $jsonData = json_encode($result);
 echo $jsonData;
 
 function getTotalXForUserStatement($user, $x){
-	global $selectedMode, $language, $timePeriod, $acceptedModes;
-	//$accetpedModes impoted from global.php 
+    global $selectedMode, $language, $timePeriod, $acceptedModes;
+    //$accetpedModes impoted from global.php
 
-	if($timePeriod == '1') {
-		$x.= "month";	
-	}
-	if($timePeriod == '2') {
-		$x.= "week";	
-	}
-	//we use a different table for the last 24 hours so that the score is continuous
-	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
+    if($timePeriod == '1') {
+        $x.= "month";
+    }
+    if($timePeriod == '2') {
+        $x.= "week";
+    }
+    //we use a different table for the last 24 hours so that the score is continuous
+    //
+    // TODO: These queries are vulnarable to attacks!!! use prepared statements!
+    $sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
 
-		if($timePeriod == '3'){
-			if($x == "points"){
-				$x= "pointtime";
-			}
-			else {
-				$x= "submissiontime";
-			}
-			$sql = "SELECT SUM(t.amount) AS total FROM ( ";
+        if($timePeriod == '3'){
+            if($x == "points"){
+                $x= "pointtime";
+            }
+            else {
+                $x= "submissiontime";
+            }
+            $sql = "SELECT SUM(t.amount) AS total FROM ( ";
 
 
-				if($language == '0' && $selectedMode == '0'){
-					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' ";
-				}
-				else if( $language == '0') {
-					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND game= " . $selectedMode ." ";
-				}
-				else if ($selectedMode == '0') {
-					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language ." ";
-				}	
-				else {
-					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language . " AND game= " . $selectedMode ." ";
-				}	
-			}
-			else {
+            if($language == '0' && $selectedMode == '0'){
+                $sql .= " SELECT amount FROM ".$x
+                      . " WHERE userid='".$user."' ";
+            }
+            else if( $language == '0') {
+                $sql .= " SELECT amount FROM ".$x
+                      . " WHERE userid='".$user
+                      . "' AND game= " . $selectedMode ." ";
+            }
+            else if ($selectedMode == '0') {
+                $sql .= " SELECT amount FROM ".$x
+                      . " WHERE userid='".$user
+                      . "' AND language= " . $language ." ";
+            }
+            else {
+                $sql .= " SELECT amount FROM ".$x
+                      . " WHERE userid='".$user
+                      . "' AND language= ".$language
+                      . " AND game= " . $selectedMode ." ";
+            }
+        } else {
 
-			//rank of everything
-				if($language == '0' && $selectedMode == '0'){
-
-					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' ";
-					
-				}
-				else if($selectedMode == '0'){
-
-					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND language=" . $language . " ";
-				}
-				else if( $language == '0') {
-					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND game = ". $selectedMode. " ";
-				}
-				else {
-					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND language=" . $language . " AND game = ". $selectedMode. " ";
-
-				}
-			}
-			$sql .= " ) t;";
-		//echo $sql;
-
-return $sql;
+        //rank of everything
+            if($language == '0' && $selectedMode == '0'){
+                $sql .= " SELECT ". $x
+                      . " FROM games WHERE userid='".$user."' ";
+            } else if($selectedMode == '0'){
+                $sql .= " SELECT ". $x
+                      . " FROM games WHERE userid='".$user
+                      . "' AND language=" . $language . " ";
+            } else if( $language == '0') {
+                $sql .= " SELECT ".$x
+                      . " FROM games WHERE userid='".$user
+                      . "' AND game = ". $selectedMode. " ";
+            } else {
+                $sql .= " SELECT ".$x
+                      . " FROM games WHERE userid='".$user
+                      . "' AND language=". $language
+                      . " AND game = ".$selectedMode." ";
+            }
+        }
+        $sql .= " ) t;";
+    return $sql;
 }
 
 ?>

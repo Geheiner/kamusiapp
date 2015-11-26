@@ -45,19 +45,19 @@ ini_set('display_errors', 'On');
 
 $userID = $argv[1];
 
-$sql =	"SELECT * FROM app;";
+$sql = "SELECT * FROM app;";
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 $stmt->close();
 $results_array = $result->fetch_assoc();
 
-	//These must be retrieved from the database
+//These must be retrieved from the database
 $app_id = $results_array["app_id"];
 $app_secret = $results_array["app_secret"];
 
 
-$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID= ?;";
+$sql = "SELECT NewPointsSinceLastNotification FROM users WHERE UserID= ?;";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $userID);
@@ -70,54 +70,52 @@ $stmt->close();
 $newPoints= $results_array["NewPointsSinceLastNotification"];
 
 
-
 var_dump($newPoints);
 if($newPoints == 0){
-	echo "Did not sent notif, no points were gained." .$userID ;
-}
-else {
-	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=?;";
+    echo "Did not sent notif, no points were gained." .$userID ;
+} else {
+    $sql = "UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=?;";
 
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("s", $userID);
-$stmt->execute();
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
 
-$stmt->close();
+    $stmt->close();
 
-FacebookSession::setDefaultApplication($app_id, $app_secret);
+    FacebookSession::setDefaultApplication($app_id, $app_secret);
 
-	// If you already have a valid access token:
-	//$session = new FacebookSession($access_token);
+    // If you already have a valid access token:
+    //$session = new FacebookSession($access_token);
 
-	// If you're making app-level requests:
-	$session = FacebookSession::newAppSession();
+    // If you're making app-level requests:
+    $session = FacebookSession::newAppSession();
 
-	// To validate the session:
-	try {
-		$session->validate();
-	}
-	catch (FacebookRequestException $ex) {
-		// Session not valid, Graph API returned an exception with the reason.
-		echo $ex->getMessage();
-	}
-	catch (\Exception $ex) {
-		// Graph API returned info, but it may mismatch the current app or have expired.
-		echo $ex->getMessage();
-	}
-	$word= "ahaa";
-	// start session
-	$request = new FacebookRequest(
-		$session,
-		'POST',
-		'/' . $userID . '/notifications',
-		array (
-			'href' => '',
-			'template' => "You just gained " . $newPoints . " new points for your Tweet selections!",
-			)
-		);
+    // To validate the session:
+    try {
+        $session->validate();
+    }
+    catch (FacebookRequestException $ex) {
+        // Session not valid, Graph API returned an exception with the reason.
+        echo $ex->getMessage();
+    }
+    catch (\Exception $ex) {
+        // Graph API returned info, but it may mismatch the current app or have expired.
+        echo $ex->getMessage();
+    }
+    $word= "ahaa";
+    // start session
+    $request = new FacebookRequest (
+        $session,
+        'POST',
+        '/' . $userID . '/notifications',
+        array (
+            'href' => '',
+            'template' => "You just gained " . $newPoints . " new points for your Tweet selections!",
+        )
+    );
 
-	$response = $request->execute();
-	$graphObject = $response->getGraphObject();
+    $response = $request->execute();
+    $graphObject = $response->getGraphObject();
 }
 
 ?>

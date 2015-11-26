@@ -26,6 +26,7 @@ $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$co
 $kamusiUser= array();
 
 
+// TODO: Use bind_param for all parameters!
 
 //Functions used throughout the app in order to keep track of the scores
 function addXToValueInGame($userID, $language, $mode, $value, $x){
@@ -62,9 +63,9 @@ function addXToPointsInGame($userID, $language, $mode, $x) {
     addXToValueInGame($userID, $language, $mode, "points", $x);
     addXToValueInGame($userID, $language, $mode, "pointsmonth", $x);
     addXToValueInGame($userID, $language, $mode, "pointsweek", $x);
-    
-    $sql = "INSERT INTO pointtime (userID, language, game, amount, ts) VALUES ";
-    $sql .= "(?,?,?,?, UTC_TIMESTAMP());";
+
+    $sql = "INSERT INTO pointtime (userID, language, game, amount, ts)
+            VALUES (?,?,?,?, UTC_TIMESTAMP());";
 
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("siii", $userID, $language, $mode, $x);
@@ -77,8 +78,8 @@ function addXSubmissionsInGame($userID, $language, $mode, $x){
     addXToValueInGame($userID, $language, $mode, "submissions", $x);
     addXToValueInGame($userID, $language, $mode, "submissionsweek", $x);
     addXToValueInGame($userID, $language, $mode, "submissionsmonth", $x);
-    $sql = "INSERT INTO submissiontime (userID, language, game, amount, ts) VALUES ";
-    $sql .= "(?,?,?,?, UTC_TIMESTAMP());";
+    $sql = "INSERT INTO submissiontime (userID, language, game, amount, ts)
+            VALUES (?,?,?,?, UTC_TIMESTAMP());";
 
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("siii", $userID, $language, $mode, $x);
@@ -94,7 +95,8 @@ function giveAllConcernedUsersXPoints($concernedUsers, $x){
 
         $returnText = $user;
 
-        $stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification + ? WHERE UserID=?;");
+        $sql = "UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification + ? WHERE UserID=?;";
+        $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("is", $x, $user);
         $stmt->execute();
         $stmt->close();

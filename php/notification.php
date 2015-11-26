@@ -40,72 +40,72 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 function send_notification($user_id, $word_id) {
-	global $mysqli;
+    global $mysqli;
 
-	$sql =	"SELECT * FROM app;";
+    $sql = "SELECT * FROM app;";
 
-	$stmt = $mysqli->prepare($sql);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$stmt->close();
+    $stmt = $mysqli->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 
-	$results_array = $result->fetch_assoc();
+    $results_array = $result->fetch_assoc();
 
-	//These must be retrieved from the database
-	$app_id = $results_array["app_id"];
-	$app_secret = $results_array["app_secret"];
+    //These must be retrieved from the database
+    $app_id = $results_array["app_id"];
+    $app_secret = $results_array["app_secret"];
 
-	$sql = 	"SELECT Word FROM words WHERE ID=?;";
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("i", $word_id );
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$stmt->close();
-	$results_array = $result->fetch_assoc();
+    $sql = "SELECT Word FROM words WHERE ID=?;";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("i", $word_id );
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    $results_array = $result->fetch_assoc();
 
-	$word = $results_array["Word"];
+    $word = $results_array["Word"];
 
-	FacebookSession::setDefaultApplication($app_id, $app_secret);
+    FacebookSession::setDefaultApplication($app_id, $app_secret);
 
-	// If you already have a valid access token:
-	//$session = new FacebookSession($access_token);
+    // If you already have a valid access token:
+    //$session = new FacebookSession($access_token);
 
-	// If you're making app-level requests:
-	$session = FacebookSession::newAppSession();
+    // If you're making app-level requests:
+    $session = FacebookSession::newAppSession();
 
-	//Mark user for notification on loading game
-	$sql = 	"UPDATE users SET Notify=1 WHERE UserID='" . $user_id . "'";
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("s", $userID);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$stmt->close();
-	// To validate the session:
-	try {
-		$session->validate();
-	}
-	catch (FacebookRequestException $ex) {
-		// Session not valid, Graph API returned an exception with the reason.
-		echo $ex->getMessage();
-	}
-	catch (\Exception $ex) {
-		// Graph API returned info, but it may mismatch the current app or have expired.
-		echo $ex->getMessage();
-	}
+    //Mark user for notification on loading game
+    $sql = "UPDATE users SET Notify=1 WHERE UserID='" . $user_id . "'";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    // To validate the session:
+    try {
+        $session->validate();
+    }
+    catch (FacebookRequestException $ex) {
+        // Session not valid, Graph API returned an exception with the reason.
+        echo $ex->getMessage();
+    }
+    catch (\Exception $ex) {
+        // Graph API returned info, but it may mismatch the current app or have expired.
+        echo $ex->getMessage();
+    }
 
-	// start session
-	$request = new FacebookRequest(
-		$session,
-		'POST',
-		'/' . $user_id . '/notifications',
-		array (
-			'href' => '',
-			'template' => "Your definition for '" . $word . "' has been voted best!",
-			)
-		);
+    // start session
+    $request = new FacebookRequest(
+        $session,
+        'POST',
+        '/' . $user_id . '/notifications',
+        array (
+            'href' => '',
+            'template' => "Your definition for '" . $word . "' has been voted best!",
+            )
+        );
 
-	$response = $request->execute();
-	$graphObject = $response->getGraphObject();
+    $response = $request->execute();
+    $graphObject = $response->getGraphObject();
 }
 
 ?>

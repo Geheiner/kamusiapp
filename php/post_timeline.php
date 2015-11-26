@@ -16,18 +16,18 @@ $stmt->close();
 $returnValue = array();
 if($DoPost==1 || $PostTimeUnit=='0') {
 
-	$stmt = $mysqli->prepare("UPDATE users SET WordTweetsSinceLastPost=0  WHERE  UserID = ?;");
-	$stmt->bind_param("s", $userID);
-	$stmt->execute();
-	$stmt->close(); 
+    $stmt = $mysqli->prepare("UPDATE users SET WordTweetsSinceLastPost=0  WHERE  UserID = ?;");
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    $stmt->close(); 
 
-	$stmt = $mysqli->prepare("UPDATE users SET DoPost=0  WHERE  UserID = ?;");
-	$stmt->bind_param("s", $userID);
-	$stmt->execute();
-	$stmt->close(); 
+    $stmt = $mysqli->prepare("UPDATE users SET DoPost=0  WHERE  UserID = ?;");
+    $stmt->bind_param("s", $userID);
+    $stmt->execute();
+    $stmt->close(); 
 }
 else {
-	$WordTweetsSinceLastPost= 0;	
+    $WordTweetsSinceLastPost= 0;
 }
 echo json_encode($WordTweetsSinceLastPost);
 

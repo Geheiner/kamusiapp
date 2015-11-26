@@ -10,9 +10,13 @@ $mode = $_GET['mode'];
 $returnText = "nothing";
 
 if(!in_array($mode, $acceptedModes)) {
-	die("Got a strange mode as input!". $mode);
+    die("Got a strange mode as input!". $mode);
 }
-$sql = "SELECT * FROM games WHERE userid=? AND language = ? AND game = ?;";
+$sql = "SELECT *
+        FROM games
+        WHERE userid=?
+            AND language = ?
+            AND game = ?;";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sii", $userID, $language, $mode );
@@ -23,5 +27,4 @@ $row = $result->fetch_assoc();
 $stmt->close();
 
 echo json_encode($row);
-     
 ?>

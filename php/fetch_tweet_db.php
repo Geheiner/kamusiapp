@@ -5,10 +5,10 @@ ini_set('display_errors', 'On');
 $wordID = $_GET['wordID'];
 $amount = $_GET['amount'];
 
+$sql = "SELECT DISTINCT TweetID, Text, Author
+        FROM TweetContext
+        WHERE WordID= ?;";
 
-
-
-$sql = "SELECT DISTINCT TweetID,Text ,Author  FROM TweetContext WHERE WordID= ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $wordID );
 $stmt->execute();
@@ -21,10 +21,5 @@ while ($row = $result->fetch_assoc()) {
     $results_array[] = $row;
 }
 
-
-
-$jsonData = json_encode($results_array);
-
-echo $jsonData;
-
+echo json_encode($results_array);
 ?>

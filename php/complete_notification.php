@@ -10,5 +10,4 @@ $stmt->bind_param("s", $userID);
 $stmt->execute();
 
 $stmt->close();
-
 ?>
