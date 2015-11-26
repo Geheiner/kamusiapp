@@ -1,10 +1,11 @@
 <?php
 
-// This will prevent access to the game for maintenance
+// disable the game for maintenance
 $GAME_OFF = false;
 if($GAME_OFF) {
     header("Location: offline.html");
 }
+
 session_start();
 function generateToken() {
     // generate token from random value
@@ -36,7 +37,7 @@ textdomain('messages');
 ?>
 
 <!doctype html>
-<html>
+<html lang="">
 <head>
     <title>Kamusi GAME</title>
     <meta charset="UTF-8">
@@ -378,7 +379,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
     <img src="media/language_selector.png">
     <br><br>
     <br><br>
-    <select id="menuLanguage" onchange= size="1">
+    <select id="menuLanguage" onchange="" size="1">
     <!-- Preserving the list to add language translations to the database
         <option><?php echo ("English"); ?></option>
         <option><?php echo ("Deutsch"); ?></option>
