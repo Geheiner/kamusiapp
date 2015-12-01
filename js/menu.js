@@ -111,7 +111,7 @@ function InlineEditorController($scope){
     $scope.submitGame1 = function() {
         $scope.hideTooltip();
         playClick();vote();
-        get_ranked();
+        get_ranked(1);
         $scope.value = '';
         getGameScore();
     };
@@ -176,7 +176,7 @@ function enter_game(gameID) {
     game = gameID;
     getGameScore();
 
-    get_ranked();
+    get_ranked(gameID);
     $("#instructions"+gameID).html(writeOrVote + gameLanguages[gameLanguage]);
     show_views(div_game);
     activate_game("gamezone"+gameID);
@@ -376,7 +376,7 @@ function add_definition(id, definition, spam) {
             definitionID = id_num;
             playClick();
             vote();
-            get_ranked();
+            get_ranked(1);
 
         };
     })(id);

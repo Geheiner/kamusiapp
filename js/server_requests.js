@@ -61,7 +61,6 @@ function getRankedForTweets() {
 }
 
 function getRankedForSwahili() {
-
     $("#swahiliSentences").html('');
     wordID= 12345;
     $(".entry").addClass("fade");
@@ -152,7 +151,6 @@ function queryForSentences(keyword, amount, source){
 }
 
 function get_tweets(alreadyDisplayed) {
-    console.log("inside the tweets function: ");
     var totalAmount = amountOfTweets - alreadyDisplayed;
     $.getJSON("php/get_tweets.php", {keyword: encodeURIComponent(word), amount: totalAmount})
         .done(function(results_array, textStatus) {
@@ -177,7 +175,7 @@ function get_tweets(alreadyDisplayed) {
             }
         })
         .fail(function(jqXHR, textStatus) {
-            console.log("Getting tweets failed" + textStatus);
+            console.log("Getting tweets failed: " + textStatus);
         });
 }
 
@@ -201,7 +199,6 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
     };
 
     var t = document.createTextNode(elemText);
-    console.log("STYLEEEEE " + tweetDisplay.style.color);
     tweetDisplay.appendChild(newInput);
     tweetDisplay.appendChild(t);
     document.getElementById(whereToInsert).appendChild(tweetDisplay);
@@ -243,7 +240,7 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-                get_tweets( i);
+                get_tweets(i);
             }
         })
         .fail(function(jqXHR, textStatus) {
@@ -334,54 +331,58 @@ function sendTweetToDB(tweet, good){
 
 }
 
-function get_ranked() {
-    $(".entry").addClass("fade");
+function get_ranked(gameId) {
+    if(gameId == 3) {
+        getRankedForTweets();
+    } else {
+        $(".entry").addClass("fade");
 
-    $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: "1"})
-        .done(function(results_array, textStatus) {
-            console.log(textStatus);
-            console.debug("GET ranked result is : " + results_array);
+        $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: "1"})
+            .done(function(results_array, textStatus) {
+                console.log(textStatus);
+                console.debug("GET ranked result is : " + results_array);
 
-            clear_definitions();
-            wordID = results_array[0].WordID;
-            groupID = results_array[0].GroupID;
+                clear_definitions();
+                wordID = results_array[0].WordID;
+                groupID = results_array[0].GroupID;
 
-            var wordToDisplay;
-            if(gameLanguage != '1' && results_array[0].trans != "Nothing Found"){
-                wordToDisplay = results_array[0].trans;
-            } else  {
-                wordToDisplay = results_array[0].Word;
-            }
-            var underscored_word = wordToDisplay.replace(" /g", "_");
-
-            $("#wiktionary").attr("https://en.wiktionary.org/wiki/" + underscored_word);
-            $("#dictionary").attr("http://dictionary.reference.com/browse/" + underscored_word);
-            $("#wordnik").attr("https://www.wordnik.com/words/" + underscored_word);
-            set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
-            add_definition(-1, "? " + ICantSay, false);
-
-            $("#consensus").html(generalSense);
-
-            var i;
-            for(i = 0; i < results_array.length ; i++) {
-                if(results_array[i].Author == 'wordnet') {
-                    set_consensus(results_array[i].Definition);
-                    add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
+                var wordToDisplay;
+                if(gameLanguage != '1' && results_array[0].trans != "Nothing Found"){
+                    wordToDisplay = results_array[0].trans;
+                } else  {
+                    wordToDisplay = results_array[0].Word;
                 }
-            }
-            for(i = 0; i < results_array.length; i++) {
+                var underscored_word = wordToDisplay.replace(" /g", "_");
 
-                if(results_array[i].Definition !== undefined && results_array[i].Author != 'wordnet') {
-                    add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
+                $("#wiktionary").attr("https://en.wiktionary.org/wiki/" + underscored_word);
+                $("#dictionary").attr("http://dictionary.reference.com/browse/" + underscored_word);
+                $("#wordnik").attr("https://www.wordnik.com/words/" + underscored_word);
+                set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
+                add_definition(-1, "? " + ICantSay, false);
+
+                $("#consensus").html(generalSense);
+
+                var i;
+                for(i = 0; i < results_array.length ; i++) {
+                    if(results_array[i].Author == 'wordnet') {
+                        set_consensus(results_array[i].Definition);
+                        add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
+                    }
                 }
-            }
+                for(i = 0; i < results_array.length; i++) {
 
-            definitionID = -1;
-            $(".entry").removeClass("fade");
-        })
-        .fail(function() {
-            console.log("Ranking mode 1 failed");
-        });
+                    if(results_array[i].Definition !== undefined && results_array[i].Author != 'wordnet') {
+                        add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
+                    }
+                }
+
+                definitionID = -1;
+                $(".entry").removeClass("fade");
+            })
+            .fail(function() {
+                console.log("Ranking mode 1 failed");
+            });
+    }
 }
 
 function submit_definition(definition) {
