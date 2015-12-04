@@ -12,7 +12,6 @@ var amountGame4;
 //settings saved
 var whenToPost;
 var whenToNotify;
-var gameLanguageSliderValue;
 
 //var to remember the current language
 var gameLanguage;
@@ -20,7 +19,7 @@ var gameLanguage;
 var game = 0;
 
 //This is the overallLanguage
-var siteLanguage="-1";
+var siteLanguage = "-1";
 
 var translationID;
 
@@ -83,7 +82,6 @@ function queryForSentences(keyword, amount, source){
             console.log(textStatus);
             console.log(results_array);
             for( i = 0; i<amount ;i++) {
-                //last20Tweets[i] = results_array[i];
                 lastSwahiliSentences[i] = results_array[i];
                 displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences");
             }
@@ -465,13 +463,11 @@ function initialise() {
             console.log(obj);
             whenToNotify = obj.NotificationTimeUnit;
             whenToPost = obj.PostTimeUnit;
-            gameLanguageSliderValue= obj.gamelanguage;
             gameLanguage = obj.gamelanguage;
-            console.log("The game language is now : " + gameLanguage);
+            console.log("The game language is : " + gameLanguage);
 
             document.getElementById('notifications').selectedIndex = whenToNotify;
             document.getElementById('posts').selectedIndex= whenToPost;
-            document.getElementById('gamelanguage').selectedIndex= gameLanguageSliderValue;
 
             display_welcome();
     });
@@ -546,13 +542,12 @@ function submit_translation(translation) {
 
 function saveSettings() {
     menuLanguageSliderValue = $("#menuLanguageSettings option:selected").val();
-    if(siteLanguage != menuLanguageSliderValue +1 ){
-        console.log("Changing language...");
+    if(siteLanguage != menuLanguageSliderValue + 1){
+        console.log("Changing interface language...");
         saveMenuLanguage("menuLanguageSettings");
     }
     whenToNotify = $("#notifications option:selected").index();
     whenToPost = $("#posts option:selected").index();
-    gameLanguageSliderValue = $("#gamelanguage option:selected").val();
     gameLanguage = $("#gamelanguage").val();
     siteLanguage = $("#menuLanguageSettings option:selected").val();
 
@@ -655,8 +650,8 @@ function updateLeaderboard(){
                 row.insertCell(2).innerHTML= obj[0][i];
                 row.insertCell(3).innerHTML= rankString + (parseInt(i) + 1); //since index 0 is first rank
             }
-            //add the user from before s score if use ris not in top3
 
+            //add the user from before s score if use ris not in top3
             if( obj[3].rank > 4) {
                 rowCount = table.rows.length;
                 row = table.insertRow(rowCount);
@@ -687,7 +682,6 @@ function addScoreEntry(indexOfArray, table){
         row.className = "highlightCurrentUser";
     } else  {
         row.className = "otherUsersInTable";
-
     }
     row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >';
     row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];

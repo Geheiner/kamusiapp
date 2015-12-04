@@ -280,6 +280,9 @@ function set_game_languages(languages) {
     $.each(languages, function(index, value) {
         $("#gamelanguage").append($("<option>").text(value.Ref_Name)
                 .attr("value", value.LanguageID));
+
+        // If a gamelanguage has been retrieved we set
+        // the dropdown ot that value
         if(value.gamelanguage !== null) {
             $("#gamelanguage").val(value.gamelanguage);
         }
@@ -291,6 +294,9 @@ function set_interface_languages(languages) {
     $.each(languages, function(index, value) {
         $("#menuLanguageSettings").append($("<option>").text(value.Ref_Name)
                 .attr("value", value.LanguageID));
+
+        // If a interfacelanguage has been retrieved we set
+        // the dropdown ot that value
         if(value.interfacelanguage !== null) {
             $("#menuLanguageSettings").val(value.interfacelanguage);
         }
