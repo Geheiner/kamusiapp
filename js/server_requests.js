@@ -541,11 +541,8 @@ function submit_translation(translation) {
 }
 
 function saveSettings() {
-    menuLanguageSliderValue = $("#menuLanguageSettings option:selected").val();
-    if(siteLanguage != menuLanguageSliderValue + 1){
-        console.log("Changing interface language...");
-        saveMenuLanguage("menuLanguageSettings");
-    }
+    saveMenuLanguage("menuLanguageSettings");
+
     whenToNotify = $("#notifications option:selected").index();
     whenToPost = $("#posts option:selected").index();
     gameLanguage = $("#gamelanguage").val();
