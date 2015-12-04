@@ -58,6 +58,9 @@ function show_views(view_to_show) {
     view_to_show.css("display", "inline-block");
 }
 
+/*
+ * This function displays the game specified in the parameter
+ */
 function activate_game(game_to_activate) {
     $.each(games, function(index, game) {
         game.css("display", "none");
@@ -92,7 +95,6 @@ function InlineEditorController($scope){
             setTimeout( function() {
                 $("#input_tool_box").focus();
             }, 20 );
-            //document.getElementById("input_tool_box").select();
         }
 
     };
@@ -119,8 +121,6 @@ function InlineEditorController($scope){
 
 //THIS IS REALLY UGLY - TO BE REWORKED
 function InlineEditorController2($scope){
-    console.log("in this thing");
-
     $scope.showtooltip2 = false;
     $scope.translation = translation_default_value;
 
@@ -138,7 +138,9 @@ function InlineEditorController2($scope){
         $scope.showtooltip2 = !$scope.showtooltip2;
 
         if($scope.showtooltip2) {
-            remove_active_translations();
+            $("#translations li").each(function(i, li) {
+                $(li).addClass("inactive_definition");
+            });
             $("#user_translation").attr("class", "active_definition");
             if($scope.translation == translation_default_value) {
                 $scope.translation = '';
@@ -311,12 +313,6 @@ function set_profile_data(points, pendingPoints, ratio) {
     $("#profile_points").html(points);
     $("#pending_points").html(pendingPoints);
     $("#profile_attempts").html(ratio);
-}
-
-function remove_active_translations() {
-    $("#translations li").each(function(i, li) {
-        $(li).addClass("inactive_definition");
-    });
 }
 
 function remove_active() {

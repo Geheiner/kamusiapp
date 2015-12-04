@@ -188,7 +188,6 @@ function getDefinitions($word_id){
     if($result->num_rows === 0){
         return FALSE;
     } else {
-
         while ($row = $result->fetch_assoc()) {
             $results_array[] = $row;
         }
@@ -212,10 +211,8 @@ function getDefinitions($word_id){
             if(!$translatedWord){
                 $translatedWord = "Nothing Found";
             }
-
         $results_array[0]["trans"] = $translatedWord;
         }
-
         return $results_array;
     }
 }

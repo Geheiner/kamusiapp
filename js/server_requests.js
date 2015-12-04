@@ -34,7 +34,6 @@ function getRankedForTweets() {
     $("#twitterWords").html('');
 
     $(".entry").addClass("fade");
-    // TODO: check why we submit hardcoded strings here
     $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: "3"})
         .done(function(obj, textStatus) {
             console.log("TweetResponse was : " + obj);
@@ -264,7 +263,6 @@ function submitCheckBoxData(whatToSubmit) {
             updateTweetDB("allTweetsWereBad");
         }
     } else  if (whatToSubmit == "game4")  {
-
         for( i = 0; i < amountGame4; i++) {
             if(document.getElementById("checkbox"+i).checked) {
                 sendGame4SentenceToDB(lastSwahiliSentences[i],1);
