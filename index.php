@@ -179,7 +179,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                         </a>
                     </div>
                     <div id="footer-next3">
-                        <img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("tweet"); setTimeout(getRankedForTweets(), 500);'>
+                        <img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("tweet"); setTimeout(get_ranked(3), 500);'>
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                 </div>
 
                 <div id="footer-next3">
-                    <img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(getRankedForSwahili(), 500);'>
+                    <img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(get_ranked(4), 500);'>
                 </div>
             </div>
 

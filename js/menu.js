@@ -164,7 +164,7 @@ function InlineEditorController2($scope){
 
     $scope.submitGame2 = function() {
         soumettre_traduction();
-        get_ranked_mode_2();
+        get_ranked(2);
         getGameScore();
         $scope.hideTooltip2();
         playClick();
@@ -342,7 +342,7 @@ function add_translation_dunno(definition) {
             $("#user_translation").attr("class", 'inactive_definition');
             this.className = "active_definition";
             playClick();
-            get_ranked_mode_2();
+            get_ranked(2);
         };
     })();
 

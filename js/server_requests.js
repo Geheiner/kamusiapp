@@ -27,62 +27,6 @@ var translationID;
 var last20Tweets = {};
 var lastSwahiliSentences = {};
 
-//Current points for the current game
-
-function getRankedForTweets() {
-    //remove previous tweet entries
-    $("#twitterWords").html('');
-
-    $(".entry").addClass("fade");
-    $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: "3"})
-        .done(function(obj, textStatus) {
-            console.log("TweetResponse was : " + obj);
-
-            groupID = obj[0].GroupID;
-            wordID = obj[0].WordID;
-            word = obj[0].Word;
-
-            if(groupID === '' || wordID === '' || word === '' || obj[0].Definition === '' || obj[0].PartOfSpeech === '') {
-                updateTweetDB("noTweetFound");
-                getRankedForTweets();
-            } else  {
-                $("#word3").html(obj[0].Word);
-                $("#def3").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
-                $("#pos3").html(obj[0].PartOfSpeech);
-
-                fetchTweetsFromDB(8);
-            }
-            $(".entry").removeClass("fade");
-        })
-        .fail(function() {
-            console.log("Getting ranked for Tweets failed");
-        });
-}
-
-function getRankedForSwahili() {
-    $("#swahiliSentences").html('');
-    wordID= 12345;
-    $(".entry").addClass("fade");
-
-    $.getJSON("php/get_swahili_word.php", {userID: userID})
-        .done(function(obj, textStatus) {
-            console.log("JSON DATA SWAHILI LOOKS LIKE : " + obj);
-
-            word = obj.title;
-            wordID = obj.nid;
-
-            $("#word4").html(word);
-            $("#pos4").html("Not set Yet");
-            $("#transEnglish4").html("English def Not accessible yet");
-            $("#defSwahili4").html("Swahili def Not accessible yet");
-
-            //getGame4Sentences(word, 3);
-            $(".entry").removeClass("fade");
-        })
-        .fail(function() {
-            console.log("getRankedForSwahili failed");
-        });
-}
 
 //One JS call to verify number of sentences available.
 //Then If enough, 2 parallel calls: one to get sentences from the DB, one other to fetch new ones.
@@ -330,15 +274,58 @@ function sendTweetToDB(tweet, good){
 }
 
 function get_ranked(gameId) {
+    $(".entry").addClass("fade");
     if(gameId == 3) {
-        getRankedForTweets();
-    } else {
-        $(".entry").addClass("fade");
+        //remove previous tweet entries
+        $("#twitterWords").html('');
 
-        $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: "1"})
+        $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: gameId})
+            .done(function(obj, textStatus) {
+                console.log("TweetResponse was : " + obj);
+
+                groupID = obj[0].GroupID;
+                wordID = obj[0].WordID;
+                word = obj[0].Word;
+
+                if(groupID === '' || wordID === '' || word === '' || obj[0].Definition === '' || obj[0].PartOfSpeech === '') {
+                    updateTweetDB("noTweetFound");
+                    getRankedForTweets();
+                } else  {
+                    $("#word3").html(obj[0].Word);
+                    $("#def3").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
+                    $("#pos3").html(obj[0].PartOfSpeech);
+
+                    fetchTweetsFromDB(8);
+                }
+                $(".entry").removeClass("fade");
+            })
+            .fail(function() {
+                console.log("Getting ranked for Tweets failed");
+            });
+    } else if(gameId == 2) {
+        //Lanugage is always 1 since we take english words as words to translate
+        $.getJSON("php/get_ranked.php", {userID: userID, language: 1, mode: gameId})
+            .done(function(obj, textStatus) {
+                console.log(textStatus);
+                console.log(obj);
+
+                $("#translation_word").html(obj[0].Word);
+                $("#translation_pos").html(partOfSpeechArray[obj[0].PartOfSpeech]);
+                $("#translation_definition").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
+
+                wordID = obj[0].WordID;
+                groupID = obj[0].GroupID;
+                $(".entry").removeClass("fade");
+            })
+            .fail(function() {
+                console.log("Get ranked mode 2 failed");
+            });
+    } else if(gameId == 1) {
+        $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: gameId})
             .done(function(results_array, textStatus) {
                 console.log(textStatus);
-                console.debug("GET ranked result is : " + results_array);
+                console.debug("GET ranked result is : ");
+                console.debug(results_array);
 
                 clear_definitions();
                 wordID = results_array[0].WordID;
@@ -352,9 +339,9 @@ function get_ranked(gameId) {
                 }
                 var underscored_word = wordToDisplay.replace(" /g", "_");
 
-                $("#wiktionary").attr("https://en.wiktionary.org/wiki/" + underscored_word);
-                $("#dictionary").attr("http://dictionary.reference.com/browse/" + underscored_word);
-                $("#wordnik").attr("https://www.wordnik.com/words/" + underscored_word);
+                $("#wiktionary").attr("href", "https://en.wiktionary.org/wiki/" + underscored_word);
+                $("#dictionary").attr("href", "http://dictionary.reference.com/browse/" + underscored_word);
+                $("#wordnik").attr("href", "https://www.wordnik.com/words/" + underscored_word);
                 set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
                 add_definition(-1, "? " + ICantSay, false);
 
@@ -367,8 +354,8 @@ function get_ranked(gameId) {
                         add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
                     }
                 }
-                for(i = 0; i < results_array.length; i++) {
 
+                for(i = 0; i < results_array.length; i++) {
                     if(results_array[i].Definition !== undefined && results_array[i].Author != 'wordnet') {
                         add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
                     }
@@ -380,6 +367,30 @@ function get_ranked(gameId) {
             .fail(function() {
                 console.log("Ranking mode 1 failed");
             });
+    } else if(gameId == 4) {
+        $("#swahiliSentences").html('');
+        wordID= 12345;
+
+        $.getJSON("php/get_swahili_word.php", {userID: userID})
+            .done(function(obj, textStatus) {
+                console.log("JSON DATA SWAHILI LOOKS LIKE : " + obj);
+
+                word = obj.title;
+                wordID = obj.nid;
+
+                $("#word4").html(word);
+                $("#pos4").html("Not set Yet");
+                $("#transEnglish4").html("English def Not accessible yet");
+                $("#defSwahili4").html("Swahili def Not accessible yet");
+
+                //getGame4Sentences(word, 3);
+                $(".entry").removeClass("fade");
+            })
+            .fail(function() {
+                console.log("getRankedForSwahili failed");
+            });
+    } else {
+        console.log("Getting ranked failed: Unknown gameId");
     }
 }
 
@@ -517,28 +528,6 @@ function complete_notification() {
         })
         .fail(function() {
             console.log("Completing notification failed");
-        });
-}
-
-function get_ranked_mode_2() {
-    $(".entry").addClass("fade");
-
-    //Lanugage is always 1 since we take english words as words to translate
-    $.getJSON("php/get_ranked.php", {userID: userID, language: 1, mode: "2"})
-        .done(function(obj, textStatus) {
-            console.log(textStatus);
-            console.log(obj);
-
-            $("#translation_word").html(obj[0].Word);
-            $("#translation_pos").html(partOfSpeechArray[obj[0].PartOfSpeech]);
-            $("#translation_definition").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
-
-            wordID = obj[0].WordID;
-            groupID = obj[0].GroupID;
-            $(".entry").removeClass("fade");
-        })
-        .fail(function() {
-            console.log("Get ranked mode 2 failed");
         });
 }
 
