@@ -107,7 +107,7 @@ function lookForWord($userID) {
                         AND rank < ?
                         AND game= ? ;";
 
-            $stmt = $mysqli->prepare($sq);
+            $stmt = $mysqli->prepare($sql);
             $stmt->bind_param("siii", $userID, $language, $sum, $mode);
             $stmt->execute();
             $stmt->close();
