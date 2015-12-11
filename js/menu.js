@@ -233,9 +233,7 @@ function display_welcome() {
     // gets games that are available in current language
     // and adds their icons to the welcome screen
     insert_game_icons(gameLanguage);
-
     show_views(div_welcome);
-
     continue_animation();
 }
 
@@ -416,7 +414,7 @@ function add_trophy(word, definition) {
 }
 
 function vote() {
-    var user_definition = document.getElementById("input_tool_box").value;
+    var user_definition = $("#input_tool_box").val();
     if(definitionID != -1) {
         console.log("Submitting Vote for definitionID : " + definitionID);
         submit_vote(definitionID, 1);
@@ -428,7 +426,7 @@ function vote() {
 }
 
 function soumettre_traduction() {
-    var user_translation = document.getElementById("translation_input_tool_box").value;
+    var user_translation = $("#translation_input_tool_box").val();
     var class_name = document.getElementById("user_translation").className;
     //  if(class_name == "active_definition" && user_translation != translation_default_value) {
     submit_translation(user_translation);
@@ -447,7 +445,7 @@ function startAutoUpdateOfLeaderboard() {
 
     var whichSliderToChange = 0;
 
-    autoUpdateIntervalJobID= setInterval(function () {
+    autoUpdateIntervalJobID = setInterval(function () {
         if(document.getElementById("autoloop").checked) {
             var whatTochange = languageSelect;
 
@@ -465,12 +463,12 @@ function startAutoUpdateOfLeaderboard() {
                     whatTochange = metricSelect;
                     break;
                 default:
-                    console.log("PEROGVJEöRKFJ");
+                    console.log("Wrong slider");
                     break;
             }
             whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
             whichSliderToChange= (whichSliderToChange +1) % 4;
-            console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange);
+            console.log("Interval " + whichSliderToChange);
             updateLeaderboard();
         }
 
