@@ -1,0 +1,7 @@
+# Ingore everything
+*
+
+# Except for scripts
+!.gitignore
+!*.py
+!*.php
