@@ -655,16 +655,16 @@ function updateLeaderboard(){
                 row.className = "spaceUnder";
                 row.insertCell(0).innerHTML="  ";
 
-                addScoreEntry(4,table);
+                addScoreEntry(4,table, obj);
             }
 
             //add this user s score if he is not in the top3
             if(obj[3].rank > 3) {
-                addScoreEntry(3,table);
+                addScoreEntry(3,table, obj);
             }
 
             if( obj[5].id != "NOPE" ) {
-                addScoreEntry(5,table);
+                addScoreEntry(5,table, obj);
             }
         })
         .fail(function(jqXHR, textStatus) {
@@ -672,7 +672,7 @@ function updateLeaderboard(){
         });
 }
 
-function addScoreEntry(indexOfArray, table){
+function addScoreEntry(indexOfArray, table, obj){
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
     if(obj[indexOfArray].id == userID){
