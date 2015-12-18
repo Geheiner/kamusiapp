@@ -222,6 +222,7 @@ function display_profile() {
 }
 
 function display_changeLanguage() {
+    get_interface_languages();
     show_views(div_changeMenuLanguage);
 }
 
@@ -239,14 +240,8 @@ function display_welcome() {
 
 function animate_logo() {
     $("#logo").addClass("animatelogo");
-    $("#enter1").removeClass("shaded_enter");
-    $("#enter1").addClass("animateenter");
-    $("#enter2").removeClass("shaded_enter");
-    $("#enter2").addClass("animateenter");
-    $("#enter3").removeClass("shaded_enter");
-    $("#enter3").addClass("animateenter");
-    $("#enter4").removeClass("shaded_enter");
-    $("#enter4").addClass("animateenter");
+    $(".enter").removeClass("shaded");
+    $(".enter").addClass("animate");
 }
 
 function changeColorOnClick(tweetDisplay,newInput){
@@ -259,8 +254,8 @@ function changeColorOnClick(tweetDisplay,newInput){
 
 function animate_logo_firstTime(){
     $("#logo").addClass("animatelogo");
-    $("#enter0").removeClass("shaded_enter");
-    $("#enter0").addClass("animateenter");
+    $(".enter").removeClass("shaded");
+    $(".enter").addClass("animate");
 }
 
 function animate_logo_login(){
@@ -290,13 +285,13 @@ function set_game_languages(languages) {
 // populate the interface language settings list
 function set_interface_languages(languages) {
     $.each(languages, function(index, value) {
-        $("#menuLanguageSettings").append($("<option>").text(value.Ref_Name)
+        $(".interface-lang").append($("<option>").text(value.Ref_Name)
                 .attr("value", value.LanguageID));
 
         // If a interfacelanguage has been retrieved we set
         // the dropdown ot that value
         if(value.interfacelanguage !== null) {
-            $("#menuLanguageSettings").val(value.interfacelanguage);
+            $(".interface-lang").val(value.interfacelanguage);
         }
     });
 }

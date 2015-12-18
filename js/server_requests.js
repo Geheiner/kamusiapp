@@ -698,7 +698,7 @@ function insert_game_icons(gameLanguage) {
                 $("#game"+id).remove();
                 var name = games[index].Name;
                 var html = "<img title='" + name + "' id='enter" + id + "'" +
-                    "class='shaded-enter' src='media/gamelogos/" + id + ".png' " +
+                    "class='shaded enter' src='media/gamelogos/" + id + ".png' " +
                     "onmousedown='playClick();enter_game(" + id + ");'>";
                 $(html).insertAfter("#logo");
 

@@ -59,7 +59,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             <div id="welcome">
                 <canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
                 <img id="logo" alt="Kamusi Logo" src="media/logo.png" onmousedown="isNewUser();">
-                <img title="Choose Language" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
+                <img title="Choose Language" id="enter" class="shaded enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
                 <fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginState();"></fb:login-button>
 
             </div>
@@ -342,7 +342,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
         <img src="media/language_selector.png">
         <p><?php echo _("Hints and Help Language"); ?></p>
         <br>
-        <select id="menuLanguageSettings" size="1">
+        <select id="menuLanguageSettings" class="interface-lang" size="1">
         </select>
         <br><br>
         <br><br>
@@ -379,7 +379,23 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
     <img src="media/language_selector.png">
     <br><br>
     <br><br>
-    <select id="menuLanguage" onchange="" size="1">
+    <select id="menuLanguage" class="interface-lang" onchange="" size="1">
+    <!-- Preserving the list to add language translations to the database
+        <option><?php echo ("English"); ?></option>
+        <option><?php echo ("Deutsch"); ?></option>
+        <option><?php echo ("Español"); ?></option>
+        <option><?php echo ("Esperanto"); ?></option>
+        <option><?php echo ("Français"); ?></option>
+        <option><?php echo ("Gaeilge"); ?></option>
+        <option><?php echo ("Italiano"); ?></option>
+        <option><?php echo ("Kirundi"); ?></option>
+        <option><?php echo ("Kiswahili"); ?></option>
+        <option><?php echo ("Nederlands"); ?></option>
+        <option><?php echo ("Русский язык"); ?></option>
+        <option><?php echo ("Việt"); ?></option>
+
+        The languages are not translated yet
+            <option><?php echo ("Swahili"); ?></option> -->
     </select>
     <br><br>
     <br><br>

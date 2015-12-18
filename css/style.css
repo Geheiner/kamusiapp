@@ -335,7 +335,7 @@ a a:hover, a:visited, a:link, a:active {
     -transform: translate(0px, -150px);
 }
 
-.shaded_enter {
+.shaded {
     position: absolute;
     -moz-opacity: 0;
     -webkit-opacity: 0;
@@ -344,7 +344,6 @@ a a:hover, a:visited, a:link, a:active {
 }
 
 .shaded_enter_Login {
-
     position: absolute;
     -moz-opacity: 0;
     -webkit-opacity: 0;
@@ -354,10 +353,10 @@ a a:hover, a:visited, a:link, a:active {
     left:0px;
 }
 
-.animateenter {
+.animate {
     display: visible;
     cursor:pointer;
-    position: absolute;
+    position: relative;
     -moz-opacity: 0.5;
     -webkit-opacity: 0.5;
     opacity: 0.5;
@@ -374,36 +373,21 @@ a a:hover, a:visited, a:link, a:active {
     left: 400px;
 }
 
-#enter1 {
-    top: 225px;
-    left: 350px;
+.enter {
+    top: -300px;
+    padding: 10px;
 }
 
-#enter2 {
-    top: 225px;
-    left: 480px;
-}
-
-#enter1:hover, #enter2:hover, #enter3:hover, #enter4:hover, #enter0:hover   {
+.enter:hover   {
     transition: opacity 0s;
     transform: scale(1.05);
     opacity:1;
 }
 
-#enter1:hover:after, #enter2:hover:after, #enter3:hover:after,  #enter4:hover:after, #enter0:hover:after {
+.enter:hover:after {
     transition: opacity 0s;
     transform: scale(1);
     opacity:0.5;
-}
-
-#enter3 {
-    top: 225px;
-    left: 610px;
-}
-
-#enter4 {
-    top: 225px;
-    left: 220px;
 }
 
 #enterLogin{
@@ -412,22 +396,17 @@ a a:hover, a:visited, a:link, a:active {
     left: 400px;
 }
 
-#enter0 {
-    top: 225px;
-    left: 400px;
-}
-
 #changeLanguage {
     cursor:hand;
 }
 
-#enter0:hover, #enterLogin:hover, #changeLanguage:hover {
+#enterLogin:hover, #changeLanguage:hover {
     transition: opacity 0s;
     transform: scale(1.05);
     opacity:1;
 }
 
-#enter0:hover:after, #enterLogin:hover:after, #changeLanguage:hover:after  {
+#enterLogin:hover:after, #changeLanguage:hover:after  {
     transition: opacity 0s;
     transform: scale(1);
     opacity:0.5;
@@ -555,7 +534,7 @@ a a:hover, a:visited, a:link, a:active {
 
 .inactive_definition {
     color: #000000;
-    width: 710px;
+    width: 100%;
     padding:05px;
     /*
     padding-top: 20px;
@@ -566,6 +545,8 @@ a a:hover, a:visited, a:link, a:active {
     margin-bottom: 8px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     cursor: pointer;
+    list-style: none;
+    margin: 10px 0;
 }
 
 /*.inactive_definition:hover {
@@ -577,7 +558,7 @@ a a:hover, a:visited, a:link, a:active {
 
 .active_definition {
     color: #fff;
-    width: 710px;
+    width: 100%;
     padding:05px;
     /*
     padding-top: 20px;
@@ -588,6 +569,8 @@ a a:hover, a:visited, a:link, a:active {
     margin-bottom: 8px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     cursor: pointer;
+    list-style: none;
+    margin: 0;
 }
 
 #definition_box {
