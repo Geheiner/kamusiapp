@@ -59,7 +59,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
             <div id="welcome">
                 <canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
                 <img id="logo" alt="Kamusi Logo" src="media/logo.png" onmousedown="isNewUser();">
-                <img title="Choose Language" id="enter" class="shaded enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
+                <img title="Choose Language" id="choose-lang" class="shaded enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
                 <fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginState();"></fb:login-button>
 
             </div>

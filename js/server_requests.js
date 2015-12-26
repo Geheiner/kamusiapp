@@ -688,6 +688,9 @@ function addScoreEntry(indexOfArray, table, obj){
 }
 
 function insert_game_icons(gameLanguage) {
+    // Remove previous buttons
+    $(".btn-game").remove();
+
     $.getJSON("php/get_games_by_language.php", {languageID: gameLanguage})
         .done(function(games, textStatus) {
             console.log(textStatus);
@@ -695,10 +698,9 @@ function insert_game_icons(gameLanguage) {
 
             $.each(games, function(index) {
                 var id = games[index].GameID;
-                $("#game"+id).remove();
                 var name = games[index].Name;
                 var html = "<img title='" + name + "' id='enter" + id + "'" +
-                    "class='shaded enter' src='media/gamelogos/" + id + ".png' " +
+                    "class='btn-game shaded enter' src='media/gamelogos/" + id + ".png' " +
                     "onmousedown='playClick();enter_game(" + id + ");'>";
                 $(html).insertAfter("#logo");
 

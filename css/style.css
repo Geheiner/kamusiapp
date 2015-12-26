@@ -24,10 +24,6 @@ li {
     margin-left: 40px;
 }
 
-/*#animation {
-    width:930px;height="550"
-}*/
-
 .workingDefinition {
     font-size: 20px;
     margin-right:0.5em;
@@ -91,7 +87,6 @@ li {
 #profile_trophies {
     text-align:center;
     width:690px;
-    /*height:100%;*/
     font-size:30px;
 }
 
@@ -144,7 +139,6 @@ a a:hover, a:visited, a:link, a:active {
     display: inline-block;
     font-size:30px;
     margin-right:0.5em;
-    /*text-transform:capitalize;*/
 }
 
 #pos, #pos3, #pos4,  #translation_pos {
@@ -198,7 +192,6 @@ a a:hover, a:visited, a:link, a:active {
 #profile-footer-left {
     height:100px;
     width:830px;
-    /*float:left;*/
 }
 
 #profile-footer-middle {
@@ -210,11 +203,9 @@ a a:hover, a:visited, a:link, a:active {
 #profile-footer-right {
     height:100px;
     width:100px;
-    /*float:left;*/
 }
 #SubmitDef, #SubmitTrans {
     position:relative;
-    /*  transform: scale(0.60);*/
     float:right;
 }
 
@@ -370,7 +361,6 @@ a a:hover, a:visited, a:link, a:active {
     -webkit-opacity: 0.5;
     opacity: 0.5;
     top: 235px;
-    left: 400px;
 }
 
 .enter {
@@ -393,7 +383,6 @@ a a:hover, a:visited, a:link, a:active {
 #enterLogin{
     position: absolute;
     top: 235px;
-    left: 400px;
 }
 
 #changeLanguage {
