@@ -29,4 +29,5 @@
     </select>
 </div>
 <br><br>
+<img title="Return" class="controlLeft" src="media/leftarrow.png" onclick="playClick();return_to_game();">
 <img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings();">
