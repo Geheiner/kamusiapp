@@ -147,10 +147,10 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
 
 function updateTweetDB(status) {
     var json_data= {
-        "wordID":wordID,
-        "userID":userID,
-        "mode":game,
-        "language":gameLanguage,
+        wordID: wordID,
+        userID: userID,
+        mode: game,
+        language: gameLanguage,
         "status" : status
     };
 
@@ -243,15 +243,15 @@ function sendGame4SentenceToDB(sentence, good){
 }
 
 function sendTweetToDB(tweet, good){
-    var json_data= {
-        "wordID": wordID,
-        "tweetID": tweet.TweetID,
-        "tweetText": tweet.Text,
-        "userID": userID,
-        "mode": game,
-        "language": gameLanguage,
-        "tweetAuthor": tweet.Author,
-        "good" : good
+    var json_data = {
+        wordID: wordID,
+        tweetID: tweet.TweetID,
+        tweetText: tweet.Text,
+        userID: userID,
+        mode: game,
+        language: gameLanguage,
+        tweetAuthor: tweet.Author,
+        good : good
     };
 
     $.ajax({
@@ -268,7 +268,6 @@ function sendTweetToDB(tweet, good){
         console.log('fail');
         console.log(data);
     });
-
 }
 
 function get_ranked(gameId) {
@@ -459,17 +458,21 @@ function initialise() {
         userID: userID,
         token: token
     })
-    .done(function(obj) {
-            console.log(obj);
-            whenToNotify = obj.NotificationTimeUnit;
-            whenToPost = obj.PostTimeUnit;
-            gameLanguage = obj.gamelanguage;
-            console.log("The game language is : " + gameLanguage);
+    .done(function(user) {
+            console.log(user);
+            gameLanguage = user.gamelanguage;
+            gameLanguageName = user.Ref_Name;
+            console.log("The game language is : " + gameLanguageName);
 
-            document.getElementById('notifications').selectedIndex = whenToNotify;
-            document.getElementById('posts').selectedIndex= whenToPost;
+            console.log("set NotificationTimeUnit: " + user.NotificationTimeUnit);
+            $('#notifications').prop('selectedIndex', user.NotificationTimeUnit);
+            console.log("set PostTimeUnit: " + user.PostTimeUnit);
+            $('#posts').prop('selectedIndex', user.PostTimeUnit);
 
             display_welcome();
+    })
+    .fail(function() {
+        console.log("Initializing user failed");
     });
 }
 

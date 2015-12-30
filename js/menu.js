@@ -179,7 +179,7 @@ function enter_game(gameID) {
     getGameScore();
 
     get_ranked(gameID);
-    $("#instructions"+gameID).html(writeOrVote + gameLanguages[gameLanguage]);
+    $("#instructions"+gameID).html(writeOrVote + gameLanguageName);
     show_views(div_game);
     activate_game("gamezone"+gameID);
 }
@@ -218,7 +218,7 @@ function display_profile() {
     stopAutoUpdateOfLeaderboard();
 
     show_views(div_profile);
-    $("#yourachievements").html(yourAchievements + gameNames[game] + stringin + gameLanguages[gameLanguage]);
+    $("#yourachievements").html(yourAchievements + gameNames[game] + stringin + gameLanguageName);
 }
 
 function display_changeLanguage() {
