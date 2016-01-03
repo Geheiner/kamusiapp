@@ -37,6 +37,7 @@ function lookForWord($userID) {
 
     $stmt->close();
 
+    echo $user_offset;
     if($user_offset > 150) {
         die("This is very likely an infinite loop in get_ranked!");
     }
@@ -85,7 +86,7 @@ function lookForWord($userID) {
     $numberOfDefinitions = $result->num_rows;
 
     //For Game3: skip the word if there are more than 3 meanings for that word
-    $conditionForGame3= ( $mode == 3 && $numberOfDefinitions > 3 );
+    $conditionForGame3= ( $mode == 3 && $numberOfDefinitions > $maximumNumberOfDefsForGame3);
     if($numberOfDefinitions === 0 || $conditionForGame3 ){
 
         if($user_offset == 0) {

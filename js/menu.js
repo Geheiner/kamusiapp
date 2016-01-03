@@ -244,18 +244,12 @@ function animate_logo() {
     $(".enter").addClass("animate");
 }
 
-function changeColorOnClick(tweetDisplay,newInput){
+function changeColorOnClick(tweetDisplay, newInput){
     if(newInput.checked){
         tweetDisplay.style.color = "blue";
     } else {
         tweetDisplay.style.color = "#af0800";
     }
-}
-
-function animate_logo_firstTime(){
-    $("#logo").addClass("animatelogo");
-    $(".enter").removeClass("shaded");
-    $(".enter").addClass("animate");
 }
 
 function animate_logo_login(){

@@ -17,8 +17,7 @@ $result = $stmt->get_result();
 
 $stmt->close();
 
-$returnValue[]= $locale;
-
+$returnValue[] = $checkResult;
 
 //if we have a newUser
 if( !$checkResult){

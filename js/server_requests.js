@@ -439,7 +439,7 @@ function isNewUser() {
                         }
                     } else {
                         firsttime= true;
-                        animate_logo_firstTime();
+                        animate_logo();
                     }
             })
             .fail(function(jqXHR, textStatus) {
@@ -462,7 +462,7 @@ function initialise() {
             console.log(user);
             gameLanguage = user.gamelanguage;
             gameLanguageName = user.Ref_Name;
-            console.log("The game language is : " + gameLanguageName);
+            console.log("The game language is : " + gameLanguage);
 
             console.log("set NotificationTimeUnit: " + user.NotificationTimeUnit);
             $('#notifications').prop('selectedIndex', user.NotificationTimeUnit);
