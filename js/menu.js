@@ -172,16 +172,16 @@ function InlineEditorController2($scope){
     };
 }
 
-function enter_game(gameID) {
+function enter_game(gameId) {
     pause_animation();
-    // TODO: maybe remove this variable?
-    game = gameID;
+    game = gameId;
+
+    get_ranked(gameId);
     getGameScore();
 
-    get_ranked(gameID);
-    $("#instructions"+gameID).html(writeOrVote + gameLanguageName);
+    $("#instructions"+gameId).html(writeOrVote + gameLanguageName);
     show_views(div_game);
-    activate_game("gamezone"+gameID);
+    activate_game("gamezone"+gameId);
 }
 
 function display_settings() {

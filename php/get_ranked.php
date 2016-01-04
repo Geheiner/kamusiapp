@@ -6,6 +6,17 @@ $userID = $_GET['userID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
+// Create game entry in games table to keep track of game statistics
+$sql = "INSERT INTO games
+        (userid, game, language)
+        VALUES (?, ?, ?)";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("iis", $userID, $mode, $language);
+$stmt->execute();
+$result = $stmt->get_result();
+// TODO: check if insertion was succesful (duplicates will not be inserted)
+
 $maximumNumberOfDefsForGame3 = 3;
 
 $results_array = FALSE;
@@ -37,7 +48,6 @@ function lookForWord($userID) {
 
     $stmt->close();
 
-    echo $user_offset;
     if($user_offset > 150) {
         die("This is very likely an infinite loop in get_ranked!");
     }
@@ -61,25 +71,21 @@ function lookForWord($userID) {
                 )
                 AND sq.Rank = ?;";
 
-
-    $sum = intval($user_position) + intval($user_offset);
-
     $stmt = $mysqli->prepare($sql);
 
     if ($stmt === FALSE) {
         die ("Mysql Error: " . $mysqli->error);
     }
 
+    $sum = intval($user_position) + intval($user_offset);
     $stmt->bind_param("ssiii", $userID, $allUsers, $mode, $language, $sum);
 
     $stmt->execute();
-
 
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
     $word_id = $row["ID"];
-
 
     $stmt->close();
 

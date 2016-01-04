@@ -296,12 +296,17 @@ function get_ranked(gameId) {
                 }
                 $(".entry").removeClass("fade");
             })
-            .fail(function() {
+            .fail(function(jqXHR, textStatus) {
                 console.log("Getting ranked for Tweets failed");
+                console.log(jqXHR);
+                console.log(textStatus);
             });
     } else if(gameId == 2) {
-        //Lanugage is always 1 since we take english words as words to translate
-        $.getJSON("php/get_ranked.php", {userID: userID, language: 1, mode: gameId})
+        //Lanugage is always 'eng' since we take english words as words to translate
+        // TODO: Always setting 'eng' as language is most likely wrong, this would lead
+        // to identical game entries for the translation game in different langauges
+        // FIXME
+        $.getJSON("php/get_ranked.php", {userID: userID, language: 'eng', mode: gameId})
             .done(function(obj, textStatus) {
                 console.log(textStatus);
                 console.log(obj);
@@ -314,8 +319,10 @@ function get_ranked(gameId) {
                 groupID = obj[0].GroupID;
                 $(".entry").removeClass("fade");
             })
-            .fail(function() {
+            .fail(function(jqXHR, textStatus) {
                 console.log("Get ranked mode 2 failed");
+                console.log(jqXHR);
+                console.log(textStatus);
             });
     } else if(gameId == 1) {
         $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: gameId})
@@ -361,8 +368,10 @@ function get_ranked(gameId) {
                 definitionID = -1;
                 $(".entry").removeClass("fade");
             })
-            .fail(function() {
+            .fail(function(jqXHR, textStatus) {
                 console.log("Ranking mode 1 failed");
+                console.log(jqXHR);
+                console.log(textStatus);
             });
     } else if(gameId == 4) {
         $("#swahiliSentences").html('');
@@ -383,8 +392,10 @@ function get_ranked(gameId) {
                 //getGame4Sentences(word, 3);
                 $(".entry").removeClass("fade");
             })
-            .fail(function() {
+            .fail(function(jqXHR, textStatus) {
                 console.log("getRankedForSwahili failed");
+                console.log(jqXHR);
+                console.log(textStatus);
             });
     } else {
         console.log("Getting ranked failed: Unknown gameId");
