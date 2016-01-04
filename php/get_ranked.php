@@ -201,7 +201,7 @@ function getDefinitions($word_id){
 
         $stmt->close();
 
-        if($language != '1') {
+        if($language != 'eng') {
             $sql = "SELECT translation
                     FROM wordtranslation
                     WHERE wordid= ?
