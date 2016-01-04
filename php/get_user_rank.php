@@ -26,14 +26,11 @@ $stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
 $result = $stmt->get_result(); 
-
-if( $result-> num_rows== 0){
-    die("UserID " . $userID . " is not known!!!");
-}
-
-
 $stmt->close();
 
+if($result->num_rows == 0){
+    die("UserID " . $userID . " is not known!!!");
+}
 
 
 #get all concerned users;
@@ -44,7 +41,6 @@ $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
     $users[] = $row["UserID"];
     $userNameByUserID[$row["UserID"]] = $row["Username"];
-
 }
 
 $stmt->close();
@@ -105,10 +101,9 @@ foreach ($users as $user) {
             break;
         }
     }
-    if($value == null){
+    if($value == null) {
         $value = 0;
     }
-
     if($user == $userID){
         $thisUsersScore = $value;
 
@@ -192,39 +187,32 @@ function getTotalXForUserStatement($user, $x){
     //
     // TODO: These queries are vulnarable to attacks!!! use prepared statements!
     $sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
-
         if($timePeriod == '3'){
             if($x == "points"){
                 $x= "pointtime";
-            }
-            else {
+            } else {
                 $x= "submissiontime";
             }
             $sql = "SELECT SUM(t.amount) AS total FROM ( ";
 
-
             if($language == '0' && $selectedMode == '0'){
                 $sql .= " SELECT amount FROM ".$x
                       . " WHERE userid='".$user."' ";
-            }
-            else if( $language == '0') {
+            } else if( $language == '0') {
                 $sql .= " SELECT amount FROM ".$x
                       . " WHERE userid='".$user
                       . "' AND game= " . $selectedMode ." ";
-            }
-            else if ($selectedMode == '0') {
+            } else if ($selectedMode == '0') {
                 $sql .= " SELECT amount FROM ".$x
                       . " WHERE userid='".$user
                       . "' AND language= " . $language ." ";
-            }
-            else {
+            } else {
                 $sql .= " SELECT amount FROM ".$x
                       . " WHERE userid='".$user
                       . "' AND language= ".$language
                       . " AND game= " . $selectedMode ." ";
             }
         } else {
-
         //rank of everything
             if($language == '0' && $selectedMode == '0'){
                 $sql .= " SELECT ". $x
