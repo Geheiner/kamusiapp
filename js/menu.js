@@ -13,6 +13,7 @@ var div_gamezone1 = $("#gamezone1");
 var div_gamezone2 = $("#gamezone2");
 var div_gamezone3 = $("#gamezone3");
 var div_gamezone4 = $("#gamezone4");
+var div_gamezone5 = $("#gamezone5");
 var div_profile = $("#profile");
 var div_info1 = $("#info1");
 var div_info2 = $("#info2");
@@ -48,6 +49,7 @@ var games = [
     div_gamezone2,
     div_gamezone3,
     div_gamezone4,
+    div_gamezone5
 ];
 
 /*

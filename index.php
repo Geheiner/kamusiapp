@@ -193,6 +193,23 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                     <img title="Next" id="next4" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(getRanked(4), 500);'>
                 </div>
             </div>
+            <div id="gamezone5" ng-controller="InlineEditorController" ng-click="hideTooltip();">
+                <div id="gamezone-main5">
+                    <div class="entry">
+                        <h1 id="title5" class="title">Merge Game</h1>
+                        <p id="instructions"><?php echo _("How well do the following two words correspond?"); ?></p>
+                        <p id="word5"></p>
+                        <p id="pos5"></p>
+                        <p id="transEnglish5"></p>
+                        <p id="defSwahili5" class="workingDefinition"></p>
+                        <div id="vie_eng_words_wrapper">
+                            <p id="vie_eng_words"></p>
+                        </div>
+                </div>
+                <div id="footer-next5">
+                    <img title="Next" id="next5" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game5"); setTimeout(get_ranked(5), 500);'>
+                </div>
+            </div>
         </div>
         <div id="about">
             <?php include_once('./inc/about.php'); ?>
