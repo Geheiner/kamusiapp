@@ -91,7 +91,7 @@ function queryForSentences(keyword, amount, source){
         });
 }
 
-function get_tweets(alreadyDisplayed) {
+function getTweets(alreadyDisplayed) {
     var totalAmount = amountOfTweets - alreadyDisplayed;
     $.getJSON("php/get_tweets.php", {keyword: encodeURIComponent(word), amount: totalAmount})
         .done(function(results_array, textStatus) {
@@ -181,7 +181,7 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-                get_tweets(i);
+                getTweets(i);
             }
         })
         .fail(function(jqXHR, textStatus) {
@@ -214,10 +214,10 @@ function submitCheckBoxData(whatToSubmit) {
         }
     }
     if(whenToNotify == "0"){
-        trigger_notification();
+        triggerNotification();
     }
 
-    post_timeline();
+    postTimeline();
 }
 
 function sendGame4SentenceToDB(sentence, good){
@@ -270,7 +270,7 @@ function sendTweetToDB(tweet, good){
     });
 }
 
-function get_ranked(gameId) {
+function getRanked(gameId) {
     $(".entry").addClass("fade");
     if(gameId == 3) {
         //remove previous tweet entries
@@ -402,7 +402,7 @@ function get_ranked(gameId) {
     }
 }
 
-function submit_definition(definition) {
+function submitDefinition(definition) {
     var json_data = {
         wordID: wordID,
         groupID: groupID,
@@ -502,7 +502,7 @@ function getGameScore(){
         });
 }
 
-function submit_vote(definition_id, vote) {
+function submitVote(definition_id, vote) {
     $.getJSON("php/submit_vote.php", 
             {   wordID: wordID,
                 definitionID: definition_id,
@@ -521,7 +521,7 @@ function submit_vote(definition_id, vote) {
     console.log("WordID when submitting Vote : " + wordID);
 }
 
-function report_spam() {
+function reportSpam() {
     $.get("php/report_spam.php", {wordID: wordID, definitionID: definitionID, userID: userID})
         .done(function(result, textStatus) {
             alert("A spam report has been sent! Thanks!" + result);
@@ -531,7 +531,8 @@ function report_spam() {
         });
 }
 
-function complete_notification() {
+// TODO This function appears to be unused and should probably be removed
+function completeNotification() {
     $.get("php/complete_notification.php", {userID: userID})
         .done(function(result, textStatus) {
             console.log(textStatus);
@@ -541,7 +542,7 @@ function complete_notification() {
         });
 }
 
-function submit_translation(translation) {
+function submitTranslation(translation) {
     $.get("php/submit_translation.php", {translation: translation, wordID: wordID,
         userID: userID, language: gameLanguage, mode: "2"})
         .done(function(obj, textStatus) {
@@ -586,7 +587,7 @@ function saveMenuLanguage(whichSlider) {
         });
 }
 
-function post_timeline() {
+function postTimeline() {
     $.getJSON("php/post_timeline.php", {userID: userID})
         .done(function(result, textStatus) {
             console.log(textStatus);
@@ -602,7 +603,7 @@ function post_timeline() {
         });
 }
 
-function trigger_notification() {
+function triggerNotification() {
     $.get("php/notification_tweet.php", {userID: userID})
         .done(function(result, textStatus) {
             console.log(result);
@@ -701,7 +702,7 @@ function addScoreEntry(indexOfArray, table, obj){
     row.insertCell(3).innerHTML= "Rank: " + obj[indexOfArray].rank;
 }
 
-function insert_game_icons(gameLanguage) {
+function insertGameIcons(gameLanguage) {
     // Remove previous buttons
     $(".btn-game").remove();
 
@@ -726,7 +727,7 @@ function insert_game_icons(gameLanguage) {
         });
 }
 
-function get_game_names() {
+function getGameNames() {
     $.getJSON("php/get_games.php")
         .done(function(games, textStatus) {
         })
@@ -735,7 +736,7 @@ function get_game_names() {
         });
 }
 
-function get_active_game_languages() {
+function getActiveGameLanguages() {
     $.getJSON("php/get_active_languages.php", {userID: userID})
         .done(function(languages, textStatus) {
             set_game_languages(languages);
@@ -745,7 +746,7 @@ function get_active_game_languages() {
         });
 }
 
-function get_interface_languages() {
+function getInterfaceLanguages() {
     $.getJSON("php/get_interface_languages.php", {userID: userID})
         .done(function(languages, textStatus) {
             set_interface_languages(languages);

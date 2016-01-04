@@ -113,7 +113,7 @@ function InlineEditorController($scope){
     $scope.submitGame1 = function() {
         $scope.hideTooltip();
         playClick();vote();
-        get_ranked(1);
+        getRanked(1);
         $scope.value = '';
         getGameScore();
     };
@@ -164,7 +164,7 @@ function InlineEditorController2($scope){
 
     $scope.submitGame2 = function() {
         soumettre_traduction();
-        get_ranked(2);
+        getRanked(2);
         getGameScore();
         $scope.hideTooltip2();
         playClick();
@@ -176,7 +176,7 @@ function enter_game(gameId) {
     pause_animation();
     game = gameId;
 
-    get_ranked(gameId);
+    getRanked(gameId);
     getGameScore();
 
     $("#instructions"+gameId).html(writeOrVote + gameLanguageName);
@@ -186,8 +186,8 @@ function enter_game(gameId) {
 
 function display_settings() {
     // fetch list of available game languages
-    get_active_game_languages();
-    get_interface_languages();
+    getActiveGameLanguages();
+    getInterfaceLanguages();
 
     show_views(div_settings);
 }
@@ -222,7 +222,7 @@ function display_profile() {
 }
 
 function display_changeLanguage() {
-    get_interface_languages();
+    getInterfaceLanguages();
     show_views(div_changeMenuLanguage);
 }
 
@@ -233,7 +233,7 @@ function return_to_game() {
 function display_welcome() {
     // gets games that are available in current language
     // and adds their icons to the welcome screen
-    insert_game_icons(gameLanguage);
+    insertGameIcons(gameLanguage);
     show_views(div_welcome);
     continue_animation();
 }
@@ -335,7 +335,7 @@ function add_translation_dunno(definition) {
             $("#user_translation").attr("class", 'inactive_definition');
             this.className = "active_definition";
             playClick();
-            get_ranked(2);
+            getRanked(2);
         };
     })();
 
@@ -365,7 +365,7 @@ function add_definition(id, definition, spam) {
             definitionID = id_num;
             playClick();
             vote();
-            get_ranked(1);
+            getRanked(1);
 
         };
     })(id);
@@ -373,7 +373,7 @@ function add_definition(id, definition, spam) {
     img1.onmousedown = (function(id_num) {
         return function () {
             definitionID = id_num;
-            report_spam(definitionID);
+            reportSpam(definitionID);
         };
     })(id);
 
@@ -406,11 +406,11 @@ function vote() {
     var user_definition = $("#input_tool_box").val();
     if(definitionID != -1) {
         console.log("Submitting Vote for definitionID : " + definitionID);
-        submit_vote(definitionID, 1);
+        submitVote(definitionID, 1);
     }
     else if(user_definition != default_value && user_definition.length >= min_length) {
         console.log("Submitting new definition : " + user_definition);
-        submit_definition(user_definition);
+        submitDefinition(user_definition);
     }
 }
 
@@ -418,7 +418,7 @@ function soumettre_traduction() {
     var user_translation = $("#translation_input_tool_box").val();
     var class_name = document.getElementById("user_translation").className;
     //  if(class_name == "active_definition" && user_translation != translation_default_value) {
-    submit_translation(user_translation);
+    submitTranslation(user_translation);
     //  }
 }
 
