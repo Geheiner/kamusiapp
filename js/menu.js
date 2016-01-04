@@ -1,3 +1,4 @@
+// Minimal length of a definition
 var min_length = 4;
 
 var default_value = '✎' + ICanWrite;
@@ -41,6 +42,7 @@ var all_views = [
     div_changeMenuLanguage
 ];
 
+// Create array with gamezones
 var games = [
     div_gamezone1,
     div_gamezone2,
@@ -200,10 +202,12 @@ function display_info1(){
     console.log("Displaying info 1");
     show_views(div_info1);
 }
+
 function display_info2(){
     console.log("Displaying info 1");
     show_views(div_info2);
 }
+
 function display_info3(){
     console.log("Displaying info 1");
     show_views(div_info3);
@@ -229,7 +233,6 @@ function display_changeLanguage() {
 function return_to_game() {
     show_views(div_game);
 }
-
 function display_welcome() {
     // gets games that are available in current language
     // and adds their icons to the welcome screen
