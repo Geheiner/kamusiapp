@@ -110,9 +110,8 @@ function getTweets(alreadyDisplayed) {
 
             if(realIndex === 0){
                 console.log("Nothing found for this keyword");
-
                 updateTweetDB("noTweetFound");
-                    getRankedForTweets();
+                getRanked(3);
             }
         })
         .fail(function(jqXHR, textStatus) {
@@ -271,60 +270,11 @@ function sendTweetToDB(tweet, good){
 }
 
 function getRanked(gameId) {
+    // Hide game area
     $(".entry").addClass("fade");
-    if(gameId == 3) {
-        //remove previous tweet entries
-        $("#twitterWords").html('');
+    if(gameId == 1) {
+        $("#instructions1").html(writeOrVote + gameLanguageName);
 
-        $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: gameId})
-            .done(function(obj, textStatus) {
-                console.log("TweetResponse was : " + obj);
-
-                groupID = obj[0].GroupID;
-                wordID = obj[0].WordID;
-                word = obj[0].Word;
-
-                if(groupID === '' || wordID === '' || word === '' || obj[0].Definition === '' || obj[0].PartOfSpeech === '') {
-                    updateTweetDB("noTweetFound");
-                    getRankedForTweets();
-                } else  {
-                    $("#word3").html(obj[0].Word);
-                    $("#def3").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
-                    $("#pos3").html(obj[0].PartOfSpeech);
-
-                    fetchTweetsFromDB(8);
-                }
-                $(".entry").removeClass("fade");
-            })
-            .fail(function(jqXHR, textStatus) {
-                console.log("Getting ranked for Tweets failed");
-                console.log(jqXHR);
-                console.log(textStatus);
-            });
-    } else if(gameId == 2) {
-        //Lanugage is always 'eng' since we take english words as words to translate
-        // TODO: Always setting 'eng' as language is most likely wrong, this would lead
-        // to identical game entries for the translation game in different langauges
-        // FIXME
-        $.getJSON("php/get_ranked.php", {userID: userID, language: 'eng', mode: gameId})
-            .done(function(obj, textStatus) {
-                console.log(textStatus);
-                console.log(obj);
-
-                $("#translation_word").html(obj[0].Word);
-                $("#translation_pos").html(partOfSpeechArray[obj[0].PartOfSpeech]);
-                $("#translation_definition").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
-
-                wordID = obj[0].WordID;
-                groupID = obj[0].GroupID;
-                $(".entry").removeClass("fade");
-            })
-            .fail(function(jqXHR, textStatus) {
-                console.log("Get ranked mode 2 failed");
-                console.log(jqXHR);
-                console.log(textStatus);
-            });
-    } else if(gameId == 1) {
         $.getJSON("php/get_ranked.php?", {userID: userID, language: gameLanguage, mode: gameId})
             .done(function(results_array, textStatus) {
                 console.log(textStatus);
@@ -336,7 +286,7 @@ function getRanked(gameId) {
                 groupID = results_array[0].GroupID;
 
                 var wordToDisplay;
-                if(gameLanguage != '1' && results_array[0].trans != "Nothing Found"){
+                if(gameLanguage != 'eng' && results_array[0].trans != "Nothing Found"){
                     wordToDisplay = results_array[0].trans;
                 } else  {
                     wordToDisplay = results_array[0].Word;
@@ -373,6 +323,56 @@ function getRanked(gameId) {
                 console.log(jqXHR);
                 console.log(textStatus);
             });
+    } else if(gameId == 2) {
+        $("#instructions2").html(translateTheFollowing + gameLanguageName);
+
+        $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: gameId})
+            .done(function(obj, textStatus) {
+                console.log(textStatus);
+                console.log(obj);
+
+                $("#translation_word").html(obj[0].Word);
+                $("#translation_pos").html(partOfSpeechArray[obj[0].PartOfSpeech]);
+                $("#translation_definition").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
+
+                wordID = obj[0].WordID;
+                groupID = obj[0].GroupID;
+                $(".entry").removeClass("fade");
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Get ranked mode 2 failed");
+                console.log(jqXHR);
+                console.log(textStatus);
+            });
+    } else if(gameId == 3) {
+        //remove previous tweet entries
+        $("#twitterWords").html('');
+
+        $.getJSON("php/get_ranked.php", {userID: userID, language: gameLanguage, mode: gameId})
+            .done(function(obj, textStatus) {
+                console.log("TweetResponse was : " + obj);
+
+                groupID = obj[0].GroupID;
+                wordID = obj[0].WordID;
+                word = obj[0].Word;
+
+                if(groupID === '' || wordID === '' || word === '' || obj[0].Definition === '' || obj[0].PartOfSpeech === '') {
+                    updateTweetDB("noTweetFound");
+                    getRanked(3);
+                } else  {
+                    $("#word3").html(obj[0].Word);
+                    $("#def3").html(generalSense + "<strong>" + obj[0].Definition + "</strong>");
+                    $("#pos3").html(obj[0].PartOfSpeech);
+
+                    fetchTweetsFromDB(8);
+                }
+                $(".entry").removeClass("fade");
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Getting ranked for Tweets failed");
+                console.log(jqXHR);
+                console.log(textStatus);
+            });
     } else if(gameId == 4) {
         $("#swahiliSentences").html('');
         wordID= 12345;
@@ -397,9 +397,49 @@ function getRanked(gameId) {
                 console.log(jqXHR);
                 console.log(textStatus);
             });
+    } else if(gameId == 5) {
+        $.getJSON("php/get_merge_word.php", {userID: userID, language: gameLanguage, mode: gameId})
+            .done(function(wordpair, textStatus) {
+                console.log("Successfully returned wordpair for merging:");
+                console.log(wordpair);
+                $("#merge-word-left").html(wordpair.w1.word);
+                $("#merge-word-right").html(wordpair.w2.word);
+                $("#merge-pos-left").html(wordpair.w1.pos);
+                $("#merge-pos-right").html(wordpair.w2.pos);
+                $("#merge-example-left").html(wordpair.w1.example);
+                $("#merge-example-right").html(wordpair.w2.example);
+
+                setTimeout($(".entry").removeClass("fade"), 1000);
+            })
+            .fail(function(jqXHR, textStatus) {
+                console.log("Getting ranked merge game failed");
+                console.log(jqXHR);
+                console.log(textStatus);
+            });
     } else {
         console.log("Getting ranked failed: Unknown gameId");
     }
+}
+
+function submitMerge(choice) {
+    $(".entry").addClass("fade");
+
+    var json_data = {
+        userID: userID,
+        mode: game,
+        language: gameLanguage,
+        choice: choice
+    };
+
+    $.post("php/submit_merge.php", json_data)
+        .done(function(result, textStatus) {
+            console.log("Submitting merge success");
+            getRanked(game);
+            getGameScore();
+        })
+        .fail(function(jqXHR, textStatus) {
+            console.log("Submitting merge failed");
+        });
 }
 
 function submitDefinition(definition) {
@@ -490,12 +530,12 @@ function initialise() {
 function getGameScore(){
     $.getJSON("php/get_game_score.php", {userID: userID, mode: game, language: gameLanguage})
         .done(function(obj, textStatus) {
+            console.log("Getting score success");
             console.log(textStatus);
             console.log(obj);
 
             set_profile_data(obj.points, obj.pendingpoints, (obj.points / ( parseInt(obj.submissions) + 1)).toFixed(5));
             updatePermanentMetrics(obj.points,obj.pendingpoints);
-            console.log("gameLAnugage is : " + gameLanguage);
         })
         .fail(function() {
             console.log("Getting game score failed");

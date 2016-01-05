@@ -21,8 +21,6 @@ var div_info3 = $("#info3");
 var div_info4 = $("#info4");
 var div_settings = $("#settings");
 var div_about = $("#about");
-var div_instructions1 = $("#instructions1");
-var div_instructions2 = $("#instructions2");
 var div_leaderboard = $("#leaderboard");
 var div_changeMenuLanguage = $("#changeMenuLanguage");
 
@@ -37,8 +35,6 @@ var all_views = [
     div_info4,
     div_settings,
     div_about,
-    div_instructions1,
-    div_instructions2,
     div_leaderboard,
     div_changeMenuLanguage
 ];
@@ -72,6 +68,9 @@ function activate_game(game_to_activate) {
     $("#"+game_to_activate).css("display", "inline-block");
 }
 
+/*
+ * This function controls the behaviour of games 1, 3, 4
+ */
 function InlineEditorController($scope){
     $scope.showtooltip = false;
     $scope.value = default_value;
@@ -123,6 +122,9 @@ function InlineEditorController($scope){
     };
 }
 
+/*
+ * This function controls the behaviour of game 2
+ */
 //THIS IS REALLY UGLY - TO BE REWORKED
 function InlineEditorController2($scope){
     $scope.showtooltip2 = false;
@@ -176,6 +178,14 @@ function InlineEditorController2($scope){
     };
 }
 
+/*
+ * This function controls the behaviour of game 5
+ */
+function InlineEditorControllerMerge($scope) {
+    $scope.showtooltip = false;
+    //$scope.value = 
+}
+
 function enter_game(gameId) {
     pause_animation();
     game = gameId;
@@ -183,7 +193,6 @@ function enter_game(gameId) {
     getRanked(gameId);
     getGameScore();
 
-    $("#instructions"+gameId).html(writeOrVote + gameLanguageName);
     show_views(div_game);
     activate_game("gamezone"+gameId);
 }
@@ -475,7 +484,7 @@ function stopAutoUpdateOfLeaderboard() {
 }
 
 function updatePermanentMetrics(points, pendingPoints){
-    console.debug("Udpating permanent metrics: " + points + pendingPoints);
+    console.debug("Updating permanent metrics: " + points + " (points), " + pendingPoints + " (pending)");
     $("#points-pending").html(pointsInPlay + pendingPoints);
     $("#points-total").html(pointsBanked + points);
 }

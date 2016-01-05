@@ -47,6 +47,7 @@ textdomain('messages');
 
 <?php
 $newToken = generateToken();
+// TODO: get game names from DB!
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' => _('adjective'), 'adjective_satellite' => _('adjective_satellite'), 'adverb' => _('adverb'), 'phrase' => _('phrase'));
 
@@ -154,7 +155,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                 <div id="gamezone-main3" >
                     <div class="entry">
                     <h1 id="title3" class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
-                        <p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
+                        <p id="instructions3"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
                         <p id="word3"></p>
                         <p id="pos3"></p>
                         <p id="def3" class="workingDefinition"></p>
@@ -179,7 +180,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                 <div id="gamezone-main4" >
                     <div class="entry">
                         <h1 id="title4" class="title"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
-                        <p id="instructions"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
+                        <p id="instructions4"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
                         <p id="word4"></p>
                         <p id="pos4"></p>
                         <p id="transEnglish4"></p>
@@ -193,22 +194,35 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                     <img title="Next" id="next4" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(getRanked(4), 500);'>
                 </div>
             </div>
-            <div id="gamezone5" ng-controller="InlineEditorController" ng-click="hideTooltip();">
+            <div id="gamezone5" ng-controller="InlineEditorControllerMerge" ng-click="hideTooltip();">
                 <div id="gamezone-main5">
                     <div class="entry">
                         <h1 id="title5" class="title">Merge Game</h1>
-                        <p id="instructions"><?php echo _("How well do the following two words correspond?"); ?></p>
-                        <p id="word5"></p>
-                        <p id="pos5"></p>
-                        <p id="transEnglish5"></p>
-                        <p id="defSwahili5" class="workingDefinition"></p>
-                        <div id="vie_eng_words_wrapper">
-                            <p id="vie_eng_words"></p>
+                        <p id="instructions5"><?php echo _("How well do the following two words correspond?"); ?></p>
+                        <p class="word-head"><?php echo _("English"); ?></p>
+                        <p class="word-head word-right"><?php echo _("Vietnamese"); ?></p>
+                        <br style="clear:both;">
+                        <p id="merge-word-left" class="word"></p>
+                        <p id="merge-word-right" class="word word-right"></p>
+                        <br style="clear:both;">
+                        <p id="merge-pos-left" class="pos"></p>
+                        <p id="merge-pos-right" class="pos word-right"></p>
+                        <br style="clear:both;">
+                        <p id="merge-example-left" class="example"></p>
+                        <p id="merge-example-right" class="example word-right"></p>
+                        <div id="merge-wrapper">
+                            <div class="btn-merge" onclick='submitMerge(0);'><span>Exactly</span></div>
+                            <div class="btn-merge" onclick='submitMerge(1);'><span>Nearly</span></div>
+                            <div class="btn-merge" onclick='submitMerge(2);'><span>Not at all</span></div>
+                            <div class="btn-merge" onclick='submitMerge(3);'><span>I don't know</span></div>
                         </div>
+                    </div>
                 </div>
+<!--
                 <div id="footer-next5">
-                    <img title="Next" id="next5" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game5"); setTimeout(get_ranked(5), 500);'>
+                    <img title="Next" id="next5" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='setTimeout(getRanked(5), 500);'>
                 </div>
+-->
             </div>
         </div>
         <div id="about">

@@ -1,6 +1,7 @@
 <?php
 //global variables used throughout the application
-$acceptedModes = array("1","2","3","4");
+// TODO: get game modes from DB!
+$acceptedModes = array("1","2","3","4", "5");
 $allUsers = "allusers";
 $mysqli= null;
 

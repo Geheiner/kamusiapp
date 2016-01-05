@@ -15,6 +15,7 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("iis", $userID, $mode, $language);
 $stmt->execute();
 $result = $stmt->get_result();
+
 // TODO: check if insertion was succesful (duplicates will not be inserted)
 
 $maximumNumberOfDefsForGame3 = 3;
