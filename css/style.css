@@ -185,7 +185,7 @@ a a:hover, a:visited, a:link, a:active {
     background-color: #f6f3ed;
     color: black;
     display: inline-block;
-    font-size: 24px;
+    font-size: 16px;
     text-align: center;
     padding: 5px;
     width: 23%;
@@ -195,6 +195,11 @@ a a:hover, a:visited, a:link, a:active {
     background-color: #eba634;
     color: #fff;
     cursor: pointer;
+}
+
+.btn-merge img {
+    padding:10px;
+    width:80%;
 }
 
 #portal {

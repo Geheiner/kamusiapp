@@ -211,10 +211,22 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
                         <p id="merge-example-left" class="example"></p>
                         <p id="merge-example-right" class="example word-right"></p>
                         <div id="merge-wrapper">
-                            <div class="btn-merge" onclick='submitMerge(0);'><span>Exactly</span></div>
-                            <div class="btn-merge" onclick='submitMerge(1);'><span>Nearly</span></div>
-                            <div class="btn-merge" onclick='submitMerge(2);'><span>Not at all</span></div>
-                            <div class="btn-merge" onclick='submitMerge(3);'><span>I don't know</span></div>
+                            <div class="btn-merge" onclick='submitMerge(0);'>
+                                <img src="media/merge-game-buttons/exactly.png"><br>
+                                <span>Exactly</span>
+                            </div>
+                            <div class="btn-merge" onclick='submitMerge(1);'>
+                                <img src="media/merge-game-buttons/nearly.png"><br>
+                                <span>Nearly</span>
+                            </div>
+                            <div class="btn-merge" onclick='submitMerge(2);'>
+                                <img src="media/merge-game-buttons/notatall.png"><br>
+                                <span>Not at all</span>
+                            </div>
+                            <div class="btn-merge" onclick='submitMerge(3);'>
+                                <img src="media/merge-game-buttons/dontknow.png"><br>
+                                <span>I don't know</span>
+                            </div>
                         </div>
                     </div>
                 </div>
