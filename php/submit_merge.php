@@ -7,19 +7,12 @@ $mode = $_POST['mode'];
 $language = $_POST['language'];
 $choice = $_POST['choice'];
 
-echo $userID;
-echo "\n";
-echo $mode;
-echo "\n";
-echo $language;
-echo "\n";
-
 $pendingScore = 0;
 if($choice < 3) {
     addXSubmissionsInGame($userID, $language, $mode, 1);
 
     $stmt = $mysqli->prepare("SELECT submissions FROM games WHERE userid=? AND game=?;");
-    $stmt->bind_param("ii", $user, $mode);
+    $stmt->bind_param("ii", $userID, $mode);
     $stmt->execute();
     $stmt->bind_result($pendingScore);
     $stmt->fetch();
