@@ -14,6 +14,7 @@ and need another php plugin
 
 install pip for getting the tweets with python:
 
+    sudo yum install python-devel
     sudo yum install python-pip
     sudo pip install tweepy
 
@@ -91,10 +92,6 @@ if git post receive hook does not have permission to modify files in case of err
 
 
     sudo chown ec2-user html/
-
-
-install python in order to get tweets
-
 
 ALTER TABLE games ADD UNIQUE ( userid , game, language);
 

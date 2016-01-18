@@ -144,6 +144,43 @@ CREATE TABLE `definitions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `engvietexample`
+--
+
+DROP TABLE IF EXISTS `engvietexample`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `engvietexample` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `identifier` varchar(11) NOT NULL,
+  `english` varchar(255) NOT NULL,
+  `vietnamese` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `identifierIndex` (`identifier`)
+) ENGINE=InnoDB AUTO_INCREMENT=29190 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `engvietword`
+--
+
+DROP TABLE IF EXISTS `engvietword`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `engvietword` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `identifier` varchar(11) NOT NULL,
+  `english` varchar(255) NOT NULL,
+  `pos` varchar(255) DEFAULT NULL,
+  `enpos` varchar(40) DEFAULT NULL,
+  `vietnamese` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `identifierIndex` (`identifier`),
+  KEY `englishIndex` (`english`)
+) ENGINE=InnoDB AUTO_INCREMENT=184543 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `game4context`
 --
 
@@ -252,7 +289,7 @@ CREATE TABLE `games` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_game_for_user` (`userid`,`game`,`language`),
   KEY `game` (`game`)
-) ENGINE=InnoDB AUTO_INCREMENT=28035 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28110 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,6 +319,19 @@ CREATE TABLE `languages` (
   `LanguageName` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `mergepairs`
+--
+
+DROP TABLE IF EXISTS `mergepairs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mergepairs` (
+  `wordnetID` int(11) NOT NULL DEFAULT '0',
+  `engvietID` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -358,7 +408,7 @@ CREATE TABLE `seengames` (
   KEY `language_2` (`language`),
   CONSTRAINT `seengames_ibfk_1` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`),
   CONSTRAINT `seengames_words` FOREIGN KEY (`wordid`) REFERENCES `words` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=914 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=915 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -379,21 +429,7 @@ CREATE TABLE `submissiontime` (
   KEY `language` (`language`),
   CONSTRAINT `submissiontime_ibfk_1` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`),
   CONSTRAINT `submissiontime_ibfk_2` FOREIGN KEY (`language`) REFERENCES `ISO_639_3` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `tempLanguageMapping`
---
-
-DROP TABLE IF EXISTS `tempLanguageMapping`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tempLanguageMapping` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `charId` char(3) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -586,4 +622,4 @@ CREATE TABLE `wordtranslation` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-05 13:05:47
+-- Dump completed on 2016-01-18 13:21:13
